@@ -10,3 +10,49 @@
     border-width: 0.01em;
     border-radius: unset;
 }
+
+.btn.btn-outlined:hover{
+   background: none;
+   border: solid 0.05em var(--color-secondary) !important;
+}
+
+.btn:hover{
+   background: var(--color-secondary);
+}
+
+.btn:focus{
+   background: var(--color-secondary);
+}
+
+.btn-primary {
+   background: var(--color-primary);
+}
+
+.btn-outlined {
+    background: none;
+    box-shadow: unset;
+    color: var(--color-primary);
+    border: solid 0.05em var(--color-primary) ;
+
+}
+.d-flex {
+    display: flex;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+.justify-content-center {
+    justify-content: center;
+}
+.align-items-center {
+    align-items: center;
+}
+
+.w-100{
+    width: 100%;
+}

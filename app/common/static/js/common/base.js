@@ -1,1 +1,4 @@
-console.log("I'm found");
+$(".dropdown-trigger").dropdown();
+$(document).ready(function () {
+	$(".sidenav").sidenav();
+});
