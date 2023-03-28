@@ -1,0 +1,24 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+gunicorn = "*"
+pillow = "*"
+django-storages = "*"
+google-cloud-storage = "*"
+coverage = "*"
+django-recaptcha = "==3.0.0"
+django-htmx = "==1.14.0"
+
+[dev-packages]
+pycodestyle = "*"
+flake8 = "*"
+pylint-django = "*"
+pylint = "*"
+autopep8 = "*"
+
+[requires]
+python_version = "3.9"
