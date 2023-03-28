@@ -1,0 +1,68 @@
+:root {
+	--font-headline: "Noto Sans", sans-serif;
+	--font-normal: "Mukta", sans-serif;
+    --color-primary: #1B3F6B;
+    --color-secondary: #E34824;
+    --color-secondary-2: #FDA828;
+    --color-secondary-tint-5:#ee917c;
+    --color-secondary-tint-8:#f7c8bd;
+    --color-secondary-tint-10:#fcede9;
+}
+
+.text-color-primary {
+    color: var(--color-primary);
+}
+
+.text-color-secondary {
+    color: var(--color-secondary);
+}
+
+.bg-primary{
+    background-color: var(--color-primary);
+}
+
+.bg-secondary{
+    background-color: var(--color-secondary);
+}
+
+h1,
+h2,
+h3 {
+	font-family: var(--font-headline);
+}
+
+h4,
+h5,
+p,
+ul,
+label,
+a,
+span,
+summary,
+input {
+	font-family: var(--font-normal);
+}
+
+
+body, .custom-scroll{
+    overflow-y: auto;
+    --scrollbarBG: rgba(0, 0, 0, 0);
+    --thumbBG: #787878;
+    scrollbar-width: thin;
+}
+
+body::-webkit-scrollbar, .custom-scroll::-webkit-scrollbar {
+    width: 11px;
+    height: 40px;
+
+}
+
+body::-webkit-scrollbar-track, .custom-scroll:-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+}
+
+body::-webkit-scrollbar-thumb, .custom-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG);
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+}

@@ -1,0 +1,42 @@
+# pull official base image
+FROM python:3.9.0
+# to suppress debian warnings
+ARG DEBIAN_FRONTEND=noninteractive
+
+# set work directory
+WORKDIR /usr/src/app
+
+# set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# install dependencies
+COPY Pipfile Pipfile.lock ./
+RUN pip install --upgrade pip pipenv && pipenv install --system
+
+# create directory for the app user
+RUN mkdir -p /home/app
+
+# create the appropriate directories
+ENV HOME=/home/app
+ENV APP_HOME=/home/app/talent
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
+# copy entrypoint-prod.sh
+COPY ./scripts/entrypoint.prod.sh $APP_HOME
+
+RUN chmod u+x $APP_HOME/entrypoint.prod.sh
+
+# copy project
+COPY ./app $APP_HOME
+
+# copy service account
+COPY ./keys/gcloud-service-key.json /tmp/gcloud-service-key.json
+
+ARG DJANGO_SETTINGS_MODULE
+
+ARG SECRET_KEY
+
+# run entrypoint.prod.sh
+ENTRYPOINT ["/home/app/talent/entrypoint.prod.sh"]
