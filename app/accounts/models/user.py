@@ -6,6 +6,7 @@ from django.contrib.auth.models import PermissionsMixin
 from django.utils.http import urlsafe_base64_decode
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.translation import gettext_lazy as _
+from django_countries.fields import CountryField
 
 
 class UserManager(BaseUserManager):
@@ -64,10 +65,25 @@ class User(AbstractBaseUser, PermissionsMixin):
     date_joined = models.DateField(auto_now=True)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
-    date_of_birth = models.CharField(null=True, blank=True, max_length=20)
+    date_of_birth = models.DateField(null=True, blank=True, max_length=20)
     gender = models.CharField(max_length=20, null=True, blank=True)
     avatar = models.ImageField(
         upload_to=image_directory_path, null=True, blank=True)
+    resume = models.ImageField(
+        upload_to=image_directory_path)
+    phone_number = models.IntegerField()
+    years_of_work = models.IntegerField()
+    country_code = models.CharField(max_length=255)
+    preferred_country = CountryField()
+    service_type = models.CharField(max_length=255)
+    preferred_country = CountryField()
+    nationality = CountryField()
+    country_of_residence = CountryField()
+    highest_level_of_education = models.CharField(max_length=255)
+    type_of_visa = models.CharField(max_length=255)
+    linkedin_url = models.URLField(max_length=255)
+    mode_of_contact = models.CharField(max_length=255)
+
 
     objects = UserManager()
 
