@@ -2,11 +2,18 @@
 	--font-headline: "Noto Sans", sans-serif;
 	--font-normal: "Mukta", sans-serif;
     --color-primary: #1B3F6B;
+    --color-primary-light-10: #e8ecf0;
     --color-secondary: #E34824;
     --color-secondary-2: #FDA828;
     --color-secondary-tint-5:#ee917c;
     --color-secondary-tint-8:#f7c8bd;
     --color-secondary-tint-10:#fcede9;
+    --color-alice-light-3: #f3f9ff;
+
+}
+
+.alice-blue {
+    color: #F0F8FF;
 }
 
 .text-color-primary {
@@ -18,7 +25,15 @@
 }
 
 .bg-primary{
-    background-color: var(--color-primary);
+    background-color: var(--color-primary) !important;
+}
+
+.bg-primary-light-10{
+    background-color: var(--color-primary-light-10) !important;
+}
+
+.alice-light-3{
+    background-color: var(--color-alice-light-3) !important;
 }
 
 .bg-secondary{
