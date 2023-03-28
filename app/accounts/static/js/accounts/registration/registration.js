@@ -1,4 +1,5 @@
 const steps = Array.from(document.querySelectorAll("form .step"));
+// console.log(steps.length, steps);
 const nextBtn = document.querySelectorAll("form .next-btn");
 const prevBtn = document.querySelectorAll("form .previous-btn");
 const form = document.querySelector("form");
@@ -24,13 +25,13 @@ form.addEventListener("submit", (e) => {
 });
 function changeStep(btn) {
 	let index = 0;
-	const active = document.querySelector(".active");
+	const active = document.querySelector(".active-step");
 	index = steps.indexOf(active);
-	steps[index].classList.remove("active");
+	steps[index].classList.remove("active-step");
 	if (btn === "next") {
 		index++;
 	} else if (btn === "prev") {
 		index--;
 	}
-	steps[index].classList.add("active");
+	steps[index].classList.add("active-step");
 }
