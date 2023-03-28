@@ -1,8 +1,9 @@
+{% load countries %}
 <div class="step step-1 active-step h-100">
     <div class="inputs">
         <div class="row">
             <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate" name="first_name">
+                <input id="first_name" type="text" class="validate" name="first_name" autofocus>
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
@@ -11,7 +12,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12">
+            <div class="input-row col s12">
                 <label>Gender</label>
                 <select class="browser-default" name="phone_number">
                     <option value="" disabled selected>Gender</option>
@@ -21,18 +22,24 @@
                 </select>
             </div>
         </div>
-        <div class="row">
-            <div class="input-field col s3">
-                <input id="country_code" type="text" class="validate" name="country_code">
-                <label for="first_name">🇰🇪 +254</label>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s4">
+                <div style="margin-top: -8px;">
+                    <label>Country Code</label>
+                    {{form.country_code}}
+                </div>
+
             </div>
-            <div class="input-field col s9">
-                <input id="phone_number" type="text" class="validate" name="phone_number">
-                <label for="phone_number">Last Name</label>
+            <div class="col s8 ">
+                <div class="input-field">
+                    <input id="phone_number" type="number" class="validate" name="phone_number">
+                    <label for="phone_number">Phone Number</label>
+                </div>
+
             </div>
         </div>
         <div class="row">
-            <div class="col s12">
+            <div class="input-row col s12">
                 <label>Service Type</label>
                 <select class="browser-default" name="service_type">
                     <option value="" disabled selected>Service Type</option>
@@ -47,18 +54,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col s12">
+            <div class="col input-row s12">
                 <label>Preferred Country</label>
-                <select class="browser-default" name="preferred_country">
-                    <option value="" disabled selected>Preferred Country</option>
-                    <option value="1">Sales and Marketing</option>
-                    <option value="2">Power Plant</option>
-                    <option value="3">Agricultural</option>
-                    <option value="4">Automotive</option>
-                    <option value="5">Food</option>
-                    <option value="6">Mechanical and Plumbing</option>
-                    <option value="7">Construction Worker</option>
-                </select>
+                {{form.preferred_country}}
             </div>
         </div>
     </div>

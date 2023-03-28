@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_htmx',
     'captcha',
+    'django_countries',
     'index.apps.IndexConfig',
     'common.apps.CommonConfig',
     'accounts.apps.AccountsConfig',
