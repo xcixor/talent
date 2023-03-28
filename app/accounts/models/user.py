@@ -1,4 +1,3 @@
-from operator import mod
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.base_user import BaseUserManager
@@ -74,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     phone_number = models.IntegerField()
     years_of_work = models.IntegerField()
     country_code = models.CharField(max_length=255)
-    preferred_country = CountryField()
+    preferred_country = CountryField(blank_label="(select country)")
     service_type = models.CharField(max_length=255)
     preferred_country = CountryField()
     nationality = CountryField()
@@ -83,7 +82,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     type_of_visa = models.CharField(max_length=255)
     linkedin_url = models.URLField(max_length=255)
     mode_of_contact = models.CharField(max_length=255)
-
 
     objects = UserManager()
 

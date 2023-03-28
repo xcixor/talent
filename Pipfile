@@ -14,6 +14,9 @@ django-recaptcha = "==3.0.0"
 django-htmx = "==1.14.0"
 install = "*"
 django-countries = "==7.5.1"
+phone-iso3166 = "*"
+emoji-country-flag = "*"
+pycountry = "*"
 
 [dev-packages]
 pycodestyle = "*"

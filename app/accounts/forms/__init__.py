@@ -1,4 +1,5 @@
 import re
+import operator
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django import forms
@@ -10,11 +11,45 @@ from django.utils.encoding import force_bytes
 from django.conf import settings
 from django.contrib.auth.forms import AuthenticationForm
 from captcha.fields import ReCaptchaField
+from django_countries.widgets import CountrySelectWidget
 from common.email import HtmlEmailMixin
 from accounts.tokens import account_activation_token
+from phone_iso3166.country import country_prefixes, phone_country_prefix
+import flag
+import pycountry
 
 
 User = get_user_model()
+
+
+def get_phone_codes():
+    phone_codes = []
+    phone_codes.append(('254', f"{flag.flag('KE')} Kenya +254"))
+    prefixes = country_prefixes()
+    sorted_dict = sorted(prefixes.items(), key=operator.itemgetter(0))
+    for item in sorted_dict:
+        country = pycountry.countries.get(alpha_2=item[0])
+        if country:
+            phone_tuple = (
+                item[1], f'{flag.flag(item[0])} {country.name} +{item[1]}'
+            )
+            phone_codes.append(phone_tuple)
+    return phone_codes
+
+
+def get_countries(placeholder):
+    countries = []
+    countries.append(('', placeholder))
+    prefixes = country_prefixes()
+    sorted_dict = sorted(prefixes.items(), key=operator.itemgetter(0))
+    for item in sorted_dict:
+        country = pycountry.countries.get(alpha_2=item[0])
+        if country:
+            phone_tuple = (
+                item[1], f'{flag.flag(item[0])} {country.name}'
+            )
+            countries.append(phone_tuple)
+    return countries
 
 
 class RegistrationForm(forms.ModelForm, HtmlEmailMixin):
@@ -23,10 +58,47 @@ class RegistrationForm(forms.ModelForm, HtmlEmailMixin):
     password2 = forms.CharField(widget=forms.PasswordInput)
     terms = forms.BooleanField(initial=False, required=True)
     captcha = ReCaptchaField(required=True)
+    country_code = forms.ChoiceField(
+        choices=get_phone_codes(),
+        label=_("Country Code"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
+    preferred_country = forms.ChoiceField(
+        choices=get_countries("Preferred Country"),
+        label=_("Preferred Country"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
+    nationality = forms.ChoiceField(
+        choices=get_countries("Nationality"),
+        label=_("Nationality"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
+    country_of_residence = forms.ChoiceField(
+        choices=get_countries("Country of residence"),
+        label=_("Where do you currently reside"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email']
+        fields = [
+            'first_name', 'last_name', 'email', 'country_code',
+            'service_type', 'preferred_country', 'nationality',
+            'country_of_residence', 'date_of_birth', 'gender',
+            'highest_level_of_education', 'years_of_work', 'phone_number',
+            'type_of_visa', 'resume', 'linkedin_url', 'mode_of_contact']
+
+    # def __init__(self, ticket, *args, **kwargs):
+    #     super(RegistrationForm, self).__init__(*args, **kwargs)
+    #     self.fields['preferred_country'].initial = "KE"
 
     def clean_password1(self):
         password = self.cleaned_data['password1']
