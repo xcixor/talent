@@ -1,0 +1,12 @@
+.error {
+    color:red;
+}
+.link {
+    text-decoration: none;
+    color: #E34824;
+}
+
+.btn {
+    border-width: 0.01em;
+    border-radius: unset;
+}

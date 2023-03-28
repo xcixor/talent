@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PES Staff</title>
+    </head>
+    {% load i18n %}
+
+    <body
+        style="padding: 2% 10%; background-color: whitesmoke; font-family: 'Google Sans', Roboto,RobotoDraft,Helvetica,Arial,sans-serif;">
+        <div style="background-color: white; padding: 5%; border-radius: 20px;">
+            <div style="vertical-align: top; width: 100%">
+                <span>
+                    <img src="cid:logo.webp" height="35px" style="background-color:white">
+                </span>
+            </div><br><br>
+            <div style="font-size: 1rem;">
+                {% block message %}
+                {{context}}
+                {% endblock %}
+            </div>
+            <p style="margin: 0;">{% trans "Thank you." %}</p>
+            <p style="margin: 0;"><i>{% trans "The" %} PES Staff {% trans "Team" %}</i></p><br>
+            <address style="font-size: 0.6rem; color: #787878;">
+                ADDRESS HERE
+            </address>
+        </div>
+    </body>
+
+</html>
