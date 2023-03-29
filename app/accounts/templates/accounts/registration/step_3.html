@@ -5,7 +5,12 @@
                 <div class="file-field input-field">
                     <div class="btn">
                         <span>Upload your Resume</span>
-                        <input type="file" name="resume" required>
+                        <input type="file" name="resume" accept=".pdf" required>
+                        <div class="error-container">
+                            {% for error in form.resume.errors %}
+                            <p class="error e">{{ error|escape }}</p>
+                            {% endfor %}
+                        </div>
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" name="resume_path">
@@ -15,8 +20,14 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input id="linked_in_url" type="url"  name="linked_in_url" required>
-                <label for="linked_in_url">LinkedIn URL</label>
+                <input id="linkedin_url" type="url" name="linkedin_url" required
+                    value="{{request.session.registration_details.linkedin_url}}">
+                <label for="linkedin_url">LinkedIn URL</label>
+                <div class="error-container">
+                    {% for error in form.linkedin_url.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>

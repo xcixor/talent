@@ -2,54 +2,75 @@
 	<div class="inputs">
 		<div class="row">
 			<div class="input-field col s12 input-row">
-				<input
-					id="email"
-					type="email"
-					class="validate"
-					name="email"
-					autofocus
-				/>
+				<input id="email" type="email" class="validate" name="email" autofocus
+					value="{{request.session.registration_details.email}}" />
 				<label for="email">Email</label>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="input-field col s12 input-row">
-				<input
-					id="password1"
-					type="password"
-					autocomplete="off"
-					class="validate"
-					name="password1"
-				/>
-				<label for="password1">Password</label>
-				<div class="error">
-					<p id="password1Errors"></p>
+				<div class="error-container">
+					{% for error in form.email.errors %}
+					<p class="error e">{{ error|escape }}</p>
+					{% endfor %}
 				</div>
 			</div>
 		</div>
 
 		<div class="row">
 			<div class="input-field col s12 input-row">
-				<input
-					id="password2"
-					type="password"
-					autocomplete="off"
-					class="validate"
-					name="password2"
-				/>
+				<input id="password1" type="password" autocomplete="off" class="validate" name="password1" />
+				<label for="password1">Password</label>
+				<div class="error">
+					<p id="password1Errors"></p>
+				</div>
+				<div class="error-container">
+					{% for error in form.password1.errors %}
+					<p class="error e">{{ error|escape }}</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="input-field col s12 input-row">
+				<input id="password2" type="password" autocomplete="off" class="validate" name="password2" />
 				<label for="password2">Confirm Password</label>
-                <div class="error">
-                    <p id="password2Errors"></p>
-                </div>
+				<div class="error">
+					<p id="password2Errors"></p>
+				</div>
+				<div class="error-container">
+					{% for error in form.password2.errors %}
+					<p class="error e">{{ error|escape }}</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12 input-row">
+				<input class="form-check-input" type="checkbox" name="terms" id="terms"
+					{% if request.session.registration_details.terms %}checked{% endif %} />
+				<label class="form-check-label" for="terms">
+					I agree to the <a href="#">Terms of service</a>
+				</label>
+				<div class="error-container">
+
+					{% for error in form.terms.errors %}
+					<p class="error e">{{ error|escape }}</p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="input-field col s12 input-row">
+				<div class="error-container">
+					{{form.captcha}}
+					{% for error in form.captcha.errors %}
+					<p class="error e">{{ error|escape }}</p>
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>
 
 	<div class="btns">
-		<button type="button" class="previous-btn btn-navigate-form-step"
-			>Prev</button
-		>
+		<button type="button" class="previous-btn btn-navigate-form-step">Prev</button>
 		<button type="button" class="next-btn btn-navigate-form-step">Next</button>
 	</div>
 </div>

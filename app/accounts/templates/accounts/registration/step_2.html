@@ -5,48 +5,66 @@
             <div class="input-row col s6">
                 <label>Nationality</label>
                 {{form.nationality}}
+                <div class="error-container">
+                    {% for error in form.nationality.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
             <div class="input-row col s6">
                 <label>Where do you currently reside</label>
                 {{form.country_of_residence}}
+                <div class="error-container">
+                    {% for error in form.country_of_residence.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="input-row col s12">
                 <label for="date_of_birth">Date of Birth</label>
-                <input id="date_of_birth" name="date_of_birth" type="text" class="datepicker">
+                <input id="date_of_birth" name="date_of_birth" type="text" class="datepicker"
+                    value="{{request.session.registration_details.date_of_birth}}">
+                <div class="error-container">
+                    {% for error in form.date_of_birth.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="input-row col s12">
                 <label>Highest Level of Education</label>
-                <select class="browser-default" name="level_of_education">
-                    <option value="" disabled selected>Highest Level of Education</option>
-                    <option value="1">High School</option>
-                    <option value="2">Diploma</option>
-                    <option value="3">Bachelors</option>
-                    <option value="4">Masters</option>
-                </select>
+                {{form.highest_level_of_education}}
+                <div class="error-container">
+                    {% for error in form.highest_level_of_education.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="input-field input-row col s12">
-                <input id="years_of_work_experience" type="number" class="validate" name="years_of_work_experience">
-                <label for="years_of_work_experience">Years of work Experience</label>
+                <input id="years_of_work" type="number" class="validate" name="years_of_work"
+                    value="{{request.session.registration_details.form.years_of_work}}">
+                <label for="years_of_work">Years of work Experience</label>
+                <div class="error-container">
+                    {% for error in form.years_of_work.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="input-row col s12">
                 <label>Your current type of Visa</label>
-                <select class="browser-default" name="type_of_visa">
-                    <option value="" disabled selected>Your current type of Visa</option>
-                    <option value="1">Not Applicable</option>
-                    <option value="2">Student Visa</option>
-                    <option value="3">Tourist Visa</option>
-                    <option value="4">Family Visa</option>
-                    <option value="5">General Visit Visa</option>
-                    <option value="6">Business Visit Visa</option>
-                </select>
+                {{form.type_of_visa}}
+                <div class="error-container">
+                    {% for error in form.type_of_visa.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
