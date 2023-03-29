@@ -43,14 +43,17 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="input-field col s12 input-row">
-				<input class="form-check-input" type="checkbox" name="terms" id="terms"
-					{% if request.session.registration_details.terms %}checked{% endif %} />
-				<label class="form-check-label" for="terms">
-					I agree to the <a href="#">Terms of service</a>
-				</label>
-				<div class="error-container">
+			<div class="input-field col s12 d-flex align-items-center">
 
+				<p>
+					<label>
+						<input type="checkbox" name="terms" id="terms" {% if request.session.registration_details.terms %}checked{% endif %}
+							 />
+						<span>I agree to the <a href="#">Terms of service</a></span>
+					</label>
+				</p>
+
+				<div class="error-container">
 					{% for error in form.terms.errors %}
 					<p class="error e">{{ error|escape }}</p>
 					{% endfor %}
@@ -59,8 +62,8 @@
 		</div>
 		<div class="row">
 			<div class="input-field col s12 input-row">
+				{{form.captcha}}
 				<div class="error-container">
-					{{form.captcha}}
 					{% for error in form.captcha.errors %}
 					<p class="error e">{{ error|escape }}</p>
 					{% endfor %}
