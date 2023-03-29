@@ -5,318 +5,86 @@
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/accounts/dashboard.css' %}">
 {% endblock %}
-{% block content %}
+{% block account_content %}
+<div class="row">
+    <div class="col s12">
+        <div class="soft-shadow cards-container">
+            <h4>Profile Information</h4>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card bg-primary-light-4 z-depth-0">
+                        <div class="card-content white-text">
+                            <span class="card-title">Personal Information</span>
+                            <p><b>First Name:</b> {{user.first_name}}</p>
+                            <p><b>Last Name:</b> {{user.last_name}}</p>
+                            <p><b>Email:</b> {{user.email}}</p>
+                            <p><b>Gender:</b> {{user.gender}}</p>
+                            <p><b>Country:</b> +{{user.country_code}}</p>
+                            <p><b>Phone Number:</b> {{user.phone_number}}</p>
+                            <p><b>Service Type:</b> {{user.service_type}}</p>
+                            <p><b>Preferred Country:</b> {{user.preferred_country}}</p>
 
-<!--Main layout-->
-<main style="margin-top: 80px">
-  <div class="container pt-4">
-
-    <!--Section: Minimal statistics cards-->
-    <section>
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div class="align-self-center">
-                  <i class="fas fa-pencil-alt text-info fa-3x"></i>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Edit Personal Information</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-end">
-                  <h3>278</h3>
-                  <p class="mb-0">New Posts</p>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div class="align-self-center">
-                  <i class="far fa-comment-alt text-warning fa-3x"></i>
-                </div>
-                <div class="text-end">
-                  <h3>156</h3>
-                  <p class="mb-0">New Comments</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div class="align-self-center">
-                  <i class="fas fa-chart-line text-success fa-3x"></i>
-                </div>
-                <div class="text-end">
-                  <h3>64.89 %</h3>
-                  <p class="mb-0">Bounce Rate</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div class="align-self-center">
-                  <i class="fas fa-map-marker-alt text-danger fa-3x"></i>
-                </div>
-                <div class="text-end">
-                  <h3>423</h3>
-                  <p class="mb-0">Total Visits</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-danger">278</h3>
-                  <p class="mb-0">New Projects</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="fas fa-rocket text-danger fa-3x"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-success">156</h3>
-                  <p class="mb-0">New Clients</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="far fa-user text-success fa-3x"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-warning">64.89 %</h3>
-                  <p class="mb-0">Conversion Rate</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="fas fa-chart-pie text-warning fa-3x"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-info">423</h3>
-                  <p class="mb-0">Support Tickets</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="far fa-life-ring text-info fa-3x"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-info">278</h3>
-                  <p class="mb-0">New Posts</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="fas fa-book-open text-info fa-3x"></i>
-                </div>
-              </div>
-              <div class="px-md-1">
-                <div class="progress mt-3 mb-1 rounded" style="height: 7px">
-                  <div class="progress-bar bg-info" role="progressbar" style="width: 80%" aria-valuenow="80"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-warning">156</h3>
-                  <p class="mb-0">New Comments</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="far fa-comments text-warning fa-3x"></i>
-                </div>
-              </div>
-              <div class="px-md-1">
-                <div class="progress mt-3 mb-1 rounded" style="height: 7px">
-                  <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="35"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-success">64.89 %</h3>
-                  <p class="mb-0">Bounce Rate</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="fas fa-mug-hot text-success fa-3x"></i>
-                </div>
-              </div>
-              <div class="px-md-1">
-                <div class="progress mt-3 mb-1 rounded" style="height: 7px">
-                  <div class="progress-bar bg-success" role="progressbar" style="width: 60%" aria-valuenow="60"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between px-md-1">
-                <div>
-                  <h3 class="text-danger">423</h3>
-                  <p class="mb-0">Total Visits</p>
-                </div>
-                <div class="align-self-center">
-                  <i class="fas fa-map-signs text-danger fa-3x"></i>
-                </div>
-              </div>
-              <div class="px-md-1">
-                <div class="progress mt-3 mb-1 rounded" style="height: 7px">
-                  <div class="progress-bar bg-danger" role="progressbar" style="width: 40%" aria-valuenow="40"
-                    aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Section: Minimal statistics cards-->
-
-    <!--Section: Statistics with subtitles-->
-    <section>
-      <div class="row">
-        <div class="col-xl-6 col-md-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between p-md-1">
-                <div class="d-flex flex-row">
-                  <div class="align-self-center">
-                    <i class="fas fa-pencil-alt text-info fa-3x me-4"></i>
-                  </div>
-                  <div>
-                    <h4>Total Posts</h4>
-                    <p class="mb-0">Monthly blog posts</p>
-                  </div>
-                </div>
-                <div class="align-self-center">
-                  <h2 class="h1 mb-0">18,000</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-md-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between p-md-1">
-                <div class="d-flex flex-row">
-                  <div class="align-self-center">
-                    <i class="far fa-comment-alt text-warning fa-3x me-4"></i>
-                  </div>
-                  <div>
-                    <h4>Total Comments</h4>
-                    <p class="mb-0">Monthly blog posts</p>
-                  </div>
-                </div>
-                <div class="align-self-center">
-                  <h2 class="h1 mb-0">84,695</h2>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xl-6 col-md-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between p-md-1">
-                <div class="d-flex flex-row">
-                  <div class="align-self-center">
-                    <h2 class="h1 mb-0 me-4">$76,456.00</h2>
-                  </div>
-                  <div>
-                    <h4>Total Sales</h4>
-                    <p class="mb-0">Monthly Sales Amount</p>
-                  </div>
-                </div>
-                <div class="align-self-center">
-                  <i class="far fa-heart text-danger fa-3x"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xl-6 col-md-12 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex justify-content-between p-md-1">
-                <div class="d-flex flex-row">
-                  <div class="align-self-center">
-                    <h2 class="h1 mb-0 me-4">$36,000.00</h2>
-                  </div>
-                  <div>
-                    <h4>Total Cost</h4>
-                    <p class="mb-0">Monthly Cost</p>
-                  </div>
-                </div>
-                <div class="align-self-center">
-                  <i class="fas fa-wallet text-success fa-3x"></i>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Section: Statistics with subtitles-->
-  </div>
-</main>
-<!--Main layout-->
+            <div class="row">
+                <div class="col s12">
+                    <div class="card bg-primary-light-4 z-depth-0">
+                        <div class="card-content white-text">
+                            <span class="card-title">Basic Information</span>
+                            <p><b>Nationality:</b> {{user.nationality}}</p>
+                            <p><b>Country of Residence:</b> {{user.country_of_residence}}</p>
+                            <p><b>Service Type:</b> {{user.date_of_birth}}</p>
+                            <p><b>Highest Level of Education:</b> {{user.highest_level_of_education}}</p>
+                            <p><b>Years of Work Experience:</b> {{user.years_of_work}}</p>
+                            <p><b>Type of Visa:</b> {{user.type_of_visa}}</p>
 
 
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Edit Basic Information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card bg-primary-light-4 z-depth-0">
+                        <div class="card-content white-text">
+                            <span class="card-title">Resume</span>
+                            <p><b></b> <a href="{{user.resume.url}}" target="_blank" class="link white-text"><b>Your
+                                        Resume <i class="fa-solid fa-link"></i></b></a></p>
+                            <p><b>LinkedIn Url:</b> {{user.linkedin_url}}</p>
+
+
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Edit Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card bg-primary-light-4 z-depth-0">
+                        <div class="card-content white-text">
+                            <span class="card-title">Mode of Contact</span>
+
+                            <p><b>Mode of Contact:</b> {{user.mode_of_contact}}</p>
+
+
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Edit Resume</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
