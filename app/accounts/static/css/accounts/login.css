@@ -1,0 +1,9 @@
+.form-container {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.form-container .fas{
+    margin-right: 10px;
+    height: 20px;
+}
