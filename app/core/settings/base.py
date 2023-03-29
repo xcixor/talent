@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'index.apps.IndexConfig',
     'common.apps.CommonConfig',
     'accounts.apps.AccountsConfig',
-    'backup.apps.BackupConfig'
+    'backup.apps.BackupConfig',
+    'infinite_admin.apps.InfiniteAdminConfig'
 ]
 
 MIDDLEWARE = [
