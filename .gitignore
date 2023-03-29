@@ -3,7 +3,6 @@
 *pycache*
 *env*
 *media*
-*.sqlite3*
 .coverage
 .txt
 *virtual*
