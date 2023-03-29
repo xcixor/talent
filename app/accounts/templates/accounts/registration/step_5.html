@@ -1,32 +1,55 @@
 <div class="step step-5 h-100">
-    <div class="inputs">
+	<div class="inputs">
+		<div class="row">
+			<div class="input-field col s12 input-row">
+				<input
+					id="email"
+					type="email"
+					class="validate"
+					name="email"
+					autofocus
+				/>
+				<label for="email">Email</label>
+			</div>
+		</div>
 
-        <div class="row">
-            <div class="input-field col s12 input-row">
-                <input id="email" type="email" class="validate" name="email" autofocus>
-                <label for="email">Email</label>
-            </div>
-        </div>
+		<div class="row">
+			<div class="input-field col s12 input-row">
+				<input
+					id="password1"
+					type="password"
+					autocomplete="off"
+					class="validate"
+					name="password1"
+				/>
+				<label for="password1">Password</label>
+				<div class="error">
+					<p id="password1Errors"></p>
+				</div>
+			</div>
+		</div>
 
-        <div class="row">
-            <div class="input-field col s12 input-row">
-                <input id="password1" type="password" autocomplete="off" class="validate" name="email">
-                <label for="password1">Password</label>
-            </div>
-        </div>
+		<div class="row">
+			<div class="input-field col s12 input-row">
+				<input
+					id="password2"
+					type="password"
+					autocomplete="off"
+					class="validate"
+					name="password2"
+				/>
+				<label for="password2">Confirm Password</label>
+                <div class="error">
+                    <p id="password2Errors"></p>
+                </div>
+			</div>
+		</div>
+	</div>
 
-        <div class="row">
-            <div class="input-field col s12 input-row">
-                <input id="password2" type="password" autocomplete="off" class="validate" name="email">
-                <label for="password2">Confirm Password</label>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="btns">
-        <button type="button" class="previous-btn">Prev</button>
-        <button type="button" class="next-btn">Next</button>
-    </div>
-
+	<div class="btns">
+		<button type="button" class="previous-btn btn-navigate-form-step"
+			>Prev</button
+		>
+		<button type="button" class="next-btn btn-navigate-form-step">Next</button>
+	</div>
 </div>
