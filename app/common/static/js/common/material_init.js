@@ -12,5 +12,6 @@ $(document).ready(function(){
       maxDate:minDateOfBirth
     });
     M.updateTextFields();
+    $('.sidenav').sidenav();
   });
 

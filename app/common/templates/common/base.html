@@ -46,9 +46,10 @@
 				</ul>
 				<!-- Sidenav Structure -->
 				<ul class="sidenav" id="mobile-menu">
+					{% if user.is_authenticated %}
+					{% else %}
 					<li><a class="text-color-secondary" href="{% url 'accounts:registration' %}">Signup</a></li>
-					<li><a class="text-color-secondary" href="collapsible.html">Javascript</a></li>
-					<li><a class="text-color-secondary" href="mobile.html">Mobile</a></li>
+					{% endif %}
 				</ul>
 
 				<nav>
@@ -65,12 +66,12 @@
 									class="material-icons text-color-secondary">menu</i></a>
 						</div>
 						<ul class="right hide-on-med-and-down">
-							<li><a class="text-color-secondary" href="{% url 'accounts:registration' %}">Signup</a></li>
 							<!-- Dropdown Trigger -->
 							{% if user.is_authenticated %}
-							<li><a class="dropdown-trigger text-color-secondary" href="#!"
-									data-target="dropdown">Hi, {{user}}<i
-										class="material-icons right">arrow_drop_down</i></a></li>
+							<li><a class="dropdown-trigger text-color-secondary" href="#!" data-target="dropdown">Hi,
+									{{user}}<i class="material-icons right">arrow_drop_down</i></a></li>
+							{% else %}
+							<li><a class="text-color-secondary" href="{% url 'accounts:registration' %}">Signup</a></li>
 							{% endif %}
 						</ul>
 					</div>

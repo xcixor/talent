@@ -3,6 +3,9 @@
 	--font-normal: "Mukta", sans-serif;
     --color-primary: #1B3F6B;
     --color-primary-light-10: #e8ecf0;
+    --color-primary-light-2: #32527a;
+    --color-primary-light-4: #5f7997;
+
     --color-secondary: #E34824;
     --color-secondary-2: #FDA828;
     --color-secondary-tint-5:#ee917c;
@@ -30,6 +33,14 @@
 
 .bg-primary-light-10{
     background-color: var(--color-primary-light-10) !important;
+}
+
+.bg-primary-light-2{
+    background-color: var(--color-primary-light-2) !important;
+}
+
+.bg-primary-light-4{
+    background-color: var(--color-primary-light-4) !important;
 }
 
 .alice-light-3{
