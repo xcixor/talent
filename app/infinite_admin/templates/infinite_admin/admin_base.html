@@ -1,0 +1,50 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/common/styles.css' %}">
+<link rel="stylesheet" href="{% static 'css/common/layout.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/base.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col s4 dash-menu-container">
+      <div class="soft-shadow side-menu">
+        <ul>
+          <li>
+            <div class="user-view">
+              <div class="background">
+                <i class="fa-solid fa-user fa-4x fa-secondary"></i>
+              </div>
+
+              <span class="name">{{user.first_name}} {{user.last_name}}</span><br>
+              <span class="email">{{user.email}}
+              </span>
+            </div>
+          </li>
+          <li><a href="#!">Action 1</a></li>
+          <li><a href="#!">Action 2</a></li>
+          <li><a href="#!">Users</a></li>
+          <li><a class="waves-effect" href="#!"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li><a class="subheader">Personal</a></li>
+          <li><a class="waves-effect" href="#!"><i class="fa-solid fa-gear"></i> Change Email</a></li>
+          <li><a class="waves-effect" href="#!"><i class="fa-solid fa-gear"></i> Change Password</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col s8">
+      {% block account_content %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'js/common/material_init.js' %}"></script>
+{% endblock %}
