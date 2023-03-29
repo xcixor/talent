@@ -2,31 +2,35 @@
 .input-field input[type="number"] + label,
 .input-field input[type="password"] + label,
 .input-field input[type="email"] + label {
-     padding: 0 8px!important;
+	padding: 0 8px !important;
 }
 .input-field input[type="text"],
 .input-field input[type="number"],
 .input-field input[type="password"],
 .input-field input[type="email"] {
-     border:solid 0.05em #f2f2f2!important;
-     padding: 0 8px!important;
+	border: solid 0.05em #f2f2f2 !important;
+	padding: 0 8px !important;
 }
 
 .input-field input[type="text"]:hover,
 .input-field input[type="number"]:hover,
 .input-field input[type="password"]:hover,
-.input-field input[type="email"]:hover  {
-     border:solid 0.05em #ee917c!important;
+.input-field input[type="email"]:hover {
+	border: solid 0.05em #ee917c !important;
 }
 
 .input-field input[type="text"]:focus,
 .input-field input[type="number"]:focus,
 .input-field input[type="password"]:focus,
 .input-field input[type="email"]:focus {
-     border:solid 0.05em #ee917c!important;
-     box-shadow: none!important;
+	border: solid 0.05em #ee917c !important;
+	box-shadow: none !important;
 }
 
-select.show_select{
-     display: block;
+select.show_select {
+	display: block;
+}
+
+select.invalid {
+	border-color: #f44336;
 }
