@@ -4,77 +4,67 @@
 {% load i18n %}
 {% block styles %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/accounts/registration.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/login.css' %}">
 {% endblock %}
 {% block content %}
-
-<section class="vh-100" style="background-color: #eee;">
+<section class="h-100" style="background-color: #eee">
   <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-10 col-xl-10 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-4 mx-1 mx-md-4 mt-4">Login</p>
-                <form class="mx-1 mx-md-4" action="{% url 'accounts:login' %}" method="post">
-                  {% csrf_token %}
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <div class="error-container">
-                      {% if form.errors %}
-                      <p class="error"><strong>{% trans "Please correct the errors in the form below." %}</strong></p>
-                      {% endif %}
-                      {% for error in form.non_field_errors %}
-                      <p class="error">{{ error|escape }}</p>
-                      {% endfor %}
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="email" name="username" id="email" class="form-control" placeholder="Your Email" />
-
-                    </div>
-                  </div>
-
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="password" name="password" id="password" class="form-control"
-                        placeholder="Password" />
-                    </div>
-                  </div>
-
-                  <div class="form-check d-flex mb-4">
-                    <label>
-                      <input type="checkbox" checked="checked" name="remember_me"> {% trans "Remember me" %}
-                    </label>
-                  </div>
-
-                  <div class="form-check d-flex mb-4">
-                    <label class="form-check-label" for="form2Example3">
-                      Don't have an account? <a href="{% url 'accounts:registration' %}">Sign Up</a>
-                    </label>
-                  </div>
-
-
-                  <div class="form-check d-flex mb-4">
-                    <label class="form-check-label" for="form2Example3">
-                      Forgot Passord? <a href="{% url 'accounts:reset_password' %}">Reset</a>
-                    </label>
-                  </div>
-
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" class="btn btn-primary btn-lg">Login</button>
-                  </div>
-                </form>
+    <div class="row h-100">
+      <div class="col s10 m8 push-m2 push-s1 h-100">
+        <div class="soft-shadow form-container">
+          <h4>Login <i class="fa-solid fa-right-to-bracket"></i></h4>
+          <form action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+            <div class="input-field d-flex align-items-center">
+              <div class="error-container">
+                {% if form.errors %}
+                <p class="error"><strong>{% trans "Please correct the errors in the form below." %}</strong></p>
+                {% endif %}
+                {% for error in form.non_field_errors %}
+                <p class="error">{{ error|escape }}</p>
+                {% endfor %}
               </div>
-
             </div>
-          </div>
+
+            <div class="input-field d-flex align-items-center">
+              <i class="fas fa-envelope fa-lg fa-2xl"></i>
+              <input type="email" name="username" id="email" class="validate flex-1" placeholder="Your Email" />
+            </div>
+
+            <div class="input-field d-flex align-items-center">
+              <i class="fas fa-lock fa-lg fa-2xl"></i>
+              <input type="password" name="password" id="password" class="validate flex-1" placeholder="Password" />
+            </div>
+            <div class="d-flex">
+              <p>
+                <label>
+                  <input type="checkbox" checked="checked" name="remember_me" id="terms" />
+                  <span>{% trans "Remember me?" %}</span>
+                </label>
+              </p>
+            </div>
+
+            <div class="d-flex">
+              <label class="form-check-label" for="form2Example3">
+                Need to create an account? <a href="{% url 'accounts:registration' %}">Sign Up</a>
+              </label>
+            </div>
+
+
+            <div class="d-flex">
+              <label class="form-check-label" for="form2Example3">
+                Forgot Password? <a href="{% url 'accounts:reset_password' %}">Reset</a>
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+              <button type="submit" class="btn btn-primary btn-lg">Login</button>
+            </div>
+          </form>
         </div>
       </div>
+
+
     </div>
   </div>
 </section>
