@@ -82,6 +82,10 @@
     color: var(--color-primary);
 }
 
+.fa-secondary{
+    color: var(--color-secondary);
+}
+
 .row, .col {
     padding: 0;
     margin: 0;
