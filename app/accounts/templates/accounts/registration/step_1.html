@@ -2,23 +2,35 @@
     <div class="inputs">
         <div class="row">
             <div class="input-field col s6">
-                <input required id="first_name" type="text" class="validate" name="first_name" autofocus>
+                <input required id="first_name" type="text" class="validate" name="first_name" autofocus
+                    value="{{request.session.registration_details.first_name}}">
                 <label for="first_name">First Name</label>
+                <div class="error-container">
+                    {% for error in form.first_name.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
             <div class="input-field col s6">
-                <input required id="last_name" type="text" class="validate" name="last_name">
+                <input required id="last_name" type="text" class="validate" name="last_name"
+                    value="{{request.session.registration_details.last_name}}">
                 <label for="last_name">Last Name</label>
+                <div class="error-container">
+                    {% for error in form.last_name.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="input-row col s12">
                 <label>Gender</label>
-                <select required class="browser-default" name="phone_number">
-                    <option value="" disabled selected>Gender</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">I would rather not say</option>
-                </select>
+                {{ form.gender }}
+                <div class="error-container">
+                    {% for error in form.gender.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="row" style="margin-top: 20px;">
@@ -27,12 +39,22 @@
                     <label>Country Code</label>
                     {{form.country_code}}
                 </div>
-
+                <div class="error-container">
+                    {% for error in form.country_code.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
             <div class="col s8 ">
                 <div class="input-field">
-                    <input required id="phone_number" type="number" class="validate" name="phone_number">
+                    <input required id="phone_number" type="number" class="validate" name="phone_number"
+                        value="{{request.session.registration_details.phone_number}}">
                     <label for="phone_number">Phone Number</label>
+                    <div class="error-container">
+                        {% for error in form.phone_number.errors %}
+                        <p class="error e">{{ error|escape }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
 
             </div>
@@ -40,22 +62,23 @@
         <div class="row">
             <div class="input-row col s12">
                 <label>Service Type</label>
-                <select required class="browser-default" name="service_type">
-                    <option value="" disabled selected>Service Type</option>
-                    <option value="1">Sales and Marketing</option>
-                    <option value="2">Power Plant</option>
-                    <option value="3">Agricultural</option>
-                    <option value="4">Automotive</option>
-                    <option value="5">Food</option>
-                    <option value="6">Mechanical and Plumbing</option>
-                    <option value="7">Construction Worker</option>
-                </select>
+                {{form.service_type}}
+                <div class="error-container">
+                    {% for error in form.service_type.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="row">
             <div class="col input-row s12">
                 <label>Preferred Country</label>
                 {{form.preferred_country}}
+                <div class="error-container">
+                    {% for error in form.preferred_country.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
