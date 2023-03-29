@@ -95,7 +95,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.username
 
     def __str__(self) -> str:
-        return 'STAFF-ID-' + str(self.id).zfill(3)
+        return 'ITL-ID-' + str(self.id).zfill(3)
 
     class Meta:
         ordering = ['date_joined']
