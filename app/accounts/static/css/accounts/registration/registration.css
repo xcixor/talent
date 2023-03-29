@@ -35,11 +35,6 @@
 	text-transform: uppercase;
 }
 
-/* button.next-btn {
-background-color: var(--color-primary);
-    color: var(--color-secondary);
-} */
-
 button.next-btn,
 button.previous-btn,
 button.submit-btn {

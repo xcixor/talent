@@ -3,12 +3,12 @@
 		<div class="row">
 			<div class="col s12">
 				<label>Mode of Contact</label>
-				<select class="browser-default" name="mode_of_contact">
-					<option value="" disabled selected>How can we contact you?</option>
-					<option value="1">Call</option>
-					<option value="2">WhatsApp</option>
-					<option value="3">Email</option>
-				</select>
+				{{form.mode_of_contact}}
+				<div class="error-container">
+					{% for error in form.mode_of_contact.errors %}
+					<p class="error e">{{ error|escape }}</p>
+					{% endfor %}
+				</div>
 			</div>
 		</div>
 	</div>

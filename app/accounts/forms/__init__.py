@@ -14,12 +14,52 @@ from captcha.fields import ReCaptchaField
 from django_countries.widgets import CountrySelectWidget
 from common.email import HtmlEmailMixin
 from accounts.tokens import account_activation_token
-from phone_iso3166.country import country_prefixes, phone_country_prefix
+from phone_iso3166.country import country_prefixes
 import flag
 import pycountry
 
 
 User = get_user_model()
+
+GENDER_CHOICES = (
+    ('', 'Choose your Gender'),
+    ('Male', 'Male'),
+    ('Female', 'Female'),
+    ('I would rather not say', 'I would rather not say'),
+)
+
+SERVICE_TYPES = (
+    ('', 'Select Service Type'),
+    ('Sales and Marketing', 'Sales and Marketing'),
+    ('Power Plant', 'Power Plant'),
+    ('Agricultural', 'Agricultural'),
+    ('Automotive', 'Automotive'),
+    ('Food', 'Food')
+)
+
+LEVEL_OF_EDUCATION = (
+    ('', 'Select Highest Level of Education'),
+    ('High School', 'High School'),
+    ('Diploma', 'Diploma'),
+    ('Bachelors', 'Bachelors'),
+    ('Masters', 'Masters'),
+)
+
+TYPE_OF_VISA = (
+    ('', 'Select Type of Visa'),
+    ('Not Applicable', 'High School'),
+    ('Student Visa', 'Student Visa'),
+    ('Tourist Visa', 'Tourist Visa'),
+    ('Family Visa', 'Family Visa'),
+    ('General Visa', 'General Visa'),
+)
+
+MODE_OF_CONTACT = (
+    ('', 'Select Mode of Contact'),
+    ('Email', 'Email'),
+    ('Whatsapp', 'Whatsapp'),
+    ('Call', 'Call')
+)
 
 
 def get_phone_codes():
@@ -46,7 +86,7 @@ def get_countries(placeholder):
         country = pycountry.countries.get(alpha_2=item[0])
         if country:
             phone_tuple = (
-                item[1], f'{flag.flag(item[0])} {country.name}'
+                country.name, f'{flag.flag(item[0])} {country.name}'
             )
             countries.append(phone_tuple)
     return countries
@@ -86,6 +126,42 @@ class RegistrationForm(forms.ModelForm, HtmlEmailMixin):
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
+    gender = forms.ChoiceField(
+        choices=GENDER_CHOICES,
+        label=_("Gender"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
+    service_type = forms.ChoiceField(
+        choices=SERVICE_TYPES,
+        label=_("Service Type"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
+
+    highest_level_of_education = forms.ChoiceField(
+        choices=LEVEL_OF_EDUCATION,
+        label=_("Highest Level of Education"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
+    type_of_visa = forms.ChoiceField(
+        choices=TYPE_OF_VISA,
+        label=_("Your current type of Visa"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
+    mode_of_contact = forms.ChoiceField(
+        choices=MODE_OF_CONTACT,
+        label=_("How should we contact you"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=True)
 
     class Meta:
         model = User
@@ -96,9 +172,24 @@ class RegistrationForm(forms.ModelForm, HtmlEmailMixin):
             'highest_level_of_education', 'years_of_work', 'phone_number',
             'type_of_visa', 'resume', 'linkedin_url', 'mode_of_contact']
 
-    # def __init__(self, ticket, *args, **kwargs):
-    #     super(RegistrationForm, self).__init__(*args, **kwargs)
-    #     self.fields['preferred_country'].initial = "KE"
+    def __init__(self, request, *args, **kwargs):
+        super(RegistrationForm, self).__init__(*args, **kwargs)
+        data = request.session.pop('registration_details', None)
+        if data:
+            self.fields['preferred_country'].choice = data['preferred_country']
+            self.fields['gender'].choice = str(data['gender'])
+            self.fields['service_type'].choice = data['service_type']
+            self.fields['country_of_residence'].choice = data['country_of_residence']
+            self.fields['nationality'].choice = data['nationality']
+            self.fields['phone_number'].initial = data['phone_number']
+            self.fields['first_name'].initial = data['first_name']
+            self.fields['last_name'].initial = data['last_name']
+            self.fields['email'].initial = data['email']
+            self.fields['years_of_work'].initial = data['years_of_work']
+            self.fields['linkedin_url'].initial = data['linkedin_url']
+            self.fields['type_of_visa'].choice = data['type_of_visa']
+            self.fields['mode_of_contact'].choice = data['mode_of_contact']
+            self.fields['highest_level_of_education'].choice = data['highest_level_of_education']
 
     def clean_password1(self):
         password = self.cleaned_data['password1']
