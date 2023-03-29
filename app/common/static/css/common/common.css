@@ -90,3 +90,13 @@
 .flex-1 {
     flex-grow: 1;
 }
+
+.soft-shadow {
+    box-shadow: 0px 0px 20px #00000020;
+	border-radius: 8px;
+	background-color: white;
+}
+
+input.form-check-input {
+    opacity: 1;
+}
