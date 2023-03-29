@@ -1,20 +1,19 @@
-{% load countries %}
 <div class="step step-1 active-step h-100">
     <div class="inputs">
         <div class="row">
             <div class="input-field col s6">
-                <input id="first_name" type="text" class="validate" name="first_name" autofocus>
+                <input required id="first_name" type="text" class="validate" name="first_name" autofocus>
                 <label for="first_name">First Name</label>
             </div>
             <div class="input-field col s6">
-                <input id="last_name" type="text" class="validate" name="last_name">
+                <input required id="last_name" type="text" class="validate" name="last_name">
                 <label for="last_name">Last Name</label>
             </div>
         </div>
         <div class="row">
             <div class="input-row col s12">
                 <label>Gender</label>
-                <select class="browser-default" name="phone_number">
+                <select required class="browser-default" name="phone_number">
                     <option value="" disabled selected>Gender</option>
                     <option value="1">Male</option>
                     <option value="2">Female</option>
@@ -32,7 +31,7 @@
             </div>
             <div class="col s8 ">
                 <div class="input-field">
-                    <input id="phone_number" type="number" class="validate" name="phone_number">
+                    <input required id="phone_number" type="number" class="validate" name="phone_number">
                     <label for="phone_number">Phone Number</label>
                 </div>
 
@@ -41,7 +40,7 @@
         <div class="row">
             <div class="input-row col s12">
                 <label>Service Type</label>
-                <select class="browser-default" name="service_type">
+                <select required class="browser-default" name="service_type">
                     <option value="" disabled selected>Service Type</option>
                     <option value="1">Sales and Marketing</option>
                     <option value="2">Power Plant</option>
@@ -62,6 +61,6 @@
     </div>
 
     <div class="btns">
-        <button type="button" class="next-btn">Next</button>
+        <button type="button" class="next-btn btn-navigate-form-step" disabled>Next</button>
     </div>
 </div>
