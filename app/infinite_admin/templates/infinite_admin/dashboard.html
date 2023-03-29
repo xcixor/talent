@@ -1,0 +1,16 @@
+{% extends 'infinite_admin/admin_base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/accounts/dashboard.css' %}">
+{% endblock %}
+{% block account_content %}
+<div class="row">
+    <div class="col s12">
+        <div class="soft-shadow cards-container">
+            Welcome Admin!
+        </div>
+    </div>
+</div>
+{% endblock %}
