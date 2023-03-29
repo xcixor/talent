@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from infinite_admin.admin import custom_admin_site
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('cO4yp84DxO8LqagQUUo/advanced/', custom_admin_site.urls),
+    path('cO4yp84DxO8LqagQUUo/', admin.site.urls),
     path('', include('index.presentation.urls', namespace='index')),
     path('accounts/', include('accounts.presentation.urls', namespace='accounts')),
     path('backup/', include('backup.presentation.urls', namespace='backup')),

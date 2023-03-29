@@ -11,13 +11,14 @@ max_length = 255
 
 class UserManager(BaseUserManager):
 
-    def _create_user(self, username, password, **extra_fields):
+    def _create_user(self, email, password, **extra_fields):
         """
         Creates and saves a User with the given email, and password.
         """
-        if not username:
-            raise ValueError(_('A User must have a username'))
-        user = self.model(username=username, **extra_fields)
+        if not email:
+            raise ValueError(_('A User must have an email.'))
+        email = self.normalize_email(email)
+        user = self.model(email=email, **extra_fields)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -27,7 +28,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, username, password=None, **extra_fields):
+    def create_superuser(self, email, password=None, **extra_fields):
         """
         Creates and saves a superuser with the given email and password.
         """
@@ -36,7 +37,7 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault('is_active', True)
         if extra_fields.get('is_superuser') is not True:
             raise ValueError(_('Superuser must have is_superuser=True.'))
-        return self._create_user(username, password, **extra_fields)
+        return self._create_user(email, password, **extra_fields)
 
     def get_user_by_uid(self, uidb64):
         """
@@ -60,33 +61,35 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=40, unique=True, blank=True, null=True)
     email = models.EmailField(
         verbose_name=_('Email Address'), max_length=255, unique=True)
-    first_name = models.CharField(max_length=255)
-    last_name = models.CharField(max_length=255)
+    first_name = models.CharField(max_length=255, blank=True, null=True)
+    last_name = models.CharField(max_length=255, blank=True, null=True)
     date_joined = models.DateField(auto_now=True)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
-    date_of_birth = models.DateField(null=True, blank=True, max_length=20)
-    gender = models.CharField(max_length=200, null=True, blank=True)
+    date_of_birth = models.DateField(null=True, blank=True, max_length=255)
+    gender = models.CharField(max_length=255, blank=True, null=True)
     avatar = models.ImageField(
         upload_to=image_directory_path, null=True, blank=True)
     resume = models.FileField(
         upload_to=image_directory_path)
-    phone_number = models.IntegerField()
-    years_of_work = models.IntegerField()
-    country_code = models.CharField(max_length=255)
-    preferred_country = CharField(max_length=255)
-    service_type = models.CharField(max_length=255)
-    preferred_country = CharField(max_length=255)
-    nationality = CharField(max_length=255)
-    country_of_residence = CharField(max_length=255)
-    highest_level_of_education = models.CharField(max_length=255)
-    type_of_visa = models.CharField(max_length=255)
+    phone_number = models.IntegerField(blank=True, null=True)
+    years_of_work = models.IntegerField(blank=True, null=True)
+    country_code = models.CharField(max_length=255, blank=True, null=True)
+    preferred_country = CharField(max_length=255, blank=True, null=True)
+    service_type = models.CharField(max_length=255, blank=True, null=True)
+    preferred_country = CharField(max_length=255, blank=True, null=True)
+    nationality = CharField(max_length=255, blank=True, null=True)
+    country_of_residence = CharField(max_length=255, blank=True, null=True)
+    highest_level_of_education = models.CharField(
+        max_length=255, blank=True, null=True)
+    type_of_visa = models.CharField(max_length=255, blank=True, null=True)
     linkedin_url = models.URLField(max_length=255)
-    mode_of_contact = models.CharField(max_length=255)
+    mode_of_contact = models.CharField(max_length=255, blank=True, null=True)
 
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
     def get_full_name(self):
         return self.username
@@ -95,6 +98,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.username
 
     def __str__(self) -> str:
+        if self.is_superuser:
+            return 'ADMIN-ID-' + str(self.id).zfill(1)
         return 'ITL-ID-' + str(self.id).zfill(3)
 
     class Meta:
