@@ -37,7 +37,7 @@
               href="{% if request.path == '/accounts/change/email/' %}#!{% else %} {% url 'accounts:change_email' %}{% endif %}"><i
                 class="fa-solid fa-gear"></i> Change
               Email</a></li>
-          <li><a class="waves-effect" href="#!"><i class="fa-solid fa-gear"></i> Change Password</a></li>
+          <li><a class="waves-effect" href="{% if request.path == '/accounts/change/email/' %}#!{% else %} {% url 'accounts:change_password' %}{% endif %}"><i class="fa-solid fa-gear"></i> Change Password</a></li>
         </ul>
       </div>
     </div>
