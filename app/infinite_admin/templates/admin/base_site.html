@@ -1,0 +1,24 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} |
+{{ site_title|default:_('Django site admin') }}{% endblock %}
+{% block extrastyle %}
+<link rel="stylesheet" href="{% static 'css/common/styles.css' %}" />
+<link rel="stylesheet" href="{% static 'css/common/materialize_custom.css' %}" />
+<link rel="stylesheet" href="{% static 'css/common/common.css' %}" />
+<link rel="stylesheet" href="{% static 'css/infinite_admin/admin.css' %}">
+{% endblock %}
+{% block branding %}
+<div class="d-flex">
+    <a class="navbar-brand" href="{% url 'index:index' %}">
+        <img src="{% static 'images/common/logo.png' %}" height="40" class="d-inline-block align-top" alt="PES logo">
+    </a>
+    <a href="{% url 'basic_admin:index' %}" class="btn btn-primary">BASIC ADMIN</a>
+</div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
+{% block admin_base_document_ready %}
+{{ block.super }}
+{% endblock %}
