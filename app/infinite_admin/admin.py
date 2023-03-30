@@ -11,7 +11,7 @@ class CustomAdmin(admin.AdminSite):
         custom_urls = [
             path('',
                  admin.site.admin_view(AdvancedAdminDashboardView.as_view()),
-                 name='advanced_index'),
+                 name='basic_index'),
             path('logging/',
                  admin.site.admin_view(LoggingView.as_view()),
                  name='logging'),
@@ -22,4 +22,4 @@ class CustomAdmin(admin.AdminSite):
         return custom_urls
 
 
-custom_admin_site = CustomAdmin(name='admin_advanced')
+custom_admin_site = CustomAdmin(name='basic_admin')
