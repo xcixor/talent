@@ -16,7 +16,6 @@ def upload_file_to_gcp(file_name, file_path, location, content_type='text/plain'
     headers = {'content-type': content_type}
     files = {file_name: open(file_path, 'rb')}
     response = requests.put(url, headers=headers, files=files)
-    print()
     return {'status': response.status_code, 'message': response.text}
 
 
@@ -58,4 +57,4 @@ class CloudBackupView(View):
                 f'status: {status}, Something went wrong. {message}')
             messages.add_message(
                 self.request, messages.ERROR, error_message)
-        return redirect(reverse('admin_advanced:logging'))
+        return redirect(reverse('basic_admin:logging'))
