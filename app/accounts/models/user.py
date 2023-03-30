@@ -57,6 +57,13 @@ def image_directory_path(instance, filename):
 
 class User(AbstractBaseUser, PermissionsMixin):
 
+    USER_TYPES = (
+        ('ADMIN', 'Admin'),
+        ('STAFF', 'Staff'),
+        ('EMPLOYER', 'Employer'),
+        ('JOB_SEEKER', 'Job Seeker')
+    )
+
     username = models.CharField(
         max_length=40, unique=True, blank=True, null=True)
     email = models.EmailField(
@@ -85,11 +92,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     type_of_visa = models.CharField(max_length=255, blank=True, null=True)
     linkedin_url = models.URLField(max_length=255)
     mode_of_contact = models.CharField(max_length=255, blank=True, null=True)
-
+    type_of_user = models.CharField(max_length=255, choices=USER_TYPES)
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', 'last_name']
+    REQUIRED_FIELDS = ['first_name', 'last_name', 'type_of_user']
 
     def get_full_name(self):
         return self.username
