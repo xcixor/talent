@@ -1,0 +1,29 @@
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-brand {
+    margin-right: 10px;
+
+}
+.d-flex a:hover {
+    color: #C8C8C8 !important;
+}
+
+#header {
+    background-color: var(--color-primary-light-10);
+    color: var(--color-secondary);
+}
+
+a.link {
+    color: var(--color-secondary-2);
+}
+
+#header a:link, #header a:visited, #logout-form button {
+    color: var(--color-secondary-light-5);
+}
+
+.module h2, .module caption, .inline-group h2, div.breadcrumbs {
+    background: var(--color-primary-light-4);
+}
