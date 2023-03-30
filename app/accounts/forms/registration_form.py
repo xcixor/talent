@@ -172,7 +172,7 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
         data = request.session.pop('registration_details', None)
         if data:
             self.fields['preferred_country'].choice = data['preferred_country']
-            self.fields['gender'].choice = str(data['gender'])
+            self.fields['gender'].initial = str(data['gender'])
             self.fields['service_type'].choice = data['service_type']
             self.fields['country_of_residence'].choice = data['country_of_residence']
             self.fields['nationality'].choice = data['nationality']
