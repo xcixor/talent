@@ -48,7 +48,7 @@
 				<ul class="sidenav" id="mobile-menu">
 					{% if user.is_authenticated %}
 					{% else %}
-					<li><a class="text-color-secondary" href="{% url 'accounts:registration' %}">Signup</a></li>
+					<li><a class="text-color-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 					{% endif %}
 				</ul>
 
@@ -71,7 +71,7 @@
 							<li><a class="dropdown-trigger text-color-secondary" href="#!" data-target="dropdown">Hi,
 									{{user}}<i class="material-icons right">arrow_drop_down</i></a></li>
 							{% else %}
-							<li><a class="text-color-secondary" href="{% url 'accounts:registration' %}">Signup</a></li>
+							<li><a class="text-color-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 							{% endif %}
 						</ul>
 					</div>
