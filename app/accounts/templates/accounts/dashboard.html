@@ -19,14 +19,14 @@
                             <p><b>Last Name:</b> {{user.last_name}}</p>
                             <p><b>Email:</b> {{user.email}}</p>
                             <p><b>Gender:</b> {{user.gender}}</p>
-                            <p><b>Country:</b> +{{user.country_code}}</p>
+                            <p><b>Country Code:</b> +{{user.country_code}}</p>
                             <p><b>Phone Number:</b> {{user.phone_number}}</p>
                             <p><b>Service Type:</b> {{user.service_type}}</p>
                             <p><b>Preferred Country:</b> {{user.preferred_country}}</p>
 
                         </div>
                         <div class="card-action">
-                            <a href="#">Edit Personal Information</a>
+                            <a href="{% url 'accounts:update_personal_info' pk=request.user.pk %}">Edit Personal Information</a>
                         </div>
                     </div>
                 </div>

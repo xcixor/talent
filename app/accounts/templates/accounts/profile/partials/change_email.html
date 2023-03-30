@@ -1,5 +1,5 @@
 {% load static %}
-<form action="{% url 'accounts:change_email' %}" method="post" class="auth-form"
+<form action="{% url 'accounts:change_email' %}" method="post" class="update-form"
     hx-post="{% url 'accounts:change_email' %}" hx-swap="innerHTML" hx-target="#htmx-parent" hx-indicator="#spinner">
     {% csrf_token %}
     <div class="row">
