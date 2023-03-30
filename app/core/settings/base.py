@@ -66,7 +66,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [str(BASE_DIR)[:-4] + '/infinite_admin/' + 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
