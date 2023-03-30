@@ -238,7 +238,7 @@ class RegistrationForm(forms.ModelForm, HtmlEmailMixin):
         }
         return super().send_email(
             subject, None, from_email, [to_email],
-            template='registration/email/account_activation.html',
+            template='accounts/registration/email/account_created.html',
             context=context)
 
     def notify_admin(self, user):
