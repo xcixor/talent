@@ -27,7 +27,7 @@ class PostRegistrationView(FormView):
         self.request.session.pop('registration_details', None)
         new_user = form.save()
         if not settings.DEBUG:
-            form.send_account_activation_email(new_user, self.request)
+            form.send_account_creation_notification(new_user, self.request)
         login(self.request, new_user)
         success_message = _("Registration successful!")
         messages.add_message(

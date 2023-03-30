@@ -224,13 +224,13 @@ class RegistrationForm(forms.ModelForm, HtmlEmailMixin):
                 _("Please make sure your passwords match."))
         return password2
 
-    def send_account_activation_email(self, user, request):
+    def send_account_creation_notification(self, user, request):
         to_email = user.email
         subject = _("Account Creation Successful!")
         from_email = settings.VERIFIED_EMAIL_USER
         current_site = get_current_site(request)
         context = {
-            "username": user.username,
+            "first_name": user.first_name,
             "email": user.email,
             'domain': current_site.domain,
             "protocol": request.scheme,
