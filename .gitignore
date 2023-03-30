@@ -9,3 +9,5 @@
 notes.txt
 keys
 *.log*
+bfg.jar
+.env
