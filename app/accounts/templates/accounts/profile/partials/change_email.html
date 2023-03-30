@@ -1,0 +1,35 @@
+{% load static %}
+<form action="{% url 'accounts:change_email' %}" method="post" class="auth-form"
+    hx-post="{% url 'accounts:change_email' %}" hx-swap="innerHTML" hx-target="#htmx-parent" hx-indicator="#spinner">
+    {% csrf_token %}
+    <div class="row">
+        <div class="input-field col s12">
+            <input required id="new_email1" type="email" class="validate" name="new_email1" autofocus>
+            <label for="new_email1">Email</label>
+            <div class="error-container">
+                {% for error in form.new_email1.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <input required id="new_email2" type="email" class="validate" name="new_email2" autofocus>
+            <label for="new_email2">Confirm Email</label>
+            <div class="error-container">
+                {% for error in form.new_email2.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <button type="submit" class="btn btn-primary">Change</button>
+        </div>
+    </div>
+</form>
+<div class="htmx-indicator" id="spinner">
+    <img src="{% static 'images/common/bars.svg' %}" height="80" width="80" alt="loader" />
+</div>
