@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="{% static 'css/common/styles.css' %}">
 <link rel="stylesheet" href="{% static 'css/common/layout.css' %}">
 <link rel="stylesheet" href="{% static 'css/accounts/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/common.css' %}">
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -23,19 +24,28 @@
               </span>
             </div>
           </li>
-          <li><a class="waves-effect" href="#!"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+          <li><a class="waves-effect"
+              href="{% if request.path == '/accounts/dashboard/' %}#!{% else %} {% url 'accounts:dashboard' %}{% endif %}"><i
+                class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Dashboard</a></li>
+          <li><a class="waves-effect" href="#!"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+          </li>
           <li>
             <div class="divider"></div>
           </li>
           <li><a class="subheader">Personal</a></li>
-          <li><a class="waves-effect" href="#!"><i class="fa-solid fa-gear"></i> Change Email</a></li>
+          <li><a class="waves-effect"
+              href="{% if request.path == '/accounts/change/email/' %}#!{% else %} {% url 'accounts:change_email' %}{% endif %}"><i
+                class="fa-solid fa-gear"></i> Change
+              Email</a></li>
           <li><a class="waves-effect" href="#!"><i class="fa-solid fa-gear"></i> Change Password</a></li>
         </ul>
       </div>
     </div>
     <div class="col s8">
-      {% block account_content %}
-      {% endblock %}
+      <div class="wrapper">
+        {% block account_content %}
+        {% endblock %}
+      </div>
     </div>
   </div>
 </div>
