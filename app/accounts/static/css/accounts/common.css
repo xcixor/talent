@@ -38,3 +38,17 @@
     align-items: center;
 
 }
+
+.form-title {
+    font-weight: 600;
+    margin: 0;
+    border-bottom: solid 0.02em var(--color-primary);
+    padding-bottom: 5px;
+}
+.form-container {
+  padding: 20px;
+}
+
+.form-wrapper {
+    margin-top: 50px;
+}
