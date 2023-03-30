@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  talent:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - 8000:8000
+    environment:
+      SECRET_KEY: 'secret-key'
+      DJANGO_SETTINGS_MODULE: core.settings.production
+      PORT: 8000
+    env_file:
+      - .env

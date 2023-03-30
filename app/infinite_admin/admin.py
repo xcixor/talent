@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib import admin
 from infinite_admin.presentation.views import (
-    AdvancedAdminDashboardView)
+    AdvancedAdminDashboardView, LoggingView, CloudBackupView)
 
 
 class CustomAdmin(admin.AdminSite):
@@ -12,6 +12,12 @@ class CustomAdmin(admin.AdminSite):
             path('',
                  admin.site.admin_view(AdvancedAdminDashboardView.as_view()),
                  name='advanced_index'),
+            path('logging/',
+                 admin.site.admin_view(LoggingView.as_view()),
+                 name='logging'),
+            path('logging/backup/',
+                 admin.site.admin_view(CloudBackupView.as_view()),
+                 name='backup_logs'),
         ] + urls
         return custom_urls
 
