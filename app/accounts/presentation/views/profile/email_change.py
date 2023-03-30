@@ -1,8 +1,7 @@
 from django.views.generic import FormView
 from django.contrib.auth import logout
 from django.contrib import messages
-from django.urls import reverse
-from django.shortcuts import redirect
+from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django_htmx.http import HttpResponseClientRedirect
@@ -14,7 +13,7 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
     template_name = 'accounts/profile/change_email.html'
     partial_template_name = 'accounts/profile/partials/change_email.html'
     form_class = EmailChangeForm
-    success_url = ''
+    success_url = reverse_lazy("accounts:login")
 
     def get_form_kwargs(self):
         """Return the keyword arguments for instantiating the form."""
@@ -41,6 +40,4 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
         print(form.errors.as_data())
         return super().form_invalid(form)
 
-    def get_success_url(self) -> str:
-        url = reverse('accounts:login')
-        return url
+
