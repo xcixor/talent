@@ -23,6 +23,8 @@ help:
 ## create container for development
 dev:
 	docker-compose up --build --force-recreate --remove-orphans --detach
+prod:
+	docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans
 
 ## remove container
 tear-dev:
