@@ -4,7 +4,7 @@ from django.contrib.auth.views import (
     LogoutView, PasswordChangeView)
 from accounts.presentation.views import (
     RegistrationView, LoginView, reset_passwordView,
-    DashboardView, ChangeEmailView)
+    DashboardView, ChangeEmailView, UpdatePersonalInfoView)
 
 
 app_name = 'accounts'
@@ -20,4 +20,6 @@ urlpatterns = [
         template_name='accounts/profile/change_password.html',
         success_url=reverse_lazy('accounts:login')),
         name='change_password'),
+    path('change/<int:pk>/personal/info/', UpdatePersonalInfoView.as_view(),
+         name='update_personal_info'),
 ]
