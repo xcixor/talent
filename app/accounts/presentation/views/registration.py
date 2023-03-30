@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic import TemplateView, FormView
-from accounts.forms import RegistrationForm
+from accounts.forms import JobSeekerRegistrationForm
 
 
 class GetRegistrationView(TemplateView):
@@ -13,13 +13,13 @@ class GetRegistrationView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = RegistrationForm(self.request)
+        context['form'] = JobSeekerRegistrationForm(self.request)
         return context
 
 
 class PostRegistrationView(FormView):
 
-    form_class = RegistrationForm
+    form_class = JobSeekerRegistrationForm
     template_name = 'accounts/registration/registration.html'
     success_url = '/accounts/dashboard/'
 

@@ -6,3 +6,7 @@
 .card a:hover {
   color: var(--color-secondary-2) !important;
 }
+
+.user-view-container {
+  margin-bottom: 10px;
+}
