@@ -1,29 +1,12 @@
 import operator
-from django.contrib.auth import get_user_model
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from common.email import HtmlEmailMixin
+from django.conf import settings
 from phone_iso3166.country import country_prefixes
 import flag
 import pycountry
 from accounts.models import User
-
-
-GENDER_CHOICES = (
-    ('', 'Choose your Gender'),
-    ('Male', 'Male'),
-    ('Female', 'Female'),
-    ('I would rather not say', 'I would rather not say'),
-)
-
-SERVICE_TYPES = (
-    ('', 'Select Service Type'),
-    ('Sales and Marketing', 'Sales and Marketing'),
-    ('Power Plant', 'Power Plant'),
-    ('Agricultural', 'Agricultural'),
-    ('Automotive', 'Automotive'),
-    ('Food', 'Food')
-)
+from common.email import HtmlEmailMixin
 
 LEVEL_OF_EDUCATION = (
     ('', 'Select Highest Level of Education'),
@@ -40,13 +23,6 @@ TYPE_OF_VISA = (
     ('Tourist Visa', 'Tourist Visa'),
     ('Family Visa', 'Family Visa'),
     ('General Visa', 'General Visa'),
-)
-
-MODE_OF_CONTACT = (
-    ('', 'Select Mode of Contact'),
-    ('Email', 'Email'),
-    ('Whatsapp', 'Whatsapp'),
-    ('Call', 'Call')
 )
 
 
@@ -80,60 +56,57 @@ def get_countries(placeholder):
     return countries
 
 
-class UpdatePersonalInfoForm(forms.ModelForm, HtmlEmailMixin):
+class UpdateBasicInfoForm(forms.ModelForm, HtmlEmailMixin):
 
-    country_code = forms.ChoiceField(
-        choices=get_phone_codes(),
-        label=_("Country Code"),
+    nationality = forms.ChoiceField(
+        choices=get_countries("Nationality"),
+        label=_("Nationality"),
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
-    preferred_country = forms.ChoiceField(
-        choices=get_countries("Preferred Country"),
-        label=_("Preferred Country"),
+    country_of_residence = forms.ChoiceField(
+        choices=get_countries("Country of residence"),
+        label=_("Where do you currently reside"),
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
-    gender = forms.ChoiceField(
-        choices=GENDER_CHOICES,
-        label=_("Gender"),
+    highest_level_of_education = forms.ChoiceField(
+        choices=LEVEL_OF_EDUCATION,
+        label=_("Highest Level of Education"),
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
-    service_type = forms.ChoiceField(
-        choices=SERVICE_TYPES,
-        label=_("Service Type"),
+    type_of_visa = forms.ChoiceField(
+        choices=TYPE_OF_VISA,
+        label=_("Your current type of Visa"),
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
-    first_name = forms.CharField(widget=forms.TextInput(
+    years_of_work = forms.IntegerField(widget=forms.NumberInput(
         attrs={
             'class': 'validate'}), required=True)
-    last_name = forms.CharField(widget=forms.TextInput(
+    date_of_birth = forms.DateField(widget=forms.TextInput(
         attrs={
-            'class': 'validate'}), required=True)
-    phone_number = forms.IntegerField(widget=forms.NumberInput(
-        attrs={
-            'class': 'validate'}), required=True)
+            'class': 'datepicker'}), required=True, input_formats=settings.DATE_INPUT_FORMATS)
 
     class Meta:
         model = User
         fields = [
-            'first_name', 'last_name', 'gender',
-            'country_code', 'phone_number', 'service_type',
-            'preferred_country']
+            'nationality', 'country_of_residence', 'date_of_birth',
+            'highest_level_of_education', 'years_of_work', 'type_of_visa']
 
     def __init__(self, request, *args, **kwargs):
-        super(UpdatePersonalInfoForm, self).__init__(*args, **kwargs)
+        super(UpdateBasicInfoForm, self).__init__(*args, **kwargs)
         user = request.user
-        self.fields['first_name'].initial = user.first_name
-        self.fields['last_name'].initial = user.last_name
-        self.fields['country_code'].initial = user.country_code
-        self.fields['gender'].initial = user.gender
-        self.fields['service_type'].initial = user.service_type
-        self.fields['preferred_country'].initial = user.preferred_country
-        self.fields['country_code'].initial = user.country_code
+        self.fields['nationality'].initial = user.nationality
+        self.fields['country_of_residence'].initial = user.country_of_residence
+        self.fields['date_of_birth'].initial = user.date_of_birth.strftime(
+            "% m/%d/%Y")
+
+        self.fields['highest_level_of_education'].initial = user.highest_level_of_education
+        self.fields['years_of_work'].initial = user.years_of_work
+        self.fields['type_of_visa'].initial = user.type_of_visa

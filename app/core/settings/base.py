@@ -142,7 +142,7 @@ else:
     RECAPTCHA_PRIVATE_KEY = os.getenv('RECAPTCHA_PRIVATE_KEY')
 
 ADMIN_EMAILS = os.getenv('ADMIN_EMAILS').split(",")
-
+DATE_INPUT_FORMATS = ['%m/%d/%Y']
 # email creds
 EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST = 'smtp.sendgrid.net'
