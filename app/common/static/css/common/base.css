@@ -14,9 +14,13 @@ nav {
 
 nav .brand-logo {
     position: relative;
-    /* line-height: 64px; */
 }
 
 .brand-logo {
     display: unset;
+}
+
+#closeMessagesIcon{
+    cursor: pointer;
+    transform: scale(1.3);
 }
