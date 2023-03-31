@@ -1,8 +1,10 @@
 import re
+from datetime import datetime
 import operator
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django import forms
+from django.conf import settings
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.sites.shortcuts import get_current_site
@@ -157,6 +159,11 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
+    date_of_birth = forms.DateField(widget=forms.TextInput(
+        attrs={
+            'class': 'validate datepicker'}),
+            required=True,
+            input_formats=settings.DATE_INPUT_FORMATS)
 
     class Meta:
         model = User
@@ -185,7 +192,7 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
             self.fields['type_of_visa'].choice = data['type_of_visa']
             self.fields['mode_of_contact'].choice = data['mode_of_contact']
             self.fields['highest_level_of_education'].choice = data['highest_level_of_education']
-
+            self.fields['date_of_birth'].choice = data['date_of_birth'].strftime("%m/%d/%Y")
     def clean_password1(self):
         password = self.cleaned_data['password1']
         validate_password(password)
