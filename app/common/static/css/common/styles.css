@@ -11,12 +11,17 @@
     --color-secondary-light-5:#ee917c;
     --color-secondary-light-8:#f7c8bd;
     --color-secondary-light-10:#fcede9;
+    --color-alice-blue:#F0F8FF;
     --color-alice-light-3: #f3f9ff;
 
 }
 
 .alice-blue {
-    color: #F0F8FF;
+    color: var(--color-alice-blue);
+}
+
+.bg-alice-blue {
+    background-color: var(--color-alice-blue);
 }
 
 .text-color-primary {
@@ -43,7 +48,7 @@
     background-color: var(--color-primary-light-4) !important;
 }
 
-.alice-light-3{
+.bg-alice-light-3{
     background-color: var(--color-alice-light-3) !important;
 }
 
@@ -91,4 +96,8 @@ body::-webkit-scrollbar-thumb, .custom-scroll::-webkit-scrollbar-thumb {
     background-color: var(--thumbBG);
     border-radius: 6px;
     border: 3px solid var(--scrollbarBG);
+}
+
+.success {
+    color: #00bd7a;
 }

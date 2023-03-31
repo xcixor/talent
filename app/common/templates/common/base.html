@@ -81,19 +81,17 @@
 		{% endblock %}
 	</header>
 	{% block messages %} {% if messages %} {% for message in messages %}
-	<div class="alert-container d-flex align-items-center justify-content-center wrapper m-b-20 tr-ease-in-out">
+	<div class="alert-container w-100 d-flex align-items-center justify-content-center tr-ease-in-out bg-alice-blue my-1" id="messagesContainer">
 		<div
-			class="alert alert-{{ message.tags }} d-flex align-items-center justify-content-between jumbotron bg-secondary-lighten-6 p-50 rounded-10">
-			<p class="m-r-20">{{message}}</p>
-			<i class="fas fa-times-circle" id="closeMessagesContainer"></i>
+			class="{{ message.tags }} d-flex align-items-center justify-content-between jumbotron bg-secondary-lighten-6 p-50 rounded-10">
+			<p class="m-0 me-2">{{message}}</p>
+			<i class="fas fa-times-circle fa-primary" id="closeMessagesIcon"></i>
 		</div>
 	</div>
 	{% endfor%} {% endif %} {% endblock %}
 	<div class="content"> {% block content %} {% endblock %} </div>
 	{% block scripts %}
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-		crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 	<script src="{% static 'js/common/base.js' %}"></script>
 	<script src="{% static 'js/common/htmx.min.js' %}" defer></script>
