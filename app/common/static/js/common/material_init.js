@@ -5,13 +5,19 @@ function subtractYears(date, years) {
 
 $(document).ready(function(){
   const now = new Date();
-  const minDateOfBirth = subtractYears(now, 18);
+  const lastDatePossible = subtractYears(now, 60);
+  const minDateOfBirth = subtractYears((new Date()), 18);
+  console.log(lastDatePossible.getFullYear(), minDateOfBirth.getFullYear())
     $('.datepicker').datepicker({
-      defaultDate: minDateOfBirth,
-      setDefaultDate: true,
-      maxDate:minDateOfBirth
+      yearRange:[lastDatePossible.getFullYear(), minDateOfBirth.getFullYear()],
+      format:'mm/dd/yyyy',
+      setDefaultDate:true
     });
-    M.updateTextFields();
-    $('.sidenav').sidenav();
+  M.updateTextFields();
+  $('.sidenav').sidenav();
+
+
+  M.updateTextFields();
+  $('.sidenav').sidenav();
   });
 
