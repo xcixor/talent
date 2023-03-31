@@ -5,7 +5,7 @@ from django.contrib.auth.views import (
 from accounts.presentation.views import (
     RegistrationView, LoginView, reset_passwordView,
     DashboardView, ChangeEmailView, UpdatePersonalInfoView,
-    UpdateBasicInfoView)
+    UpdateBasicInfoView, UpdateResumeView)
 
 
 app_name = 'accounts'
@@ -25,4 +25,6 @@ urlpatterns = [
          name='update_personal_info'),
     path('change/<int:pk>/basic/info/', UpdateBasicInfoView.as_view(),
          name='update_basic_info'),
+    path('change/<int:pk>/resume/', UpdateResumeView.as_view(),
+         name='update_resume'),
 ]

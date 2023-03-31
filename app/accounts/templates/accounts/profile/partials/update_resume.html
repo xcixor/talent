@@ -1,0 +1,35 @@
+<form action="{% url 'accounts:update_resume' pk=request.user.pk %}" method="post" class="update-form"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col s12">
+            <a href="{{user.resume.url}}" target="_blank" class="link"><b>Current
+                    Resume <i class="fa-solid fa-link"></i></b></a>
+            <div class="input-field">
+                {{form.resume}}
+            </div>
+            <div class="error-container">
+                {% for error in form.resume.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            {{form.linkedin_url}}
+            <label for="linkedin_url">LinkedIn URL</label>
+            <div class="error-container">
+                {% for error in form.linkedin_url.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+
+</form>
