@@ -4,3 +4,4 @@ from .email_change import EmailChangeForm
 from .update_personal_info import UpdatePersonalInfoForm
 from .update_basic_info import UpdateBasicInfoForm
 from .update_resume import UpdateResumeForm
+from .update_mode_of_contact import UpdateModeOfContactForm

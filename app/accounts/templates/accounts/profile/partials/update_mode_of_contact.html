@@ -1,0 +1,20 @@
+<form action="{% url 'accounts:update_mode_of_contact' pk=request.user.pk %}" method="post" class="update-form"
+    enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col s12">
+            <label>Mode of Contact</label>
+            {{form.mode_of_contact}}
+            <div class="error-container">
+                {% for error in form.mode_of_contact.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+</form>
