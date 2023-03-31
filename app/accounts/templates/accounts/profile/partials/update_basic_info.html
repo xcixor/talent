@@ -1,0 +1,75 @@
+<form action="{% url 'accounts:update_basic_info' pk=request.user.pk %}" method="post" class="update-form">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="input-row col s6">
+            <label>Nationality</label>
+            {{form.nationality}}
+            <div class="error-container">
+                {% for error in form.nationality.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="input-row col s6">
+            <label>Where do you currently reside</label>
+            {{form.country_of_residence}}
+            <div class="error-container">
+                {% for error in form.country_of_residence.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row col s12">
+            <label for="date_of_birth">Date of Birth</label>
+            <!-- <input id="date_of_birth" name="date_of_birth" type="text" class="datepicker"
+                value="{{request.session.registration_details.date_of_birth}}"> -->
+                {{form.date_of_birth}}
+            <div class="error-container">
+                {% for error in form.date_of_birth.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row col s12">
+            <label>Highest Level of Education</label>
+            {{form.highest_level_of_education}}
+            <div class="error-container">
+                {% for error in form.highest_level_of_education.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <label for="id_years_of_work">Years of work Experience</label>
+            {{form.years_of_work}}
+            <div class="error-container">
+                {% for error in form.years_of_work.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row col s12">
+            <label>Your current type of Visa</label>
+            {{form.type_of_visa}}
+            <div class="error-container">
+                {% for error in form.type_of_visa.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+</form>

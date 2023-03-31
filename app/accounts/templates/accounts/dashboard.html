@@ -46,7 +46,7 @@
 
                         </div>
                         <div class="card-action">
-                            <a href="#">Edit Basic Information</a>
+                            <a href="{% url 'accounts:update_basic_info' pk=request.user.pk %}">Edit Basic Information</a>
                         </div>
                     </div>
                 </div>
