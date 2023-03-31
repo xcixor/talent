@@ -26,7 +26,8 @@
 
                         </div>
                         <div class="card-action">
-                            <a href="{% url 'accounts:update_personal_info' pk=request.user.pk %}">Edit Personal Information</a>
+                            <a href="{% url 'accounts:update_personal_info' pk=request.user.pk %}">Edit Personal
+                                Information</a>
                         </div>
                     </div>
                 </div>
@@ -46,7 +47,8 @@
 
                         </div>
                         <div class="card-action">
-                            <a href="{% url 'accounts:update_basic_info' pk=request.user.pk %}">Edit Basic Information</a>
+                            <a href="{% url 'accounts:update_basic_info' pk=request.user.pk %}">Edit Basic
+                                Information</a>
                         </div>
                     </div>
                 </div>
@@ -63,7 +65,7 @@
 
                         </div>
                         <div class="card-action">
-                            <a href="#">Edit Resume</a>
+                            <a href="{% url 'accounts:update_resume' pk=request.user.pk %}">Edit Resume</a>
                         </div>
                     </div>
                 </div>

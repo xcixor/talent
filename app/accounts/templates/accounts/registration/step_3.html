@@ -6,14 +6,14 @@
                     <div class="btn">
                         <span>Upload your Resume</span>
                         <input type="file" name="resume" accept=".pdf" required>
-                        <div class="error-container">
-                            {% for error in form.resume.errors %}
-                            <p class="error e">{{ error|escape }}</p>
-                            {% endfor %}
-                        </div>
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text" name="resume_path">
+                    </div>
+                    <div class="error-container">
+                        {% for error in form.resume.errors %}
+                        <p class="error e">{{ error|escape }}</p>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
