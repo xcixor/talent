@@ -1,8 +1,6 @@
 import operator
-from django.contrib.auth import get_user_model
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from common.email import HtmlEmailMixin
 from phone_iso3166.country import country_prefixes
 import flag
 import pycountry
@@ -80,7 +78,7 @@ def get_countries(placeholder):
     return countries
 
 
-class UpdatePersonalInfoForm(forms.ModelForm, HtmlEmailMixin):
+class UpdatePersonalInfoForm(forms.ModelForm):
 
     country_code = forms.ChoiceField(
         choices=get_phone_codes(),

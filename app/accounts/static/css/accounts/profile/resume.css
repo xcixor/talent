@@ -1,0 +1,14 @@
+input[type="file"]::file-selector-button {
+	border: none;
+	background-color: #26a69a;
+	color: white;
+	font-size: 14px;
+	height: 36px;
+	line-height: 36px;
+	padding: 0 16px;
+	cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+	background-color: var(--color-secondary);
+}

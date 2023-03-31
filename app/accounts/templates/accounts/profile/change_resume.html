@@ -1,0 +1,20 @@
+{% extends 'accounts/common/accounts_base.html' %}
+{% block title %}Change Email{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/common/inputs.css' %}" />
+<link rel="stylesheet" href="{% static 'css/accounts/profile/common.css' %}" />
+<link rel="stylesheet" href="{% static 'css/accounts/profile/resume.css' %}" />
+
+{% endblock %}
+{% block account_content %}
+<div class="soft-shadow form-container">
+    <h4 class="form-title">Change Email</h4>
+    <div class="form-wrapper">
+        <div id="htmx-parent" class="htmx-parent">
+            {% include 'accounts/profile/partials/update_resume.html' %}
+        </div>
+    </div>
+</div>
+{% endblock %}
