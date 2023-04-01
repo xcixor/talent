@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row" style="margin-top: 20px;">
-            <div class="col s4">
+            <div class="col s6 m4">
                 <div style="margin-top: -8px;">
                     <label>Country Code</label>
                     {{form.country_code}}
@@ -45,7 +45,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col s8 ">
+            <div class="col s6 m8">
                 <div class="input-field">
                     <input required id="phone_number" type="number" class="validate" name="phone_number"
                         value="{{request.session.registration_details.phone_number}}">

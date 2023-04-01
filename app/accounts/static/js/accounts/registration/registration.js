@@ -126,19 +126,23 @@ function validateStep(step) {
 				setInputError(input.name);
 				disableNavigationButtons(step);
 				isValid = false;
-			} else if (
-				name &&
-				isValid &&
-				$(`input[name*=${name}]`).attr("type") === "url"
-			) {
-				const isValidURL = validateIsURL(value);
-				if (!isValidURL) {
-					setInputError(input.name);
-					isValid = false;
-					disableNavigationButtons(step);
-					$(`label[for="${name}"]`).text("Please provide a valid url.");
-					$(`label[for="${name}"]`).css("color", "#f44336");
-				}
+			}
+			// else if (
+			// 	name &&
+			// 	isValid &&
+			// 	$(`input[name*=${name}]`).attr("type") === "url"
+			// ) {
+			// 	const isValidURL = validateIsURL(value);
+			// 	if (!isValidURL) {
+			// 		setInputError(input.name);
+			// 		isValid = false;
+			// 		disableNavigationButtons(step);
+			// 		$(`label[for="${name}"]`).text("Please provide a valid url.");
+			// 		$(`label[for="${name}"]`).css("color", "#f44336");
+			// 	}
+			// }
+			if (!isValid && $(`input[name*=${name}]`).attr("type") === "url") {
+				isValid = true;
 			}
 		});
 	});
