@@ -117,3 +117,7 @@ input.form-check-input {
 .tr-ease-in-out {
     transition: all .2s ease-in-out;
 }
+
+@media screen and ( max-width: 600px ){
+ 
+}

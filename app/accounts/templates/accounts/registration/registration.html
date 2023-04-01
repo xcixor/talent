@@ -11,8 +11,8 @@
 
 <section class="px-5 h-100">
   <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col s4 h-100 d-flex flex-column justify-content-center align-items-center">
+    <div class="row h-100">
+      <div class="col s12 m4 h-100 d-flex flex-column justify-content-center align-items-center">
 
         <div class="text-center">
           <h5>Job Seeker Registration Form</h5>
@@ -27,10 +27,10 @@
           <i class="fa-solid fa-file-circle-check fa-5x fa-primary"></i>
         </div>
       </div>
-      <div class="col s8 h-100">
+      <div class="col s12 m8 h-100">
 
         <section class="form-section w-100 d-flex flex-column align-items-stretch justify-content-center">
-          <div class="soft-shadow" style="padding:0px 20px; margin-bottom: 5px;">
+          <div class="soft-shadow form-wrapper">
             {% if form.errors %}
             <p class="error"><strong>{% trans "Please correct the errors in the form below." %}</strong></p>
             {% endif %}
