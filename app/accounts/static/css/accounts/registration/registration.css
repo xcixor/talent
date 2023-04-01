@@ -70,3 +70,20 @@ button.submit-btn {
 button:disabled {
 	background: #a0a0a0;
 }
+
+.form-wrapper {
+	padding: 0px 20px;
+	margin-bottom: 5px;
+}
+
+@media screen and ( max-width: 600px ){
+    .form-wrapper {
+		padding: 0px 10px;
+	}
+	.form-section{
+		padding: 10px 20px;
+	}
+	   .h-100 {
+        height: auto;
+    }
+}
