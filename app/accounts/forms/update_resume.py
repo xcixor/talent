@@ -4,9 +4,7 @@ from accounts.models import User
 
 class UpdateResumeForm(forms.ModelForm):
 
-    linkedin_url = forms.URLField(widget=forms.URLInput(
-        attrs={
-            'class': 'validate'}), required=True)
+    linkedin_url = forms.URLField(widget=forms.URLInput(), required=False)
     resume = forms.FileField(widget=forms.ClearableFileInput(
         attrs={
             'class': 'validate', 'accept': '.pdf'}), required=True)
