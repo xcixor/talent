@@ -164,6 +164,7 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
             'class': 'validate datepicker'}),
             required=True,
             input_formats=settings.DATE_INPUT_FORMATS)
+    linkedin_url = forms.URLField(widget=forms.URLInput(), required=False)
 
     class Meta:
         model = User
@@ -192,7 +193,7 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
             self.fields['type_of_visa'].choice = data['type_of_visa']
             self.fields['mode_of_contact'].choice = data['mode_of_contact']
             self.fields['highest_level_of_education'].choice = data['highest_level_of_education']
-            self.fields['date_of_birth'].choice = data['date_of_birth'].strftime("%m/%d/%Y")
+            # self.fields['date_of_birth'].choice = data['date_of_birth'].strftime("%m/%d/%Y")
     def clean_password1(self):
         password = self.cleaned_data['password1']
         validate_password(password)
