@@ -17,12 +17,15 @@
 }
 .step {
 	display: none;
+	flex: 1 0 auto;
 }
 .inputs {
 	flex: 1 0 auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	height: 100%;
+	flex-grow: 5;
 }
 .step.active-step {
 	display: flex;

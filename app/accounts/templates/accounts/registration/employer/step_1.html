@@ -1,0 +1,59 @@
+<div class="step step-1 active-step h-100">
+    <div class="inputs">
+        <div class="row">
+            <div class="input-field col s12">
+                <input required id="first_name" type="text" class="validate" name="first_name" autofocus
+                    value="{{request.session.registration_details.first_name}}">
+                <label for="first_name">First Name</label>
+                <div class="error-container">
+                    {% for error in form.first_name.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input required id="last_name" type="text" class="validate" name="last_name"
+                    value="{{request.session.registration_details.last_name}}">
+                <label for="last_name">Last Name</label>
+                <div class="error-container">
+                    {% for error in form.last_name.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s6 m4">
+                <div style="margin-top: -8px;">
+                    <label>Country Code</label>
+                    {{form.country_code}}
+                </div>
+                <div class="error-container">
+                    {% for error in form.country_code.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col s6 m8">
+                <div class="input-field">
+                    <input required id="phone_number" type="number" class="validate" name="phone_number"
+                        value="{{request.session.registration_details.phone_number}}">
+                    <label for="phone_number">Phone Number</label>
+                    <div class="error-container">
+                        {% for error in form.phone_number.errors %}
+                        <p class="error e">{{ error|escape }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="btns">
+        <button type="button" class="next-btn btn-navigate-form-step" disabled>Next</button>
+    </div>
+</div>
