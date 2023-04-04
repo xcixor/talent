@@ -3,8 +3,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth.views import (
     LogoutView, PasswordChangeView)
 from accounts.presentation.views import (
-    RegistrationView, LoginView, reset_passwordView,
-    DashboardView, ChangeEmailView, UpdatePersonalInfoView,
+    JobSeekerRegistrationView, EmployerRegistrationView, LoginView,
+    ResetPasswordView, DashboardView, ChangeEmailView, UpdatePersonalInfoView,
     UpdateBasicInfoView, UpdateResumeView, UpdateModeOfContactView)
 
 
@@ -13,9 +13,12 @@ app_name = 'accounts'
 urlpatterns = [
     path(
         'registration/job-seeker/',
-        RegistrationView.as_view(), name='job_seeker_registration'),
+        JobSeekerRegistrationView.as_view(), name='job_seeker_registration'),
+    path(
+        'registration/employer/',
+        EmployerRegistrationView.as_view(), name='employer_registration'),
     path('login/', LoginView.as_view(), name='login'),
-    path('reset_password/', reset_passwordView.as_view(), name='reset_password'),
+    path('reset_password/', ResetPasswordView.as_view(), name='reset_password'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('change/email/', ChangeEmailView.as_view(), name='change_email'),

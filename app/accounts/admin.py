@@ -1,4 +1,16 @@
 from django.contrib import admin
-from accounts.models import User
+from accounts.models import User, CompanyDetails
 
-admin.site.register(User)
+
+class CompanyDetailsInline(admin.TabularInline):
+
+    model = CompanyDetails
+    extra = 0
+
+
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    inlines = [CompanyDetailsInline]
+
+
+# admin.site.register(User, UserAdmin)

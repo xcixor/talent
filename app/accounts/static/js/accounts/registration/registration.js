@@ -20,7 +20,6 @@ function activateNavigationButtons() {
 
 	Array.from(navigationButtons).forEach((button) => {
 		if ($(button).attr("disabled")) {
-			console.log("clicked");
 			$(button).removeAttr("disabled");
 		}
 	});
@@ -36,7 +35,6 @@ prevBtn.forEach((button) => {
 		changeStep("prev");
 	});
 });
-
 
 function isEmptyOrSpaces(str) {
 	return str === null || str.match(/^ *$/) !== null;
@@ -80,7 +78,7 @@ function validatePassword(name, value, step) {
 				const msg =
 					"Please provide a strong password. The password should have a minimum of 8 characters, have at least one symbol, a number, and a combination of uppercase and lowercase characters.";
 				$("#password1Errors").addClass("invalid").text(msg);
-			}else{
+			} else {
 				isValid = true;
 				$("#password1Errors").removeClass("invalid").text("");
 			}
@@ -119,38 +117,38 @@ function validateStep(step) {
 		const { name, value } = input;
 		inputs.push({ name, value });
 		inputs.forEach((input) => {
-			if (name && $(`input[name*=${name}]`).attr("type") === "password") {
-				isValid = validatePassword(name, value, step);
+			if ($(`input[name*=${name}]`).prop("required")) {
+				if (name && $(`input[name*=${name}]`).attr("type") === "password") {
+					isValid = validatePassword(name, value, step);
+				}
+				if (isEmptyOrSpaces(input.value)) {
+					setInputError(input.name);
+					disableNavigationButtons(step);
+					isValid = false;
+				} else if (
+					name &&
+					isValid &&
+					$(`input[name*=${name}]`).attr("type") === "url"
+				) {
+					const isValidURL = validateIsURL(value);
+					if (!isValidURL) {
+						setInputError(input.name);
+						isValid = false;
+						disableNavigationButtons(step);
+						$(`label[for="${name}"]`).text("Please provide a valid url.");
+						$(`label[for="${name}"]`).css("color", "#f44336");
+					}
+				}
 			}
-			if (isEmptyOrSpaces(input.value)) {
-				setInputError(input.name);
-				disableNavigationButtons(step);
-				isValid = false;
-			}
-			// else if (
-			// 	name &&
-			// 	isValid &&
-			// 	$(`input[name*=${name}]`).attr("type") === "url"
-			// ) {
-			// 	const isValidURL = validateIsURL(value);
-			// 	if (!isValidURL) {
-			// 		setInputError(input.name);
-			// 		isValid = false;
-			// 		disableNavigationButtons(step);
-			// 		$(`label[for="${name}"]`).text("Please provide a valid url.");
-			// 		$(`label[for="${name}"]`).css("color", "#f44336");
-			// 	}
+			// if (!isValid && $(`input[name*=${name}]`).attr("type") === "url") {
+			// 	isValid = true;
 			// }
-			if (!isValid && $(`input[name*=${name}]`).attr("type") === "url") {
-				isValid = true;
-			}
 		});
 	});
 	step.querySelectorAll("select").forEach((input) => {
 		const inputs = [];
 		const { name, value } = input;
 		inputs.push({ name, value });
-		console.log(inputs);
 		inputs.forEach((input) => {
 			if (isEmptyOrSpaces(input.value)) {
 				setSelectError(input.name);

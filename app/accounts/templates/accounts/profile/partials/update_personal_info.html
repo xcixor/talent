@@ -20,6 +20,7 @@
             </div>
         </div>
     </div>
+    {% if request.user.type_of_user == 'JOB_SEEKER' %}
     <div class="row">
         <div class="input-row col s12">
             <label>Gender</label>
@@ -31,6 +32,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <div class="row" style="margin-top: 20px;">
         <div class="col s4">
             <div style="margin-top: -8px;">
@@ -56,6 +58,7 @@
 
         </div>
     </div>
+    {% if request.user.type_of_user == 'JOB_SEEKER' %}
     <div class="row">
         <div class="input-row col s12">
             <label>Service Type</label>
@@ -78,6 +81,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
     <div class="row">
         <div class="input-field input-row col s12">
             <button type="submit" class="btn btn-primary">Update</button>

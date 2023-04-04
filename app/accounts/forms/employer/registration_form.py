@@ -1,5 +1,4 @@
 import re
-from datetime import datetime
 import operator
 from django.utils import timezone
 from django.contrib.auth import get_user_model
@@ -9,54 +8,15 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.password_validation import validate_password
 from django.contrib.sites.shortcuts import get_current_site
 from django.conf import settings
-from captcha.fields import ReCaptchaField
-from common.email import HtmlEmailMixin
 from phone_iso3166.country import country_prefixes
 import flag
 import pycountry
+from captcha.fields import ReCaptchaField
+from common.email import HtmlEmailMixin
+from accounts.models import CompanyDetails
 
 
 User = get_user_model()
-
-GENDER_CHOICES = (
-    ('', 'Choose your Gender'),
-    ('Male', 'Male'),
-    ('Female', 'Female'),
-    ('I would rather not say', 'I would rather not say'),
-)
-
-SERVICE_TYPES = (
-    ('', 'Select Service Type'),
-    ('Sales and Marketing', 'Sales and Marketing'),
-    ('Power Plant', 'Power Plant'),
-    ('Agricultural', 'Agricultural'),
-    ('Automotive', 'Automotive'),
-    ('Food', 'Food')
-)
-
-LEVEL_OF_EDUCATION = (
-    ('', 'Select Highest Level of Education'),
-    ('High School', 'High School'),
-    ('Diploma', 'Diploma'),
-    ('Bachelors', 'Bachelors'),
-    ('Masters', 'Masters'),
-)
-
-TYPE_OF_VISA = (
-    ('', 'Select Type of Visa'),
-    ('Not Applicable', 'High School'),
-    ('Student Visa', 'Student Visa'),
-    ('Tourist Visa', 'Tourist Visa'),
-    ('Family Visa', 'Family Visa'),
-    ('General Visa', 'General Visa'),
-)
-
-MODE_OF_CONTACT = (
-    ('', 'Select Mode of Contact'),
-    ('Email', 'Email'),
-    ('Whatsapp', 'Whatsapp'),
-    ('Call', 'Call')
-)
 
 
 def get_phone_codes():
@@ -89,7 +49,7 @@ def get_countries(placeholder):
     return countries
 
 
-class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
+class EmployerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
 
     password1 = forms.CharField(widget=forms.PasswordInput)
     password2 = forms.CharField(widget=forms.PasswordInput)
@@ -102,98 +62,43 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
-    preferred_country = forms.ChoiceField(
-        choices=get_countries("Preferred Country"),
-        label=_("Preferred Country"),
+    country = forms.ChoiceField(
+        choices=get_countries("Country"),
+        label=_("Country"),
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
         required=True)
-    nationality = forms.ChoiceField(
-        choices=get_countries("Nationality"),
-        label=_("Nationality"),
-        widget=forms.Select(
+    company_name = forms.CharField(
+        label=_("Company Name *"),
+        widget=forms.TextInput(
             attrs={
-                'class': 'show_select browser-default'}),
-        required=True)
-    country_of_residence = forms.ChoiceField(
-        choices=get_countries("Country of residence"),
-        label=_("Where do you currently reside"),
-        widget=forms.Select(
+                'class': 'validate'}),)
+    tax_number = forms.IntegerField(
+        label='NIP (tax number) *',
+        widget=forms.NumberInput(
             attrs={
-                'class': 'show_select browser-default'}),
-        required=True)
-    gender = forms.ChoiceField(
-        choices=GENDER_CHOICES,
-        label=_("Gender"),
-        widget=forms.Select(
-            attrs={
-                'class': 'show_select browser-default'}),
-        required=True)
-    service_type = forms.ChoiceField(
-        choices=SERVICE_TYPES,
-        label=_("Service Type"),
-        widget=forms.Select(
-            attrs={
-                'class': 'show_select browser-default'}),
-        required=True)
-
-    highest_level_of_education = forms.ChoiceField(
-        choices=LEVEL_OF_EDUCATION,
-        label=_("Highest Level of Education"),
-        widget=forms.Select(
-            attrs={
-                'class': 'show_select browser-default'}),
-        required=True)
-    type_of_visa = forms.ChoiceField(
-        choices=TYPE_OF_VISA,
-        label=_("Your current type of Visa"),
-        widget=forms.Select(
-            attrs={
-                'class': 'show_select browser-default'}),
-        required=True)
-    mode_of_contact = forms.ChoiceField(
-        choices=MODE_OF_CONTACT,
-        label=_("How should we contact you"),
-        widget=forms.Select(
-            attrs={
-                'class': 'show_select browser-default'}),
-        required=True)
-    date_of_birth = forms.DateField(widget=forms.TextInput(
-        attrs={
-            'class': 'validate datepicker'}),
-            required=True,
-            input_formats=settings.DATE_INPUT_FORMATS)
-    linkedin_url = forms.URLField(widget=forms.URLInput(), required=False)
+                'class': 'validate'}),)
+    address_line_one = forms.CharField(required=False)
+    address_line_two = forms.CharField(required=False)
+    city = forms.CharField(required=False)
+    state = forms.CharField(required=False)
+    postal_code = forms.CharField(required=False)
 
     class Meta:
         model = User
         fields = [
-            'first_name', 'last_name', 'email', 'country_code',
-            'service_type', 'preferred_country', 'nationality',
-            'country_of_residence', 'date_of_birth', 'gender',
-            'highest_level_of_education', 'years_of_work', 'phone_number',
-            'type_of_visa', 'resume', 'linkedin_url', 'mode_of_contact']
+            'first_name', 'last_name', 'email', 'country_code', 'phone_number']
 
     def __init__(self, request, *args, **kwargs):
-        super(JobSeekerRegistrationForm, self).__init__(*args, **kwargs)
+        super(EmployerRegistrationForm, self).__init__(*args, **kwargs)
         data = request.session.pop('registration_details', None)
+        print(self.fields['phone_number'], "************")
         if data:
-            self.fields['preferred_country'].choice = data['preferred_country']
-            self.fields['gender'].initial = str(data['gender'])
-            self.fields['service_type'].choice = data['service_type']
-            self.fields['country_of_residence'].choice = data['country_of_residence']
-            self.fields['nationality'].choice = data['nationality']
-            self.fields['phone_number'].initial = data['phone_number']
-            self.fields['first_name'].initial = data['first_name']
-            self.fields['last_name'].initial = data['last_name']
-            self.fields['email'].initial = data['email']
-            self.fields['years_of_work'].initial = data['years_of_work']
-            self.fields['linkedin_url'].initial = data['linkedin_url']
-            self.fields['type_of_visa'].choice = data['type_of_visa']
-            self.fields['mode_of_contact'].choice = data['mode_of_contact']
-            self.fields['highest_level_of_education'].choice = data['highest_level_of_education']
-            # self.fields['date_of_birth'].choice = data['date_of_birth'].strftime("%m/%d/%Y")
+            self.fields['phone_number'].initial = data.get('phone_number', "")
+            self.fields['first_name'].initial = data.get('first_name', "")
+            self.fields['last_name'].initial = data.get('last_name', "")
+            self.fields['email'].initial = data.get('email', "")
 
     def clean_password1(self):
         password = self.cleaned_data['password1']
@@ -259,12 +164,27 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
             template='registration/email/admin/new_user.html',
             context=context)
 
+    def save_business_details(self, owner):
+        business = CompanyDetails.objects.create(
+            company_owner=owner,
+            company_name=self.cleaned_data['company_name'],
+            tax_number=self.cleaned_data['tax_number'],
+            address_line_one=self.cleaned_data['address_line_one'],
+            address_line_two=self.cleaned_data['address_line_two'],
+            city=self.cleaned_data['city'],
+            state=self.cleaned_data['state'],
+            postal_code=self.cleaned_data['postal_code'],
+            country=self.cleaned_data['country'],
+        )
+        business.save()
+
     def save(self, commit=True):
-        user = super(JobSeekerRegistrationForm, self).save(commit=False)
+        user = super(EmployerRegistrationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.is_active = True
-        user.type_of_user = 'JOB_SEEKER'
+        user.type_of_user = 'EMPLOYER'
         if commit:
             user.save()
+            self.save_business_details(user)
             # self.notify_admin(user)
         return user
