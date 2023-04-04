@@ -11,7 +11,9 @@ from accounts.presentation.views import (
 app_name = 'accounts'
 
 urlpatterns = [
-    path('registration/', RegistrationView.as_view(), name='registration'),
+    path(
+        'registration/job-seeker/',
+        RegistrationView.as_view(), name='job_seeker_registration'),
     path('login/', LoginView.as_view(), name='login'),
     path('reset_password/', reset_passwordView.as_view(), name='reset_password'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),
