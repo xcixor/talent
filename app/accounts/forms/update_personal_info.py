@@ -93,21 +93,21 @@ class UpdatePersonalInfoForm(forms.ModelForm):
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
-        required=True)
+        required=False)
     gender = forms.ChoiceField(
         choices=GENDER_CHOICES,
         label=_("Gender"),
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
-        required=True)
+        required=False)
     service_type = forms.ChoiceField(
         choices=SERVICE_TYPES,
         label=_("Service Type"),
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
-        required=True)
+        required=False)
     first_name = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'validate'}), required=True)
