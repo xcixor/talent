@@ -1,135 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		{% load static %}
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/x-icon"
+			href="{% static 'images/common/favicon.ico' %}"
+			style="border-radius: 10px"
+		/>
+		<title> Infinite Talent Limited | {% block title %} {% endblock %} </title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+			integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+		/>
+		<link
+			href="https://fonts.googleapis.com/icon?family=Material+Icons"
+			rel="stylesheet"
+		/>
+		{% block styles %}
+		<link rel="stylesheet" href="{% static 'css/common/styles.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/common/layout.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/common/common.css' %}" />
+		<link rel="stylesheet" href="{% static 'css/common/base.css' %}" />
+		{% endblock %}
+	</head>
 
-<head>
-	{% load static %}
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="icon" type="image/x-icon" href="{% static 'images/common/favicon.ico' %}" style="border-radius: 10px" />
-	<title> Infinite Talent Limited | {% block title %} {% endblock %} </title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-		rel="stylesheet" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-	{% block styles %}
-	<link rel="stylesheet" href="{% static 'css/common/styles.css' %}" />
-	<link rel="stylesheet" href="{% static 'css/common/layout.css' %}" />
-	<link rel="stylesheet" href="{% static 'css/common/common.css' %}" />
-	<link rel="stylesheet" href="{% static 'css/common/base.css' %}" />
-	{% endblock %}
-</head>
+	<body>
+		<header>
+			{% block header %}
+			<!-- Dropdown Structure -->
 
-<body>
-	<header>
-		{% block header %}
-		<!-- Dropdown Structure -->
-
-		<div class="container-fluid bg-primary-light-10 nav-container">
-			<div class="container">
-				<!-- Dropdown Structure -->
-				<ul id="dropdown" class="dropdown-content">
-					<li><a class="text-color-secondary" href="{% url 'accounts:dashboard' %}">Dashboard</a></li>
-					<li><a class="text-color-secondary" href="{% url 'accounts:logout' %}">Logout</a></li>
-					<li class="divider"></li>
-					<li><a class="text-color-secondary" href="#!">Another thing</a></li>
-				</ul>
-				<!-- Sidenav Structure -->
-				<ul class="sidenav" id="mobile-menu">
-					{% if user.is_authenticated %}
-					<div class="soft-shadow side-menu">
-						<ul>
-							<li class="user-view-container">
-								<div class="user-view">
-									<div class="background">
-										<i class="fa-solid fa-user fa-4x fa-secondary"></i>
+			<div class="container-fluid bg-primary-light-10 nav-container">
+				<div class="container">
+					<!-- Dropdown Structure -->
+					<ul id="dropdown" class="dropdown-content">
+						<li
+							><a
+								class="text-color-secondary"
+								href="{% url 'accounts:dashboard' %}"
+								>Dashboard</a
+							></li
+						>
+						<li
+							><a
+								class="text-color-secondary"
+								href="{% url 'accounts:logout' %}"
+								>Logout</a
+							></li
+						>
+						<li class="divider"></li>
+						<li><a class="text-color-secondary" href="#!">Another thing</a></li>
+					</ul>
+					<!-- Sidenav Structure -->
+					<ul class="sidenav" id="mobile-menu">
+						{% if user.is_authenticated %}
+						<div class="soft-shadow side-menu">
+							<ul>
+								<li class="user-view-container">
+									<div class="user-view">
+										<div class="background">
+											<i class="fa-solid fa-user fa-4x fa-secondary"></i>
+										</div>
+										<span class="name"
+											>{{user.first_name}} {{user.last_name}}</span
+										><br />
+										<span class="email">{{user.email}} </span>
 									</div>
-									<span class="name">{{user.first_name}} {{user.last_name}}</span><br>
-									<span class="email">{{user.email}}
-									</span>
-								</div>
-							</li>
-							<li><a class="waves-effect"
-									href="{% if request.path == '/accounts/dashboard/' %}#!{% else %} {% url 'accounts:dashboard' %}{% endif %}"><i
-										class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Dashboard</a></li>
-							<li><a class="waves-effect" href="#!"><i
-										class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
-							</li>
-							<li>
-								<div class="divider"></div>
-							</li>
-							<li><a class="subheader">Personal</a></li>
-							<li><a class="waves-effect"
-									href="{% if request.path == '/accounts/change/email/' %}#!{% else %} {% url 'accounts:change_email' %}{% endif %}"><i
-										class="fa-solid fa-gear"></i> Change
-									Email</a></li>
-							<li><a class="waves-effect"
-									href="{% if request.path == '/accounts/change-password/' %}#!{% else %} {% url 'accounts:change_password' %}{% endif %}"><i
-										class="fa-solid fa-gear"></i> Change Password</a></li>
-						</ul>
-					</div>
-					{% else %}
-					<li><a class="text-color-secondary" href="{% url 'accounts:login' %}">Login</a></li>
-					{% endif %}
-				</ul>
-
-				<nav>
-					<div class="nav-wrapper d-flex align-items-center justify-content-between">
-						<div class="d-flex align-items-center justify-content-between">
-							<div class="d-flex flex-column align-items-center justify-content-center">
-								<a href="/" class="brand-logo" style="height: 40px">
-									<img src="{% static 'images/common/logo.png' %}" alt="Logo" width="100"
-										height="40" />
-								</a>
-							</div>
-
-							<a href="#" data-target="mobile-menu" class="sidenav-trigger"><i
-									class="material-icons text-color-secondary">menu</i></a>
+								</li>
+								<li
+									><a
+										class="waves-effect"
+										href="{% if request.path == '/accounts/dashboard/' %}#!{% else %} {% url 'accounts:dashboard' %}{% endif %}"
+										><i
+											class="fa-sharp fa-solid fa-arrow-right-from-bracket"
+										></i>
+										Dashboard</a
+									></li
+								>
+								<li
+									><a class="waves-effect" href="#!"
+										><i
+											class="fa-sharp fa-solid fa-arrow-right-from-bracket"
+										></i>
+										Logout</a
+									>
+								</li>
+								<li>
+									<div class="divider"></div>
+								</li>
+								<li><a class="subheader">Personal</a></li>
+								<li
+									><a
+										class="waves-effect"
+										href="{% if request.path == '/accounts/change/email/' %}#!{% else %} {% url 'accounts:change_email' %}{% endif %}"
+										><i class="fa-solid fa-gear"></i> Change Email</a
+									></li
+								>
+								<li
+									><a
+										class="waves-effect"
+										href="{% if request.path == '/accounts/change-password/' %}#!{% else %} {% url 'accounts:change_password' %}{% endif %}"
+										><i class="fa-solid fa-gear"></i> Change Password</a
+									></li
+								>
+							</ul>
 						</div>
-						<ul class="right hide-on-med-and-down">
-							<!-- Dropdown Trigger -->
-							{% if user.is_authenticated %}
-							<li><a class="dropdown-trigger text-color-secondary" href="#!" data-target="dropdown">Hi,
-									{{user}}<i class="material-icons right">arrow_drop_down</i></a></li>
-							{% else %}
-							<li><a class="text-color-secondary" href="{% url 'accounts:login' %}">Login</a></li>
-							{% endif %}
-						</ul>
-					</div>
-				</nav>
+						{% else %}
+						<li><a class="text-color-secondary" href="{% url 'accounts:job_seeker_registration' %}">Send CV</a></li>
+						<li><a class="text-color-secondary" href="#">For Employers</a></li>
+						<li
+							><a class="text-color-secondary" href="{% url 'accounts:login' %}"
+								>Login</a
+							></li
+						>
+						{% endif %}
+					</ul>
+
+					<nav>
+						<div
+							class="nav-wrapper d-flex align-items-center justify-content-between"
+						>
+							<div class="d-flex align-items-center justify-content-between">
+								<div
+									class="d-flex flex-column align-items-center justify-content-center"
+								>
+									<a href="/" class="brand-logo" style="height: 40px">
+										<img
+											src="{% static 'images/common/logo.png' %}"
+											alt="Logo"
+											width="100"
+											height="40"
+										/>
+									</a>
+								</div>
+
+								<a href="#" data-target="mobile-menu" class="sidenav-trigger"
+									><i class="material-icons text-color-secondary">menu</i></a
+								>
+							</div>
+							<ul class="right hide-on-med-and-down">
+								<!-- Dropdown Trigger -->
+								{% if user.is_authenticated %}
+								<li
+									><a
+										class="dropdown-trigger text-color-secondary"
+										href="#!"
+										data-target="dropdown"
+										>Hi, {{user}}<i class="material-icons right"
+											>arrow_drop_down</i
+										></a
+									></li
+								>
+								{% else %}
+								<li><a class="text-color-secondary" href="{% url 'accounts:job_seeker_registration' %}">Send CV</a></li>
+								<li
+									><a class="text-color-secondary" href="#"
+										>For Employers</a
+									></li
+								>
+								<li
+									><a
+										class="text-color-secondary"
+										href="{% url 'accounts:login' %}"
+										>Login</a
+									></li
+								>
+								{% endif %}
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+			{% endblock %}
+		</header>
+		{% block messages %} {% if messages %} {% for message in messages %}
+		<div
+			class="alert-container w-100 d-flex align-items-center justify-content-center tr-ease-in-out bg-alice-blue my-1"
+			id="messagesContainer"
+		>
+			<div
+				class="{{ message.tags }} d-flex align-items-center justify-content-between jumbotron bg-secondary-lighten-6 p-50 rounded-10"
+			>
+				<p class="m-0 me-2">{{message}}</p>
+				<i class="fas fa-times-circle fa-primary" id="closeMessagesIcon"></i>
 			</div>
 		</div>
-		{% endblock %}
-	</header>
-	{% block messages %} {% if messages %} {% for message in messages %}
-	<div class="alert-container w-100 d-flex align-items-center justify-content-center tr-ease-in-out bg-alice-blue my-1"
-		id="messagesContainer">
-		<div
-			class="{{ message.tags }} d-flex align-items-center justify-content-between jumbotron bg-secondary-lighten-6 p-50 rounded-10">
-			<p class="m-0 me-2">{{message}}</p>
-			<i class="fas fa-times-circle fa-primary" id="closeMessagesIcon"></i>
-		</div>
-	</div>
-	{% endfor%} {% endif %} {% endblock %}
-	<div class="content"> {% block content %} {% endblock %} </div>
-	{% block scripts %}
-	<script src="https://code.jquery.com/jquery-3.6.4.min.js"
-		integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-	<script src="{% static 'js/common/base.js' %}"></script>
-	<script src="{% static 'js/common/htmx.min.js' %}" defer></script>
+		{% endfor%} {% endif %} {% endblock %}
+		<div class="content"> {% block content %} {% endblock %} </div>
+		{% block scripts %}
+		<script
+			src="https://code.jquery.com/jquery-3.6.4.min.js"
+			integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+		<script src="{% static 'js/common/base.js' %}"></script>
+		<script src="{% static 'js/common/htmx.min.js' %}" defer></script>
 
-	{% endblock %} {% include 'common/footer.html' %}
-</body>
-
+		{% endblock %} {% include 'common/footer.html' %}
+	</body>
 </html>
