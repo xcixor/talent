@@ -1,63 +1,60 @@
 {% extends 'common/base.html' %}
-{% block title %}Registration{% endblock %}
+{% block title %}Job Seeker Registration
+{% endblock %}
 {% load static %}
 {% load i18n %}
 {% block styles %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/accounts/registration/registration.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/registration/registration.css' %}" />
 <link rel="stylesheet" href="{% static 'css/common/inputs.css' %}" />
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 
 <section class="px-5 h-100">
-  <div class="container h-100">
-    <div class="row h-100">
-      <div class="col s12 m4 h-100 d-flex flex-column justify-content-center align-items-center">
-
-        <div class="text-center">
-          <h5>Job Seeker Registration Form</h5>
-          <p>
-            Do you want to build a career and life abroad? Our process is aimed at making your profile more accessible,
-            attractive,
-            and engaging for international employers. Join us today. Fill in the form to jump start your career.
-          </p>
-          <p>
-            If you already have an account, you can<a href="{% url 'accounts:login' %}"> login here</a>
-          </p>
-          <i class="fa-solid fa-file-circle-check fa-5x fa-primary"></i>
-        </div>
-      </div>
-      <div class="col s12 m8 h-100">
-
-        <section class="form-section w-100 d-flex flex-column align-items-stretch justify-content-center">
-          <div class="soft-shadow form-wrapper">
-            {% if form.errors %}
-            <p class="error"><strong>{% trans "Please correct the errors in the form below." %}</strong></p>
-            {% endif %}
-            {% for error in form.non_field_errors %}
-            <p class="error">{{ error|escape }}</p>
-            {% endfor %}
-          </div>
-          <div class="form-container w-100 flex-1 d-flex align-items-center justify-content-center">
-            <form class="col s12 w-100 h-100" method="post" enctype="multipart/form-data"
-              action="{% url 'accounts:registration' %}">
-              {% csrf_token %}
-              {% include 'accounts/registration/step_1.html' %}
-              {% include 'accounts/registration/step_2.html' %}
-              {% include 'accounts/registration/step_3.html' %}
-              {% include 'accounts/registration/step_4.html' %}
-              {% include 'accounts/registration/step_5.html' %}
-              {% include 'accounts/registration/step_6.html' %}
-            </form>
-          </div>
-        </section>
-      </div>
-    </div>
-  </div>
+	<div class="container h-100">
+		<div class="row h-100">
+			<div class="col s12 m4 h-100 d-flex flex-column justify-content-center align-items-center">
+				<div class="text-center">
+					<h5>Job Seeker Registration Form</h5>
+					<p>
+						Do you want to build a career and life abroad? Our process is aimed
+						at making your profile more accessible, attractive, and engaging for
+						international employers. Join us today. Fill in the form to jump
+						start your career.
+					</p>
+					<p>
+						If you already have an account, you can<a href="{% url 'accounts:login' %}">
+							login here</a>
+					</p>
+					<i class="fa-solid fa-file-circle-check fa-5x fa-primary"></i>
+				</div>
+			</div>
+			<div class="col s12 m8 h-100">
+				<section class="form-section w-100 d-flex flex-column align-items-stretch justify-content-center">
+					<div class="soft-shadow form-wrapper">
+						{% if form.errors %}
+						<p class="error"><strong>{% trans "Please correct the errors in the form below." %}</strong></p>
+						{% endif %} {% for error in form.non_field_errors %}
+						<p class="error">{{ error|escape }}</p>
+						{% endfor %}
+					</div>
+					<div class="form-container w-100 flex-1 d-flex align-items-center justify-content-center">
+						<form class="col s12 w-100 h-100" method="post" enctype="multipart/form-data"
+							action="{% url 'accounts:job_seeker_registration' %}">
+							{% csrf_token %}
+							{% include 'accounts/registration/step_1.html' %}
+							{% include 'accounts/registration/step_2.html' %}
+							{% include 'accounts/registration/step_3.html' %}
+							{% include 'accounts/registration/step_4.html' %}
+							{% include 'accounts/registration/step_5.html' %}
+							{% include 'accounts/registration/step_6.html' %}
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
 </section>
-{% endblock %}
-{% block scripts %}
-{{ block.super }}
+{% endblock %} {% block scripts %} {{ block.super }}
 <script src="{% static 'js/common/material_init.js' %}"></script>
 <script src="{% static 'js/accounts/registration/registration.js' %}"></script>
 {% endblock %}
