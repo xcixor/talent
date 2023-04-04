@@ -1,0 +1,36 @@
+{% extends 'accounts/common/accounts_base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/accounts/dashboard.css' %}">
+{% endblock %}
+{% block account_content %}
+<div class="row">
+    <div class="col s12">
+        <div class="soft-shadow cards-container">
+            <h4>Profile Information</h4>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card bg-primary-light-4 z-depth-0">
+                        <div class="card-content white-text">
+                            <span class="card-title">Personal Information</span>
+                            <p><b>First Name:</b> {{user.first_name}}</p>
+                            <p><b>Last Name:</b> {{user.last_name}}</p>
+                            <p><b>Email:</b> {{user.email}}</p>
+                            <p><b>Gender:</b> {{user.gender}}</p>
+                            <p><b>Country Code:</b> +{{user.country_code}}</p>
+                            <p><b>Phone Number:</b> {{user.phone_number}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'accounts:update_personal_info' pk=request.user.pk %}">Edit Personal
+                                Information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

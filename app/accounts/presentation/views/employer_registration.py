@@ -4,23 +4,23 @@ from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.views import View
 from django.views.generic import TemplateView, FormView
-from accounts.forms import JobSeekerRegistrationForm
+from accounts.forms import EmployerRegistrationForm
 
 
-class GetJobSeekerRegistrationView(TemplateView):
+class GetEmployerRegistrationView(TemplateView):
 
-    template_name = 'accounts/registration/registration.html'
+    template_name = 'accounts/registration/employer/employer_registration.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['form'] = JobSeekerRegistrationForm(self.request)
+        context['form'] = EmployerRegistrationForm(self.request)
         return context
 
 
-class PostJobSeekerRegistrationView(FormView):
+class PostEmployerRegistrationView(FormView):
 
-    form_class = JobSeekerRegistrationForm
-    template_name = 'accounts/registration/registration.html'
+    form_class = EmployerRegistrationForm
+    template_name = 'accounts/registration/employer/employer_registration.html'
     success_url = '/accounts/dashboard/'
 
     def form_valid(self, form):
@@ -36,7 +36,7 @@ class PostJobSeekerRegistrationView(FormView):
 
     def get_form_kwargs(self):
         """Return the keyword arguments for instantiating the form."""
-        kwargs = super(PostJobSeekerRegistrationView, self).get_form_kwargs()
+        kwargs = super(PostEmployerRegistrationView, self).get_form_kwargs()
         kwargs['request'] = self.request
         return kwargs
 
@@ -51,12 +51,12 @@ class PostJobSeekerRegistrationView(FormView):
         return super().form_invalid(form)
 
 
-class JobSeekerRegistrationView(View):
+class EmployerRegistrationView(View):
 
     def get(self, request, *args, **kwargs):
-        view = GetJobSeekerRegistrationView.as_view()
+        view = GetEmployerRegistrationView.as_view()
         return view(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        view = PostJobSeekerRegistrationView.as_view()
+        view = PostEmployerRegistrationView.as_view()
         return view(request, *args, **kwargs)
