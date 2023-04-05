@@ -4,7 +4,7 @@ from accounts.models import User
 
 class CompanyDetails(models.Model):
 
-    company_owner = models.ForeignKey(
+    company_owner = models.OneToOneField(
         User,
         on_delete=models.CASCADE, related_name='company')
     company_name = models.CharField(max_length=400)
