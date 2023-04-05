@@ -24,20 +24,38 @@
               </span>
             </div>
           </li>
-          <li><a class="waves-effect"
+          <li>
+            <a class="waves-effect"
               href="{% if request.path == '/accounts/dashboard/' %}#!{% else %} {% url 'accounts:dashboard' %}{% endif %}"><i
-                class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Dashboard</a></li>
-          <li><a class="waves-effect" href="#!"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+                class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Dashboard
+            </a>
           </li>
+          {% if user.type_of_user == 'EMPLOYER' %}
+          <li>
+            <a class="waves-effect"
+              href="{% if request.path == '/job/create/' %}#!{% else %} {% url 'job:create_job' %}{% endif %}"><i
+                class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Post Job
+            </a>
+          </li>
+          {% endif %}
           <li>
             <div class="divider"></div>
           </li>
           <li><a class="subheader">Personal</a></li>
-          <li><a class="waves-effect"
+          <li>
+            <a class="waves-effect"
               href="{% if request.path == '/accounts/change/email/' %}#!{% else %} {% url 'accounts:change_email' %}{% endif %}"><i
-                class="fa-solid fa-gear"></i> Change
-              Email</a></li>
-          <li><a class="waves-effect" href="{% if request.path == '/accounts/change-password/' %}#!{% else %} {% url 'accounts:change_password' %}{% endif %}"><i class="fa-solid fa-gear"></i> Change Password</a></li>
+                class="fa-solid fa-gear"></i> Change Email
+            </a>
+          </li>
+          <li>
+            <a class="waves-effect"
+              href="{% if request.path == '/accounts/change-password/' %}#!{% else %} {% url 'accounts:change_password' %}{% endif %}"><i
+                class="fa-solid fa-gear"></i> Change Password</a>
+          </li>
+          <li>
+            <a class="waves-effect" href="{% url 'accounts:logout' %}"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Logout</a>
+          </li>
         </ul>
       </div>
     </div>

@@ -25,6 +25,7 @@ urlpatterns = [
     path('', include('index.presentation.urls', namespace='index')),
     path('accounts/', include('accounts.presentation.urls', namespace='accounts')),
     path('backup/', include('backup.presentation.urls', namespace='backup')),
+    path('job/', include('job.presentation.urls', namespace='job')),
 ]
 
 if settings.DEBUG is True:

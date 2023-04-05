@@ -93,7 +93,6 @@ class EmployerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
     def __init__(self, request, *args, **kwargs):
         super(EmployerRegistrationForm, self).__init__(*args, **kwargs)
         data = request.session.pop('registration_details', None)
-        print(self.fields['phone_number'], "************")
         if data:
             self.fields['phone_number'].initial = data.get('phone_number', "")
             self.fields['first_name'].initial = data.get('first_name', "")

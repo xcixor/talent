@@ -41,7 +41,6 @@ class PostJobSeekerRegistrationView(FormView):
         return kwargs
 
     def form_invalid(self, form):
-        print(form.errors.as_data())
         registration_details = {}
         for key, value in self.request.POST.items():
             registration_details[key] = value
