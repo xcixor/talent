@@ -1,0 +1,36 @@
+{% extends 'accounts/common/accounts_base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/accounts/dashboard.css' %}">
+{% endblock %}
+{% block account_content %}
+{% for job in jobs %}
+<div class="row">
+    <div class="col s12">
+        <div class="soft-shadow cards-container">
+            <h4>{{job}}</h4>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card bg-primary-light-4 z-depth-0">
+                        <div class="card-content white-text">
+                            <span class="card-title">Personal Information</span>
+                            <p><b>Description:</b> <br> {{job.description}}</p>
+                            <p><b>Job Requirements:</b> <br> {{job.requirements}}</p>
+                            <p><b>Length of Hire:</b> {{job.length_of_hire}}</p>
+                            <p><b>Proposed Remuneration:</b> {{job.proposed_remuneration}}</p>
+                            <p><b>Cooperation with Agency:</b> <br> {{job.cooperation_type}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Edit {{ job.title }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
