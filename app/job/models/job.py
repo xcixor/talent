@@ -4,7 +4,7 @@ from accounts.models import User
 
 class JobListing(models.Model):
 
-    job_owner = models.OneToOneField(
+    job_owner = models.ForeignKey(
         User,
         on_delete=models.CASCADE, related_name='job')
     title = models.CharField(

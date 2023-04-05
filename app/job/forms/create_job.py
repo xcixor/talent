@@ -25,7 +25,10 @@ class CreateJobForm(forms.ModelForm):
         widget=forms.Textarea(attrs={'rows': '5'}),
         required=False)
     length_of_hire = forms.IntegerField(required=False)
-    proposed_remuneration = forms.CharField(required=False)
+    proposed_remuneration = forms.CharField(
+        required=False,
+        label=_("Proposed Remuneration in USD"),
+        )
     cooperation_type = forms.ChoiceField(
         choices=COOPERATION_TYPES,
         label=_("What type of cooperation would you like with our agency?"),
