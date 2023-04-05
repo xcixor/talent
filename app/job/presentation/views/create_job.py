@@ -11,7 +11,7 @@ class CreateJobView(CreateView):
     model = JobListing
     form_class = CreateJobForm
     template_name = 'job/create_job.html'
-    success_url = reverse_lazy("accounts:dashboard")
+    success_url = reverse_lazy("job:view_jobs")
 
     def get_form_kwargs(self):
         """Return the keyword arguments for instantiating the form."""
