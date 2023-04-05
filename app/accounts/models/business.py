@@ -16,6 +16,9 @@ class CompanyDetails(models.Model):
     postal_code = models.CharField(max_length=400, blank=True, null=True)
     country = models.CharField(max_length=400, blank=True, null=True)
 
+    def __str__(self) -> str:
+        return self.company_name
+
     class Meta:
 
         verbose_name_plural = 'Company Details'

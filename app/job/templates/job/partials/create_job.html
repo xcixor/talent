@@ -1,0 +1,112 @@
+<form action="{% url 'job:create_job' %}" method="post" class="update-form">
+    {% csrf_token %}
+
+    <div class="row">
+        <div class="input-row input-field col s12">
+            <label for="id_title">Title</label>
+            {{form.title}}
+            <div class="error-container">
+                {% for error in form.title.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row input-field col s12">
+            <label for="id_description">Describe the job</label>
+            {{form.description}}
+            <div class="error-container">
+                {% for error in form.description.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row input-field col s12">
+            <label for="id_requirements">{{form.requirements.label}}</label>
+            {{form.requirements}}
+            <div class="error-container">
+                {% for error in form.requirements.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row input-field col s12">
+            <label for="id_length_of_hire">{{form.length_of_hire.label}}</label>
+            {{form.length_of_hire}}
+            <div class="error-container">
+                {% for error in form.length_of_hire.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row input-field col s12">
+            <label for="id_proposed_remuneration">{{form.proposed_remuneration.label}}</label>
+            {{form.proposed_remuneration}}
+            <div class="error-container">
+                {% for error in form.proposed_remuneration.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-row input-field col s12">
+            <p>{{form.cooperation_type.label}}</p>
+            <p>
+                <label>
+                    <input name="cooperation_type" type="radio" />
+                    <span>Leasing of employees on the basis of the law on temporary work</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input name="cooperation_type" type="radio" />
+                    <span>Selection of personnel - (conducting recruitment for the client, and then handing over
+                        candidates for a one-time fee)</span>
+                </label>
+            </p>
+            <p>
+                <label>
+                    <input name="cooperation_type" type="radio" />
+                    <span>Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management
+                    supervision)</span>
+                </label>
+            </p>
+            <div class="error-container">
+                {% for error in form.cooperation_type.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 d-flex align-items-center">
+
+            <p>
+                <label>
+                    <input type="checkbox" name="terms" id="terms" {% if request.session.job_data.terms %}checked{% endif %} required />
+                    <span>I agree to the <a href="#">Terms of service</a></span>
+                </label>
+            </p>
+
+            <div class="error-container">
+                {% for error in form.terms.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+        <div class="row">
+            <div class="input-field input-row col s12">
+                <button type="submit" class="btn btn-primary" style="width:25%">Post</button>
+            </div>
+        </div>
+</form>
