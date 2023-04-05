@@ -33,8 +33,19 @@
     box-shadow: unset;
     color: var(--color-primary);
     border: solid 0.05em var(--color-primary) ;
-
 }
+
+.btn-link {
+    color: #ffab40;
+    padding: 0;
+    height: unset;
+    line-height: unset;
+    display: unset;
+}
+.btn-link:hover {
+       background: none;
+}
+
 .d-flex {
     display: flex;
 }
