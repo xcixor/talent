@@ -37,6 +37,12 @@
                 class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Post Job
             </a>
           </li>
+          <li>
+            <a class="waves-effect"
+              href="{% if request.path == '/job/jobs/view/' %}#!{% else %} {% url 'job:view_jobs' %}{% endif %}"><i
+                class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> My Jobs
+            </a>
+          </li>
           {% endif %}
           <li>
             <div class="divider"></div>
