@@ -23,4 +23,4 @@ class UserAdmin(admin.ModelAdmin):
 
 @admin.register(User, site=custom_admin_site)
 class CustomUserAdmin(admin.ModelAdmin):
-    pass
+    inlines = [CompanyDetailsInline, JobListingInline]
