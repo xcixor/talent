@@ -1,0 +1,95 @@
+<form action="{% url 'accounts:update_business_info' pk=request.user.company.pk %}" method="post" class="update-form">
+    {% csrf_token %}
+
+
+    <div class="row">
+        <div class="input-row col s12 m6">
+            <label for="id_company_name">{{form.company_name.label}}</label>
+            {{form.company_name}}
+            <div class="error-container">
+                {% for error in form.company_name.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="input-row col s12 m6">
+            <label for="id_tax_number">{{form.tax_number.label}}</label>
+            {{form.tax_number}}
+            <div class="error-container">
+                {% for error in form.tax_number.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row col s12">
+            <label for="id_address_line_one">{{form.address_line_one.label}}</label>
+            {{form.address_line_one}}
+            <div class="error-container">
+                {% for error in form.address_line_one.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row col s12">
+            <label for="id_address_line_two">{{form.address_line_two.label}}</label>
+            {{form.address_line_two}}
+            <div class="error-container">
+                {% for error in form.address_line_two.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row col s12">
+            <label for="id_postal_code">{{form.postal_code.label}}</label>
+            {{form.postal_code}}
+            <div class="error-container">
+                {% for error in form.postal_code.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-row col s12 m4">
+            <label for="id_city">{{form.city.label}}</label>
+            {{form.city}}
+            <div class="error-container">
+                {% for error in form.city.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="input-row col s12 m4">
+            <label for="id_state">{{form.state.label}}</label>
+            {{form.state}}
+            <div class="error-container">
+                {% for error in form.state.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="input-row col s12 m4">
+            <label>Country</label>
+            {{form.country}}
+            <div class="error-container">
+                {% for error in form.country.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+
+
+</form>
