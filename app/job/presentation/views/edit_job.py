@@ -4,7 +4,6 @@ from django.views.generic import DetailView
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
-from django.shortcuts import render
 from job.forms import UpdateJobForm
 from job.models import JobListing
 
@@ -44,7 +43,6 @@ class PostUpdateJobView(UpdateView):
         success_message = _("Something went wrong.")
         messages.add_message(
             self.request, messages.ERROR, success_message)
-        # return render(self.request, self.template_name, {'form': form})
         return super().form_invalid(form)
 
 
