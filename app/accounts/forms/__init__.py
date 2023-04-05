@@ -6,3 +6,4 @@ from .update_basic_info import UpdateBasicInfoForm
 from .update_resume import UpdateResumeForm
 from .update_mode_of_contact import UpdateModeOfContactForm
 from .employer.registration_form import EmployerRegistrationForm
+from .employer.update_business_details import UpdateBusinessInfoForm

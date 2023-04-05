@@ -8,3 +8,4 @@ from .profile.update_basic_info import UpdateBasicInfoView
 from .profile.update_resume import UpdateResumeView
 from .profile.update_mode_of_contact import UpdateModeOfContactView
 from .employer_registration import EmployerRegistrationView
+from .profile.employer.update_business_info import UpdateBusinessInfoView

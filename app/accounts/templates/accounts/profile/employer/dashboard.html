@@ -18,12 +18,41 @@
                             <p><b>First Name:</b> {{user.first_name}}</p>
                             <p><b>Last Name:</b> {{user.last_name}}</p>
                             <p><b>Email:</b> {{user.email}}</p>
-                            <p><b>Gender:</b> {{user.gender}}</p>
                             <p><b>Country Code:</b> +{{user.country_code}}</p>
                             <p><b>Phone Number:</b> {{user.phone_number}}</p>
                         </div>
                         <div class="card-action">
                             <a href="{% url 'accounts:update_personal_info' pk=request.user.pk %}">Edit Personal
+                                Information</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12">
+        <div class="soft-shadow cards-container">
+            <h4>Company Information</h4>
+            <div class="row">
+                <div class="col s12">
+                    <div class="card bg-primary-light-4 z-depth-0">
+                        <div class="card-content white-text">
+                            <span class="card-title">Company Information</span>
+                            <p><b>Company Name:</b> {{user.company.company_name}}</p>
+                            <p><b>NIP (tax number):</b> {{user.company.tax_number}}</p>
+                            <p><b>Address Line One:</b> +{{user.company.address_line_one}}</p>
+                            <p><b>Address Line Two:</b> {{user.company.address_line_two}}</p>
+                            <p><b>City:</b> {{user.company.city}}</p>
+                            <p><b>State:</b> {{user.company.state}}</p>
+                            <p><b>Postal Code:</b> {{user.company.postal_code}}</p>
+                            <p><b>Country:</b> {{user.company.country}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'accounts:update_business_info' pk=request.user.company.pk %}">Edit Company
                                 Information</a>
                         </div>
                     </div>
