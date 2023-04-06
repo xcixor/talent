@@ -58,10 +58,26 @@
 									<span class="email">{{user.email}} </span>
 								</div>
 							</li>
-							<li><a class="waves-effect"
+							<li>
+								<a class="waves-effect"
 									href="{% if request.path == '/accounts/dashboard/' %}#!{% else %} {% url 'accounts:dashboard' %}{% endif %}"><i
 										class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
-									Dashboard</a></li>
+									Dashboard</a>
+							</li>
+							{% if user.type_of_user == 'EMPLOYER' %}
+							<li>
+								<a class="waves-effect"
+									href="{% if request.path == '/job/create/' %}#!{% else %} {% url 'job:create_job' %}{% endif %}"><i
+										class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Post Job
+								</a>
+							</li>
+							<li>
+								<a class="waves-effect"
+									href="{% if request.path == '/job/jobs/view/' %}#!{% else %} {% url 'job:view_jobs' %}{% endif %}"><i
+										class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> My Jobs
+								</a>
+							</li>
+							{% endif %}
 							<li><a class="waves-effect" href="#!"><i
 										class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
 									Logout</a>
@@ -80,7 +96,8 @@
 					</div>
 					{% else %}
 					<li><a class="text-secondary" href="{% url 'accounts:job_seeker_registration' %}">Send CV</a></li>
-					<li><a class="text-secondary" href="{% url 'accounts:employer_registration' %}">For Employers</a></li>
+					<li><a class="text-secondary" href="{% url 'accounts:employer_registration' %}">For Employers</a>
+					</li>
 					<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 					{% endif %}
 				</ul>
