@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'backup.apps.BackupConfig',
     'infinite_admin.apps.InfiniteAdminConfig',
     'job.apps.JobConfig',
+    'site_management.apps.SiteManagementConfig'
 ]
 
 MIDDLEWARE = [
