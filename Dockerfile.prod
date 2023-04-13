@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.9.0
+FROM python:3.10
 # to suppress debian warnings
 ARG DEBIAN_FRONTEND=noninteractive
 
