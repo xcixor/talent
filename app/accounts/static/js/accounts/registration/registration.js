@@ -117,7 +117,7 @@ function validateStep(step) {
 		const { name, value } = input;
 		inputs.push({ name, value });
 		inputs.forEach((input) => {
-			if ($(`input[name*=${name}]`).prop("required")) {
+			if (name && $(`input[name*=${name}]`).prop("required")) {
 				if (name && $(`input[name*=${name}]`).attr("type") === "password") {
 					isValid = validatePassword(name, value, step);
 				}
