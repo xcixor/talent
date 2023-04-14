@@ -2,7 +2,7 @@ from django.db import models
 from accounts.models import User
 
 
-class JobCategory(models.Model):
+class Industry(models.Model):
 
     title = models.CharField(
         max_length=255)
@@ -19,7 +19,7 @@ class JobCategory(models.Model):
 class JobListing(models.Model):
 
     category = models.ForeignKey(
-        JobCategory,
+        Industry,
         on_delete=models.CASCADE, related_name='openings')
     job_owner = models.ForeignKey(
         User,
