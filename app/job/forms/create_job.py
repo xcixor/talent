@@ -14,6 +14,8 @@ COOPERATION_TYPES = (
 
 INDUSTRIES = [(industry.pk, industry) for industry in Industry.objects.all()]
 
+INDUSTRIES.insert(0, ('', 'Select the Industry'))
+
 
 class CreateJobForm(forms.ModelForm):
 
@@ -27,11 +29,12 @@ class CreateJobForm(forms.ModelForm):
         label="What are the job requirements (experience, skills, certificates) *",
         widget=forms.Textarea(attrs={'rows': '5'}),
         required=True)
-    length_of_hire = forms.IntegerField(required=False)
+    length_of_hire = forms.CharField(
+        required=False, label="How long will the job last?")
     proposed_remuneration = forms.CharField(
         required=False,
         label=_("Proposed Remuneration in USD"),
-        )
+    )
     cooperation_type = forms.ChoiceField(
         choices=COOPERATION_TYPES,
         label=_("What type of cooperation would you like with our agency?"),
@@ -45,14 +48,25 @@ class CreateJobForm(forms.ModelForm):
         widget=forms.Select(
             attrs={
                 'class': 'show_select browser-default'}),
-        required=False)
+        required=True)
     terms = forms.BooleanField(initial=False, required=True)
+    city = forms.CharField(
+        label="Which city will they be working?",
+        widget=forms.TextInput(attrs={
+            'class': 'validate'}),
+        required=True)
+    openings = forms.IntegerField(
+        widget=forms.NumberInput(attrs={
+            'class': 'validate'}),
+        label="How many posts are there?",
+        required=True)
 
     class Meta:
         model = JobListing
         fields = [
             'title', 'description', 'requirements', 'length_of_hire',
-            'proposed_remuneration', 'cooperation_type']
+            'proposed_remuneration', 'cooperation_type',
+            'openings', 'city']
 
     def __init__(self, request, *args, **kwargs):
         super(CreateJobForm, self).__init__(*args, **kwargs)
@@ -62,9 +76,12 @@ class CreateJobForm(forms.ModelForm):
             self.fields['title'].initial = data.get('title', "")
             self.fields['description'].initial = data.get('description', "")
             self.fields['requirements'].initial = data.get('requirements', "")
-            self.fields['length_of_hire'].initial = data.get('length_of_hire', "")
-            self.fields['proposed_remuneration'].initial = data.get('proposed_remuneration', "")
-            self.fields['cooperation_type'].initial = data.get('cooperation_type', "")
+            self.fields['length_of_hire'].initial = data.get(
+                'length_of_hire', "")
+            self.fields['proposed_remuneration'].initial = data.get(
+                'proposed_remuneration', "")
+            self.fields['cooperation_type'].initial = data.get(
+                'cooperation_type', "")
 
     def save(self, commit=True):
         job = super(CreateJobForm, self).save(commit=False)
