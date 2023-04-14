@@ -1,1 +1,1 @@
-from .job import JobListing, JobCategory
+from .job import JobListing, Industry
