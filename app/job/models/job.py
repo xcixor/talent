@@ -18,7 +18,7 @@ class Industry(models.Model):
 
 class JobListing(models.Model):
 
-    category = models.ForeignKey(
+    industry = models.ForeignKey(
         Industry,
         on_delete=models.CASCADE, related_name='openings')
     job_owner = models.ForeignKey(
