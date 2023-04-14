@@ -116,10 +116,16 @@
 									class="material-icons text-secondary">menu</i></a>
 						</div>
 						<ul class="right hide-on-med-and-down">
-							<!-- Dropdown Trigger -->
+							<li>
+								<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
+							</li>
 							{% if user.is_authenticated %}
-							<li><a class="dropdown-trigger text-secondary" href="#!" data-target="dropdown">Hi,
-									{{user}}<i class="material-icons right">arrow_drop_down</i></a></li>
+							<li>
+								<a class="dropdown-trigger text-secondary" href="#!" data-target="dropdown">
+									Hi, {{user}}
+									<i class="material-icons right">arrow_drop_down</i>
+								</a>
+							</li>
 							{% else %}
 							<li><a class="text-secondary" href="{% url 'accounts:job_seeker_registration' %}">Send
 									CV</a></li>
