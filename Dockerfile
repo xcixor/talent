@@ -18,4 +18,4 @@ COPY ./app .
 
 ARG PORT
 
-CMD python manage.py makemigrations; python manage.py migrate; python manage.py create_admin; python manage.py runserver 0.0.0.0:${PORT}
+CMD python manage.py makemigrations; python manage.py migrate; python manage.py loaddata industries.json; python manage.py create_admin; python manage.py runserver 0.0.0.0:${PORT}
