@@ -20,7 +20,7 @@ class UpdateJobForm(forms.ModelForm):
     proposed_remuneration = forms.CharField(
         required=False,
         label=_("Proposed Remuneration in USD"),
-        )
+    )
     cooperation_type = forms.ChoiceField(
         choices=COOPERATION_TYPES,
         label=_("What type of cooperation would you like with our agency?"),
@@ -35,12 +35,23 @@ class UpdateJobForm(forms.ModelForm):
             attrs={
                 'class': 'show_select browser-default'}),
         required=False)
+    city = forms.CharField(
+        label="Which city will they be working?",
+        widget=forms.TextInput(attrs={
+            'class': 'validate'}),
+        required=True)
+    openings = forms.IntegerField(
+        widget=forms.NumberInput(attrs={
+            'class': 'validate'}),
+        label="How many posts are there?",
+        required=True)
 
     class Meta:
         model = JobListing
         fields = [
             'title', 'description', 'requirements', 'length_of_hire',
-            'proposed_remuneration', 'cooperation_type']
+            'proposed_remuneration', 'cooperation_type',
+            'openings', 'city']
 
     def __init__(self, job, *args, **kwargs):
         super(UpdateJobForm, self).__init__(*args, **kwargs)
@@ -53,7 +64,8 @@ class UpdateJobForm(forms.ModelForm):
             self.fields['proposed_remuneration'].initial = job.proposed_remuneration
             self.fields['cooperation_type'].initial = job.cooperation_type
             self.fields['industry'].initial = int(job.industry.pk)
-
+            self.fields['openings'].initial = job.openings
+            self.fields['city'].initial = job.city
 
     def save(self, commit=True):
         job = super(UpdateJobForm, self).save(commit=False)
