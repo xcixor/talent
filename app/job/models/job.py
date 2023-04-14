@@ -28,11 +28,13 @@ class JobListing(models.Model):
         max_length=255)
     description = models.TextField()
     requirements = models.TextField(blank=True, null=True)
-    length_of_hire = models.IntegerField(blank=True, null=True)
+    length_of_hire = models.CharField(max_length=200, blank=True, null=True)
     proposed_remuneration = models.CharField(
         max_length=400, blank=True, null=True)
     cooperation_type = models.CharField(
         max_length=400, blank=True, null=True)
+    openings = models.IntegerField()
+    city = models.CharField(max_length=200)
 
     def __str__(self) -> str:
         return self.title
@@ -40,3 +42,4 @@ class JobListing(models.Model):
     class Meta:
 
         verbose_name_plural = 'Job Listing'
+        ordering = ['industry']
