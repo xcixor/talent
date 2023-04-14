@@ -11,10 +11,13 @@ COOPERATION_TYPES = (
      'Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)'),
 )
 
-
-INDUSTRIES = [(industry.pk, industry) for industry in Industry.objects.all()]
-
-INDUSTRIES.insert(0, ('', 'Select the Industry'))
+INDUSTRIES = []
+try:
+    INDUSTRIES = [(industry.pk, industry) for industry in Industry.objects.all()]
+except Exception as e:
+    print(str(e))
+finally:
+    INDUSTRIES.insert(0, ('', 'Select the Industry'))
 
 
 class CreateJobForm(forms.ModelForm):

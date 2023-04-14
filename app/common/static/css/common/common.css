@@ -126,6 +126,12 @@ input.form-check-input {
 .my-1 {
     margin: 10px 0;
 }
+.p-1 {
+    padding: 10px;
+}
+.p-2 {
+    padding: 20px;
+}
 .tr-ease-in-out {
     transition: all .2s ease-in-out;
 }

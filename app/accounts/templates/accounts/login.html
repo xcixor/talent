@@ -13,8 +13,9 @@
 						<div class="input-field d-flex align-items-center">
 							<div class="error-container">
 								{% if form.errors %}
-								<p class="error"><strong>{% trans "Please correct the errors in the form below."
-										%}</strong></p>
+								<p class="error">
+									<strong>{% trans "Please correct the errors in the form below." %}</strong>
+								</p>
 								{% endif %} {% for error in form.non_field_errors %}
 								<p class="error">{{ error|escape }}</p>
 								{% endfor %}
