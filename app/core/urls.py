@@ -26,6 +26,7 @@ urlpatterns = [
     path('accounts/', include('accounts.presentation.urls', namespace='accounts')),
     path('backup/', include('backup.presentation.urls', namespace='backup')),
     path('job/', include('job.presentation.urls', namespace='job')),
+    path('shortlist/', include('shortlist.presentation.urls', namespace='shortlist')),
 ]
 
 if settings.DEBUG is True:
