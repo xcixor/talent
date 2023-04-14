@@ -12,6 +12,17 @@
             </div>
         </div>
     </div>
+        <div class="row">
+            <div class="input-row col s12">
+                <label>{{form.industry.label}}</label>
+                {{form.industry}}
+                <div class="error-container">
+                    {% for error in form.industry.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     <div class="row">
         <div class="input-row input-field col s12">
             <label for="id_description">Describe the job</label>
@@ -62,21 +73,25 @@
             <p>{{form.cooperation_type.label}}</p>
             <p>
                 <label>
-                    <input name="cooperation_type" type="radio" value="Leasing of employees on the basis of the law on temporary work" />
+                    <input name="cooperation_type" type="radio"
+                        value="Leasing of employees on the basis of the law on temporary work" />
                     <span>Leasing of employees on the basis of the law on temporary work</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="cooperation_type" type="radio" value="Selection of personnel - (conducting recruitment for the client, and then handing over candidates for a one-time fee)" />
+                    <input name="cooperation_type" type="radio"
+                        value="Selection of personnel - (conducting recruitment for the client, and then handing over candidates for a one-time fee)" />
                     <span>Selection of personnel - (conducting recruitment for the client, and then handing over
                         candidates for a one-time fee)</span>
                 </label>
             </p>
             <p>
                 <label>
-                    <input name="cooperation_type" type="radio" value="Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)" />
-                    <span>Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)</span>
+                    <input name="cooperation_type" type="radio"
+                        value="Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)" />
+                    <span>Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the
+                        client with management supervision)</span>
                 </label>
             </p>
             <div class="error-container">
@@ -103,9 +118,9 @@
             </div>
         </div>
     </div>
-        <div class="row">
-            <div class="input-field input-row col s12">
-                <button type="submit" class="btn btn-primary" style="width:25%">Post</button>
-            </div>
+    <div class="row">
+        <div class="input-field input-row col s12">
+            <button type="submit" class="btn btn-primary" style="width:25%">Post</button>
         </div>
+    </div>
 </form>
