@@ -1,4 +1,4 @@
 from django.contrib import admin
-from job.models import JobCategory
+from job.models import Industry
 
-admin.site.register(JobCategory)
+admin.site.register(Industry)

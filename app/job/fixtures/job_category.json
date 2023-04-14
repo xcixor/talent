@@ -1,0 +1,37 @@
+[
+    {
+        "model": "job.Industry",
+        "pk": 1,
+        "fields": {
+        "title": "Finance"
+        }
+    },
+    {
+        "model": "job.Industry",
+        "pk": 2,
+        "fields": {
+        "title": "Personal Home"
+        }
+    },
+    {
+        "model": "job.Industry",
+        "pk": 3,
+        "fields": {
+        "title": "Educational Sector"
+        }
+    },
+    {
+        "model": "job.Industry",
+        "pk": 4,
+        "fields": {
+        "title": "Travel & Tourism"
+        }
+    },
+    {
+        "model": "job.Industry",
+        "pk": 5,
+        "fields": {
+        "title": "IT"
+        }
+    }
+]
