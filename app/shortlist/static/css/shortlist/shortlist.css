@@ -1,0 +1,11 @@
+.input-row, .input-field {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+
+input[type=text] {
+    margin: 0 !important;
+    padding-bottom: 0 !important;
+    height: 2.9rem !important;
+}
