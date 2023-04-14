@@ -13,6 +13,19 @@
         </div>
     </div>
     <div class="row">
+        <div class="col-sm-12">
+            <div class="mb-2">
+                <label for="id_title" class="form-label">{{form.industry.label}}</label>
+                {{form.industry}}
+                <div class="error">
+                    {% for error in form.industry.errors %}
+                    <p class="error">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
         <div class="input-row input-field col s12">
             <label for="id_description">Describe the job</label>
             {{form.description}}
