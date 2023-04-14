@@ -1,6 +1,6 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from job.models import JobListing
+from job.models import JobListing, Industry
 
 COOPERATION_TYPES = (
     ('Leasing of employees on the basis of the law on temporary work',
@@ -10,6 +10,9 @@ COOPERATION_TYPES = (
     ('Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)',
      'Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)'),
 )
+
+
+INDUSTRIES = [(industry.pk, industry) for industry in Industry.objects.all()]
 
 
 class CreateJobForm(forms.ModelForm):
@@ -36,6 +39,13 @@ class CreateJobForm(forms.ModelForm):
             attrs={
                 'class': 'show_select browser-default'}),
         required=False)
+    industry = forms.ChoiceField(
+        choices=INDUSTRIES,
+        label=_("Job Industry"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=False)
     terms = forms.BooleanField(initial=False, required=True)
 
     class Meta:
@@ -59,6 +69,9 @@ class CreateJobForm(forms.ModelForm):
     def save(self, commit=True):
         job = super(CreateJobForm, self).save(commit=False)
         job.job_owner = self.user
+        industry_pk = self.cleaned_data['industry']
+        industry = Industry.objects.get(pk=industry_pk)
+        job.industry = industry
         if commit:
             job.save()
         return job

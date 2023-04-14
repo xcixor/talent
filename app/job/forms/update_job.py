@@ -1,15 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
-from job.models import JobListing
-
-COOPERATION_TYPES = (
-    ('Leasing of employees on the basis of the law on temporary work',
-     'Leasing of employees on the basis of the law on temporary work'),
-    ('Selection of personnel - (conducting recruitment for the client, and then handing over candidates for a one-time fee)',
-     'Selection of personnel - (conducting recruitment for the client, and then handing over candidates for a one-time fee)'),
-    ('Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)',
-     'Temporary work - (Hiring of personnel based on the Act on Temporary Work and entrusting the client with management supervision)'),
-)
+from job.models import JobListing, Industry
+from job.forms.create_job import COOPERATION_TYPES, INDUSTRIES
 
 
 class UpdateJobForm(forms.ModelForm):
@@ -36,6 +28,13 @@ class UpdateJobForm(forms.ModelForm):
             attrs={
                 'class': 'show_select browser-default'}),
         required=False)
+    industry = forms.ChoiceField(
+        choices=INDUSTRIES,
+        label=_("Job Industry"),
+        widget=forms.Select(
+            attrs={
+                'class': 'show_select browser-default'}),
+        required=False)
 
     class Meta:
         model = JobListing
@@ -53,3 +52,15 @@ class UpdateJobForm(forms.ModelForm):
             self.fields['length_of_hire'].initial = job.length_of_hire
             self.fields['proposed_remuneration'].initial = job.proposed_remuneration
             self.fields['cooperation_type'].initial = job.cooperation_type
+            self.fields['industry'].initial = int(job.industry.pk)
+
+
+    def save(self, commit=True):
+        job = super(UpdateJobForm, self).save(commit=False)
+        industry_pk = self.cleaned_data['industry']
+        if industry_pk:
+            industry = Industry.objects.get(pk=industry_pk)
+            job.industry = industry
+        if commit:
+            job.save()
+        return job
