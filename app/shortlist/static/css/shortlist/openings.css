@@ -9,3 +9,9 @@ input[type=text] {
     padding-bottom: 0 !important;
     height: 2.9rem !important;
 }
+
+@media screen and ( max-width: 600px ){
+    .container {
+        width: 95% !important;
+    }
+}

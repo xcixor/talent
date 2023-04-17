@@ -96,7 +96,11 @@
 					</div>
 					{% else %}
 					<li><a class="text-secondary" href="{% url 'accounts:job_seeker_registration' %}">Send CV</a></li>
-					<li><a class="text-secondary" href="{% url 'accounts:employer_registration' %}">For Employers</a>
+					<li>
+						<a class="text-secondary" href="{% url 'accounts:employer_registration' %}">For Employers</a>
+					</li>
+					<li>
+						<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
 					</li>
 					<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 					{% endif %}
