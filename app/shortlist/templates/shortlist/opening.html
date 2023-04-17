@@ -67,4 +67,37 @@
         </div>
     </div>
 </div>
+<div class="container pb-2">
+    <div class="row">
+        <div class="col s12">
+            <h5>Similar Jobs</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="grid">
+                {% if similar %}
+                {% for job in similar %}
+                <div class="grid-col">
+                    <p class="title">{{job.title}}</p>
+                    <p class="m-0">Openings: {{job.openings}}</p>
+                    <p class="m-0">City: {{job.city}}</p>
+                    <p class="m-0">Salary: {{job.proposed_remuneration}}</p>
+                    <p class="m-0">Recruiter: {{job.job_owner.email}}</p>
+                    <div class="d-flex justify-content-between mt-2">
+                        <a href="#" class="btn btn-primary">Apply</a>
+                        <a href="{% url 'shortlist:opening' slug=job.slug %}" class="btn btn-secondary">View More</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="grid-col d-flex align-items-center justify-content-center apply-similar-container">
+                    <a href="#" class="btn btn-secondary">View All</a>
+                </div>
+                {% else %}
+                <p>There are no similary jobs at the moment.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
