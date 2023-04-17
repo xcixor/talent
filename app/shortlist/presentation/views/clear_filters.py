@@ -1,4 +1,3 @@
-from django.shortcuts import redirect
 from django_htmx.http import HttpResponseClientRedirect
 from django.urls import reverse_lazy
 from django.views.generic import View
@@ -11,7 +10,8 @@ class ClearFiltersView(View):
     def get(self, request, *args, **kwargs):
         filter_param = kwargs.get('filter_param', None)
         if filter_param == 'search':
-            self.request.session.pop('search', None)
+            print(self.request.session.pop('search', None))
         elif filter_param == 'sort':
             self.request.session.pop('sort', None)
-        return HttpResponseClientRedirect(reverse_lazy('shortlist:openings'))
+        next = kwargs.get('next', None)
+        return HttpResponseClientRedirect(next)
