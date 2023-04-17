@@ -93,6 +93,18 @@
 
     <div class="row">
         <div class="input-row input-field col s12">
+            <label for="id_city">{{form.experience.label}}</label>
+            {{form.experience}}
+            <div class="error-container">
+                {% for error in form.experience.errors %}
+                <p class="error e">{{ error|escape }}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="input-row input-field col s12">
             <p>{{form.cooperation_type.label}}</p>
             <p>
                 <label>
