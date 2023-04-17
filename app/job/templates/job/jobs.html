@@ -24,6 +24,7 @@
                             <p><b>Number of Openings:</b> {{job.openings}}</p>
                             <p><b>Proposed Remuneration:</b> {{job.proposed_remuneration}}</p>
                             <p><b>Cooperation with Agency:</b> <br> {{job.cooperation_type}}</p>
+                            <p><b>Experience:</b> {{job.experience}}</p>
                         </div>
                         <div class="card-action d-flex" style="line-height: 36px;">
                             <a href="{% url 'job:edit_job' pk=job.pk %}" class="btn btn-flat btn-link"
