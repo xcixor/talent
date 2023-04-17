@@ -14,8 +14,33 @@ input[type=text] {
     font-size: 1.4rem;
 }
 
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(24%, 1fr));
+    gap: 1%;
+}
+
+.grid-col p {
+    color: #606060;
+}
+
+.grid-col .title {
+    font-size: 1.2rem;
+    border-bottom: solid 0.02em #989898;
+}
+
+.apply-similar-container {
+    border: solid 0.02em #989898;
+}
+
 @media screen and ( max-width: 600px ){
     .container {
         width: 95% !important;
+    }
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    .apply-similar-container {
+        padding: 20px 0;
     }
 }
