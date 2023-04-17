@@ -1,5 +1,6 @@
 from django.urls import path
-from shortlist.presentation.views import OpeningsView, ClearFiltersView
+from shortlist.presentation.views import (
+    OpeningsView, ClearFiltersView, OpeningView)
 
 app_name = 'shortlist'
 
@@ -8,4 +9,5 @@ urlpatterns = [
     path(
         'clear/filter/<str:filter_param>/',
         ClearFiltersView.as_view(), name='clear_filters'),
+    path('view/opening/<slug:slug>/', OpeningView.as_view(), name='opening'),
 ]
