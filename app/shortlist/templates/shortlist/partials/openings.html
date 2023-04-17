@@ -80,13 +80,15 @@
         {% if paginator.count > 0 %}
         <div class="row">
             <div class="col s12">
-                <table class="striped">
+                <table class="striped responsive-table">
                     <thead>
                         <tr>
                             <th>Title</th>
                             <th>Industry</th>
                             <th>Openings</th>
                             <th>City</th>
+                            <th></th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -96,6 +98,8 @@
                             <td>{{opening.industry}}</td>
                             <td>{{opening.openings}}</td>
                             <td>{{opening.city}}</td>
+                            <td><button class="btn btn-primary">More Details <i class="fa-solid fa-info"></i></button></td>
+                            <td><button class="btn btn-primary">Apply <i class="fa-solid fa-hand-pointer"></i></button></td>
                         </tr>
                         {% endfor %}
                     </tbody>
