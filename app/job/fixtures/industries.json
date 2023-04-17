@@ -3,35 +3,40 @@
         "model": "job.Industry",
         "pk": 1,
         "fields": {
-        "title": "Finance"
+            "title": "Finance",
+            "slug":"finance"
         }
     },
     {
         "model": "job.Industry",
         "pk": 2,
         "fields": {
-        "title": "Personal Home"
+            "title": "Personal Home",
+            "slug":"personal-home"
         }
     },
     {
         "model": "job.Industry",
         "pk": 3,
         "fields": {
-        "title": "Educational Sector"
+            "title": "Educational Sector",
+            "slug":"educational-sector"
         }
     },
     {
         "model": "job.Industry",
         "pk": 4,
         "fields": {
-        "title": "Travel & Tourism"
+            "title": "Travel & Tourism",
+            "slug": "travel-and-tourism"
         }
     },
     {
         "model": "job.Industry",
         "pk": 5,
         "fields": {
-        "title": "IT"
+            "title": "IT",
+            "slug":"it"
         }
     }
 ]
