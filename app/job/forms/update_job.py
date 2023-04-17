@@ -45,18 +45,25 @@ class UpdateJobForm(forms.ModelForm):
             'class': 'validate'}),
         label="How many posts are there?",
         required=True)
+    experience = forms.CharField(
+        label="Years of experience",
+        widget=forms.TextInput(attrs={
+            'class': 'validate',
+            'placeholder': 'Eg. 3 years of experience in management or similar role.'}),
+        required=True)
 
     class Meta:
         model = JobListing
         fields = [
             'title', 'description', 'requirements', 'length_of_hire',
             'proposed_remuneration', 'cooperation_type',
-            'openings', 'city']
+            'openings', 'city', 'experience']
 
     def __init__(self, job, *args, **kwargs):
         super(UpdateJobForm, self).__init__(*args, **kwargs)
 
         if job:
+            print(job.experience)
             self.fields['title'].initial = job.title
             self.fields['description'].initial = job.description
             self.fields['requirements'].initial = job.requirements
@@ -66,6 +73,7 @@ class UpdateJobForm(forms.ModelForm):
             self.fields['industry'].initial = int(job.industry.pk)
             self.fields['openings'].initial = job.openings
             self.fields['city'].initial = job.city
+            self.fields['experience'].initial = job.experience
 
     def save(self, commit=True):
         job = super(UpdateJobForm, self).save(commit=False)
