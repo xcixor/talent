@@ -16,7 +16,7 @@ class UpdateJobForm(forms.ModelForm):
         label="What are the job requirements (experience, skills, certificates) *",
         widget=forms.Textarea(attrs={'rows': '5'}),
         required=True)
-    length_of_hire = forms.IntegerField(required=False)
+    length_of_hire = forms.CharField(required=False)
     proposed_remuneration = forms.CharField(
         required=False,
         label=_("Proposed Remuneration in USD"),

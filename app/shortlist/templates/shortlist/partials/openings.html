@@ -98,7 +98,7 @@
                             <td>{{opening.industry}}</td>
                             <td>{{opening.openings}}</td>
                             <td>{{opening.city}}</td>
-                            <td><button class="btn btn-primary">More Details <i class="fa-solid fa-info"></i></button></td>
+                            <td><a href="{% url 'shortlist:opening' slug=opening.slug %}" class="btn btn-primary">More Details <i class="fa-solid fa-info"></i></a></td>
                             <td><button class="btn btn-primary">Apply <i class="fa-solid fa-hand-pointer"></i></button></td>
                         </tr>
                         {% endfor %}
