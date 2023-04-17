@@ -28,6 +28,10 @@
    background: var(--color-primary);
 }
 
+.btn-secondary {
+   background: var(--color-secondary);
+}
+
 .btn-outlined {
     background: none;
     box-shadow: unset;
@@ -125,6 +129,9 @@ input.form-check-input {
 }
 .me-1 {
     margin-right: 10px;
+}
+.mt-2 {
+    margin-top: 20px;
 }
 .ps-1 {
     padding-left: 10px;
