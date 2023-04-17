@@ -8,8 +8,25 @@ from accounts.models import User
 class Industry(models.Model):
 
     title = models.CharField(
-        max_length=255)
+        max_length=255, unique=True)
     description = models.TextField(null=True, blank=True)
+    slug = models.SlugField(
+        max_length=255, unique=True,
+        help_text=_('Unique address for the industry.'))
+
+    def _generate_slug(self):
+        value = self.title
+        slug_candidate = slug_original = slugify(value, allow_unicode=True)
+        for i in itertools.count(1):
+            if not Industry.objects.filter(slug=slug_candidate).exists():
+                break
+            slug_candidate = '{}-{}'.format(slug_original, i)
+        self.slug = slug_candidate
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            self._generate_slug()
+        super().save(*args, **kwargs)
 
     def __str__(self) -> str:
         return self.title
