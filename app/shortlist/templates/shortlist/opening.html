@@ -1,0 +1,70 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/shortlist/openings.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container pb-2">
+    <div class="row">
+        <div class="col s12 my-2">
+            <div class="col s12 m6">
+                <div class="d-flex align-items-center">
+                    <h5 class="p-0 m-0">{{opening}}</h5>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="d-flex align-items-center brands justify-content-end">
+                    <p class="me-1 p-0 m-0">Share across social media</p>
+                    <i class="fa-solid fa-grip-lines-vertical me-1"></i>
+                    <i class="fa-brands fa-primary fa-facebook me-1"></i>
+                    <i class="fa-brands fa-primary fa-square-twitter me-1"></i>
+                    <i class="fa-brands fa-primary fa-linkedin me-1"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <p class="ms-1">{{opening.description}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="mx-4">
+                <p class="m-0"><b>Created: </b>{{opening.created}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="mx-4">
+                <p class="m-0"><b>Requirements</b></p>
+                <p class="m-0">{{opening.requirements}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="mx-4">
+                <p class="m-0"><b>City: </b>{{opening.city}}</p>
+                <p class="m-0"><b>Recruiter: </b>{{opening.job_owner}}</p>
+                <p class="m-0"><b>Working Hours: </b>{{opening.working_hours}}</p>
+                <p class="m-0"><b>Experience: </b>{{opening.experience}}</p>
+                <p class="m-0"><b>Industry: </b>{{opening.industry}}</p>
+                <p class="m-0"><b>Salary: </b>{{opening.proposed_remuneration}}</p>
+                <p class="m-0"><b>Openings: </b>{{opening.openings}}</p>
+                <p class="m-0"><b>Contract Length: </b>{{opening.length_of_hire}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="mx-4">
+                <button class="btn btn-primary">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
