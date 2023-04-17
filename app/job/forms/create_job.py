@@ -63,13 +63,19 @@ class CreateJobForm(forms.ModelForm):
             'class': 'validate'}),
         label="How many posts are there?",
         required=True)
+    experience = forms.CharField(
+        label="Years of experience",
+        widget=forms.TextInput(attrs={
+            'class': 'validate',
+            'placeholder': 'Eg. 3 years of experience in management or similar role.'}),
+        required=True)
 
     class Meta:
         model = JobListing
         fields = [
             'title', 'description', 'requirements', 'length_of_hire',
             'proposed_remuneration', 'cooperation_type',
-            'openings', 'city']
+            'openings', 'city', 'experience']
 
     def __init__(self, request, *args, **kwargs):
         super(CreateJobForm, self).__init__(*args, **kwargs)
@@ -85,6 +91,8 @@ class CreateJobForm(forms.ModelForm):
                 'proposed_remuneration', "")
             self.fields['cooperation_type'].initial = data.get(
                 'cooperation_type', "")
+            self.fields['experience'].initial = data.get(
+                'experience', "")
 
     def save(self, commit=True):
         job = super(CreateJobForm, self).save(commit=False)

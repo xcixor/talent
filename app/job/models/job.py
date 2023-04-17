@@ -65,3 +65,4 @@ class JobListing(models.Model):
 
         verbose_name_plural = 'Job Listing'
         ordering = ['industry']
+        unique_together = (('job_owner', 'title', 'city'))
