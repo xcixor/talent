@@ -127,11 +127,23 @@ input.form-check-input {
 .m-0 {
     margin: 0;
 }
+.mb-2 {
+    margin-bottom: 20px;
+}
 .me-1 {
     margin-right: 10px;
 }
 .mt-2 {
     margin-top: 20px;
+}
+.mt-3 {
+    margin-top: 30px;
+}
+.mt-4 {
+    margin-top: 40px;
+}
+.mt-5 {
+    margin-top: 50px;
 }
 .ps-1 {
     padding-left: 10px;
@@ -171,6 +183,12 @@ input.form-check-input {
 }
 .pb-2 {
     margin-bottom: 20px;
+}
+.px-1{
+    padding: 0 10px;
+}
+.px-2{
+    padding: 0 20px;
 }
 .tr-ease-in-out {
     transition: all .2s ease-in-out;

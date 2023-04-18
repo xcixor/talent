@@ -80,7 +80,7 @@
                                 </a>
                             </td>
                             <td>
-                                <button class="btn btn-primary">Permissions</button>
+                                <a href="{% url 'basic_admin:permissions' pk=user.pk %}" class="btn btn-primary">Permissions</a>
                             </td>
                         </tr>
                         {% endfor %}
