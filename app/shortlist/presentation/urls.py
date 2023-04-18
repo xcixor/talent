@@ -1,7 +1,8 @@
 from django.urls import path
 from shortlist.presentation.views import (
     OpeningsView, ClearFiltersView, OpeningView,
-    IndustryOpeningsView, ApplicationView, EmployeeApplicationsView)
+    IndustryOpeningsView, ApplicationView, EmployeeApplicationsView,
+    StaffApplications)
 
 app_name = 'shortlist'
 
@@ -16,4 +17,6 @@ urlpatterns = [
     path('apply/<path:next>/', ApplicationView.as_view(), name='apply'),
     path('my/applications/',
          EmployeeApplicationsView.as_view(), name='employee_applications'),
+    path('staff/applications/',
+         StaffApplications.as_view(), name='staff_applications'),
 ]
