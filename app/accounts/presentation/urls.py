@@ -6,7 +6,7 @@ from accounts.presentation.views import (
     JobSeekerRegistrationView, EmployerRegistrationView, LoginView,
     ResetPasswordView, DashboardView, ChangeEmailView, UpdatePersonalInfoView,
     UpdateBasicInfoView, UpdateResumeView, UpdateModeOfContactView,
-    UpdateBusinessInfoView)
+    UpdateBusinessInfoView, StaffRegistrationView)
 
 
 app_name = 'accounts'
@@ -18,6 +18,9 @@ urlpatterns = [
     path(
         'registration/employer/',
         EmployerRegistrationView.as_view(), name='employer_registration'),
+    path(
+        'registration/staff/',
+        StaffRegistrationView.as_view(), name='staff_registration'),
     path('login/', LoginView.as_view(), name='login'),
     path('reset_password/', ResetPasswordView.as_view(), name='reset_password'),
     path('dashboard/', DashboardView.as_view(), name='dashboard'),

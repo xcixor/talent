@@ -1,0 +1,156 @@
+{% load static %}
+<form action="#" method="post" class="row d-flex py-2"
+    hx-post="{% url 'accounts:staff_registration' %}"
+    hx-swap="innerHTML" hx-target="#htmx-parent"
+    hx-indicator="#spinner">
+    {% csrf_token %}
+    <div class="col s12 m4 flex-1 d-flex flex-column align-items-center justify-content-center text-center">
+        <h6 class="error">{%if form.errors%}Please Correct the errors in your form{% endif %}</h6>
+        <h6><b>Hello there</b></h6>
+        <p>Join our Organization</p>
+        <img src="{% static 'images/common/logo.png' %}" alt="Logo" width="100" height="40" />
+    </div>
+    <div class="col s12 m8">
+        <div class="row">
+            <div class="input-field col s6">
+                <input required id="first_name" type="text" class="validate" name="first_name" autofocus
+                    value="{{request.session.registration_details.first_name}}">
+                <label for="first_name">First Name</label>
+                <div class="error-container">
+                    {% for error in form.first_name.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="input-field col s6">
+                <input required id="last_name" type="text" class="validate" name="last_name"
+                    value="{{request.session.registration_details.last_name}}">
+                <label for="last_name">Last Name</label>
+                <div class="error-container">
+                    {% for error in form.last_name.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-row col s12">
+                <label>Gender</label>
+                {{ form.gender }}
+                <div class="error-container">
+                    {% for error in form.gender.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col s6 m4">
+                <div style="margin-top: -8px;">
+                    <label>Country Code</label>
+                    {{form.country_code}}
+                </div>
+                <div class="error-container">
+                    {% for error in form.country_code.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col s6 m8">
+                <div class="input-field">
+                    <input required id="phone_number" type="number" class="validate" name="phone_number"
+                        value="{{request.session.registration_details.phone_number}}">
+                    <label for="phone_number">Phone Number</label>
+                    <div class="error-container">
+                        {% for error in form.phone_number.errors %}
+                        <p class="error e">{{ error|escape }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 input-row">
+                <input id="email" type="email" class="validate" name="email" autofocus
+                    value="{{request.session.registration_details.email}}" required />
+                <label for="email">Email</label>
+                <div class="error-container">
+                    {% for error in form.email.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12 input-row">
+                <input id="password1" type="password" autocomplete="off" class="validate" name="password1" required />
+                <label for="password1">Password</label>
+                <div class="error">
+                    <p id="password1Errors"></p>
+                </div>
+                <div class="error-container">
+                    {% for error in form.password1.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-field col s12 input-row">
+                <input id="password2" type="password" autocomplete="off" class="validate" name="password2" required />
+                <label for="password2">Confirm Password</label>
+                <div class="error">
+                    <p id="password2Errors"></p>
+                </div>
+                <div class="error-container">
+                    {% for error in form.password2.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 d-flex align-items-center">
+
+                <p>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="terms"
+                            id="terms"
+                            {% if request.session.registration_details.terms %}checked{% endif %} required
+                        />
+                        <span>I agree to the <a href="#">Terms of service</a></span>
+                    </label>
+                </p>
+
+                <div class="error-container">
+                    {% for error in form.terms.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12 input-row">
+                {{form.captcha}}
+                <div class="error-container">
+                    {% for error in form.captcha.errors %}
+                    <p class="error e">{{ error|escape }}</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col s12">
+                <button class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </div>
+</form>
+<div class="htmx-indicator" id="spinner">
+    <img src="{% static 'images/common/puff.svg' %}" height="80" width="80" alt="loader" />
+</div>
