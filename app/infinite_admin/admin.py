@@ -2,7 +2,8 @@ from django.urls import path
 from django.contrib import admin
 from infinite_admin.presentation.views import (
     AdvancedAdminDashboardView, LoggingView, CloudBackupView,
-    StaffView, PermissionsView, MakeShortlisterReviewerView)
+    StaffView, PermissionsView, MakeShortlisterReviewerView,
+    UnassignedApplicationsView)
 
 
 class CustomAdmin(admin.AdminSite):
@@ -22,6 +23,9 @@ class CustomAdmin(admin.AdminSite):
             path('users/staff/',
                  admin.site.admin_view(StaffView.as_view()),
                  name='staff'),
+            path('applications/unassigned/',
+                 admin.site.admin_view(UnassignedApplicationsView.as_view()),
+                 name='unassigned_applications'),
             path('users/<int:pk>/permissions/',
                  admin.site.admin_view(PermissionsView.as_view()),
                  name='permissions'),
