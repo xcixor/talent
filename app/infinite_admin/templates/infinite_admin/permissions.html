@@ -13,11 +13,11 @@
 <div class="row mt-5">
     <div class="col s12">
         <div class="soft-shadow p-2 mb-2">
-            <h5 class="m-0">Permissions Available for Staff <i class="fa-solid fa-clipboard-check fa-primary"></i></h5>
+            <h5 class="m-0">Permissions Available for {{user}} <i class="fa-solid fa-clipboard-check fa-primary"></i></h5>
         </div>
         <div class="soft-shadow px-2">
             <div class="d-flex align-items-center justify-content-between">
-                <p>Can Shortlist Applications</p><a href="#">Add Permissions<i class="fa-solid fa-plus ms-1"></i></a>
+                <p>Can Shortlist Applications</p><a href="{% url 'basic_admin:shortlist_permissions' pk=user.pk %}">Add Permissions<i class="fa-solid fa-plus ms-1"></i></a>
             </div>
         </div>
     </div>

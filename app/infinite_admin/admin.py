@@ -2,7 +2,7 @@ from django.urls import path
 from django.contrib import admin
 from infinite_admin.presentation.views import (
     AdvancedAdminDashboardView, LoggingView, CloudBackupView,
-    StaffView, PermissionsView)
+    StaffView, PermissionsView, MakeShortlisterReviewerView)
 
 
 class CustomAdmin(admin.AdminSite):
@@ -25,6 +25,9 @@ class CustomAdmin(admin.AdminSite):
             path('users/<int:pk>/permissions/',
                  admin.site.admin_view(PermissionsView.as_view()),
                  name='permissions'),
+            path('users/<int:pk>/permissions/shortlisting/',
+                 admin.site.admin_view(MakeShortlisterReviewerView.as_view()),
+                 name='shortlist_permissions'),
         ] + urls
         return custom_urls
 
