@@ -22,7 +22,8 @@ class StaffView(ListView):
         return super().get(request, *args, **kwargs)
 
     def get_queryset(self, **kwargs):
-        queryset = super().get_queryset(**kwargs).filter(is_staff=True)
+        queryset = super().get_queryset(
+            **kwargs).filter(is_staff=True).exclude(is_superuser=True)
         search_fields = \
             SearchVector('first_name') \
             + SearchVector('last_name') \
