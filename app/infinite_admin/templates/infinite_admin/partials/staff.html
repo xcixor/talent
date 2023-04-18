@@ -1,0 +1,127 @@
+{% load humanize %}
+{% load i18n %}
+{% load static %}
+<div class="row align-items-md-stretch">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s12">
+                <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                    <h3>Organization Staff</h3>
+                    {% if paginator.count > 0 %}
+                    <div class="row">
+                        <div class="col s12">
+                            <p class="m-0">Showing page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+                            <p class="small">
+                                {% with page_obj|length as records %}
+                                {{records}} record{{ records|pluralize }} of {{records}}
+                                {% endwith %}
+                            </p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="d-flex">
+                                <form method="get" class="d-flex flex-1" style="min-height: 100%; width: 100%;">
+                                    {%csrf_token %}
+                                    <div class="input-row input-field flex-1">
+                                        <input
+                                            value="{% if request.session.search %}{{request.session.search}}{% endif %}"
+                                            type="text" id="id_search" class="validate"
+                                            placeholder="{% trans 'Search' %}" name="search" required
+                                            hx-get="{% url 'basic_admin:staff' %}" hx-trigger="keyup changed delay:1s"
+                                            hx-swap="innerHTML" hx-target="#htmx-parent" hx-indicator="#spinner">
+                                    </div>
+                                    <button class="btn btn-primary" type="submit"
+                                        style="min-height: 100%; height: 100% !important;">
+                                        <i class="fa-solid fa-magnifying-glass" title="Search"></i>
+                                    </button>
+                                </form>
+                                {% if request.session.search %}
+                                <form method="get" style="min-height: 100%;">
+                                    <button class="btn btn-primary" type="button"
+                                        hx-get="{% url 'shortlist:clear_filters' filter_param='search' next=request.path %}"
+                                        hx-trigger="click" style="min-height: 100%; height: 100% !important;">
+                                        <i class="fa-solid fa-xmark" title="clear sort"></i>
+                                    </button>
+                                </form>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if paginator.count > 0 %}
+        <div class="row">
+            <div class="col s12">
+                <table class="striped responsive-table">
+                    <thead>
+                        <tr>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{user.first_name}}</td>
+                            <td>{{user.last_name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.formatted_phone_number}}</td>
+                            <td>
+                                <a href="/cO4yp84DxO8LqagQUUo/accounts/user/{{user.pk}}/change/"
+                                    class="btn btn-primary">More Details
+                                </a>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary">Permissions</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        {% if request.session.search or request.session.sort %}
+        <h6><strong>We do not have the filtered users at the moment. Please clear your filters or try searching with
+                another keyword.</strong></h6>
+        {% else %}
+        <h6><strong>We do not have users at the moment</strong></h6>
+        {% endif %}
+        {% endif %}
+
+        <div class="row">
+            <div class="col s12">
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        {% if not form.errors %}
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% endif %}
+
+                        {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="htmx-indicator" id="spinner">
+    <img src="{% static 'images/common/puff.svg' %}" height="80" width="80" alt="loader" />
+</div>
