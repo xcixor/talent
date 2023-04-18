@@ -1,5 +1,6 @@
 {% load humanize %}
 {% load i18n %}
+{% load shortlist_extras %}
 <div class="row align-items-md-stretch">
     <div class="col-md-12">
         <div class="h-100 p-5 bg-body-tertiary border rounded-3">
@@ -32,9 +33,10 @@
                                     <option {% if not request.session.sort %}selected{% endif %}>Filter by Industry
                                     </option>
                                     {% for industry in industries %}
-                                    <option value="{{industry.pk}}" {% if
-                                        request.session.sort|stringformat:"s"==industry.pk|stringformat:"s" %}selected{%
-                                        endif %}>{{industry}}</option>
+                                    <option
+                                        value="{{industry.pk}}" {% if request.session.sort|stringformat:"s" == industry.pk|stringformat:"s" %}selected{% endif %}>
+                                        {{industry}}
+                                    </option>
                                     {% endfor %}
                                 </select>
                                 {% for industry in industries %}
@@ -64,8 +66,6 @@
                                     style="min-height: 100%; height: 100% !important;">
                                     <i class="fa-solid fa-magnifying-glass" title="Search"></i>
                                 </button>
-                                {% for industry in industries %}
-                                {% endfor %}
                             </form>
                             {% if request.session.search %}
                             <form method="get" style="min-height: 100%;">
@@ -103,9 +103,29 @@
                             <td>{{opening.industry}}</td>
                             <td>{{opening.openings}}</td>
                             <td>{{opening.city}}</td>
-                            <td><a href="{% url 'shortlist:opening' slug=opening.slug %}" class="btn btn-primary">More
-                                    Details</a></td>
-                            <td><button class="btn btn-primary">Apply</button>
+                            <td>
+                                <a href="{% url 'shortlist:opening' slug=opening.slug %}" class="btn btn-primary">More
+                                    Details
+                                </a>
+                            </td>
+                            <td>
+                                {% if user.is_authenticated %}
+                                {% if opening|is_applied_to:user %}
+                                <i class="fa-solid fa-circle-check fa-secondary fa-2x"></i>
+                                {% else %}
+                                <form action="{% url 'shortlist:apply' next=request.path %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="listing" value="{{opening.pk}}">
+                                    <button class="btn btn-primary">Apply</button>
+                                </form>
+                                {% endif %}
+                                {% else %}
+                                <form action="{% url 'shortlist:apply' next=request.path %}" method="post">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="listing" value="{{opening.pk}}">
+                                    <button class="btn btn-primary">Apply</button>
+                                </form>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}
