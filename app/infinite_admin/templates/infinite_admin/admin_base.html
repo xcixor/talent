@@ -24,11 +24,21 @@
             </div>
           </li>
           <li><a href="{% url 'basic_admin:logging' %}">Logging</a></li>
-          <a class="dropdown-trigger" href="#" data-target="usersDropdown">Users</a>
-          <ul id="usersDropdown" class="dropdown-content">
-            <li><a href="/cO4yp84DxO8LqagQUUo/advanced/accounts/user/">All</a></li>
-            <li><a href="{% url 'basic_admin:staff' %}">Staff</a></li>
-          </ul>
+          <li>
+            <a class="dropdown-trigger" href="#" data-target="usersDropdown">Users</a>
+            <ul id="usersDropdown" class="dropdown-content">
+              <li><a href="/cO4yp84DxO8LqagQUUo/advanced/accounts/user/">All</a></li>
+              <li><a href="{% url 'basic_admin:staff' %}">Staff</a></li>
+            </ul>
+          </li>
+          <li>
+            <a class="dropdown-trigger" href="#" data-target="applicationsDropdown">Applications</a>
+            <ul id="applicationsDropdown" class="dropdown-content">
+              <li><a href="/cO4yp84DxO8LqagQUUo/shortlist/application/">All</a></li>
+              <li><a href="{% url 'basic_admin:unassigned_applications' %}">Unassigned</a></li>
+            </ul>
+          </li>
+
           <li><a href="/cO4yp84DxO8LqagQUUo/">More</a></li>
 
           <li><a class="waves-effect" href="{% url 'accounts:logout' %}"><i class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
