@@ -136,6 +136,12 @@ input.form-check-input {
 .ps-1 {
     padding-left: 10px;
 }
+.py-1{
+    padding: 10px 0;
+}
+.py-2{
+    padding: 20px 0;
+}
 .ms-1 {
     margin-left: 10px;
 }

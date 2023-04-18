@@ -1,5 +1,4 @@
 from django_htmx.http import HttpResponseClientRedirect
-from django.urls import reverse_lazy
 from django.views.generic import View
 
 
