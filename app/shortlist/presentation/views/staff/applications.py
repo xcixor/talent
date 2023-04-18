@@ -2,14 +2,14 @@ from itertools import chain
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.postgres.search import SearchVector
 from django.views.generic import ListView
-from shortlist.models import Application
+from shortlist.models import ShortList
 
 
 class StaffApplications(LoginRequiredMixin, ListView):
 
-    model = Application
+    model = ShortList
     template_name = 'shortlist/staff/applications.html'
-    context_object_name = 'users'
+    context_object_name = 'applications'
     partial_template_name = 'shortlist/staff/partials/applications.html'
     paginate_by = 10
 
@@ -24,14 +24,14 @@ class StaffApplications(LoginRequiredMixin, ListView):
 
     def get_queryset(self, **kwargs):
         queryset = super().get_queryset(**kwargs).filter(
-            applicant=self.request.user)
+            shortlister=self.request.user)
         search_fields = \
-            SearchVector('listing__industry__title') \
-            + SearchVector('listing__industry__description') \
-            + SearchVector('listing__title') \
-            + SearchVector('listing__description') \
-            + SearchVector('listing__proposed_remuneration') \
-            + SearchVector('listing__city')
+            SearchVector('application__listing__industry__title') \
+            + SearchVector('application__listing__industry__description') \
+            + SearchVector('application__listing__title') \
+            + SearchVector('application__listing__description') \
+            + SearchVector('application__listing__proposed_remuneration') \
+            + SearchVector('application__listing__city')
         search_query = self.request.session.get('search', None)
         if search_query:
             full_search = queryset.annotate(
