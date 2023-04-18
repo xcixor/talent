@@ -43,6 +43,13 @@
                 class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> My Jobs
             </a>
           </li>
+          {% elif user.type_of_user == 'JOB_SEEKER' %}
+          <li>
+            <a class="waves-effect"
+              href="{% if request.path == '/shortlist/my/applications/' %}#!{% else %} {% url 'shortlist:employee_applications' %}{% endif %}"><i
+                class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> My Jobs
+            </a>
+          </li>
           {% endif %}
           <li>
             <div class="divider"></div>

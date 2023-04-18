@@ -12,6 +12,7 @@ class Application(models.Model):
         JobListing, on_delete=models.CASCADE,
         related_name='applications')
     created = models.DateTimeField(auto_now=True)
+    status = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return f"Application {str(self.id).zfill(3)} by {self.applicant}"
