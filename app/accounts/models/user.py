@@ -107,6 +107,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self) -> str:
         if self.is_superuser:
             return 'ADMIN-ID-' + str(self.id).zfill(1)
+        if self.is_staff:
+            return 'STAFF-ID-' + str(self.id).zfill(1)
         return 'ITL-ID-' + str(self.id).zfill(3)
 
     class Meta:
