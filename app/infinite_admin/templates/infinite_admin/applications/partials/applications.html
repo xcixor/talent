@@ -102,7 +102,7 @@
                             <td>{{application.created}}</td>
                             <td>{{application.formatted_phone_number}}</td>
                             <td>
-                                <a href="#"
+                                <a href="{% url 'basic_admin:assign_shortlister' pk=application.pk %}"
                                     class="btn btn-primary">Assign Shortlister
                                 </a>
                             </td>

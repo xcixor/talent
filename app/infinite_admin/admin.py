@@ -3,7 +3,7 @@ from django.contrib import admin
 from infinite_admin.presentation.views import (
     AdvancedAdminDashboardView, LoggingView, CloudBackupView,
     StaffView, PermissionsView, MakeShortlisterReviewerView,
-    UnassignedApplicationsView)
+    UnassignedApplicationsView, CreateShortListView)
 
 
 class CustomAdmin(admin.AdminSite):
@@ -32,6 +32,9 @@ class CustomAdmin(admin.AdminSite):
             path('users/<int:pk>/permissions/shortlisting/',
                  admin.site.admin_view(MakeShortlisterReviewerView.as_view()),
                  name='shortlist_permissions'),
+            path('applications/<int:pk>/assign/',
+                 admin.site.admin_view(CreateShortListView.as_view()),
+                 name='assign_shortlister'),
         ] + urls
         return custom_urls
 
