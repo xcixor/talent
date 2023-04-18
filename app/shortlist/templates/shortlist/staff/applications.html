@@ -1,4 +1,4 @@
-{% extends 'infinite_admin/admin_base.html' %}
+{% extends 'accounts/common/accounts_base.html' %}
 {% block title %}Dashboard{% endblock %}
 {% load static %}
 {% block styles %}
@@ -11,6 +11,6 @@
 {% endblock %}
 {% block account_content %}
 <div class="htmx-parent" id="htmx-parent">
-    {% include 'infinite_admin/partials/staff.html' %}
+    {% include 'shortlist/staff/partials/applications.html' %}
 </div>
 {% endblock %}
