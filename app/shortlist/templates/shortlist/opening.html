@@ -1,5 +1,6 @@
 {% extends 'common/base.html' %}
 {% block title %}About{% endblock %}
+{% load shortlist_extras %}
 {% load static %}
 {% block styles %}
 {{ block.super }}
@@ -62,7 +63,23 @@
     <div class="row">
         <div class="col s12">
             <div class="mx-4">
-                <button class="btn btn-primary">Apply</button>
+                {% if user.is_authenticated %}
+                {% if opening|is_applied_to:user %}
+                <i class="fa-solid fa-circle-check fa-secondary fa-2x"></i>
+                {% else %}
+                <form action="{% url 'shortlist:apply' next=request.path %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="listing" value="{{opening.pk}}">
+                    <button class="btn btn-primary">Apply</button>
+                </form>
+                {% endif %}
+                {% else %}
+                <form action="{% url 'shortlist:apply' next=request.path %}" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="listing" value="{{opening.pk}}">
+                    <button class="btn btn-primary">Apply</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -84,8 +101,24 @@
                     <p class="m-0">City: {{job.city}}</p>
                     <p class="m-0">Salary(USD): {{job.proposed_remuneration}}</p>
                     <p class="m-0">Recruiter: {{job.job_owner.email}}</p>
-                    <div class="d-flex justify-content-between mt-2">
-                        <a href="#" class="btn btn-primary">Apply</a>
+                    <div class="d-flex justify-content-between align-items-center mt-2">
+                        {% if user.is_authenticated %}
+                        {% if job|is_applied_to:user %}
+                        <i class="fa-solid fa-circle-check fa-secondary fa-2x"></i>
+                        {% else %}
+                        <form action="{% url 'shortlist:apply' next=request.path %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="listing" value="{{job.pk}}">
+                            <button class="btn btn-primary">Apply</button>
+                        </form>
+                        {% endif %}
+                        {% else %}
+                        <form action="{% url 'shortlist:apply' next=request.path %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="listing" value="{{job.pk}}">
+                            <button class="btn btn-primary">Apply</button>
+                        </form>
+                        {% endif %}
                         <a href="{% url 'shortlist:opening' slug=job.slug %}" class="btn btn-secondary">View More</a>
                     </div>
                 </div>
