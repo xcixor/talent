@@ -26,7 +26,7 @@ class ShortList(models.Model):
         choices=SHORTLIST_STATUS)
 
     def __str__(self) -> str:
-        return f"Application {str(self.id).zfill(3)} by {self.applicant}"
+        return f"{str(self.id).zfill(3)} In review by {self.shortlister}"
 
     class Meta:
         unique_together = ('application', 'shortlister')
