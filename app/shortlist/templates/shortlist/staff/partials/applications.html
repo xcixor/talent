@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col s12">
                 <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                    <h3>Organization Staff</h3>
+                    <h3>My Applications</h3>
                     {% if paginator.count > 0 %}
                     <div class="row">
                         <div class="col s12">
@@ -29,7 +29,7 @@
                                             value="{% if request.session.search %}{{request.session.search}}{% endif %}"
                                             type="text" id="id_search" class="validate"
                                             placeholder="{% trans 'Search' %}" name="search" required
-                                            hx-get="{% url 'basic_admin:staff' %}" hx-trigger="keyup changed delay:1s"
+                                            hx-get="{% url 'shortlist:staff_applications' %}" hx-trigger="keyup changed delay:1s"
                                             hx-swap="innerHTML" hx-target="#htmx-parent" hx-indicator="#spinner">
                                     </div>
                                     <button class="btn btn-primary" type="submit"
@@ -68,8 +68,8 @@
                     <tbody>
                         {% for application in applications %}
                         <tr>
-                            <td>{{application.listing}}</td>
-                            <td>{{application.applicant}}</td>
+                            <td>{{application.application.listing.title}}</td>
+                            <td>{{application.application.applicant}}</td>
                             <td>{{application.created}}</td>
                             <td>
                                 <a href="#"
