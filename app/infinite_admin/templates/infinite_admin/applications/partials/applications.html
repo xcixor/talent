@@ -100,7 +100,7 @@
                             <td>{{application.listing.title}}</td>
                             <td>{{application.applicant}}</td>
                             <td>{{application.created}}</td>
-                            <td>{{application.formatted_phone_number}}</td>
+                            <td>{{application.applicant.get_formatted_phone_number}}</td>
                             <td>
                                 <a href="{% url 'basic_admin:assign_shortlister' pk=application.pk %}"
                                     class="btn btn-primary">Assign Shortlister
