@@ -1,6 +1,14 @@
 version: '3.7'
 
 services:
+  db:
+    image: postgres:14
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_PASSWORD: talent-db-pwd
+      POSTGRES_USER: talent-db-user
+      POSTGRES_DB: talent-db-name
   talent:
     build:
       context: .
@@ -8,10 +16,18 @@ services:
     volumes:
       - ./app/:/usr/src/app/
     ports:
-      - 8000:8000
+      - 8500:8500
     environment:
       SECRET_KEY: 'secret-key'
       DJANGO_SETTINGS_MODULE: core.settings.production
-      PORT: 8000
+      POSTGRES_DB: talent-db-name
+      POSTGRES_USER: talent-db-user
+      POSTGRES_PASSWORD: talent-db-pwd
+      POSTGRES_IP: db
+      PORT: 8500
     env_file:
       - .env
+    depends_on:
+      - db
+volumes:
+  postgres_data:

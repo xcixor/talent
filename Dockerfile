@@ -13,9 +13,14 @@ ENV PYTHONUNBUFFERED 1
 COPY Pipfile Pipfile.lock ./
 RUN pip install --upgrade pip pipenv && pipenv install --system
 
+# db healthcheck
+COPY ./scripts/postgres-healthcheck.py /usr/local/bin/postgres-healthcheck
+RUN chmod u+x /usr/local/bin/postgres-healthcheck
+
+
 # copy project
 COPY ./app .
 
 ARG PORT
 
-CMD python manage.py makemigrations; python manage.py migrate; python manage.py loaddata industries.json; python manage.py create_admin; python manage.py runserver 0.0.0.0:${PORT}
+CMD postgres-healthcheck; python manage.py makemigrations; python manage.py migrate; python manage.py loaddata industries.json; python manage.py create_admin; python manage.py runserver 0.0.0.0:${PORT}
