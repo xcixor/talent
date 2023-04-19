@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3a3969c00291598c9c26779ec5960c64d69885923aa15da935b1fb964c7a18c8"
+            "sha256": "e6a1678d4f53264c98c7d0996f3f0412db0fae7ba54d1410119ca0fa33a2893c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -186,6 +186,14 @@
             "index": "pypi",
             "version": "==4.2"
         },
+        "django-ckeditor": {
+            "hashes": [
+                "sha256:1321f24df392f30698513930ce5c9f6d899f9bd0ef734c3b64fe936d809e11b3",
+                "sha256:57cd8fb7cd150adca354cd4e5c35a743fadaab7073f957d2b7167f0d9fe1fcaf"
+            ],
+            "index": "pypi",
+            "version": "==6.5.1"
+        },
         "django-countries": {
             "hashes": [
                 "sha256:22915d9b9403932b731622619940a54894a3eb0da9a374e7249c8fc453c122d7",
@@ -201,6 +209,14 @@
             ],
             "index": "pypi",
             "version": "==1.14.0"
+        },
+        "django-js-asset": {
+            "hashes": [
+                "sha256:86f9f300d682537ddaf0487dc2ab356581b8f50c069bdba91d334a46e449f923",
+                "sha256:adc1ee1efa853fad42054b540c02205344bb406c9bddf87c9e5377a41b7db90f"
+            ],
+            "markers": "python_version >= '3.6'",
+            "version": "==2.0.0"
         },
         "django-recaptcha": {
             "hashes": [
@@ -616,11 +632,11 @@
         },
         "sqlparse": {
             "hashes": [
-                "sha256:0323c0ec29cd52bceabc1b4d9d579e311f3e4961b98d174201d5622a23b85e34",
-                "sha256:69ca804846bb114d2ec380e4360a8a340db83f0ccf3afceeb1404df028f57268"
+                "sha256:5430a4fe2ac7d0f93e66f1efc6e1338a41884b7ddf2a350cedd20ccc4d9d28f3",
+                "sha256:d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c"
             ],
             "markers": "python_version >= '3.5'",
-            "version": "==0.4.3"
+            "version": "==0.4.4"
         },
         "typing-extensions": {
             "hashes": [
@@ -642,11 +658,11 @@
     "develop": {
         "astroid": {
             "hashes": [
-                "sha256:6e61b85c891ec53b07471aec5878f4ac6446a41e590ede0f2ce095f39f7d49dd",
-                "sha256:dea89d9f99f491c66ac9c04ebddf91e4acf8bd711722175fe6245c0725cc19bb"
+                "sha256:44224ad27c54d770233751315fa7f74c46fa3ee0fab7beef1065f99f09897efe",
+                "sha256:f11e74658da0f2a14a8d19776a8647900870a63de71db83713a8e77a6af52662"
             ],
             "markers": "python_full_version >= '3.7.2'",
-            "version": "==2.15.2"
+            "version": "==2.15.3"
         },
         "autopep8": {
             "hashes": [

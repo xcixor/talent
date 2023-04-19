@@ -31,12 +31,12 @@
                         <p class="my-1"><b>Job Owner</b> {{shortlist.application.listing.job_owner}}</p>
                         <p class="my-1"><b>comment</b> {{shortlist.application.listing.comment}}</p>
                         <p class="my-1"><b>status</b> {{shortlist.application.listing.status}}</p>
-                        <p class="my-1"><b>Description</b> {{shortlist.application.listing.description}}</p>
-                        <p class="my-1"><b>Requirements</b> {{shortlist.application.listing.requirements}}</p>
-                        <p class="my-1"><b>Length of Hire</b> {{shortlist.application.listing.requirements}}</p>
+                        <p class="my-1"><b>Description</b> {{shortlist.application.listing.description|safe}}</p>
+                        <p class="my-1"><b>Requirements</b> {{shortlist.application.listing.requirements|safe}}</p>
+                        <p class="my-1"><b>Length of Hire</b> {{shortlist.application.listing.length_of_hire}}</p>
                         <p class="my-1"><b>Openings</b> {{shortlist.application.listing.openings}}</p>
                         <p class="my-1"><b>City</b> {{shortlist.application.listing.city}}</p>
-                        <p class="my-1"><b>Work Experience</b> {{shortlist.application.listing.experience}}</p>
+                        <p class="my-1"><b>Work Experience</b> {{shortlist.application.listing.experience|safe}}</p>
                     </div>
                     <div class="col s12 m6">
                         <h6><b>Applicant Details</b></h6>
