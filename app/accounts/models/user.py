@@ -110,9 +110,11 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     def get_age(self):
         today = date.today()
-        return today.year - self.date_of_birth.year - \
-            ((today.month, today.day) <
-             (self.date_of_birth.month, self.date_of_birth.day))
+        if self.date_of_birth:
+            return today.year - self.date_of_birth.year - \
+                ((today.month, today.day) <
+                 (self.date_of_birth.month, self.date_of_birth.day))
+        return 0
 
     def __str__(self) -> str:
         if self.is_superuser:
