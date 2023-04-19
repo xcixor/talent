@@ -16,15 +16,15 @@
                     <div class="card bg-primary-light-4 z-depth-0">
                         <div class="card-content white-text">
                             <span class="card-title">Job Description</span>
-                            <p><b>Description:</b> <br> {{job.description}}</p>
+                            <p><b>Description:</b> <br> {{job.description|safe}}</p>
                             <p><b>Industry:</b> {{job.industry}}</p>
-                            <p><b>Job Requirements:</b> <br> {{job.requirements}}</p>
+                            <p><b>Job Requirements:</b> <br> {{job.requirements|safe}}</p>
                             <p><b>Length of Hire:</b> {{job.length_of_hire}}</p>
                             <p><b>City:</b> {{job.city}}</p>
                             <p><b>Number of Openings:</b> {{job.openings}}</p>
                             <p><b>Proposed Remuneration:</b> {{job.proposed_remuneration}}</p>
                             <p><b>Cooperation with Agency:</b> <br> {{job.cooperation_type}}</p>
-                            <p><b>Experience:</b> {{job.experience}}</p>
+                            <p><b>Experience:</b> {{job.experience|safe}}</p>
                         </div>
                         <div class="card-action d-flex" style="line-height: 36px;">
                             <a href="{% url 'job:edit_job' pk=job.pk %}" class="btn btn-flat btn-link"

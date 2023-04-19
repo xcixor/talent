@@ -2,6 +2,7 @@ import itertools
 from django.utils.translation import gettext_lazy as _
 from django.utils.text import slugify
 from django.db import models
+from ckeditor.fields import RichTextField
 from accounts.models import User
 
 
@@ -46,8 +47,8 @@ class JobListing(models.Model):
         on_delete=models.CASCADE, related_name='job')
     title = models.CharField(
         max_length=255)
-    description = models.TextField()
-    requirements = models.TextField(blank=True, null=True)
+    description = RichTextField()
+    requirements = RichTextField(blank=True, null=True)
     length_of_hire = models.CharField(max_length=200, blank=True, null=True)
     proposed_remuneration = models.CharField(
         max_length=400, blank=True, null=True)
@@ -59,7 +60,7 @@ class JobListing(models.Model):
         max_length=255, unique=True,
         help_text=_('Unique address for the opening.'))
     created = models.DateTimeField(auto_now=True)
-    experience = models.CharField(max_length=200, blank=True, null=True)
+    experience = RichTextField(max_length=200, blank=True, null=True)
 
     def _generate_slug(self):
         value = self.title
