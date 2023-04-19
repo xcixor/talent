@@ -82,9 +82,9 @@ workflows:
 ***REMOVED***
     jobs:
       - test_talent:
+          filters:
             branches:
-              ignore:
-                - main
+              ignore: main
       - push_service_image:
           requires:
             - test_talent
