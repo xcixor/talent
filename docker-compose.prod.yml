@@ -4,14 +4,30 @@ version: '3.7'
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
       dockerfile: Dockerfile.prod
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
-***REMOVED***
+      - 8500:8500
 ***REMOVED***
 ***REMOVED***
       DJANGO_SETTINGS_MODULE: core.settings.production
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+      PORT: 8500
+***REMOVED***
+***REMOVED***
+***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
