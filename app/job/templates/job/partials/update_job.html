@@ -27,7 +27,9 @@
     </div>
     <div class="row">
         <div class="input-row input-field col s12">
-            <label for="id_description">Describe the job</label>
+            <div>
+                <label for="id_description">Describe the job</label>
+            </div>
             {{form.description}}
             <div class="error-container">
                 {% for error in form.description.errors %}
@@ -38,7 +40,9 @@
     </div>
     <div class="row">
         <div class="input-row input-field col s12">
-            <label for="id_requirements">{{form.requirements.label}}</label>
+            <div>
+                <label for="id_requirements">{{form.requirements.label}}</label>
+            </div>
             {{form.requirements}}
             <div class="error-container">
                 {% for error in form.requirements.errors %}
@@ -81,7 +85,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
         <div class="input-row input-field col s12">
             <label for="id_city">{{form.city.label}}</label>
