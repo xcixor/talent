@@ -1,0 +1,94 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/shortlist/shortlist.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row align-items-md-stretch">
+        <div class="col-md-12">
+            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                <div class="row summary-container">
+                    <div class="col s12">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <a class="btn btn-secondary" href="{% url 'shortlist:staff_shortlists' %}">My Applications</a>
+                            <div class="summary">
+                                <h6><b>{{shortlist.application}}</b></h6>
+                                <p class="m-0">Applied {{shortlist.application.created}}</p>
+                                <p class="m-0">Assigned to me on {{shortlist.created}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col s12 m6">
+                        <h6><b>Job Description</b></h6>
+                        <p class="my-1"><b>Job ID</b> {{shortlist.application.listing.special_id}}</p>
+                        <p class="my-1"><b>Job Owner</b> {{shortlist.application.listing.job_owner}}</p>
+                        <p class="my-1"><b>Title</b> {{shortlist.application.listing.title}}</p>
+                        <p class="my-1"><b>Industry</b> {{shortlist.application.listing.industry}}</p>
+                        <p class="my-1"><b>Description</b> {{shortlist.application.listing.description}}</p>
+                        <p class="my-1"><b>Requirements</b> {{shortlist.application.listing.requirements}}</p>
+                        <p class="my-1"><b>Length of Hire</b> {{shortlist.application.listing.requirements}}</p>
+                        <p class="my-1"><b>Openings</b> {{shortlist.application.listing.openings}}</p>
+                        <p class="my-1"><b>City</b> {{shortlist.application.listing.city}}</p>
+                        <p class="my-1"><b>Work Experience</b> {{shortlist.application.listing.experience}}</p>
+                    </div>
+                    <div class="col s12 m6">
+                        <h6><b>Applicant Details</b></h6>
+                        <p class="my-1"><b>ID</b> {{shortlist.application.applicant}}</p>
+                        <p class="my-1"><b>Email</b> {{shortlist.application.applicant.email}}</p>
+                        <p class="my-1"><b>Name</b> {{shortlist.application.applicant.get_full_name}}</p>
+                        <p class="my-1"><b>Age</b> {{shortlist.application.applicant.get_age}}</p>
+                        <p class="my-1"><b>Phone Number</b> {{shortlist.application.applicant.get_formatted_phone_number}}</p>
+                        <p class="my-1"><b>Gender</b> {{shortlist.application.applicant.gender}}</p>
+                        <p class="my-1"><b>Years of Work</b> {{shortlist.application.applicant.years_of_work}}</p>
+                        <p class="my-1"><b>Preferred Country</b> {{shortlist.application.applicant.preferred_country}}</p>
+                        <p class="my-1"><b>Service Type</b> {{shortlist.application.applicant.service_type}}</p>
+                        <p class="my-1"><b>Nationality</b> {{shortlist.application.applicant.nationality}}</p>
+                        <p class="my-1"><b>Country of Residence</b> {{shortlist.application.applicant.country_of_residence}}</p>
+                        <p class="my-1"><b>Highest Level of Education</b> {{shortlist.application.applicant.highest_level_of_education}}</p>
+                        <p class="my-1"><b>Type of Visa</b> {{shortlist.application.applicant.type_of_visa}}</p>
+                        <p class="my-1"><b>LinkedIn URL</b> {{shortlist.application.applicant.linkedin_url}}</p>
+                        <p class="my-1"><b>Preferred Mode of Contact</b> {{shortlist.application.applicant.mode_of_contact}}</p>
+                        <a class="waves-effect waves-light btn btn-secondary modal-trigger" href="#resume">Resume</a>
+                        <!-- Modal Structure -->
+                        <div id="resume" class="modal">
+                            <div class="modal-content">
+                            <h4>Uploaded Resume</h4>
+                            <embed
+                                src="{{shortlist.application.applicant.resume.url}}"
+                                type="application/pdf"
+                                frameBorder="0"
+                                scrolling="auto"
+                                height="500px"
+                                width="100%"
+                            ></embed>
+                            </div>
+                            <div class="modal-footer">
+                            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row my-2">
+                    <div class="col s12">
+                        <h6><b>Shortlist</b></h6>
+                        <form action="#" method="post">
+                            <p>comment</p>
+                            <p>Accept / declined</p>
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'js/common/material_init.js' %}"></script>
+{% endblock %}
