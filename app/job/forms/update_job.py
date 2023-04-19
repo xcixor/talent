@@ -2,6 +2,7 @@ from django import forms
 from django.utils.translation import gettext_lazy as _
 from job.models import JobListing, Industry
 from job.forms.create_job import COOPERATION_TYPES, INDUSTRIES
+from ckeditor.widgets import CKEditorWidget
 
 
 class UpdateJobForm(forms.ModelForm):
@@ -9,12 +10,12 @@ class UpdateJobForm(forms.ModelForm):
     title = forms.CharField(widget=forms.TextInput(
         attrs={
             'class': 'validate'}), required=True)
-    description = forms.CharField(widget=forms.Textarea(
+    description = forms.CharField(widget=CKEditorWidget(
         attrs={
             'class': 'validate', 'rows': '5'}), required=True)
     requirements = forms.CharField(
         label="What are the job requirements (experience, skills, certificates) *",
-        widget=forms.Textarea(attrs={'rows': '5'}),
+        widget=CKEditorWidget(attrs={'rows': '5'}),
         required=True)
     length_of_hire = forms.CharField(required=False)
     proposed_remuneration = forms.CharField(
