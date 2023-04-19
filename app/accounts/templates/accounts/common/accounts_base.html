@@ -6,6 +6,9 @@
 <link rel="stylesheet" href="{% static 'css/common/layout.css' %}">
 <link rel="stylesheet" href="{% static 'css/accounts/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/accounts/common.css' %}">
+<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -92,6 +95,4 @@
 {% block scripts %}
 {{ block.super }}
 <script src="{% static 'js/common/material_init.js' %}"></script>
-<script type="text/javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
-<script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
 {% endblock %}
