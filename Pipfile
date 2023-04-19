@@ -20,6 +20,7 @@ pycountry = "*"
 requests = "==2.28.2"
 psycopg2-binary = "==2.9.6"
 django-ckeditor = "==6.5.1"
+whitenoise = "*"
 
 [dev-packages]
 pycodestyle = "*"
