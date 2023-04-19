@@ -164,5 +164,3 @@ VERIFIED_EMAIL_USER = os.getenv('VERIFIED_EMAIL_USER')
 ADMIN_EMAILS = os.getenv('ADMIN_EMAILS').split(",")
 LOGIN_REDIRECT_URL = '/accounts/dashboard/'
 
-# ckeditor configs
-CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
