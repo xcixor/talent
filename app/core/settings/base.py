@@ -165,3 +165,10 @@ VERIFIED_EMAIL_USER = os.getenv('VERIFIED_EMAIL_USER')
 ADMIN_EMAILS = os.getenv('ADMIN_EMAILS').split(",")
 LOGIN_REDIRECT_URL = '/accounts/dashboard/'
 
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 200,
+        'width': '100%',
+    },
+}

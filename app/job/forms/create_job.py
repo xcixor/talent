@@ -66,7 +66,7 @@ class CreateJobForm(forms.ModelForm):
         required=True)
     experience = forms.CharField(
         label="Years of experience",
-        widget=CKEditorWidget(attrs={
+        widget=forms.TextInput(attrs={
             'class': 'validate',
             'placeholder': 'Eg. 3 years of experience in management or similar role.'}),
         required=True)
