@@ -103,7 +103,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return f'{self.first_name} {self.last_name}'
 
     def get_formatted_phone_number(self):
-        return f'+{self.country_code} {self.phone_number}'
+        return f'+{str(self.country_code)} {str(self.phone_number)}'
 
     def get_short_name(self):
         return self.username
