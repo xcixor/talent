@@ -6,3 +6,4 @@ from .application import ApplicationView
 from .job_seeker.applications import EmployeeApplicationsView
 from .staff.shortlists import StaffShortLists
 from .staff.shortlist import ShortListView
+from .staff.update_shortlist import UpdateShortListView

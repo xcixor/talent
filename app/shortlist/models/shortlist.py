@@ -12,7 +12,8 @@ class ShortList(models.Model):
         User, on_delete=models.SET_NULL, null=True,
         related_name='shortlists')
     created = models.DateTimeField(auto_now=True)
-    status = models.BooleanField(default=False)
+    is_reviewed = models.BooleanField(default=False)
+    comment = models.TextField(blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{str(self.id).zfill(3)} In review by {self.shortlister}"
