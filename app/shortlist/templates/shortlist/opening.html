@@ -28,7 +28,7 @@
     </div>
     <div class="row">
         <div class="col s12">
-            <p class="ms-1">{{opening.description}}</p>
+            <p class="ms-1">{{opening.description|safe}}</p>
         </div>
     </div>
     <div class="row">
@@ -42,7 +42,7 @@
         <div class="col s12">
             <div class="mx-4">
                 <p class="m-0"><b>Requirements</b></p>
-                <p class="m-0">{{opening.requirements}}</p>
+                <p class="m-0">{{opening.requirements|safe}}</p>
             </div>
         </div>
     </div>
@@ -52,7 +52,7 @@
                 <p class="m-0"><b>City: </b>{{opening.city}}</p>
                 <p class="m-0"><b>Recruiter: </b>{{opening.job_owner}}</p>
                 <p class="m-0"><b>Working Hours: </b>{{opening.working_hours}}</p>
-                <p class="m-0"><b>Experience: </b>{{opening.experience}}</p>
+                <p class="m-0"><b>Experience: </b>{{opening.experience|safe}}</p>
                 <p class="m-0"><b>Industry: </b>{{opening.industry}}</p>
                 <p class="m-0"><b>Salary(USD): </b>{{opening.proposed_remuneration}}</p>
                 <p class="m-0"><b>Openings: </b>{{opening.openings}}</p>

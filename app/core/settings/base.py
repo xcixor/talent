@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django_htmx',
     'captcha',
     'django_countries',
+    'ckeditor',
     'index.apps.IndexConfig',
     'common.apps.CommonConfig',
     'accounts.apps.AccountsConfig',
@@ -162,3 +163,6 @@ EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 VERIFIED_EMAIL_USER = os.getenv('VERIFIED_EMAIL_USER')
 ADMIN_EMAILS = os.getenv('ADMIN_EMAILS').split(",")
 LOGIN_REDIRECT_URL = '/accounts/dashboard/'
+
+# ckeditor configs
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
