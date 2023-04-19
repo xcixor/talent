@@ -72,9 +72,15 @@
                             <td>{{shortlist.application.applicant}}</td>
                             <td>{{shortlist.created}}</td>
                             <td>
+                                {% if shortlist.is_reviewed %}
+                                <a href="{% url 'shortlist:shortlist' pk=shortlist.pk %}"
+                                    class="btn btn-primary">Change Review
+                                </a>
+                                {% else %}
                                 <a href="{% url 'shortlist:shortlist' pk=shortlist.pk %}"
                                     class="btn btn-primary">Shortlist
                                 </a>
+                                {% endif %}
                             </td>
                         </tr>
                         {% endfor %}

@@ -2,7 +2,7 @@ from django.urls import path
 from shortlist.presentation.views import (
     OpeningsView, ClearFiltersView, OpeningView,
     IndustryOpeningsView, ApplicationView, EmployeeApplicationsView,
-    StaffShortLists, ShortListView)
+    StaffShortLists, ShortListView, UpdateShortListView)
 
 app_name = 'shortlist'
 
@@ -21,4 +21,6 @@ urlpatterns = [
          StaffShortLists.as_view(), name='staff_shortlists'),
     path('application/<int:pk>/shortlist/',
          ShortListView.as_view(), name='shortlist'),
+    path('shortlist/<int:pk>/update/',
+         UpdateShortListView.as_view(), name='update_shortlist'),
 ]

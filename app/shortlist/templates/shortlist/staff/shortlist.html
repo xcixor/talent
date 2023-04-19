@@ -1,9 +1,11 @@
 {% extends 'common/base.html' %}
-{% block title %}About{% endblock %}
+{% block comment %}About{% endblock %}
 {% load static %}
 {% block styles %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/shortlist/shortlist.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/registration/registration.css' %}" />
+<link rel="stylesheet" href="{% static 'css/common/inputs.css' %}" />
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -27,8 +29,8 @@
                         <h6><b>Job Description</b></h6>
                         <p class="my-1"><b>Job ID</b> {{shortlist.application.listing.special_id}}</p>
                         <p class="my-1"><b>Job Owner</b> {{shortlist.application.listing.job_owner}}</p>
-                        <p class="my-1"><b>Title</b> {{shortlist.application.listing.title}}</p>
-                        <p class="my-1"><b>Industry</b> {{shortlist.application.listing.industry}}</p>
+                        <p class="my-1"><b>comment</b> {{shortlist.application.listing.comment}}</p>
+                        <p class="my-1"><b>status</b> {{shortlist.application.listing.status}}</p>
                         <p class="my-1"><b>Description</b> {{shortlist.application.listing.description}}</p>
                         <p class="my-1"><b>Requirements</b> {{shortlist.application.listing.requirements}}</p>
                         <p class="my-1"><b>Length of Hire</b> {{shortlist.application.listing.requirements}}</p>
@@ -74,12 +76,39 @@
                     </div>
                 </div>
                 <div class="row my-2">
-                    <div class="col s12">
+                    <div class="row">
                         <h6><b>Shortlist</b></h6>
-                        <form action="#" method="post">
-                            <p>comment</p>
-                            <p>Accept / declined</p>
-                            <button class="btn btn-primary">Submit</button>
+                    </div>
+                    <div class="col s12">
+                        <form action="{% url 'shortlist:update_shortlist' pk=shortlist.pk %}" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="mb-2">
+                                            <label for="id_status" class="form-label">{{form.status.label}}</label>
+                                            {{form.status}}
+                                            <div class="error">
+                                                {% for error in form.status.errors %}
+                                                <p class="error">{{ error|escape }}</p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-row input-field col s12">
+                                            <label for="id_comment">comment</label>
+                                            {{form.comment}}
+                                            <div class="error-container">
+                                                {% for error in form.comment.errors %}
+                                                <p class="error e">{{ error|escape }}</p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <button class="btn btn-primary">Submit</button>
+                                </div>
                         </form>
                     </div>
                 </div>
