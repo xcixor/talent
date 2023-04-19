@@ -5,12 +5,12 @@ from django.views.generic import ListView
 from shortlist.models import ShortList
 
 
-class StaffApplications(LoginRequiredMixin, ListView):
+class StaffShortLists(LoginRequiredMixin, ListView):
 
     model = ShortList
-    template_name = 'shortlist/staff/applications.html'
-    context_object_name = 'applications'
-    partial_template_name = 'shortlist/staff/partials/applications.html'
+    template_name = 'shortlist/staff/shortlists.html'
+    context_object_name = 'shortlists'
+    partial_template_name = 'shortlist/staff/partials/shortlists.html'
     paginate_by = 10
 
     def get(self, request, *args, **kwargs):
