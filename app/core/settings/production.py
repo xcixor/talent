@@ -4,8 +4,8 @@ from google.oauth2 import service_account
 DEBUG = False
 
 # static files config
-STATIC_ROOT = os.environ.get('GS_BUCKET_URL') + 'static/'
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # media files config
 MEDIA_URL = os.environ.get('GS_BUCKET_URL')
@@ -16,9 +16,8 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.environ.get('GS_CREDENTIALS')
 )
 
-# ckeditor configs
-# CKEDITOR_BASEPATH = os.environ.get(
-#     'GS_BUCKET_URL') + os.environ.get('GS_LOCATION') + '/ckeditor/'
+# ckeditor config
+CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
 
 
 LOGGING = {
