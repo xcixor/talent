@@ -7,7 +7,7 @@ class ShortList(models.Model):
 
     application = models.ForeignKey(
         Application, on_delete=models.CASCADE,
-        related_name='shortlists')
+        related_name='shortlisters')
     shortlister = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True,
         related_name='shortlists')
