@@ -30,3 +30,4 @@ class ShortList(models.Model):
 
     class Meta:
         unique_together = ('application', 'shortlister')
+        ordering = ['created']

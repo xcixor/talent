@@ -53,7 +53,7 @@
           {% elif user.type_of_user == 'STAFF' %}
           <li>
             <a class="waves-effect"
-              href="{% if request.path == '/shortlist/staff/applications/' %}#!{% else %} {% url 'shortlist:staff_applications' %}{% endif %}"><i
+              href="{% if request.path == '/shortlist/staff/applications/' %}#!{% else %} {% url 'shortlist:staff_shortlists' %}{% endif %}"><i
                 class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i> My Applications
             </a>
           </li>
