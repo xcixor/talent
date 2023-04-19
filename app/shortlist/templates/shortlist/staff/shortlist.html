@@ -60,6 +60,7 @@
                         <div id="resume" class="modal">
                             <div class="modal-content">
                             <h4>Uploaded Resume</h4>
+                            {% if shortlist.application.applicant.resume %}
                             <embed
                                 src="{{shortlist.application.applicant.resume.url}}"
                                 type="application/pdf"
@@ -68,6 +69,9 @@
                                 height="500px"
                                 width="100%"
                             ></embed>
+                            {% else %}
+                            <p>No resume uploaded</p>
+                            {% endif %}
                             </div>
                             <div class="modal-footer">
                             <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
