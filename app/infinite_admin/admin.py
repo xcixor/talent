@@ -3,7 +3,8 @@ from django.contrib import admin
 from infinite_admin.presentation.views import (
     AdvancedAdminDashboardView, LoggingView, CloudBackupView,
     StaffView, PermissionsView, MakeShortlisterReviewerView,
-    UnassignedApplicationsView, CreateShortListView)
+    UnassignedApplicationsView, CreateShortListView,
+    AssignedApplicationsView)
 
 
 class CustomAdmin(admin.AdminSite):
@@ -26,6 +27,9 @@ class CustomAdmin(admin.AdminSite):
             path('applications/unassigned/',
                  admin.site.admin_view(UnassignedApplicationsView.as_view()),
                  name='unassigned_applications'),
+            path('applications/assigned/',
+                 admin.site.admin_view(AssignedApplicationsView.as_view()),
+                 name='assigned_applications'),
             path('users/<int:pk>/permissions/',
                  admin.site.admin_view(PermissionsView.as_view()),
                  name='permissions'),

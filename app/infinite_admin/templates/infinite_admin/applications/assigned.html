@@ -1,0 +1,16 @@
+{% extends 'infinite_admin/admin_base.html' %}
+{% block title %}Unassigned{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/accounts/dashboard.css' %}">
+<link rel="stylesheet" href="{% static 'css/shortlist/openings.css' %}">
+<link rel="stylesheet" href="{% static 'css/index/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/accounts/registration/registration.css' %}" />
+<link rel="stylesheet" href="{% static 'css/common/inputs.css' %}" />
+{% endblock %}
+{% block account_content %}
+<div class="htmx-parent mt-2" id="htmx-parent">
+    {% include 'infinite_admin/applications/partials/assigned.html' %}
+</div>
+{% endblock %}

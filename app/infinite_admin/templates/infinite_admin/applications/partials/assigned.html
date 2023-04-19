@@ -1,0 +1,152 @@
+{% load humanize %}
+{% load i18n %}
+{% load static %}
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s12">
+                <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                    <h3>Unassigned Applications</h3>
+                    {% if paginator.count > 0 %}
+                    <div class="row">
+                        <div class="col s12">
+                            <p class="m-0">Showing page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+                            <p class="small">
+                                {% with page_obj|length as records %}
+                                {{records}} record{{ records|pluralize }} of {{records}}
+                                {% endwith %}
+                            </p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="row">
+                <div class="col s12">
+                    <div class="d-flex">
+                        <div class="d-flex">
+                            <form method="get">
+                                {%csrf_token %}
+                                <select class="browser-default show_select" id="id_stage" name="sort"
+                                    hx-get="{% url 'basic_admin:assigned_applications' %}" hx-swap="innerHTML" hx-target="#htmx-parent"
+                                    hx-indicator="#spinner">
+                                    <option {% if not request.session.sort %}selected{% endif %}>Filter by Industry
+                                    </option>
+                                    {% for industry in industries %}
+                                    <option
+                                        value="{{industry.pk}}" {% if request.session.sort|stringformat:"s" == industry.pk|stringformat:"s" %}selected{% endif %}>
+                                        {{industry}}
+                                    </option>
+                                    {% endfor %}
+                                </select>
+                                {% for industry in industries %}
+                                {% endfor %}
+                            </form>
+                            {% if request.session.sort %}
+                            <form method="get" class="me-2" style="min-height: 100%;">
+                                <button class="btn btn-primary" type="button"
+                                    hx-get="{% url 'shortlist:clear_filters' filter_param='sort' next=request.path %}" hx-trigger="click"
+                                    style="min-height: 100%; height: 100% !important;">
+                                    <i class="fa-solid fa-xmark" title="clear sort"></i>
+                                </button>
+                            </form>
+                            {% endif %}
+                        </div>
+                        <div class="d-flex flex-1">
+                            <form method="get" class="d-flex flex-1" style="min-height: 100%;">
+                                {%csrf_token %}
+                                <div class="input-row input-field flex-1">
+                                    <input value="{% if request.session.search %}{{request.session.search}}{% endif %}"
+                                        type="text" id="id_search" class="validate" placeholder="{% trans 'Search' %}"
+                                        name="search" required hx-get="{% url 'basic_admin:assigned_applications' %}"
+                                        hx-trigger="keyup changed delay:1s" hx-swap="innerHTML" hx-target="#htmx-parent"
+                                        hx-indicator="#spinner">
+                                </div>
+                                <button class="btn btn-primary" type="submit"
+                                    style="min-height: 100%; height: 100% !important;">
+                                    <i class="fa-solid fa-magnifying-glass" title="Search"></i>
+                                </button>
+                            </form>
+                            {% if request.session.search %}
+                            <form method="get" style="min-height: 100%;">
+                                <button class="btn btn-primary" type="button"
+                                    hx-get="{% url 'shortlist:clear_filters' filter_param='search' next=request.path %}"
+                                    hx-trigger="click" style="min-height: 100%; height: 100% !important;">
+                                    <i class="fa-solid fa-xmark" title="clear sort"></i>
+                                </button>
+                            </form>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </div>
+
+        {% if paginator.count > 0 %}
+        <div class="row">
+            <div class="col s12">
+                <table class="striped responsive-table">
+                    <thead>
+                        <tr>
+                            <th>Application</th>
+                            <th>Applicant</th>
+                            <th>Applied</th>
+                            <th>Shortlister</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for application in applications %}
+                        <tr>
+                            <td>{{application.listing.title}}</td>
+                            <td>{{application.applicant}}</td>
+                            <td>{{application.created}}</td>
+                            <td>
+                                {% for shortlister in application.shortlisters.all %}
+                                <p class="m-0">{{shortlister}}</p>
+                                {% endfor %}
+                            </td>
+                            <td>{{application.get_status_display}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% else %}
+        {% if request.session.search or request.session.sort %}
+        <h6><strong>We do not have the filtered applications at the moment. Please clear your filters or try searching with
+                another keyword.</strong></h6>
+        {% else %}
+        <h6><strong>We do not have applications at the moment</strong></h6>
+        {% endif %}
+        {% endif %}
+
+        <div class="row">
+            <div class="col s12">
+                <div class="pagination">
+                    <span class="step-links">
+                        {% if page_obj.has_previous %}
+                        <a href="?page=1">&laquo; first</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                        {% endif %}
+
+                        {% if not form.errors %}
+                        <span class="current">
+                            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                        </span>
+                        {% endif %}
+
+                        {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">next</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                        {% endif %}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="htmx-indicator" id="spinner">
+    <img src="{% static 'images/common/puff.svg' %}" height="80" width="80" alt="loader" />
+</div>

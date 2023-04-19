@@ -31,3 +31,4 @@ class Application(models.Model):
 
     class Meta:
         unique_together = ('applicant', 'listing')
+        ordering = ['created']
