@@ -16,6 +16,10 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
     os.environ.get('GS_CREDENTIALS')
 )
 
+# ckeditor configs
+CKEDITOR_BASEPATH = os.environ.get(
+    'GS_BUCKET_URL') + os.environ.get('GS_LOCATION') + '/ckeditor/'
+
 
 LOGGING = {
     'version': 1,
