@@ -81,10 +81,7 @@ workflows:
   version: 2
 ***REMOVED***
     jobs:
-      # - test_talent:
-      #     filters:
-      #       branches:
-      #         ignore: main
+      - test_talent
       - push_service_image:
           requires:
             - test_talent
