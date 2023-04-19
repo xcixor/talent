@@ -81,7 +81,10 @@ workflows:
   version: 2
   talent:
     jobs:
-      - test_talent
+      - test_talent:
+            branches:
+              ignore:
+                - main
       - push_service_image:
           requires:
             - test_talent
