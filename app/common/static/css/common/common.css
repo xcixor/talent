@@ -194,6 +194,15 @@ input.form-check-input {
     transition: all .2s ease-in-out;
 }
 
+/* ul:not(.browser-default)>li {
+    list-style-type: initial !important;
+    margin-left: 10px;
+} */
+
+.browser-default li{
+    list-style-type: initial !important;
+}
+
 @media screen and ( max-width: 600px ){
 
 }
