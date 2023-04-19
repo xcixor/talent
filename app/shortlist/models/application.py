@@ -16,7 +16,7 @@ class Application(models.Model):
     in_review = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return f"Application {str(self.id).zfill(3)} by {self.applicant}"
+        return f"Application {str(self.pk).zfill(3)} by {self.applicant}"
 
     class Meta:
         unique_together = ('applicant', 'listing')

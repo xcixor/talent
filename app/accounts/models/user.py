@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.base_user import BaseUserManager
@@ -99,17 +100,26 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['first_name', 'last_name', 'type_of_user']
 
     def get_full_name(self):
-        return self.username
+        return f'{self.first_name} {self.last_name}'
+
+    def get_formatted_phone_number(self):
+        return f'+{self.country_code} {self.phone_number}'
 
     def get_short_name(self):
         return self.username
 
+    def get_age(self):
+        today = date.today()
+        return today.year - self.date_of_birth.year - \
+            ((today.month, today.day) <
+             (self.date_of_birth.month, self.date_of_birth.day))
+
     def __str__(self) -> str:
         if self.is_superuser:
-            return 'ADMIN-ID-' + str(self.id).zfill(1)
+            return 'ADMIN-ID-' + str(self.pk).zfill(1)
         if self.is_staff:
-            return 'STAFF-ID-' + str(self.id).zfill(1)
-        return 'ITL-ID-' + str(self.id).zfill(3)
+            return 'STAFF-ID-' + str(self.pk).zfill(1)
+        return 'ITL-ID-' + str(self.pk).zfill(3)
 
     class Meta:
         ordering = ['date_joined']

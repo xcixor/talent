@@ -75,6 +75,9 @@ class JobListing(models.Model):
             self._generate_slug()
         super().save(*args, **kwargs)
 
+    def special_id(self):
+        return f'OPENING {str(self.id).zfill(3)}'
+
     def __str__(self) -> str:
         return self.title
 

@@ -37,6 +37,8 @@ class ShortListForm(forms.ModelForm):
         if commit:
             try:
                 shortlist.save()
+                shortlist.application.in_review = True
+                shortlist.application.save()
             except ShortList.IntegrityError as ie:
                 print(str(ie))
             finally:

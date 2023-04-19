@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col s12">
                 <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                    <h3>My Applications</h3>
+                    <h3>My shortlists</h3>
                     {% if paginator.count > 0 %}
                     <div class="row">
                         <div class="col s12">
@@ -29,7 +29,7 @@
                                             value="{% if request.session.search %}{{request.session.search}}{% endif %}"
                                             type="text" id="id_search" class="validate"
                                             placeholder="{% trans 'Search' %}" name="search" required
-                                            hx-get="{% url 'shortlist:staff_applications' %}" hx-trigger="keyup changed delay:1s"
+                                            hx-get="{% url 'shortlist:staff_shortlists' %}" hx-trigger="keyup changed delay:1s"
                                             hx-swap="innerHTML" hx-target="#htmx-parent" hx-indicator="#spinner">
                                     </div>
                                     <button class="btn btn-primary" type="submit"
@@ -66,13 +66,13 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {% for application in applications %}
+                        {% for shortlist in shortlists %}
                         <tr>
-                            <td>{{application.application.listing.title}}</td>
-                            <td>{{application.application.applicant}}</td>
-                            <td>{{application.created}}</td>
+                            <td>{{shortlist.application.listing.title}}</td>
+                            <td>{{shortlist.application.applicant}}</td>
+                            <td>{{shortlist.created}}</td>
                             <td>
-                                <a href="#"
+                                <a href="{% url 'shortlist:shortlist' pk=shortlist.pk %}"
                                     class="btn btn-primary">Shortlist
                                 </a>
                             </td>
@@ -84,10 +84,10 @@
         </div>
         {% else %}
         {% if request.session.search or request.session.sort %}
-        <h6><strong>You do not have the filtered applications at the moment. Please clear your filters or try searching with
+        <h6><strong>You do not have the filtered shortlists at the moment. Please clear your filters or try searching with
                 another keyword.</strong></h6>
         {% else %}
-        <h6><strong>You do not have applications at the moment</strong></h6>
+        <h6><strong>You do not have shortlists at the moment</strong></h6>
         {% endif %}
         {% endif %}
 
