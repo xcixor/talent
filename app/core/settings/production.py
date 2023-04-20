@@ -20,44 +20,44 @@ GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
 CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/'
 
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'formatters': {
-#         'verbose': {
-#             'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-#             'style': '{',
-#         },
-#         'simple': {
-#             'format': '{levelname} {message}',
-#             'style': '{',
-#         },
-#     },
-#     'handlers': {
-#         'logfile': {
-#             'level': 'DEBUG',
-#             'class': 'logging.handlers.RotatingFileHandler',
-#             'filename': "logs/prod.log",
-#             'maxBytes': 100000,
-#             'backupCount': 2,
-#             'formatter': 'verbose',
-#         },
-#         'mail_admins': {
-#             'level': 'DEBUG',
-#             'class': 'django.utils.log.AdminEmailHandler',
-#             'include_html': True,
-#         },
-#     },
-#     'loggers': {
-#         'django': {
-#             'handlers': ['logfile'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#         'apps': {
-#             'handlers': ['logfile'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-# }
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
+            'style': '{',
+        },
+        'simple': {
+            'format': '{levelname} {message}',
+            'style': '{',
+        },
+    },
+    'handlers': {
+        'logfile': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': "logs/prod.log",
+            'maxBytes': 100000,
+            'backupCount': 2,
+            'formatter': 'verbose',
+        },
+        'mail_admins': {
+            'level': 'DEBUG',
+            'class': 'django.utils.log.AdminEmailHandler',
+            'include_html': True,
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'apps': {
+            'handlers': ['logfile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
