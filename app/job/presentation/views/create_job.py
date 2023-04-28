@@ -1,12 +1,13 @@
 from django.views.generic.edit import CreateView
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse_lazy
 from job.forms import CreateJobForm
 from job.models import JobListing
 
 
-class CreateJobView(CreateView):
+class CreateJobView(LoginRequiredMixin, CreateView):
 
     model = JobListing
     form_class = CreateJobForm
