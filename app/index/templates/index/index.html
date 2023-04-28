@@ -4,20 +4,76 @@
 {% block styles %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/index/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/index/slick/slick.css' %}" />
+<link rel="stylesheet" href="{% static 'css/index/slick/slick-theme.css' %}" />
+<link rel="stylesheet" href="{% static 'css/index/slick/slick-customization.css' %}" />
 {% endblock %}
 {% block content %}
-<div class="container">
-    <div class="row align-items-md-stretch">
-        <div class="col-md-12">
-            <div class="h-100 p-5 bg-body-tertiary border rounded-3">
-                <h2>Creating a path for you</h2>
-                <p>Forget the old rules. You can have the best people. Right now. Right here.</p>
-                <div class="d-flex">
-                    <button class="btn btn-primary me-2" type="button">FIND WORK</button>
-                    <button class="btn btn-outlined" type="button">FIND TALENT</button>
+<div class="container-fluid background-image bg-primary"
+    style="background-image: url('{% static 'images/index/city-min.webp' %}')">
+    <div class="carousel-wrapper d-flex flex-column justify-content-center ">
+        <div class="hero-carousel">
+            <div class="hero-content ">
+                <div class="slide-wrapper">
+                    <h2 class="hero-title">Creating a path for you</h2>
+                    <p class="hero-text">
+                        Our organization works to assist employers in
+                        assembling a team of highly competent and efficient experts, as well as to
+                        assist employees by providing them with a wider range of employment options.
+                    </p>
+                    <div class="d-flex flex-buttons">
+                        <a href="{% url 'shortlist:openings' %}" class="btn btn-secondary" type="button">FIND WORK</a>
+                        <a href="{% url 'job:create_job' %}" class="btn btn-outlined outlined-secondary" type="button">FIND TALENT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="slide-wrapper">
+                    <h2 class="hero-title">Hire international employees today.</h2>
+                    <p class="hero-text">
+                        Forget the old rules. You can have the best people.
+                        Right here. Right now.
+                    </p>
+                    <div class="d-flex flex-buttons">
+                        <a href="{% url 'accounts:employer_registration' %}" class="btn btn-secondary" type="button">Register Your Company</a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="slide-wrapper">
+                    <h2 class="hero-title">Thinking of working abroad?</h2>
+                    <p class="hero-text">The perfect overseas job is right there for you.
+                        Our process is aimed at making your profile more accessible, attractive, and engaging for
+                        international employers.</p>
+                    <div class="d-flex flex-buttons">
+                        <a href="{% url 'accounts:job_seeker_registration' %}" class="btn btn-secondary" type="button">Send your CV Now!</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<div class="container">
+    What do we do?
+</div>
+<div class="container">
+    Who are we?
+</div>
+<div class="container">
+    Why us? i.e testimonials
+</div>
+<div class="container">
+    Latest from our blog
+</div>
+<div class="container">
+    Our partners
+</div>
+<div class="container">
+    Contact details
+</div>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/slick/slick_init.js' %}"></script>
 {% endblock %}

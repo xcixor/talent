@@ -11,6 +11,10 @@
     border-radius: unset;
 }
 
+.outlined-secondary {
+    border: solid 0.05em var(--color-secondary) !important;
+}
+
 .btn.btn-outlined:hover{
    background: none;
    border: solid 0.05em var(--color-secondary) !important;
