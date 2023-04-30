@@ -27,6 +27,7 @@
 	<link rel="stylesheet" href="{% static 'css/common/layout.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/common/common.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/common/base.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/common/footer.css' %}" />
 	{% endblock %}
 </head>
 
@@ -77,7 +78,7 @@
 								</a>
 							</li>
 							{% endif %}
-							<li><a class="waves-effect" href="#!"><i
+							<li><a class="waves-effect" href="{% url 'accounts:logout' %}"><i
 										class="fa-sharp fa-solid fa-arrow-right-from-bracket"></i>
 									Logout</a>
 							</li>
@@ -101,6 +102,9 @@
 					<li>
 						<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
 					</li>
+					<li><a class="text-secondary" href="#">About Us</a></li>
+					<li><a class="text-secondary" href="#">Contact Us</a></li>
+					<li><a class="text-secondary" href="#">Services</a></li>
 					<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 					{% endif %}
 				</ul>
@@ -136,6 +140,10 @@
 									Employers</a></li>
 							<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 							{% endif %}
+							<li><a class="text-secondary" href="#">About Us</a></li>
+							<li><a class="text-secondary" href="#">Contact Us</a></li>
+							<li><a class="text-secondary" href="#">Services</a></li>
+
 						</ul>
 					</div>
 				</nav>

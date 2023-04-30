@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{% static 'css/index/slick/slick-customization.css' %}" />
 {% endblock %}
 {% block content %}
-<div class="container-fluid background-image bg-primary"
+<section class="container-fluid background-image bg-primary"
     style="background-image: url('{% static 'images/index/city-min.webp' %}')">
     <div class="carousel-wrapper d-flex flex-column justify-content-center ">
         <div class="hero-carousel">
@@ -23,7 +23,8 @@
                     </p>
                     <div class="d-flex flex-buttons">
                         <a href="{% url 'shortlist:openings' %}" class="btn btn-secondary" type="button">FIND WORK</a>
-                        <a href="{% url 'job:create_job' %}" class="btn btn-outlined outlined-secondary" type="button">FIND TALENT</a>
+                        <a href="{% url 'job:create_job' %}" class="btn btn-outlined outlined-secondary"
+                            type="button">FIND TALENT</a>
                     </div>
                 </div>
             </div>
@@ -35,7 +36,8 @@
                         Right here. Right now.
                     </p>
                     <div class="d-flex flex-buttons">
-                        <a href="{% url 'accounts:employer_registration' %}" class="btn btn-secondary" type="button">Register Your Company</a>
+                        <a href="{% url 'accounts:employer_registration' %}" class="btn btn-secondary"
+                            type="button">Register Your Company</a>
                     </div>
                 </div>
             </div>
@@ -46,34 +48,564 @@
                         Our process is aimed at making your profile more accessible, attractive, and engaging for
                         international employers.</p>
                     <div class="d-flex flex-buttons">
-                        <a href="{% url 'accounts:job_seeker_registration' %}" class="btn btn-secondary" type="button">Send your CV Now!</a>
+                        <a href="{% url 'accounts:job_seeker_registration' %}" class="btn btn-secondary"
+                            type="button">Send your CV Now!</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
+<section class="container py-2">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="section-title">Our Services</h3>
+            <h5 class="section-subtitle">We help you assemble the best talent for your organization.</h5>
+            <div class="cards">
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/city-min.webp' %}" height="250">
+                        <span class="card-title card-title-with-hover bg-secondary">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/city-min.webp' %}" height="250">
+                        <span class="card-title card-title-with-hover bg-secondary">A longer Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/city-min.webp' %}" height="250">
+                        <span class="card-title card-title-with-hover bg-secondary">Card Title</span>
+                    </div>
+                    <div class="card-content">
+                        <p>I am a very simple card. I am good at containing small bits of information.
+                            I am convenient because I require little markup to use effectively.</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-fluid py-2 bg-primary-light-10">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="card z-depth-0">
+                    <div class="d-flex about-card">
+                        <div class="card-image">
+                            <img src="{% static 'images/index/city-min.webp' %}" height="400">
+                        </div>
+                        <div class="card-content">
+                            <h3 class="section-title">Who we are</h3>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                                Laudantium magni blanditiis harum sit porro tempore eveniet ex temporibus fuga quisquam
+                                officiis,
+                                voluptatem vel? Fugit fugiat ex magnam animi ad officiis.
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Autem obcaecati nisi, quam quos dolor sequi sint reiciendis.
+                                Rerum ipsam autem similique aliquid? Dicta dolorum distinctio aliquam porro nostrum,
+                                aut placeat.
+                            </p>
+                            <div class="card-action">
+                                <a href="#">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <div class="container">
-    What do we do?
+    <div class="row">
+        <div class="col s12 m12">
+            <h3 class="section-title">
+                What makes us the best in the industry?
+            </h3>
+            <div class="row col s12 m6">
+            <p class="section-subtitle">
+                We are equipped with the necessary knowledge and market insights to assist both employers and employees
+                in
+                assembling
+                world-class teams to meet their respective organizational goals. We specialize in a special kind of
+                service that
+                can
+                assist employees in developing their careers and relocating abroad. Companies that partner with us have
+                the
+                chance to
+                realize the mission and vision upon which their businesses were founded.
+            </p>
+            </div>
+            <div class="col s12 m6">
+                <div class="summary pt-2">
+                    <details class="mb-1">
+                        <summary><i class="fa-solid fa-chevron-right fa-secondary me-2 chevron"></i>We put our
+                                full effort into
+                                serving you.</summary>
+                        <p>We at Infinite Talent Limited work for you. Everything we do here is for our clients and is
+                            geared
+                            toward
+                            them. To make
+                            sure that our clients receive all the assistance and support they require, we frequently go
+                            above
+                            and
+                            beyond the call of
+                            duty and defy convention. We never take our clients for granted since we understand that
+                            they
+                            are
+                            doing
+                            us a favor by
+                            giving us the chance to serve them. We never use inferior service choices and always present
+                            the
+                            greatest option to our
+                            customers. Our employees are aware that our customers demand nothing less than the best from
+                            us
+                            and
+                            that
+                            we have a duty
+                            to always give them first-rate service. And we never turn back from that.
+                        </p>
+                    </details>
+                    <details class="mb-1">
+                        <summary><i class="fa-solid fa-chevron-right fa-secondary me-2 chevron"></i>Our business
+                            relationship is for
+                            life</summary>
+                        <p>
+                            In contrast to the majority of other companies in the sector, we never ever end a client
+                            connection.
+                            We
+                            always maintain
+                            our clients' ties for a lifetime. We strive to provide even better services to everyone of
+                            our
+                            clients
+                            because we care
+                            about them and want to know how we have been able to influence their lives for the better.
+                            Therefore, as
+                            soon as you
+                            enter our building to receive assistance from our staff, you become a member of our family
+                            and
+                            remain
+                            so. You will
+                            always be a part of our business in our memories and forever.
+
+                        </p>
+                    </details>
+                    <details class="mb-1">
+                        <summary><i class="fa-solid fa-chevron-right fa-secondary me-2 chevron"></i>Highest return on
+                            your investment
+                        </summary>
+                        <p>
+                            We never hesitate to go above and beyond to deliver any and all services we are capable of
+                            to
+                            our
+                            clients in an effort
+                            to assist them with the best services and provide the greatest value for their investments
+                            with
+                            us
+                            in
+                            terms of money,
+                            time, and efforts. Each of our clients invests their hard-earned money in their decision to
+                            study,
+                            immigrate, and settle
+                            in a foreign country, and they come to us because they have confidence in us with their
+                            money.
+                            We
+                            never
+                            fail to keep
+                            this promise, and we always make sure that every dollar you invest with us is wisely used
+                            and
+                            properly
+                            recorded.
+                        </p>
+                    </details>
+                    <details class="mb-1">
+                        <summary><i class="fa-solid fa-chevron-right fa-secondary me-2 chevron"></i>Life changing career
+                            advise
+                        </summary>
+                        <p>
+                            We offer a wide range of incredibly specialized and tailored counseling services to all of
+                            our
+                            clients
+                            as a worldwide
+                            renowned and acknowledged provider of career support services. Your life will undoubtedly
+                            change
+                            for
+                            the
+                            better as a
+                            result of these counseling sessions, which are provided by some of the most perceptive,
+                            wise,
+                            and
+                            experienced counselors
+                            with in-depth knowledge of a variety of academic and career alternatives. You can comprehend
+                            your
+                            job
+                            prospects,
+                            immigration options, and settlement options in the best ways possible for you and your needs
+                            with
+                            the
+                            aid of
+                            well-oriented and well-realized counseling services. Simply choose the option you believe is
+                            best
+                            for
+                            you.
+                        </p>
+                    </details>
+                    <details class="mb-1">
+                        <summary><i class="fa-solid fa-chevron-right fa-secondary me-2 chevron"></i>Highly integrated
+                            services</summary>
+                        <p>
+                            We offer a wide range of services to all of our clients that are highly integrated and
+                            complementary
+                            in
+                            addition to
+                            being all under one roof. Since we process our clients' requests and requirements using the
+                            best
+                            and
+                            most up-to-date
+                            technological infrastructure, no customer has ever had a service from us that was delayed or
+                            omitted.
+                            Integration is
+                            essential to the success of our services because it allows all of our departments,
+                            verticals,
+                            and
+                            service systems to
+                            consistently provide the most valuable services to customers.
+                        </p>
+                    </details>
+                    <details class="mb-1">
+                        <summary><i class="fa-solid fa-chevron-right fa-secondary me-2 chevron"></i>Global community
+                        </summary>
+                        <p>
+                            You inadvertently join a global community of people who use a variety of our study abroad,
+                            visa,
+                            and
+                            immigration
+                            services to improve their lives when you start working with us. In our efforts to give them
+                            the
+                            assistance they require,
+                            we have gathered a wealth of valuable insights from our global community over the years.
+                            Now, we
+                            bring
+                            all of our
+                            knowledge and experience to you in order to help you modify, mold, and transform your lives
+                            into
+                            the
+                            finest one you have
+                            ever created.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+
+        </div>
+    </div>
 </div>
-<div class="container">
-    Who are we?
-</div>
-<div class="container">
-    Why us? i.e testimonials
-</div>
-<div class="container">
-    Latest from our blog
-</div>
-<div class="container">
-    Our partners
-</div>
-<div class="container">
-    Contact details
-</div>
+<section class="container-fluid py-2 bg-primary-light-10">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3 class="section-title">
+                    See what our clients are saying
+                </h3>
+                <div class="testimonials">
+                    <div class="card z-depth-0">
+                        <div class="card-image">
+                            <img src="{% static 'images/index/rahul.webp' %}">
+                            <span class="card-title card-title-with-hover">Rahul Shah</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                            <p><b>Nationality:</b>Pakistani</p>
+                            <p><b>Service:</b> Food and Beverage</p>
+                            <p><b>Country:</b> Australia</p>
+                        </div>
+                    </div>
+                    <div class="card z-depth-0">
+                        <div class="card-image">
+                            <img src="{% static 'images/index/rahul.webp' %}">
+                            <span class="card-title card-title-with-hover">Rahul Shah</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                    <div class="card z-depth-0">
+                        <div class="card-image">
+                            <img src="{% static 'images/index/rahul.webp' %}">
+                            <span class="card-title card-title-with-hover">Rahul Shah</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                    <div class="card z-depth-0">
+                        <div class="card-image">
+                            <img src="{% static 'images/index/rahul.webp' %}">
+                            <span class="card-title card-title-with-hover">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                    <div class="card z-depth-0">
+                        <div class="card-image">
+                            <img src="{% static 'images/index/rahul.webp' %}">
+                            <span class="card-title card-title-with-hover">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                    <div class="card z-depth-0">
+                        <div class="card-image">
+                            <img src="{% static 'images/index/rahul.webp' %}">
+                            <span class="card-title card-title-with-hover">Card Title</span>
+                        </div>
+                        <div class="card-content">
+                            <p>I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container py-2">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="section-title">
+                Latest from our blog
+            </h3>
+            <div class="blog">
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="150px">
+                    </div>
+                    <h4 class="card-title">Rahul Shah</h4>
+                    <div class="blog-meta">
+                        <span class="text-secondary">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <small>24th, April 2023</small>
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <span>
+                            <p class="truncated">
+                                I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
+                                reprehenderit
+                                quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi deserunt
+                                consectetur maxime sint cum provident saepe ullam?
+                            </p>
+                            <a href="#" class="link">READ MORE</a>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="150px">
+                    </div>
+                    <h4 class="card-title">Rahul Shah</h4>
+                    <div class="blog-meta">
+                        <span class="text-secondary">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <small>24th, April 2023</small>
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <span>
+                            <p class="truncated">
+                                I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
+                                reprehenderit
+                                quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi deserunt
+                                consectetur maxime sint cum provident saepe ullam?
+                            </p>
+                            <a href="#" class="link">READ MORE</a>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="150px">
+                    </div>
+                    <h4 class="card-title">Rahul Shah</h4>
+                    <div class="blog-meta">
+                        <span class="text-secondary">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <small>24th, April 2023</small>
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <span>
+                            <p class="truncated">
+                                I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
+                                reprehenderit
+                                quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi deserunt
+                                consectetur maxime sint cum provident saepe ullam?
+                            </p>
+                            <a href="#" class="link">READ MORE</a>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="150px">
+                    </div>
+                    <h4 class="card-title">Rahul Shah</h4>
+                    <div class="blog-meta">
+                        <span class="text-secondary">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <small>24th, April 2023</small>
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <span>
+                            <p class="truncated">
+                                I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
+                                reprehenderit
+                                quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi deserunt
+                                consectetur maxime sint cum provident saepe ullam?
+                            </p>
+                            <a href="#" class="link">READ MORE</a>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="card z-depth-0">
+                    <div class="card-image">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="150px">
+                    </div>
+                    <h4 class="card-title">Rahul Shah</h4>
+                    <div class="blog-meta">
+                        <span class="text-secondary">
+                            <i class="fa-solid fa-calendar-days"></i>
+                            <small>24th, April 2023</small>
+                        </span>
+                    </div>
+                    <div class="card-content">
+                        <span>
+                            <p class="truncated">
+                                I am a very simple card. I am good at containing small bits of information.
+                                I am convenient because I require little markup to use effectively.
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
+                                reprehenderit
+                                quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi deserunt
+                                consectetur maxime sint cum provident saepe ullam?
+                            </p>
+                            <a href="#" class="link">READ MORE</a>
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="py-2">
+                        <a href="#" class="section-subtitle">View Blog <i class="fa-solid fa-angles-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-fluid py-2 bg-primary-light-10">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3 class="section-title">
+                    Our Partners
+                </h3>
+                <div class="partners-grid">
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/dell.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/microsoft.avif' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/agro.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/stregis.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/unilever.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/marriot.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/luxury.jpeg' %}" height="100%" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="container py-2">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="section-title">
+                Contact us today
+            </h3>
+            <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between align-items-center pe-2" style="flex-basis: 40%;">
+                    <span><i class="fa-solid fa-phone fa-secondary"></i> +254 0712 428 640</span>
+                    <span><i class="fa-solid fa-envelope fa-secondary"></i> infinitetalent2021@gmail.com</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center flex-1">
+                    <i class="fa-brands fa-2x fa-secondary fa-facebook"></i>
+                    <i class="fa-brands fa-2x fa-secondary fa-twitter"></i>
+                    <i class="fa-brands fa-2x fa-secondary fa-linkedin"></i>
+                    <i class="fa-brands fa-2x fa-secondary fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 {% block scripts %}
 {{ block.super }}
 <script type="text/javascript" src="{% static 'js/slick/slick.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/slick/slick_init.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
 {% endblock %}
