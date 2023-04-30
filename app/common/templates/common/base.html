@@ -126,6 +126,9 @@
 							<li>
 								<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
 							</li>
+							<li><a class="text-secondary" href="#">About Us</a></li>
+							<li><a class="text-secondary" href="#">Contact Us</a></li>
+							<li><a class="text-secondary" href="#">Services</a></li>
 							{% if user.is_authenticated %}
 							<li>
 								<a class="dropdown-trigger text-secondary" href="#!" data-target="dropdown">
@@ -140,10 +143,6 @@
 									Employers</a></li>
 							<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 							{% endif %}
-							<li><a class="text-secondary" href="#">About Us</a></li>
-							<li><a class="text-secondary" href="#">Contact Us</a></li>
-							<li><a class="text-secondary" href="#">Services</a></li>
-
 						</ul>
 					</div>
 				</nav>
