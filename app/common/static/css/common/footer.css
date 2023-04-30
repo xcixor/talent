@@ -1,0 +1,16 @@
+.footer-title {
+    text-transform: uppercase;
+}
+
+footer {
+    background-color: red;
+}
+
+.footer-link a {
+    color: #E34824;
+    font-weight: 600;
+}
+
+.copyright {
+    background-color: #0e2036;
+}
