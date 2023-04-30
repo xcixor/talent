@@ -13,6 +13,14 @@ $(document).ready(function(){
                     dots:true,
                     adaptiveHeight: true
                 }
+                },
+                {
+                breakpoint: 1024,
+                settings: {
+                    arrows: false,
+                    dots:true,
+                    adaptiveHeight: true
+                }
                 }
         ]
     });
@@ -57,7 +65,7 @@ $(document).ready(function(){
     $('.blog').slick({
         centerPadding: '100px',
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 8000,
         infinite: true,
         slidesToShow: 4,
         slidesToScroll: 2,
