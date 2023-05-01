@@ -59,7 +59,7 @@
 <section class="container py-2">
     <div class="row">
         <div class="col s12">
-            <h3 class="section-title">Our Services</h3>
+            <h3 class="section-title">Our <span class="text-secondary">Services</span></h3>
             <h5 class="section-subtitle">We help you assemble the best talent for your organization.</h5>
             <div class="cards">
                 <div class="card z-depth-0">
@@ -115,7 +115,7 @@
                             <img src="{% static 'images/index/city-min.webp' %}" height="400">
                         </div>
                         <div class="card-content">
-                            <h3 class="section-title">Who we are</h3>
+                            <h3 class="section-title"><span class="text-secondary">Who</span> we are</h3>
                             <p>
                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                                 Laudantium magni blanditiis harum sit porro tempore eveniet ex temporibus fuga quisquam
@@ -138,10 +138,14 @@
 </section>
 <div class="container py-2">
     <div class="row">
-        <div class="col s12 m12">
+        <div class="col s12">
             <h3 class="section-title">
-                What makes us the best in the industry?
+                What makes us <span class="text-secondary">the best</span> in the industry?
             </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 m12">
             <div class="row col s12 m6">
                 <p class="section-subtitle">
                     We are equipped with the necessary knowledge and market insights to assist both employers and
@@ -329,7 +333,7 @@
         <div class="row">
             <div class="col s12">
                 <h3 class="section-title">
-                    See what our clients are saying
+                    See <span class="text-secondary">what</span> our clients are saying
                 </h3>
                 <div class="testimonials">
                     <div class="card z-depth-0">
@@ -428,7 +432,8 @@
                     <p class="stat m-0"><span id="yearsTotal"></span>+ Years of Experience</p>
                 </div>
                 <div class="stat-wrapper d-flex mb-2">
-                    <i class="fa-solid fa-user-tie fa-secondary fa-3x"></i>
+                    <!-- <i class="fa-solid fa-user-tie fa-secondary fa-3x"></i> -->
+                    <i class="fa-solid fa-face-laugh-beam fa-secondary fa-3x"></i>
                     <p class="stat m-0"><span id="clientsTotal"></span>+ Happy Clients</p>
                 </div>
                 <div class="stat-wrapper d-flex mb-2">
@@ -444,7 +449,7 @@
         <div class="row">
             <div class="col s12">
                 <h3 class="section-title">
-                    Latest from our blog
+                    <span class="text-secondary">Latest</span> from our blog
                 </h3>
                 <div class="blog">
                     <div class="card z-depth-0">
@@ -598,7 +603,7 @@
     <div class="row">
         <div class="col s12">
             <h3 class="section-title">
-                Our Partners
+                Our <span class="text-secondary">Partners</span>
             </h3>
             <div class="partners-grid">
                 <div class="partner">
@@ -631,7 +636,7 @@
         <div class="row">
             <div class="col s12">
                 <h3 class="section-title">
-                    Key Locations
+                    Ley <span class="text-secondary">Locations</span>
                 </h3>
                 <div class="locations-grid">
                     <div class="location d-flex align-items-center" style="gap:10px">
@@ -701,7 +706,8 @@
                         <i class="fa-solid fa-link"></i>
                     </a>
                     <p>We will sift through the hundreds of applications and only show you the best ones</p>
-                    <a href="{% url 'shortlist:openings' %}" class="btn btn-secondary">Or apply to the available openings today!</a>
+                    <a href="{% url 'shortlist:openings' %}" class="btn btn-secondary">Or apply to the available
+                        openings today!</a>
                 </div>
             </div>
         </div>
