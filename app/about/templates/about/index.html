@@ -1,0 +1,307 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/about/index.css' %}">
+{% endblock %}
+{% block content %}
+<section class="container-fluid background-image bg-primary"
+    style="background-image: url('{% static 'images/index/city-min.webp' %}')">
+    <div class="wrapper">
+        <div class="row h-100">
+            <div class="col s12 h-100 text-white">
+                <div class="d-flex flex-column align-items-center justify-content-center text-center h-100">
+                    <h2 class="hero-title">
+                        We Help Businesses Build World Class Teams
+                    </h2>
+                    <p class="hero-text">
+                        Learn more about Infinite Talent Limited: who we are, what we do, and where we’re headed.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container py-2">
+    <div class="row">
+        <div class="col s12">
+            <div class="d-flex justify-content-center">
+                <h3 class="section-title">Driven by a <span class="text-secondary">Mission</span></h3>
+            </div>
+            <p class="section-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse exercitationem dicta aspernatur. Error
+                consequuntur iusto nisi ipsam quis incidunt nobis sunt ratione maxime culpa, sint non? Molestias atque
+                perferendis laudantium!
+            </p>
+            <p class="section-text">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse exercitationem dicta aspernatur. Error
+                consequuntur
+                iusto nisi ipsam quis incidunt nobis sunt ratione maxime culpa, sint non? Molestias atque perferendis
+                laudantium!
+            </p>
+        </div>
+    </div>
+</section>
+<section class="container-fluid py-2 bg-primary-light-10">
+    <div class="container stats">
+        <div class="row">
+            <div class="col s12">
+                <div class="d-flex justify-content-center">
+                    <h3 class="section-title">
+                        <span class="text-secondary">Numbers</span> that make us Proud
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="d-flex flex-column align-items-center justify-content-center p-4"
+                    style="height:100% !important">
+                    <i class="fa-solid fa-briefcase fa-secondary fa-6x"></i>
+                    <p class="stat m-0"><span id="projectsTotal"></span>+ Projects Finished</p>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="d-flex flex-column p-4">
+                    <div class="stat-wrapper d-flex mb-2">
+                        <i class="fa-solid fa-calendar fa-secondary fa-secondary fa-3x"></i>
+                        <p class="stat m-0"><span id="yearsTotal"></span>+ Years of Experience</p>
+                    </div>
+                    <div class="stat-wrapper d-flex mb-2">
+                        <i class="fa-solid fa-face-laugh-beam fa-secondary fa-secondary fa-3x"></i>
+                        <p class="stat m-0"><span id="clientsTotal"></span>+ Happy Clients</p>
+                    </div>
+                    <div class="stat-wrapper d-flex mb-2">
+                        <i class="fa-solid fa-user-group fa-secondary fa-secondary fa-3x"></i>
+                        <p class="stat m-0"><span id="followersTotal"></span>+ Followers on Social Media</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container py-2">
+    <div class="row">
+        <div class="col s12">
+            <div class="d-flex justify-content-center">
+                <h3 class="section-title">How do we <span class="text-secondary">serve</span> you?</h3>
+            </div>
+            <p class="section-text">
+                After providing labor services for over five years, Infinite Talent Limited has expanded its boundaries.
+                We increased the
+                breadth of our services to meet the various recruitment needs and procedures after gathering in-depth
+                knowledge of the
+                labor requirements across a variety of industry sectors.
+            </p>
+            <ul class="section-text fa-ul">
+                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Staffing</li>
+                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Managerial Recruitment</li>
+                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Consultant Hiring</li>
+                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Contractual and Temporary Hiring
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="container-fluid py-2 bg-primary-light-10">
+    <section class="container">
+        <div class="row">
+            <div class="col s12">
+                <div class="d-flex justify-content-center">
+                    <h3 class="section-title">The <span class="text-secondary">people</span> behind our success</h3>
+                </div>
+                <div class="people-grid">
+                    <div class="person">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
+                        <div class="prof ps-2">
+                            <h6><b>Emassons Kingi</b></h6>
+                            <p class="m-0">CEO</p>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
+                        <div class="prof ps-2">
+                            <h6><b>Emassons Kingi</b></h6>
+                            <p class="m-0">CEO</p>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
+                        <div class="prof ps-2">
+                            <h6><b>Emassons Kingi</b></h6>
+                            <p class="m-0">CEO</p>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
+                        <div class="prof ps-2">
+                            <h6><b>Emassons Kingi</b></h6>
+                            <p class="m-0">CEO</p>
+                        </div>
+                    </div>
+                    <div class="person">
+                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
+                        <div class="prof ps-2">
+                            <h6><b>Emassons Kingi</b></h6>
+                            <p class="m-0">CEO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="container py-2">
+    <div class="row">
+        <div class="col s12">
+            <div class="d-flex justify-content-center">
+                <h3 class="section-title">The <span class="text-secondary">values</span> that guide us</h3>
+            </div>
+            <div id="wrapper">
+                <div class="block">
+                    <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
+                        <i class="fa-solid fa-people-group fa-secondary fa-3x"></i>
+                        <p>Team Work</p>
+                        <div class="value">
+                            <p class="m-0">
+                                We rely on one another for knowledge obtained from experience, information,
+                                and different perspectives. We accomplish relying on one another.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="block wide">
+                    <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
+                        <i class="fa-solid fa-screwdriver-wrench fa-secondary fa-3x"></i>
+                        <p>Accountability</p>
+                        <div class="value">
+                            <p class="m-0">
+                                We keep our promises to both our clients and one another. We
+                                are aware that if we don't perform as expected, our clients, coworkers, and the business
+                                will suffer. Even if it is
+                                inconvenient or difficult, we go to great lengths to keep our promises.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="block tall">
+                    <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
+                        <i class="fa-solid fa-hand-holding-hand fa-secondary fa-3x"></i>
+                        <p>Customer First</p>
+                        <div class="value">
+                            <p class="m-0">
+                                We are devoted to paying attention to and meeting the demands of our customers since we
+                                understand that they are the
+                                reason for our commercial success. For more than five years, we've been enhancing our
+                                services and discovering new ways
+                                to better serve our customers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                    <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
+                        <i class="fa-solid fa-scale-balanced fa-secondary fa-3x"></i>
+                        <p>Integrity</p>
+                        <div class="value">
+                            <p class="m-0">
+                                We do the right thing even if no one is watching. This also translates to valuing
+                                honesty, transparency, and a
+                                dedication to doing what is best for our consumers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
+                        <i class="fa-solid fa-person-praying fa-secondary fa-3x"></i>
+                        <p>Gratitude</p>
+                        <div class="value">
+                            <p class="m-0">
+                                We are a company that prides itself in appreciating all our stakeholders. We appreciate
+                                you
+                                as our client and look forward to serving you
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                    <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
+                        <i class="fa-solid fa-hand-fist fa-secondary fa-3x"></i>
+                        <p>Passion</p>
+                        <div class="value">
+                            <p class="m-0">
+                                We are a team that loves our work, who are interested and excited about it, and actively
+                                engaged with the day-to-day
+                                difference they are making.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container-fluid py-2 bg-primary-light-10">
+    <section class="container">
+        <div class="row">
+            <div class="col s12">
+                <h3 class="section-title">
+                    Our <span class="text-secondary">Partners</span>
+                </h3>
+                <div class="partners-grid">
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/dell.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/microsoft.avif' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/agro.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/stregis.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/unilever.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/marriot.png' %}" height="100%" width="100%">
+                    </div>
+                    <div class="partner">
+                        <img src="{% static 'images/index/partners/luxury.jpeg' %}" height="100%" width="100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+<section class="container py-2">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="section-title">
+                Talk to us today
+            </h3>
+            <div class="d-flex interact justify-content-between">
+                <div class="d-flex contacts justify-content-between align-items-center pe-2" style="flex-basis: 40%;">
+                    <span><i class="fa-solid fa-phone fa-secondary"></i> +254 0712 428 640</span>
+                    <span><i class="fa-solid fa-envelope fa-secondary"></i> infinitetalent2021@gmail.com</span>
+                </div>
+                <div class="d-flex socials justify-content-end align-items-center flex-1" style="gap:20px">
+                    <p><b>Interact with us:</b></p>
+                    <i class="fa-brands fa-2x fa-secondary fa-facebook"></i>
+                    <i class="fa-brands fa-2x fa-secondary fa-twitter"></i>
+                    <i class="fa-brands fa-2x fa-secondary fa-linkedin"></i>
+                    <i class="fa-brands fa-2x fa-secondary fa-instagram"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
