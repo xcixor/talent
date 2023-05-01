@@ -135,14 +135,6 @@ details[open] > summary {
     font-size: 1.4rem;
 }
 
-.stats .row {
-  display: flex !important;
-}
-
-.stats .col {
-  flex: 1 !important;
-}
-
 
 .stat-wrapper .fa-solid {
     width: 60px;
@@ -168,5 +160,24 @@ details[open] > summary {
     }
     .about-card {
         flex-direction: column;
+    }
+    .partners-grid {
+        grid-template-columns: repeat(2, minmax(50%, 1fr));
+    }
+    .stat-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .p-4 {
+        padding: 10px !important;
+    }
+    .interact, .contacts {
+        flex-direction: column;
+    }
+    .contacts {
+        align-items: flex-start;
+    }
+    .socials {
+        justify-content: flex-start;
     }
 }

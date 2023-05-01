@@ -52,7 +52,8 @@ INSTALLED_APPS = [
     'infinite_admin.apps.InfiniteAdminConfig',
     'job.apps.JobConfig',
     'site_management.apps.SiteManagementConfig',
-    'shortlist.apps.ShortlistConfig'
+    'shortlist.apps.ShortlistConfig',
+    'about.apps.AboutConfig'
 ]
 
 MIDDLEWARE = [
