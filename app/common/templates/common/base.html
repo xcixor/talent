@@ -103,7 +103,7 @@
 						<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
 					</li>
 					<li><a class="text-secondary" href="{% url 'about:index' %}">About Us</a></li>
-					<li><a class="text-secondary" href="#">Contact Us</a></li>
+					<li><a class="text-secondary" href="{% url 'contact:index' %}">Contact Us</a></li>
 					<li><a class="text-secondary" href="#">Services</a></li>
 					<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 					{% endif %}
@@ -127,7 +127,7 @@
 								<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
 							</li>
 							<li><a class="text-secondary" href="{% url 'about:index' %}">About Us</a></li>
-							<li><a class="text-secondary" href="#">Contact Us</a></li>
+							<li><a class="text-secondary" href="{% url 'contact:index' %}">Contact Us</a></li>
 							<li><a class="text-secondary" href="#">Services</a></li>
 							{% if user.is_authenticated %}
 							<li>

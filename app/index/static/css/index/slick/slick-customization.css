@@ -1,21 +1,3 @@
-
-.background-image {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    visibility:hidden;
-}
-
-.carousel-wrapper {
-    padding: 0 5%;
-    height: 500px;
-    position: relative;
-    z-index: 1;
-    /* background-color: #1B3F6B; */
-    /* background: rgba(27, 63, 107, 0.9); */
-    background: rgb(5,13,21);
-background: linear-gradient(90deg, rgba(5,13,21, 1) 0%, rgba(50,82,122,0.9) 50%, rgba(5,13,21, 1) 100%);
-}
 .hero-carousel, .slick-list, .slick-track, .slick-slide {
     height: 100% !important;
 }
@@ -42,17 +24,6 @@ background: linear-gradient(90deg, rgba(5,13,21, 1) 0%, rgba(50,82,122,0.9) 50%,
 
 .hero-content {
     color: white;
-}
-
-
-.hero-title {
-    /* animation: showup 1500ms; */
-    font-size: 2.5rem;
-}
-
-.hero-text {
-    font-size: 1.4rem;
-    /* animation: showup 2500ms; */
 }
 
 @keyframes showup {

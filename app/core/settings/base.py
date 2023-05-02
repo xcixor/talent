@@ -53,7 +53,8 @@ INSTALLED_APPS = [
     'job.apps.JobConfig',
     'site_management.apps.SiteManagementConfig',
     'shortlist.apps.ShortlistConfig',
-    'about.apps.AboutConfig'
+    'about.apps.AboutConfig',
+    'contact.apps.ContactConfig'
 ]
 
 MIDDLEWARE = [

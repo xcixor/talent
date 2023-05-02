@@ -1,0 +1,29 @@
+.background-image {
+    visibility:visible;
+}
+.carousel-wrapper {
+    height: 300px;
+    padding: 0 15%;
+}
+
+.card .card-content p{
+    margin: 20px 0;
+}
+
+.upper-cards {
+    gap: 5%;
+}
+
+.upper-cards .card {
+    flex-basis: 50%;
+}
+
+@media screen and ( max-width: 600px ){
+    .carousel-wrapper {
+        /* height: 200px; */
+        padding: 0 5%;
+    }
+    .upper-cards {
+        flex-direction: column;
+    }
+}
