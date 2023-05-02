@@ -1,25 +1,12 @@
 .background-image {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.wrapper {
-    padding: 0 5%;
-    height: 500px;
-    position: relative;
-    z-index: 1;
-    background: rgb(5,13,21);
-    background: linear-gradient(90deg, rgba(5,13,21, 1) 0%, rgba(50,82,122,0.9) 50%, rgba(5,13,21, 1) 100%);
+    visibility:visible;
 }
 
 .hero-title {
     animation: showup 1500ms;
-    font-size: 2.5rem;
 }
 
 .hero-text {
-    font-size: 1.4rem;
     animation: showup 2500ms;
 }
 
