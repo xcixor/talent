@@ -1,0 +1,130 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/common/hero.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/common/inputs.css' %}" />
+{% endblock %}
+{% block content %}
+<section class="container-fluid background-image bg-primary"
+    style="background-image: url('{% static 'images/index/city-min.webp' %}')">
+    <div class="carousel-wrapper">
+        <div class="row h-100">
+            <div class="col s12 h-100 text-white">
+                <div class="d-flex flex-column h-100">
+                    <h2 class="hero-title">
+                        Get in Touch
+                    </h2>
+                    <p class="hero-text">
+                        Do you wish to contact us? You can contact us at any time. See how below...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container">
+    <div class="row">
+        <div class="col s12 d-flex upper-cards">
+            <div class="card soft-shadow">
+                <div class="card-content d-flex flex-column align-items-center justify-content-center">
+                    <p>
+                        <i class="fa-solid fa-phone fa-3x fa-secondary"></i>
+                    </p>
+                    <span class="card-title"><b>Talk to Support</b></span>
+                    <p class="text-center">
+                        Interested in our services? Just pick up the phone to chat with a member of
+                        our sales team.</p>
+                    <p class="text-center"><b>+254 12434345</b></p>
+                </div>
+            </div>
+            <div class="card soft-shadow">
+                <div class="card-content d-flex flex-column align-items-center justify-content-center">
+                    <p>
+                        <i class="fa-solid fa-location-dot fa-3x fa-secondary"></i>
+                    </p>
+                    <span class="card-title"><b>Visit our Offices</b></span>
+                    <p class="text-center">Sometimes you need to meet in person. You pay us a visit at our offices.</p>
+                    <p class="text-center"><b>Muthaiga Square Plaza, Thika road</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section class="container-fluid py-2 bg-primary-light-10">
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <form class="soft-shadow p-2">
+                    <div class="row">
+                        <div class="col s12">
+                            <h3 class="section-title my-2 text-secondary">Send us a custom email</h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field mt-2 col s6">
+                            <input id="first_name" type="text" class="validate">
+                            <label for="first_name">First Name*</label>
+                        </div>
+                        <div class="input-field mt-2 col s6">
+                            <input id="last_name" type="text" class="validate">
+                            <label for="last_name">Last Name*</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field mt-2 col s6">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field mt-2 col s6">
+                            <input id="phone_number" type="tel" class="validate">
+                            <label for="phone_number">Phone Number</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field mt-2 col s12">
+                            <select class="browser-default">
+                                <option value="" disabled selected>Select Country</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field mt-3 col s12">
+                            <textarea id="textarea1" class="materialize-textarea" rows="6"></textarea>
+                            <label for="textarea1">Textarea</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field mt-2 col s12">
+                            <p>
+                                <label>
+                                    <input type="checkbox" />
+                                    <span>By Checking the box you agree to our <a href="#">terms and
+                                            conditions</a></span>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field mt-2 col s12">
+                            <button class="btn btn-primary" type="submit">Send <i
+                                    class="fa-solid fa-paper-plane fa-secondary"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}

@@ -3,12 +3,13 @@
 {% load static %}
 {% block styles %}
 {{ block.super }}
+<link rel="stylesheet" href="{% static 'css/common/hero.css' %}">
 <link rel="stylesheet" href="{% static 'css/about/index.css' %}">
 {% endblock %}
 {% block content %}
 <section class="container-fluid background-image bg-primary"
     style="background-image: url('{% static 'images/index/city-min.webp' %}')">
-    <div class="wrapper">
+    <div class="carousel-wrapper">
         <div class="row h-100">
             <div class="col s12 h-100 text-white">
                 <div class="d-flex flex-column align-items-center justify-content-center text-center h-100">
