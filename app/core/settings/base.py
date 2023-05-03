@@ -158,12 +158,13 @@ else:
 ADMIN_EMAILS = os.getenv('ADMIN_EMAILS').split(",")
 DATE_INPUT_FORMATS = ['%m/%d/%Y']
 # email creds
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_PORT = 587
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp-mail.outlook.com'
 EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-VERIFIED_EMAIL_USER = os.getenv('VERIFIED_EMAIL_USER')
+
 ADMIN_EMAILS = os.getenv('ADMIN_EMAILS').split(",")
 LOGIN_REDIRECT_URL = '/accounts/dashboard/'
 

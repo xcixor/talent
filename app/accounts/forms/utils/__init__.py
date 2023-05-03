@@ -9,6 +9,21 @@ import flag
 import pycountry
 
 
+def get_phone_codes():
+    phone_codes = []
+    phone_codes.append(('254', f"{flag.flag('KE')} Kenya +254"))
+    prefixes = country_prefixes()
+    sorted_dict = sorted(prefixes.items(), key=operator.itemgetter(0))
+    for item in sorted_dict:
+        country = pycountry.countries.get(alpha_2=item[0])
+        if country:
+            phone_tuple = (
+                item[1], f'{flag.flag(item[0])} {country.name} +{item[1]}'
+            )
+            phone_codes.append(phone_tuple)
+    return phone_codes
+
+
 def get_countries(placeholder):
     """Create a tuple of country tuples
 
