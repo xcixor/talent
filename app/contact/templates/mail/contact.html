@@ -1,0 +1,13 @@
+{% extends 'common/email/base.html' %}
+{% load i18n %}
+
+{% block message %}
+<h6><b>{% trans "First Name"%} {{first_name}}</b></h6>
+<h6><b>{% trans "Last Name"%} {{last_name}}</b></h6>
+<h6><b>{% trans "Email"%} {{first_name}}</b></h6>
+<h6><b>{% trans "Phone Number"%} {{first_name}}</b></h6>
+<br><br>
+<p><br>{{subject}}</p><br>
+<p>{{message}}</p>
+
+{% endblock %}
