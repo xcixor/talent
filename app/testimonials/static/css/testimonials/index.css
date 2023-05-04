@@ -10,3 +10,16 @@
            line-clamp: 3;
    -webkit-box-orient: vertical;
 }
+
+@media screen and ( max-width: 600px ){
+  .card.horizontal {
+    flex-direction: column;
+  }
+  .card .card-image{
+    max-width: 100% !important;
+  }
+  .card .card-image img{
+    width: 100% !important;
+    width: 100%;
+  }
+}
