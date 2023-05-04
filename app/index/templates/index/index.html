@@ -14,46 +14,19 @@
     style="background-image: url('{% static 'images/index/city-min.webp' %}')">
     <div class="carousel-wrapper d-flex flex-column justify-content-center ">
         <div class="hero-carousel">
+            {% for item in carousel_items %}
             <div class="hero-content ">
                 <div class="slide-wrapper">
-                    <h2 class="hero-title">Creating a path for you</h2>
-                    <p class="hero-text">
-                        Our organization works to assist employers in
-                        assembling a team of highly competent and efficient experts, as well as to
-                        assist employees by providing them with a wider range of employment options.
-                    </p>
+                    <h2 class="hero-title">{{item.title|safe}}</h2>
+                    <p class="hero-text">{{item.subtitle|safe}}</p>
                     <div class="d-flex flex-buttons">
-                        <a href="{% url 'shortlist:openings' %}" class="btn btn-secondary" type="button">FIND WORK</a>
-                        <a href="{% url 'job:create_job' %}" class="btn btn-outlined outlined-secondary"
-                            type="button">FIND TALENT</a>
+                        {% for action in item.actions.all %}
+                        <a href="{{action.link}}" class="btn btn-secondary" type="button">{{action.title}}</a>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
-            <div class="hero-content">
-                <div class="slide-wrapper">
-                    <h2 class="hero-title">Hire international employees today.</h2>
-                    <p class="hero-text">
-                        Forget the old rules. You can have the best people.
-                        Right here. Right now.
-                    </p>
-                    <div class="d-flex flex-buttons">
-                        <a href="{% url 'accounts:employer_registration' %}" class="btn btn-secondary"
-                            type="button">Register Your Company</a>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-content">
-                <div class="slide-wrapper">
-                    <h2 class="hero-title">Thinking of working abroad?</h2>
-                    <p class="hero-text">The perfect overseas job is right there for you.
-                        Our process is aimed at making your profile more accessible, attractive, and engaging for
-                        international employers.</p>
-                    <div class="d-flex flex-buttons">
-                        <a href="{% url 'accounts:job_seeker_registration' %}" class="btn btn-secondary"
-                            type="button">Send your CV Now!</a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </section>
