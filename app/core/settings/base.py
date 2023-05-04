@@ -54,7 +54,8 @@ INSTALLED_APPS = [
     'site_management.apps.SiteManagementConfig',
     'shortlist.apps.ShortlistConfig',
     'about.apps.AboutConfig',
-    'contact.apps.ContactConfig'
+    'contact.apps.ContactConfig',
+    'testimonials.apps.TestimonialsConfig',
 ]
 
 MIDDLEWARE = [
