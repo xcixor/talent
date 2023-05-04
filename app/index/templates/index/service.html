@@ -1,0 +1,23 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/index/index.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="section-title">
+                {{service.title|safe}}
+            </h3>
+            <p>{{service.description|safe}}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+{% endblock %}

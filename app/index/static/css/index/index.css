@@ -18,6 +18,15 @@
     border-bottom: 0.2rem solid #E34824;
 }
 
+.truncate-four p{
+     overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 4; /* number of lines to show */
+           line-clamp: 4;
+   -webkit-box-orient: vertical;
+}
+
 .section-subtitle {
     font-size: 1.25rem;
 }
