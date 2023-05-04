@@ -1,0 +1,51 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/testimonials/index.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col s12">
+            <h3 class="section-title">
+                Vishwa Oswal
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <div class="card horizontal z-depth-0">
+                <div class="card-image">
+                    <img src="{% static 'images/testimonials/su_casa.jpg' %}" height="250px">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p><b>Nationality: </b>Iraqi</p>
+                        <p><b>Service: </b>Food and Bevarage</p>
+                        <p><b>Country: </b>Australia</p>
+                        <p>
+                            I am a very simple card. I am good at containing small bits of information.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Voluptatibus placeat, sed iste incidunt hic doloremque aspernatur ad,
+                            exercitationem sequi sunt voluptates accusantium velit veritatis magnam et
+                            doloribus commodi cum facere?
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                            Quam qui, doloribus culpa eveniet voluptatem quo dolorem vel iure harum beatae odio,
+                            libero voluptate deserunt esse autem minus dolor aliquam inventore?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
