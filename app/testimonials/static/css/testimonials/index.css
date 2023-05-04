@@ -1,0 +1,12 @@
+.card {
+    border: solid 0.05em #DCDCDC;
+}
+
+.truncated {
+     overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 3;
+   -webkit-box-orient: vertical;
+}
