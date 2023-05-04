@@ -36,45 +36,20 @@
             <h3 class="section-title">Our <span class="text-secondary">Services</span></h3>
             <h5 class="section-subtitle">We help you assemble the best talent for your organization.</h5>
             <div class="cards">
+                {% for service in services %}
                 <div class="card z-depth-0">
                     <div class="card-image">
-                        <img src="{% static 'images/index/city-min.webp' %}" height="250">
-                        <span class="card-title card-title-with-hover bg-secondary">Card Title</span>
+                        <img src="{{service.thumbnail.url}}" height="250">
+                        <span class="card-title card-title-with-hover bg-secondary">{{service.title|safe}}</span>
                     </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
-                <div class="card z-depth-0">
-                    <div class="card-image">
-                        <img src="{% static 'images/index/city-min.webp' %}" height="250">
-                        <span class="card-title card-title-with-hover bg-secondary">A longer Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
+                    <div class="card-content truncate-four">
+                        <p>{{service.description|safe}}</p>
                     </div>
                     <div class="card-action">
-                        <a href="#">Read More</a>
+                        <a href="{% url 'index:service' slug=service.slug %}">Read More</a>
                     </div>
                 </div>
-                <div class="card z-depth-0">
-                    <div class="card-image">
-                        <img src="{% static 'images/index/city-min.webp' %}" height="250">
-                        <span class="card-title card-title-with-hover bg-secondary">Card Title</span>
-                    </div>
-                    <div class="card-content">
-                        <p>I am a very simple card. I am good at containing small bits of information.
-                            I am convenient because I require little markup to use effectively.</p>
-                    </div>
-                    <div class="card-action">
-                        <a href="#">Read More</a>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
