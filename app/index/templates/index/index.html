@@ -76,7 +76,7 @@
                                 aut placeat.
                             </p>
                             <div class="card-action">
-                                <a href="#">Read More</a>
+                                <a href="{% url 'about:index' %}">Read More</a>
                             </div>
                         </div>
                     </div>
@@ -285,81 +285,20 @@
                     See <span class="text-secondary">what</span> our clients are saying
                 </h3>
                 <div class="testimonials">
+                    {% for testimony in testimonies %}
                     <div class="card z-depth-0">
                         <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}">
+                            <img src="{% if testimony.witness.avatar %}{{testimony.witness.avatar.url}}{% endif %}" height="250px" width="100%">
                             <span class="card-title card-title-with-hover">Rahul Shah</span>
                         </div>
                         <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                            <p><b>Nationality:</b>Pakistani</p>
-                            <p><b>Service:</b> Food and Beverage</p>
-                            <p><b>Country:</b> Australia</p>
+                            <p>{{testimony.testimony|safe}}</p>
+                            <p><b>Nationality:</b>{{testimony.witness.nationality}}</p>
+                            <p><b>Service:</b> {{testimony.witness.service_type}}</p>
+                            <p><b>Country:</b> {{testimony.witness.preferred_country}}</p>
                         </div>
                     </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}">
-                            <span class="card-title card-title-with-hover">Rahul Shah</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                        </div>
-                    </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}">
-                            <span class="card-title card-title-with-hover">Rahul Shah</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                            <p><b>Nationality:</b>Pakistani</p>
-                            <p><b>Service:</b> Food and Beverage</p>
-                            <p><b>Country:</b> Australia</p>
-                        </div>
-                    </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}">
-                            <span class="card-title card-title-with-hover">Card Title</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                            <p><b>Nationality:</b>Pakistani</p>
-                            <p><b>Service:</b> Food and Beverage</p>
-                            <p><b>Country:</b> Australia</p>
-                        </div>
-                    </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}">
-                            <span class="card-title card-title-with-hover">Card Title</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                            <p><b>Nationality:</b>Pakistani</p>
-                            <p><b>Service:</b> Food and Beverage</p>
-                            <p><b>Country:</b> Australia</p>
-                        </div>
-                    </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}">
-                            <span class="card-title card-title-with-hover">Card Title</span>
-                        </div>
-                        <div class="card-content">
-                            <p>I am a very simple card. I am good at containing small bits of information.
-                                I am convenient because I require little markup to use effectively.</p>
-                            <p><b>Nationality:</b>Pakistani</p>
-                            <p><b>Service:</b> Food and Beverage</p>
-                            <p><b>Country:</b> Australia</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
