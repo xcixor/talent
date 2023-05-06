@@ -110,7 +110,7 @@ class StaffRegistrationForm(forms.ModelForm, HtmlEmailMixin):
     def send_account_creation_notification(self, user, request):
         to_email = user.email
         subject = _("Account Creation Successful!")
-        from_email = settings.VERIFIED_EMAIL_USER
+        from_email = settings.EMAIL_HOST_USER
         current_site = get_current_site(request)
         context = {
             "first_name": user.first_name,
@@ -127,7 +127,7 @@ class StaffRegistrationForm(forms.ModelForm, HtmlEmailMixin):
     def notify_admin(self, user):
         subject = _(
             'New User Registration')
-        from_email = settings.VERIFIED_EMAIL_USER
+        from_email = settings.EMAIL_HOST_USER
         to_email = settings.ADMIN_EMAILS
         context = {
             'email_address': user.email,
