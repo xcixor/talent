@@ -33,7 +33,13 @@
 					<div class="soft-shadow form-wrapper">
 						{% if form.errors %}
 						<p class="error"><strong>{% trans "Please correct the errors in the form below." %}</strong></p>
-						{% endif %} {% for error in form.non_field_errors %}
+						<ul class="error">
+							{% for field in form %}
+							<li>{{ field.errors|striptags }}</li>
+							{% endfor %}
+						</ul>
+						{% endif %}
+						{% for error in form.non_field_errors %}
 						<p class="error">{{ error|escape }}</p>
 						{% endfor %}
 					</div>
