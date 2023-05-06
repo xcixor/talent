@@ -30,13 +30,18 @@
 					<div class="soft-shadow form-wrapper">
 						{% if form.errors %}
 						<p class="error"><strong>{% trans "Please correct the errors in the form below." %}</strong></p>
+						<ul class="error">
+							{% for field in form %}
+							<li>{{ field.errors|striptags }}</li>
+							{% endfor %}
+						</ul>
 						{% endif %} {% for error in form.non_field_errors %}
 						<p class="error">{{ error|escape }}</p>
 						{% endfor %}
 					</div>
 					<div class="form-container w-100 h-100 flex-1 d-flex flex-column align-items-stretch">
-						<form class="col s12 w-100 h-100 d-flex flex-column align-items-stretch flex-1" method="post" enctype="multipart/form-data"
-							action="{% url 'accounts:employer_registration' %}">
+						<form class="col s12 w-100 h-100 d-flex flex-column align-items-stretch flex-1" method="post"
+							enctype="multipart/form-data" action="{% url 'accounts:employer_registration' %}">
 							{% csrf_token %}
 							{% include 'accounts/registration/employer/step_1.html' %}
 							{% include 'accounts/registration/employer/step_2.html' %}
