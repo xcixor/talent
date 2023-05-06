@@ -9,4 +9,8 @@ class CarouselItemAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Action)
-admin.site.register(Service)
+
+
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    exclude = ['slug']
