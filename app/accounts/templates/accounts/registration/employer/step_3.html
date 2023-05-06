@@ -47,8 +47,7 @@
 
 				<p>
 					<label>
-						<input type="checkbox" name="terms" id="terms"
-							{% if request.session.registration_details.terms %}checked{% endif %} required />
+						<input type="checkbox" name="terms" id="terms" {% if request.session.registration_details.terms %}checked{% endif %} required />
 						<span>I agree to the <a href="#">Terms of service</a></span>
 					</label>
 				</p>
@@ -73,7 +72,7 @@
 	</div>
 
 	<div class="btns">
-		<button type="button" class="previous-btn btn-navigate-form-step">Prev</button>
-		<button type="button" class="next-btn btn-navigate-form-step">Next</button>
+		{% include 'accounts/registration/partial/prev_button.html' %}
+		{% include 'accounts/registration/partial/next_button.html' %}
 	</div>
 </div>
