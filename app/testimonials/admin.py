@@ -1,3 +1,8 @@
 from django.contrib import admin
+from testimonials.models import Testimony
 
-# Register your models here.
+
+@admin.register(Testimony)
+class TestimonyAdmin(admin.ModelAdmin):
+
+    pass
