@@ -69,46 +69,58 @@ function validatePassword(name, value, step) {
 		isValid = false;
 		disableNavigationButtons(step);
 		$(`input[name*=${name}]`).addClass("invalid");
-	} else {
-		if (name === "password1") {
-			const regexp = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-			if (!regexp.test(value)) {
-				isValid = false;
-				disableNavigationButtons(step);
-				const msg =
-					"Please provide a strong password. The password should have a minimum of 8 characters, have at least one symbol, a number, and a combination of uppercase and lowercase characters.";
-				$("#password1Errors").addClass("invalid").text(msg);
-			} else {
-				isValid = true;
-				$("#password1Errors").removeClass("invalid").text("");
-			}
-		}
-		if (name === "password2") {
-			const password1 = $("input[name*=password1]").val();
-			if (!password1) {
-				isValid = false;
-				disableNavigationButtons(step);
-				$("input[name*=password1]").addClass("invalid");
-				$("input[name*=password2]").addClass("invalid");
-				$("#password2Errors")
-					.addClass("invalid")
-					.text("Please set your password.");
-			} else {
-				if (value !== password1) {
-					isValid = false;
-					disableNavigationButtons(step);
-					$("#password2Errors")
-						.addClass("invalid")
-						.text("Your passwords don't match.");
-				} else {
-					isValid = true;
-					$("#password2Errors").removeClass("invalid").text("");
-				}
-			}
-		}
+	}
+	const password1 = $("input[name*=password1]").val();
+	const password2 = $("input[name*=password2]").val();
+	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
+
+	if(!password1){
+		$("#password1Errors")
+				.addClass("invalid")
+				.text("Please set your password.");
+		isValid = false;
+		disableNavigationButtons(step);
+	}else{
+		$("#password1Errors")
+				.removeClass("invalid")
+				.text("");
+	}
+	if(!password2){
+		$("#password2Errors")
+				.addClass("invalid")
+				.text("Please set your password.");
+		isValid = false;
+			disableNavigationButtons(step);
+	}else{
+		$("#password2Errors")
+				.removeClass("invalid")
+				.text("");
+	}
+	if (!regexp.test(password1)) {
+		isValid = false;
+		disableNavigationButtons(step);
+		const msg =
+			"Please provide a strong password. The password should have a minimum of 8 characters, have at least one symbol, a number, and a combination of uppercase and lowercase characters.";
+		$("#password1Errors").addClass("invalid").text(msg);
+	}else{
+		$("#password1Errors")
+				.removeClass("invalid")
+				.text("");
+	}
+	if (password2 !== password1) {
+		isValid = false;
+		disableNavigationButtons(step);
+		$("#password2Errors")
+			.addClass("invalid")
+			.text("Your passwords don't match.");
+	}else{
+		$("#password2Errors")
+				.removeClass("invalid")
+				.text("");
 	}
 	return isValid;
-}
+	}
 
 function validateStep(step) {
 	let isValid = true;
