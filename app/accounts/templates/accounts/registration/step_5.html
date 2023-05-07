@@ -47,8 +47,7 @@
 
 				<p>
 					<label>
-						<input type="checkbox" name="terms" id="terms" {% if request.session.registration_details.terms
-							%}checked{% endif %} required />
+						<input type="checkbox" name="terms" id="terms" {% if request.session.registration_details.terms %}checked{% endif %} required />
 						<span>I agree to the <a href="#">Terms of service</a></span>
 					</label>
 				</p>
