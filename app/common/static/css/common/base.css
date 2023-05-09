@@ -25,6 +25,11 @@ nav .brand-logo {
 	transform: scale(1.3);
 }
 
+ nav ul a {
+	padding: 0 10px !important;
+	font-size: 1.1rem;
+}
+
 @media only screen and (max-width: 600px) {
 	.sidenav li {
 		line-height: unset !important;
@@ -32,4 +37,8 @@ nav .brand-logo {
 	.sidenav .user-view .background {
 		position: unset !important;
 	}
+}
+
+@media only screen and (max-width: 1024px) {
+
 }

@@ -39,6 +39,13 @@
 
 .card-title {
     padding: 10px 15px !important;
+    width: 100%;
+
+}
+
+.card-title h3 {
+    font-size: 1.4rem !important;
+    margin: 0;
 }
 
 .card:hover .card-title-with-hover {
@@ -190,3 +197,11 @@ details[open] > summary {
         justify-content: flex-start;
     }
 }
+
+@media screen and ( max-width: 1024px ){
+    .card-title h3 {
+        font-size: 1.4rem !important;
+        margin: 10px;
+    }
+}
+
