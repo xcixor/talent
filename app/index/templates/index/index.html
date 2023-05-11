@@ -66,14 +66,7 @@
                         <div class="card-content">
                             <h3 class="section-title"><span class="text-secondary">Who</span> we are</h3>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                                Laudantium magni blanditiis harum sit porro tempore eveniet ex temporibus fuga quisquam
-                                officiis,
-                                voluptatem vel? Fugit fugiat ex magnam animi ad officiis.
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Autem obcaecati nisi, quam quos dolor sequi sint reiciendis.
-                                Rerum ipsam autem similique aliquid? Dicta dolorum distinctio aliquam porro nostrum,
-                                aut placeat.
+                                {{about.epigraph|safe}}
                             </p>
                             <div class="card-action">
                                 <a href="{% url 'about:index' %}">Read More</a>
@@ -493,27 +486,11 @@
                 Our <span class="text-secondary">Partners</span>
             </h3>
             <div class="partners-grid">
+                {% for partner in partners %}
                 <div class="partner">
-                    <img src="{% static 'images/index/partners/dell.png' %}" height="100%" width="100%">
+                    <img src="{{ partner.logo.url }}" height="100%" width="100%">
                 </div>
-                <div class="partner">
-                    <img src="{% static 'images/index/partners/microsoft.avif' %}" height="100%" width="100%">
-                </div>
-                <div class="partner">
-                    <img src="{% static 'images/index/partners/agro.png' %}" height="100%" width="100%">
-                </div>
-                <div class="partner">
-                    <img src="{% static 'images/index/partners/stregis.png' %}" height="100%" width="100%">
-                </div>
-                <div class="partner">
-                    <img src="{% static 'images/index/partners/unilever.png' %}" height="100%" width="100%">
-                </div>
-                <div class="partner">
-                    <img src="{% static 'images/index/partners/marriot.png' %}" height="100%" width="100%">
-                </div>
-                <div class="partner">
-                    <img src="{% static 'images/index/partners/luxury.jpeg' %}" height="100%" width="100%">
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
