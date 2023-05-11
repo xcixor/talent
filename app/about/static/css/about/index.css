@@ -133,6 +133,11 @@
     cursor: pointer;
 }
 
+.content ul:not(.browser-default)>li {
+    list-style-type: initial !important;
+    margin-left: 20px;
+}
+
 @media screen and ( max-width: 1024px ){
     #wrapper {
         grid-template-columns: 1fr;

@@ -31,15 +31,7 @@
                 <h3 class="section-title">Our <span class="text-secondary">Story</span></h3>
             </div>
             <p class="section-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse exercitationem dicta aspernatur. Error
-                consequuntur iusto nisi ipsam quis incidunt nobis sunt ratione maxime culpa, sint non? Molestias atque
-                perferendis laudantium!
-            </p>
-            <p class="section-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse exercitationem dicta aspernatur. Error
-                consequuntur
-                iusto nisi ipsam quis incidunt nobis sunt ratione maxime culpa, sint non? Molestias atque perferendis
-                laudantium!
+                {{ about.our_story|safe }}
             </p>
         </div>
     </div>
@@ -51,15 +43,7 @@
                 <h3 class="section-title">Driven by a <span class="text-secondary">Mission</span></h3>
             </div>
             <p class="section-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse exercitationem dicta aspernatur. Error
-                consequuntur iusto nisi ipsam quis incidunt nobis sunt ratione maxime culpa, sint non? Molestias atque
-                perferendis laudantium!
-            </p>
-            <p class="section-text">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Esse exercitationem dicta aspernatur. Error
-                consequuntur
-                iusto nisi ipsam quis incidunt nobis sunt ratione maxime culpa, sint non? Molestias atque perferendis
-                laudantium!
+                {{ about.our_mission|safe }}
             </p>
         </div>
     </div>
@@ -109,19 +93,9 @@
                 <h3 class="section-title">How do we <span class="text-secondary">serve</span> you?</h3>
             </div>
             <p class="section-text">
-                After providing labor services for over five years, Infinite Talent Limited has expanded its boundaries.
-                We increased the
-                breadth of our services to meet the various recruitment needs and procedures after gathering in-depth
-                knowledge of the
-                labor requirements across a variety of industry sectors.
+                {{ about.our_service|safe }}
+
             </p>
-            <ul class="section-text fa-ul">
-                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Staffing</li>
-                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Managerial Recruitment</li>
-                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Consultant Hiring</li>
-                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>Contractual and Temporary Hiring
-                </li>
-            </ul>
         </div>
     </div>
 </section>
@@ -133,41 +107,15 @@
                     <h3 class="section-title">The <span class="text-secondary">people</span> behind our success</h3>
                 </div>
                 <div class="people-grid">
+                    {% for staff in staff %}
                     <div class="person">
-                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
+                        <img src="{{ staff.staff.avatar.url }}" height="100%" width="100%">
                         <div class="prof ps-2">
-                            <h6><b>Emassons Kingi</b></h6>
-                            <p class="m-0">CEO</p>
+                            <h6><b>{{staff.staff.get_full_name}}</b></h6>
+                            <p class="m-0">{{staff.role}}</p>
                         </div>
                     </div>
-                    <div class="person">
-                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
-                        <div class="prof ps-2">
-                            <h6><b>Emassons Kingi</b></h6>
-                            <p class="m-0">CEO</p>
-                        </div>
-                    </div>
-                    <div class="person">
-                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
-                        <div class="prof ps-2">
-                            <h6><b>Emassons Kingi</b></h6>
-                            <p class="m-0">CEO</p>
-                        </div>
-                    </div>
-                    <div class="person">
-                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
-                        <div class="prof ps-2">
-                            <h6><b>Emassons Kingi</b></h6>
-                            <p class="m-0">CEO</p>
-                        </div>
-                    </div>
-                    <div class="person">
-                        <img src="{% static 'images/index/rahul.webp' %}" height="100%" width="100%">
-                        <div class="prof ps-2">
-                            <h6><b>Emassons Kingi</b></h6>
-                            <p class="m-0">CEO</p>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
@@ -273,27 +221,13 @@
                     Our <span class="text-secondary">Partners</span>
                 </h3>
                 <div class="partners-grid">
+                    {% for partner in partners %}
                     <div class="partner">
-                        <img src="{% static 'images/index/partners/dell.png' %}" height="100%" width="100%">
+                        <img src="{{ partner.logo.url }}" height="100%" width="100%">
                     </div>
-                    <div class="partner">
-                        <img src="{% static 'images/index/partners/microsoft.avif' %}" height="100%" width="100%">
-                    </div>
-                    <div class="partner">
-                        <img src="{% static 'images/index/partners/agro.png' %}" height="100%" width="100%">
-                    </div>
-                    <div class="partner">
-                        <img src="{% static 'images/index/partners/stregis.png' %}" height="100%" width="100%">
-                    </div>
-                    <div class="partner">
-                        <img src="{% static 'images/index/partners/unilever.png' %}" height="100%" width="100%">
-                    </div>
-                    <div class="partner">
-                        <img src="{% static 'images/index/partners/marriot.png' %}" height="100%" width="100%">
-                    </div>
-                    <div class="partner">
-                        <img src="{% static 'images/index/partners/luxury.jpeg' %}" height="100%" width="100%">
-                    </div>
+                    {% empty %}
+                    <p>We are setting up our partners</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>

@@ -40,6 +40,9 @@ ci-test:
 	docker-compose run talent coverage run --rcfile=.coveragerc manage.py test
 	docker-compose run talent coverage report --rcfile=.coveragerc
 
+server:
+	source .env; cd app; python manage.py runserver
+
 ## create initial industries
 industries:
 	docker-compose run talent python manage.py loaddata industries.json
