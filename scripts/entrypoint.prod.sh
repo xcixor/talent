@@ -7,5 +7,5 @@ python manage.py create_admin
 python manage.py loaddata industries.json
 python manage.py loaddata carousel.json
 python manage.py loaddata about
-gunicorn -b 0.0.0.0:8500 core.wsgi:application --timeout 90
+gunicorn -b 0.0.0.0:${PORT} core.wsgi:application --timeout 90
 exec "$@"
