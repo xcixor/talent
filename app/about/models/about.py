@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils.html import strip_tags
 from ckeditor.fields import RichTextField
 from accounts.models import User
 
@@ -16,8 +15,8 @@ class About(models.Model):
 
     version = models.IntegerField(unique=True)
     epigraph = RichTextField()
-    title = RichTextField()
-    sub_title = RichTextField()
+    title = models.CharField()
+    sub_title = models.CharField()
     our_story = RichTextField()
     our_mission = RichTextField()
     our_service = RichTextField(blank=True, null=True)
