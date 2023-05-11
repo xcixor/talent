@@ -18,6 +18,10 @@
     border-bottom: 0.2rem solid #E34824;
 }
 
+.hero-text {
+    color: white;
+}
+
 .truncate-four p{
      overflow: hidden;
    text-overflow: ellipsis;
@@ -162,9 +166,38 @@ details[open] > summary {
     gap: 20px;
 }
 
+.services .card-image {
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thumbnail-container {
+    border: solid 0.05em #1B3F6B;
+    padding: 15px;
+    border-radius: 50% !important;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.service-thumbnail{
+    width: 100px !important;
+    height: 100px !important;
+    top: unset !important;
+}
+
 @media screen and ( min-width: 601px ) and ( max-width: 1024px ){
     .locations-grid {
         grid-template-columns: repeat(3, minmax(33%, 1fr));
+    }
+    .cards {
+        grid-template-columns: repeat(2, minmax(50%, 1fr));
+        gap: 2%;
     }
 }
 @media screen and ( max-width: 600px ){

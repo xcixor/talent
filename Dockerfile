@@ -23,4 +23,4 @@ COPY ./app .
 
 ARG PORT
 
-CMD postgres-healthcheck; python manage.py makemigrations; python manage.py migrate; python manage.py loaddata industries.json; python manage.py create_admin; python manage.py runserver 0.0.0.0:${PORT}
+ENTRYPOINT ["/home/app/talent/entrypoint.prod.sh"]

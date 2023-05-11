@@ -1,0 +1,93 @@
+[
+  {
+    "model": "index.CarouselItem",
+    "pk": 1,
+    "fields": {
+      "title": "Creating a path for you",
+      "subtitle": "Our organization works to assist employers in assembling a team of highly competent and efficient experts, as well as to assist employees by providing them with a wider range of employment options."
+    }
+  },
+  {
+    "model": "index.CarouselItem",
+    "pk": 2,
+    "fields": {
+      "title": "Hire international employees today.",
+      "subtitle": "Forget the old rules. You can have the best people. Right here. Right now."
+    }
+  },
+  {
+    "model": "index.CarouselItem",
+    "pk": 3,
+    "fields": {
+      "title": "Thinking of working abroad?",
+      "subtitle": "The perfect overseas job is right there for you. Our process is aimed at making your profile more accessible, attractive, and engaging for international employers."
+    }
+  },
+  {
+    "model": "index.Action",
+    "pk": 1,
+    "fields": {
+      "carousel_item": 1,
+      "title": "FIND WORK",
+      "link": "/shortlist/openings/"
+    }
+  },
+  {
+    "model": "index.Action",
+    "pk": 2,
+    "fields": {
+      "carousel_item": 1,
+      "title": "FIND TALENT",
+      "link": "/job/create/",
+      "is_outlined": true
+    }
+  },
+  {
+    "model": "index.Action",
+    "pk": 3,
+    "fields": {
+      "carousel_item": 2,
+      "title": "REGISTER YOUR COMPANY",
+      "link": "/accounts/registration/employer/"
+    }
+  },
+  {
+    "model": "index.Action",
+    "pk": 4,
+    "fields": {
+      "carousel_item": 3,
+      "title": "SEND YOUR CV NOW!",
+      "link": "/accounts/registration/job-seeker/"
+    }
+  },
+  {
+    "model": "index.Service",
+    "pk": 1,
+    "fields": {
+      "title": "Project-Based Hiring",
+      "epigraph": "We are here to help you achieve the requirements of your time constrained project. We maintain a large database of contract workers to serve your immediate and time-specific needs.",
+      "thumbnail": "index/static/images/index/services/project512.png",
+      "slug": "project-based-hiring"
+    }
+  },
+  {
+    "model": "index.Service",
+    "pk": 2,
+    "fields": {
+      "title": "Expat Search",
+      "epigraph": "If you want to grow your company overseas, our agency is the right place for you. Expats with a variety of skills may prove to be your best bet for achieving your global goals. because they are more knowledgeable about the circumstances at play abroad that may have an impact on your company, in addition to the value their skill sets add to it.",
+      "thumbnail": "index/static/images/index/services/expatsearch512.png",
+      "slug": "expat-search"
+    }
+  },
+  {
+    "model": "index.Service",
+    "pk": 3,
+    "fields": {
+      "title": "Job Opportunities",
+      "epigraph": "The goal of this endeavor is to make job seekers stand out from the competition and make their profiles more visible to companies. Potential employers can quickly access job seekers' profiles thanks to our facilitation. It is a sign of how efficient our entire recruitment process is that it has assisted hundreds of job seekers in landing their dream position.",
+      "thumbnail": "index/static/images/index/services/employee512.png",
+      "slug": "job-opportunities"
+    }
+  }
+]
