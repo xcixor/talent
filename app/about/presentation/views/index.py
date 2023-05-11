@@ -1,6 +1,7 @@
 import logging
 from django.views.generic import TemplateView
 from about.models import About, Staff, Values, Partners
+from index.models import Service
 
 
 logger = logging.getLogger(__name__)
@@ -18,4 +19,5 @@ class AboutIndexView(TemplateView):
             logger.error(f'{de}')
         context.update({'partners': Partners.objects.all()})
         context.update({'staff': Staff.objects.all()})
+        context.update({'services': Service.objects.all()})
         return context

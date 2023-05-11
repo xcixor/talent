@@ -8,6 +8,11 @@
 
 .hero-text {
     animation: showup 2500ms;
+    color: white;
+}
+
+.prof p {
+    color: white;
 }
 
 @keyframes showup {
@@ -104,7 +109,6 @@
     z-index: 1;
     position: absolute;
     bottom: 0;
-    color: white;
     display: none;
     background: rgb(5,13,21, 0.7);
     min-width: 100%;
@@ -112,6 +116,18 @@
     cursor: pointer;
     height: 100%;
     padding: 5px;
+}
+
+.value p {
+    color: white !important;
+}
+
+.value-title {
+    font-weight: 600;
+}
+
+.stats-row {
+    height: 350px;
 }
 
 .soft-shadow:hover .value {
@@ -133,7 +149,7 @@
     cursor: pointer;
 }
 
-.content ul:not(.browser-default)>li {
+.content ul:not(.fa-ul)>li {
     list-style-type: initial !important;
     margin-left: 20px;
 }
@@ -165,6 +181,9 @@
 
 
 @media screen and ( max-width: 600px ){
+    .stats-row {
+        height: auto;
+    }
     .stat-wrapper {
         flex-direction: column;
         align-items: center;
