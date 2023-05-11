@@ -14,10 +14,10 @@
             <div class="col s12 h-100 text-white">
                 <div class="d-flex flex-column align-items-center justify-content-center text-center h-100">
                     <h2 class="hero-title">
-                        We Help Businesses Build World Class Teams
+                        {{about.title}}
                     </h2>
                     <p class="hero-text">
-                        Learn more about Infinite Talent Limited: who we are, what we do, and where we’re headed.
+                        {{about.sub_title}}
                     </p>
                 </div>
             </div>
@@ -27,7 +27,7 @@
 <section class="container py-2">
     <div class="row">
         <div class="col s12">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex">
                 <h3 class="section-title">Our <span class="text-secondary">Story</span></h3>
             </div>
             <p class="section-text">
@@ -39,7 +39,7 @@
 <section class="container py-2">
     <div class="row">
         <div class="col s12">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex">
                 <h3 class="section-title">Driven by a <span class="text-secondary">Mission</span></h3>
             </div>
             <p class="section-text">
@@ -52,32 +52,32 @@
     <div class="container stats">
         <div class="row">
             <div class="col s12">
-                <div class="d-flex justify-content-center">
+                <div class="d-flex">
                     <h3 class="section-title">
                         <span class="text-secondary">Numbers</span> that make us Proud
                     </h3>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col s12 m6">
-                <div class="d-flex flex-column align-items-center justify-content-center p-4"
+        <div class="row stats-row">
+            <div class="col s12 m6 h-100 mb-2">
+                <div class="d-flex flex-column align-items-center justify-content-center p-4 soft-shadow"
                     style="height:100% !important">
                     <i class="fa-solid fa-briefcase fa-secondary fa-6x"></i>
                     <p class="stat m-0"><span id="projectsTotal"></span>+ Projects Finished</p>
                 </div>
             </div>
-            <div class="col s12 m6">
-                <div class="d-flex flex-column p-4">
-                    <div class="stat-wrapper d-flex mb-2">
+            <div class="col s12 m6 h-100 mb-2">
+                <div class="d-flex flex-column justify-content-between px-4 h-100">
+                    <div class="stat-wrapper d-flex soft-shadow mt-1 align-items-center">
                         <i class="fa-solid fa-calendar fa-secondary fa-secondary fa-3x"></i>
                         <p class="stat m-0"><span id="yearsTotal"></span>+ Years of Experience</p>
                     </div>
-                    <div class="stat-wrapper d-flex mb-2">
+                    <div class="stat-wrapper d-flex soft-shadow mt-1 align-items-center">
                         <i class="fa-solid fa-face-laugh-beam fa-secondary fa-secondary fa-3x"></i>
                         <p class="stat m-0"><span id="clientsTotal"></span>+ Happy Clients</p>
                     </div>
-                    <div class="stat-wrapper d-flex mb-2">
+                    <div class="stat-wrapper d-flex soft-shadow mt-1 align-items-center">
                         <i class="fa-solid fa-user-group fa-secondary fa-secondary fa-3x"></i>
                         <p class="stat m-0"><span id="followersTotal"></span>+ Followers on Social Media</p>
                     </div>
@@ -89,13 +89,19 @@
 <section class="container py-2">
     <div class="row">
         <div class="col s12">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex">
                 <h3 class="section-title">How do we <span class="text-secondary">serve</span> you?</h3>
             </div>
             <p class="section-text">
                 {{ about.our_service|safe }}
-
             </p>
+            <ul class="section-text fa-ul">
+                {% for service in services %}
+                <li><span class="fa-li"><i class="fa-solid fa-check-circle"></i></span>{{service}}</li>
+                {% empty %}
+                <p>Hold on, we are setting up our services.</p>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </section>
@@ -103,7 +109,7 @@
     <section class="container">
         <div class="row">
             <div class="col s12">
-                <div class="d-flex justify-content-center">
+                <div class="d-flex">
                     <h3 class="section-title">The <span class="text-secondary">people</span> behind our success</h3>
                 </div>
                 <div class="people-grid">
@@ -124,14 +130,14 @@
 <section class="container py-2">
     <div class="row">
         <div class="col s12">
-            <div class="d-flex justify-content-center">
+            <div class="d-flex">
                 <h3 class="section-title">The <span class="text-secondary">values</span> that guide us</h3>
             </div>
             <div id="wrapper">
                 <div class="block">
                     <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
                         <i class="fa-solid fa-people-group fa-secondary fa-3x"></i>
-                        <p>Team Work</p>
+                        <h4 class="value-title">Team Work</h4>
                         <div class="value">
                             <p class="m-0">
                                 We rely on one another for knowledge obtained from experience, information,
@@ -142,7 +148,7 @@
                 <div class="block wide">
                     <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
                         <i class="fa-solid fa-screwdriver-wrench fa-secondary fa-3x"></i>
-                        <p>Accountability</p>
+                        <h4 class="value-title">Accountability</h4>
                         <div class="value">
                             <p class="m-0">
                                 We keep our promises to both our clients and one another. We
@@ -156,7 +162,7 @@
                 <div class="block tall">
                     <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
                         <i class="fa-solid fa-hand-holding-hand fa-secondary fa-3x"></i>
-                        <p>Customer First</p>
+                        <h4 class="value-title">Customer First</h4>
                         <div class="value">
                             <p class="m-0">
                                 We are devoted to paying attention to and meeting the demands of our customers since we
@@ -171,7 +177,7 @@
                 <div class="block">
                     <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
                         <i class="fa-solid fa-scale-balanced fa-secondary fa-3x"></i>
-                        <p>Integrity</p>
+                        <h4 class="value-title">Integrity</h4>
                         <div class="value">
                             <p class="m-0">
                                 We do the right thing even if no one is watching. This also translates to valuing
@@ -185,7 +191,7 @@
                 <div class="block">
                     <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
                         <i class="fa-solid fa-person-praying fa-secondary fa-3x"></i>
-                        <p>Gratitude</p>
+                        <h4 class="value-title">Gratitude</h4>
                         <div class="value">
                             <p class="m-0">
                                 We are a company that prides itself in appreciating all our stakeholders. We appreciate
@@ -198,7 +204,7 @@
                 <div class="block">
                     <div class="soft-shadow h-100 d-flex flex-column justify-content-between">
                         <i class="fa-solid fa-hand-fist fa-secondary fa-3x"></i>
-                        <p>Passion</p>
+                        <h4 class="value-title">Passion</h4>
                         <div class="value">
                             <p class="m-0">
                                 We are a team that loves our work, who are interested and excited about it, and actively
