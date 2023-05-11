@@ -1,5 +1,9 @@
+import logging
 from django.views.generic import TemplateView
 from about.models import About, Staff, Values, Partners
+
+
+logger = logging.getLogger(__name__)
 
 
 class AboutIndexView(TemplateView):
@@ -8,7 +12,10 @@ class AboutIndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context.update({'about': About.objects.latest('-created')})
+        try:
+            context.update({'about': About.objects.latest('-created')})
+        except About.DoesNotExist as de:
+            logger.error(f'{de}')
         context.update({'partners': Partners.objects.all()})
         context.update({'staff': Staff.objects.all()})
         return context
