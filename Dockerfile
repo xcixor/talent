@@ -26,4 +26,4 @@ COPY ./app .
 
 ARG PORT
 
-ENTRYPOINT ["/home/app/talent/entrypoint.prod.sh"]
+ENTRYPOINT ["/usr/src/app/entrypoint.prod.sh"]
