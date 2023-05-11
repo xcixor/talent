@@ -91,7 +91,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     highest_level_of_education = models.CharField(
         max_length=255, blank=True, null=True)
     type_of_visa = models.CharField(max_length=255, blank=True, null=True)
-    linkedin_url = models.URLField(max_length=255)
+    linkedin_url = models.URLField(max_length=255, null=True, blank=True)
     mode_of_contact = models.CharField(max_length=255, blank=True, null=True)
     type_of_user = models.CharField(max_length=255, choices=USER_TYPES)
     objects = UserManager()
