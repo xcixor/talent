@@ -17,6 +17,9 @@ RUN pip install --upgrade pip pipenv && pipenv install --system
 COPY ./scripts/postgres-healthcheck.py /usr/local/bin/postgres-healthcheck
 RUN chmod u+x /usr/local/bin/postgres-healthcheck
 
+# copy entrypoint-prod.sh
+COPY ./scripts/entrypoint.prod.sh /usr/src/app
+RUN chmod u+x /usr/src/app/entrypoint.prod.sh
 
 # copy project
 COPY ./app .
