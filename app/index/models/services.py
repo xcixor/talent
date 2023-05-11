@@ -12,8 +12,9 @@ def image_directory_path(instance, filename):
 
 class Service(models.Model):
 
-    title = RichTextField()
-    description = RichTextField()
+    title = models.CharField(max_length=100)
+    epigraph = models.TextField()
+    description = RichTextField(null=True, blank=True)
     thumbnail = models.ImageField(upload_to=image_directory_path)
     slug = models.SlugField(
         max_length=255, unique=True,

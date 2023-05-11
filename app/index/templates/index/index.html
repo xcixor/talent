@@ -21,7 +21,9 @@
                     <p class="hero-text">{{item.subtitle|safe}}</p>
                     <div class="d-flex flex-buttons">
                         {% for action in item.actions.all %}
-                        <a href="{{action.link}}" class="btn btn-secondary" type="button">{{action.title}}</a>
+                        <a href="{{action.link}}"
+                            class="{% if action.is_outlined %}btn btn-outlined outlined-secondary{% else %}btn btn-secondary{% endif %}"
+                            type="button">{{action.title}}</a>
                         {% endfor %}
                     </div>
                 </div>
@@ -34,16 +36,29 @@
     <div class="row">
         <div class="col s12">
             <h3 class="section-title">Our <span class="text-secondary">Services</span></h3>
-            <h5 class="section-subtitle">We help you assemble the best talent for your organization.</h5>
+            <h5 class="section-subtitle">
+                Our goal at Infinite Talent Limited is to help companies in assembling teams
+                of highly competent and effective
+                employees while also assisting employees by expanding their options for employment. We take delight in
+                assisting in the
+                development of the type of professional atmosphere that would realize the goal and vision around which
+                businesses are
+                based. Furthermore, the global marketplaces in which we compete are very diverse and dynamic. We
+                currently make sales
+                appearances in important cities like China, Malaysia, Singapore, Malaysia, the United Arab Emirates,
+                Dubai, Qatar, and more.
+            </h5>
             <div class="cards">
                 {% for service in services %}
                 <div class="card z-depth-0">
                     <div class="card-image">
-                        <img src="{{service.thumbnail.url}}" height="250">
+                        <div class="thumbnail-container">
+                            <img src="{{service.thumbnail.url}}" class="service-thumbnail">
+                        </div>
                         <span class="card-title card-title-with-hover bg-secondary">{{service.title|safe}}</span>
                     </div>
                     <div class="card-content truncate-four">
-                        <p>{{service.description|safe}}</p>
+                        <p>{{service.epigraph}}</p>
                     </div>
                     <div class="card-action">
                         <a href="{% url 'index:service' slug=service.slug %}">Read More</a>
@@ -281,7 +296,8 @@
                     {% for testimony in testimonies %}
                     <div class="card z-depth-0">
                         <div class="card-image">
-                            <img src="{% if testimony.witness.avatar %}{{testimony.witness.avatar.url}}{% endif %}" height="250px" width="100%">
+                            <img src="{% if testimony.witness.avatar %}{{testimony.witness.avatar.url}}{% endif %}"
+                                height="250px" width="100%">
                             <span class="card-title card-title-with-hover">Rahul Shah</span>
                         </div>
                         <div class="card-content">
