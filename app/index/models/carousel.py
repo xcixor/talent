@@ -1,12 +1,11 @@
 from django.db import models
 from django.utils.html import strip_tags
-from ckeditor.fields import RichTextField
 
 
 class CarouselItem(models.Model):
 
-    title = RichTextField()
-    subtitle = RichTextField(blank=True, null=True)
+    title = models.CharField()
+    subtitle = models.TextField(blank=True, null=True)
 
     def __str__(self) -> str:
         return self.title
@@ -22,6 +21,7 @@ class Action(models.Model):
         CarouselItem, on_delete=models.CASCADE, related_name='actions')
     title = models.CharField(max_length=40)
     link = models.URLField()
+    is_outlined = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.link

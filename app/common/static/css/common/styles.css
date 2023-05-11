@@ -5,7 +5,6 @@
     --color-primary-light-10: #e8ecf0;
     --color-primary-light-2: #32527a;
     --color-primary-light-4: #5f7997;
-
     --color-secondary: #E34824;
     --color-secondary-2: #FDA828;
     --color-secondary-light-5:#ee917c;
@@ -73,6 +72,7 @@ summary,
 input {
 	font-family: var(--font-normal);
     font-size: 1.1rem;
+    color: #484848;
 }
 
 
