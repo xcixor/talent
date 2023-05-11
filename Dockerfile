@@ -17,13 +17,21 @@ RUN pip install --upgrade pip pipenv && pipenv install --system
 COPY ./scripts/postgres-healthcheck.py /usr/local/bin/postgres-healthcheck
 RUN chmod u+x /usr/local/bin/postgres-healthcheck
 
+# create directory for the app user
+RUN mkdir -p /home/app
+
+# create the appropriate directories
+ENV HOME=/home/app
+ENV APP_HOME=/home/app/talent
+RUN mkdir $APP_HOME
+WORKDIR $APP_HOME
+
 # copy entrypoint-prod.sh
-COPY ./scripts/entrypoint.prod.sh /usr/src/app
-RUN chmod u+x /usr/src/app/entrypoint.prod.sh
+COPY ./scripts/entrypoint.prod.sh $APP_HOME
+RUN chmod u+x $APP_HOME/entrypoint.prod.sh
 
 # copy project
-COPY ./app .
-
+COPY ./app $APP_HOME
 ARG PORT
 
-ENTRYPOINT ["/usr/src/app/entrypoint.prod.sh"]
+ENTRYPOINT ["/home/app/talent/entrypoint.prod.sh"]
