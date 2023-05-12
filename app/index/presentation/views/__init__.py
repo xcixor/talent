@@ -1,2 +1,3 @@
 from .index import IndexView
-from .services import ServiceView
+from .services import ServiceView, ServiceIndexView
+
