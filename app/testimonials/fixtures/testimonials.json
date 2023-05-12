@@ -1,0 +1,26 @@
+[
+  {
+    "model": "testimonials.Testimony",
+    "pk": 1,
+    "fields": {
+      "witness": 2,
+      "testimony": "I am writing this testimonial to express my gratitude for your assistance in securing a work permit and visa for Qatar. I had been searching for job opportunities in Qatar for several months, but the process of obtaining a work permit and visa was overwhelming and confusing. The staff at Infinite Talent Limited Agency was quite helpful and encouraging when I approached them. They provided me with clear guidance on the required documentation, fees, and timelines for the visa application, which made the process much smoother. I am happy to report that I successfully received my work permit and visa and have been working in Qatar for the past six months. Even after I arrived in Qatar, the staff at Infinite Talent Limited Agency remained my support system and gave me information on services and resources I could use to ease my transition. I am extremely grateful to the team at Infinite Talent Limited Agency for their outstanding service, professionalism, and dedication to helping me achieve my career goals. I would highly recommend their services to anyone seeking job opportunities in Qatar or any other country. I would heartily recommend your services to anyone searching for a dependable, superior organization that provides a variety of services to meet their individual needs. Please accept my sincere gratitude for your superb service."
+    }
+  },
+  {
+    "model": "testimonials.Testimony",
+    "pk": 2,
+    "fields": {
+      "witness": 3,
+      "testimony":"I found Infinite Talent Limited through a Google search as I had several intentions to work in Kuwait but was unable to locate the finest firm. After finding this company, I really considered seeing the Infinite Talent Limited Counselor, who described the procedure, and I started my file with them. Nowak Emmason gave me the best, most competent service right from the initial meeting. Even on the weekend, Emmason responded urgently to my email. During my visa application, I encounter unforeseen problems. He talked about it with me and came up with a solution. When my visa is being processed, the Infinite Talent Limited team consistently provides the best answer to my problem. I'm really happy with the way my visa turned out, and I wish Infinite Talent Limited the best going forward. I now have a visa for Kuwait, which is wonderful news. All visa types are completely familiar to them. Team Infinite Talent Limited deserves another thank you. Emasson's assistance was much appreciated. After all of this, please contact Infinite Talent Limited if you require assistance with visas, immigration services, or employment."
+    }
+  },
+  {
+    "model": "testimonials.Testimony",
+    "pk": 3,
+    "fields": {
+      "witness": 4,
+      "testimony":"I just received a job offer as a Sales Manager at a prominent organization through Infinite Talent Limited, a job placement service that offers foreign employment in many fields, worldwide. I received the offer from one of the company's career counselors. I had applied for it with the counselor's assistance. The entire procedure was carried out efficiently and on schedule."
+    }
+  }
+]
