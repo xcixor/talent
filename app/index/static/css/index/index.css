@@ -196,6 +196,10 @@ details[open] > summary {
     top: unset !important;
 }
 
+.stats-row {
+    height: 350px;
+}
+
 @media screen and ( min-width: 601px ) and ( max-width: 1024px ){
     .locations-grid {
         grid-template-columns: repeat(3, minmax(33%, 1fr));
