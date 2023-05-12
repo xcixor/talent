@@ -139,8 +139,8 @@ details[open] > summary {
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(20%, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(5, minmax(18%, 1fr));
+    gap: 2%;
 }
 
 .partner {
@@ -208,6 +208,18 @@ details[open] > summary {
         grid-template-columns: repeat(2, minmax(50%, 1fr));
         gap: 2%;
     }
+    .partners-grid {
+        grid-template-columns: repeat(4, minmax(24%, 1fr));
+        gap: 1.25%;
+    }
+    .contacts {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .socials p{
+        font-size: 1rem;
+    }
 }
 @media screen and ( max-width: 600px ){
     .cards {
@@ -237,6 +249,18 @@ details[open] > summary {
     }
     .socials {
         justify-content: flex-start;
+    }
+    .stats-row {
+        height: auto;
+    }
+    .stats-row .col{
+        margin-bottom: 10px;
+    }
+    .blog .slick-dots{
+        left: unset;
+    }
+    .cards {
+        gap: unset;
     }
 }
 
