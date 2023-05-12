@@ -18,10 +18,6 @@
     border-bottom: 0.2rem solid #E34824;
 }
 
-.hero-text {
-    color: white;
-}
-
 .truncate-four p{
      overflow: hidden;
    text-overflow: ellipsis;
