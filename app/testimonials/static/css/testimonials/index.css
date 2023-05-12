@@ -2,6 +2,11 @@
     border: solid 0.05em #DCDCDC;
 }
 
+h4.section-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
 .truncated {
      overflow: hidden;
    text-overflow: ellipsis;
