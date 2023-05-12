@@ -34,3 +34,9 @@ class Testimony(models.Model):
 
     class Meta:
         verbose_name_plural = 'Testimonies'
+
+
+class BestTestimony(models.Model):
+
+    testimony = models.OneToOneField(
+        Testimony, on_delete=models.CASCADE, related_name='best')
