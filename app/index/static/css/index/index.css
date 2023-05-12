@@ -41,6 +41,11 @@
     gap: 3%;
 }
 
+.testimonials .card .card-image .card-title {
+    background: var(--color-secondary);
+    font-weight: 600;
+}
+
 .card-title {
     padding: 10px 15px !important;
     width: 100%;

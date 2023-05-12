@@ -296,15 +296,21 @@
                     {% for testimony in testimonies %}
                     <div class="card z-depth-0">
                         <div class="card-image">
-                            <img src="{% if testimony.witness.avatar %}{{testimony.witness.avatar.url}}{% endif %}"
-                                height="250px" width="100%">
-                            <span class="card-title card-title-with-hover">Rahul Shah</span>
+                            {% if testimony.witness.avatar %}
+                            <img src="{{testimony.witness.avatar.url}}" height="250px" width="100%">
+                            {% else %}
+                            <img src="{% static 'images/common/user.png' %}" height="250px" width="100%">
+                            {% endif %}
+                            <span class="card-title card-title-with-hover mt-4">Rahul Shah</span>
                         </div>
                         <div class="card-content">
                             <p class="truncated">{{testimony.testimony|safe}}</p>
                             <p><b>Nationality:</b>{{testimony.witness.nationality}}</p>
                             <p><b>Service:</b> {{testimony.witness.service_type}}</p>
                             <p><b>Country:</b> {{testimony.witness.preferred_country}}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'testimonials:testimonial' slug=testimony.slug %}">Read More</a>
                         </div>
                     </div>
                     {% endfor %}

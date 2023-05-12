@@ -1,6 +1,9 @@
-from django.views.generic import TemplateView
+from django.views.generic import DetailView
+from testimonials.models import Testimony
 
 
-class TestimonialView(TemplateView):
+class TestimonialView(DetailView):
 
     template_name = 'testimonials/testimonial.html'
+    model = Testimony
+    context_object_name = 'testimony'
