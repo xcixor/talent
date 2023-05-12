@@ -20,6 +20,7 @@
 
 .hero-text {
     font-size: 1.4rem;
+    color: white;
 }
 
 @media screen and ( max-width: 600px ){

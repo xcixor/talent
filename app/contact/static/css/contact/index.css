@@ -18,10 +18,6 @@
     flex-basis: 50%;
 }
 
-.hero-text {
-    color: white;
-}
-
 .border {
     border: dashed 0.1em #C0C0C0;
     padding: 50px;

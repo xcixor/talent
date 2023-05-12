@@ -1,0 +1,70 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/common/hero.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/index/services.css' %}">
+{% endblock %}
+{% block content %}
+<section class="container-fluid background-image bg-primary"
+    style="background-image: url('{% static 'images/index/city-min.webp' %}')">
+    <div class="carousel-wrapper">
+        <div class="row h-100">
+            <div class="col s12 h-100 text-white">
+                <div class="d-flex flex-column h-100">
+                    <h2 class="hero-title">
+                        OUR SERVICES
+                    </h2>
+                    <p class="hero-text">
+                        Our goal at Infinite Talent Limited is to help companies in assembling teams of highly competent
+                        and effective employees
+                        while also assisting employees by expanding their options for employment. We take delight in
+                        assisting in the
+                        development of the type of professional atmosphere that would realize the goal and vision around
+                        which businesses are
+                        based. Furthermore, the global marketplaces in which we compete are very diverse and dynamic. We
+                        currently make sales
+                        appearances in important cities like China, Malaysia, Singapore, Malaysia, the United Arab
+                        Emirates, Dubai, Qatar, and
+                        more.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="services-grid">
+                {% for service in services %}
+                <div class="service">
+                    <div class="card z-depth-0">
+                        <div class="image d-flex align-items-center justify-content-center my-1">
+                            <img src="{{service.thumbnail.url}}" class="service-thumbnail" height="200px">
+                        </div>
+                        <div class="card-content">
+                            <h4 class="card-title bg-primary m-0 p-2">{{service.title}}</h4>
+                            <div class="overlay bg-primary m-0 p-2">
+                                <p class="m-0">{{service.epigraph|safe}}</p>
+                                <a class="link" href="{% url 'index:service' slug=service.slug %}">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>Hold on we are setting our services up</p>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'js/services.js' %}"></script>
+{% endblock %}
