@@ -301,7 +301,7 @@
                             {% else %}
                             <img src="{% static 'images/common/user.png' %}" height="250px" width="100%">
                             {% endif %}
-                            <span class="card-title card-title-with-hover mt-4">Rahul Shah</span>
+                            <span class="card-title card-title-with-hover mt-4">{{testimony.witness.get_full_name}}</span>
                         </div>
                         <div class="card-content">
                             <p class="truncated">{{testimony.testimony|safe}}</p>
