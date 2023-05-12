@@ -4,5 +4,5 @@ app_name = 'testimonials'
 
 urlpatterns = [
     path('', TestimonialsIndexView.as_view(), name='index'),
-    path('testimonial/', TestimonialView.as_view(), name='testimonial')
+    path('testimonial/<slug:slug>/', TestimonialView.as_view(), name='testimonial')
 ]
