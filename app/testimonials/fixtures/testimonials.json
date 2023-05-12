@@ -25,5 +25,19 @@
       "testimony":"I just received a job offer as a Sales Manager at a prominent organization through Infinite Talent Limited, a job placement service that offers foreign employment in many fields, worldwide. I received the offer from one of the company's career counselors. I had applied for it with the counselor's assistance. The entire procedure was carried out efficiently and on schedule.",
       "slug":"nancy-waringa-sales-and-marketing-testimony"
     }
+  },
+  {
+    "model":"testimonials.BestTestimony",
+    "pk": 1,
+    "fields":{
+      "testimony":1
+    }
+  },
+  {
+    "model":"testimonials.BestTestimony",
+    "pk": 2,
+    "fields":{
+      "testimony":2
+    }
   }
 ]
