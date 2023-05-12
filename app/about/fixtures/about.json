@@ -5,20 +5,60 @@
     "fields": {
       "version": "1",
       "epigraph": "We are Infinite Talent, the leading global experts in qualified, professional & skilled recruitment. We bridge the gap by matching world partners with clients and candidates to power the world of work.",
-      "title":"GLOBAL RECRUITER",
-      "sub_title":"We Help Businesses Build World Class Teams",
-      "our_story":"Half a century ago, the world of work looked very different to today. We have been at the forefront of innovation ever since. When we started, jobs for life were not only the norm – they were expected. Today, almost everything has changed. There's increased temporary staffing and talent mobility and a need for employers to deliver working patterns that meet people’s needs without impacting business performance. We’ve been involved in every step, every transformation, and every new initiative. This is not just our story, but that of millions of people all over the world.",
-      "our_mission":"To connect great organizations with even greater people. We strive to deliver what we promise, the first time every time!",
+      "title": "GLOBAL RECRUITER",
+      "sub_title": "We Help Businesses Build World Class Teams",
+      "our_story": "Half a century ago, the world of work looked very different to today. We have been at the forefront of innovation ever since. When we started, jobs for life were not only the norm – they were expected. Today, almost everything has changed. There's increased temporary staffing and talent mobility and a need for employers to deliver working patterns that meet people’s needs without impacting business performance. We’ve been involved in every step, every transformation, and every new initiative. This is not just our story, but that of millions of people all over the world.",
+      "our_mission": "To connect great organizations with even greater people. We strive to deliver what we promise, the first time every time!",
       "our_service": "After providing labor services for over five years, Infinite Talent Limited has expanded its boundaries. We increased the breadth of our services to meet the various recruitment needs and procedures after gathering in-depth knowledge of the labor requirements across a variety of industry sectors.",
-      "created":"2023-05-11T00:00:00+00:00"
+      "created": "2023-05-11T00:00:00+00:00"
     }
   },
   {
     "model": "about.Staff",
-    "pk":1,
-    "fields":{
+    "pk": 1,
+    "fields": {
       "staff": 1,
       "role": "CEO"
+    }
+  },
+  {
+    "model": "about.Partners",
+    "pk": 1,
+    "fields": {
+      "company": "Dell",
+      "logo": "index/static/images/index/partners/dell.png"
+    }
+  },
+  {
+    "model": "about.Partners",
+    "pk": 2,
+    "fields": {
+      "company": "Microsoft",
+      "logo": "index/static/images/index/partners/microsoft.avif"
+    }
+  },
+  {
+    "model": "about.Partners",
+    "pk": 3,
+    "fields": {
+      "company": "Stregis",
+      "logo": "index/static/images/index/partners/stregis.png"
+    }
+  },
+  {
+    "model": "about.Partners",
+    "pk": 4,
+    "fields": {
+      "company": "Luxury",
+      "logo": "index/static/images/index/partners/luxury.png"
+    }
+  },
+  {
+    "model": "about.Partners",
+    "pk": 5,
+    "fields": {
+      "company": "Unilever",
+      "logo": "index/static/images/index/partners/unilever.png"
     }
   }
 ]
