@@ -257,6 +257,26 @@ p-0{
     list-style-type: initial !important;
 }
 
+.step-links a {
+    color: var(--color-secondary);
+}
+
+.step-links a:visited {
+    color: var(--color-primary);
+}
+
+.step-links a:active {
+    color: var(--color-secondary-2);
+}
+
+.pagination {
+    font-weight: 600;
+}
+
+.current {
+    color: var(--color-primary-light-2);
+}
+
 @media screen and ( max-width: 600px ){
 
 }
