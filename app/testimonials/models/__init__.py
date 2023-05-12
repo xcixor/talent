@@ -1,1 +1,1 @@
-from .testimonial import Testimony
+from .testimonial import Testimony, BestTestimony
