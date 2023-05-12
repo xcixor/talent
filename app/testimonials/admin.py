@@ -5,4 +5,5 @@ from testimonials.models import Testimony
 @admin.register(Testimony)
 class TestimonyAdmin(admin.ModelAdmin):
 
-    pass
+    exclude = ['slug']
+    list_display = ['__str__', 'slug']
