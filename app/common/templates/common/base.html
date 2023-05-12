@@ -101,14 +101,14 @@
 					<li>
 						<a class="text-secondary" href="{% url 'accounts:employer_registration' %}">For Employers</a>
 					</li>
+					<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
+					{% endif %}
 					<li>
 						<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
 					</li>
 					<li><a class="text-secondary" href="{% url 'about:index' %}">About Us</a></li>
 					<li><a class="text-secondary" href="{% url 'contact:index' %}">Contact Us</a></li>
 					<li><a class="text-secondary" href="#">Services</a></li>
-					<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
-					{% endif %}
 				</ul>
 
 				<nav>

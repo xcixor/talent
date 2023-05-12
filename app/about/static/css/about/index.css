@@ -138,8 +138,8 @@
 
 .partners-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(20%, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(5, minmax(18%, 1fr));
+    gap: 2%;
 }
 
 .partner {
@@ -154,6 +154,16 @@
     margin-left: 20px;
 }
 
+@media screen and  ( min-width: 601px ) and ( max-width: 1024px ){
+    .contacts {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .socials p{
+        font-size: 1rem;
+    }
+}
 @media screen and ( max-width: 1024px ){
     #wrapper {
         grid-template-columns: 1fr;
