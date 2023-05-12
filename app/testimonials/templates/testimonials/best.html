@@ -1,0 +1,95 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/testimonials/index.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col s12">
+            <h4 class="section-title">
+                See what our clients are saying
+            </h4>
+        </div>
+    </div>
+
+    {% if paginator.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <p class="m-0">Showing page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+            <p class="small">
+                {% with page_obj|length as records %}
+                {{records}} record{{ records|pluralize }} of {{records}}
+                {% endwith %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col s12">
+            {% for testimony in testimonies %}
+            <div class="card horizontal z-depth-0">
+                <div class="card-image">
+                    {% if testimony.testimony.witness.avatar %}
+                    <img src="{{testimony.testimony.witness.avatar.url}}" height="250px">
+                    {% else %}
+                    <img src="{% static 'images/common/user.png' %}" height="150px">
+                    {% endif %}
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h6>{{testimony.testimony.witness.get_full_name}}</h6>
+                        <p><b>Nationality: </b>{{testimony.testimony.witness.nationality}}</p>
+                        <p><b>Service: </b>{{testimony.testimony.witness.service_type}}</p>
+                        <p><b>Country: </b>{{testimony.testimony.witness.preferred_country}}</p>
+                        <p class="truncated">
+                            {{testimony.testimony.testimony|safe}}
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        <a href="{% url 'testimonials:testimonial' slug=testimony.testimony.slug %}">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <p>Hold on, we are setting things up.</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    {% if not form.errors %}
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% endif %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+{% endblock %}
