@@ -69,8 +69,8 @@ class User(AbstractBaseUser, PermissionsMixin):
         max_length=40, unique=True, blank=True, null=True)
     email = models.EmailField(
         verbose_name=_('Email Address'), max_length=255, unique=True)
-    first_name = models.CharField(max_length=255, blank=True, null=True)
-    last_name = models.CharField(max_length=255, blank=True, null=True)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
     date_joined = models.DateField(auto_now=True)
     is_active = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
@@ -79,13 +79,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     avatar = models.ImageField(
         upload_to=image_directory_path, null=True, blank=True)
     resume = models.FileField(
-        upload_to=image_directory_path)
+        upload_to=image_directory_path, null=True, blank=True)
     phone_number = models.IntegerField(blank=True, null=True)
     years_of_work = models.IntegerField(blank=True, null=True)
     country_code = models.CharField(max_length=255, blank=True, null=True)
     preferred_country = CharField(max_length=255, blank=True, null=True)
     service_type = models.CharField(max_length=255, blank=True, null=True)
-    preferred_country = CharField(max_length=255, blank=True, null=True)
     nationality = CharField(max_length=255, blank=True, null=True)
     country_of_residence = CharField(max_length=255, blank=True, null=True)
     highest_level_of_education = models.CharField(
