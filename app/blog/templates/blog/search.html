@@ -1,0 +1,26 @@
+{% extends 'blog/blog_base.html' %}
+{% block title %}Posts{% endblock %}
+{% block page_content %}
+<header class="bg-secondary-lighten-6 p-tb-50 p-rl-20 m-b-50 rounded-10">
+    <p><b>Found {{results|length}}</b> Article{{results|length|pluralize}} for "{{request.GET.search}}"</p>
+</header>
+{% for post in results %}
+<div class="post p-b-20">
+    <a class="undecorated green-text m-tb-20" href="{% url 'blog:post_detail' post.slug %}"><h2>Post Title</h2></a>
+    <div class="tags d-flex m-tb-20">
+        {% for post_tag in post.tags.all %}
+        <p class="tag p-10 rounded-5 m-r-10">{{post_tag.tag}}</p>
+        {% endfor %}
+    </div>
+    <p class="muted m-tb-20">{{ post.created_on }} / {{post.read_time}}</p>
+    <span class="epigraph m-tb-40">
+        {% autoescape off %}
+        {{ post.epigraph|safe }}
+        {% endautoescape %}
+    </span>
+    <a class="undecorated green-text m-tb-20" href="{% url 'blog:post_detail' post.slug %}">Read Article <i class="fa-solid fa-angles-right"></i></a>
+</div>
+{% empty %}
+<p>Hmm..nothing here 🤔</p>
+{% endfor %}
+{% endblock %}

@@ -109,6 +109,7 @@
 					<li><a class="text-secondary" href="{% url 'about:index' %}">About Us</a></li>
 					<li><a class="text-secondary" href="{% url 'contact:index' %}">Contact Us</a></li>
 					<li><a class="text-secondary" href="{% url 'index:services' %}">Services</a></li>
+					<li><a class="text-secondary" href="{% url 'blog:posts' %}">Blog</a></li>
 				</ul>
 
 				<nav>
@@ -130,6 +131,7 @@
 							<li><a class="text-secondary" href="{% url 'about:index' %}">About Us</a></li>
 							<li><a class="text-secondary" href="{% url 'contact:index' %}">Contact Us</a></li>
 							<li><a class="text-secondary" href="{% url 'index:services' %}">Services</a></li>
+							<li><a class="text-secondary" href="{% url 'blog:posts' %}">Blog</a></li>
 							{% if user.is_authenticated %}
 							<li>
 								<a class="dropdown-trigger text-secondary" href="#!" data-target="dropdown">
