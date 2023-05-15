@@ -79,6 +79,30 @@ button:disabled {
 	margin-bottom: 5px;
 }
 
+.input-field .prefix{
+  right: 0 !important;
+}
+
+.input-field .prefix ~ input {
+    width: 100% !important;
+    width: 100% !important;
+	margin-left: unset;
+}
+
+.fa-eye, .fa-eye-slash{
+	cursor: pointer;
+	z-index: 1;
+}
+
+.input-field.col .prefix ~ label, .input-field.col .prefix ~ .validate ~ label {
+    width: 100%;
+}
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .helper-text, .input-field .prefix ~ .autocomplete-content {
+    margin-left: unset;
+    width: 100%;
+}
+
 @media screen and ( max-width: 600px ){
     .form-wrapper {
 		padding: 0px 10px;
