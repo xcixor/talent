@@ -7,7 +7,7 @@ from blog.presentation.views import PostDetailView
 class PostDetailViewTestCase(TestCase):
 
     fixtures = [
-        'blog/fixtures/posts/posts.json'
+        'blog/fixtures/posts.json'
     ]
 
     def test_view_properties(self):
