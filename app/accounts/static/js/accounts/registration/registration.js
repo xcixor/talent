@@ -63,6 +63,15 @@ function validateIsURL(value) {
 	}
 }
 
+$(".password-reveal").on("click", function () {
+	$(this).toggleClass("fa-eye fa-eye-slash");
+	if ($(this).hasClass("fa-eye-slash")) {
+		$(this).siblings(".validate").attr("type", "text");
+	} else {
+		$(this).siblings(".validate").attr("type", "password");
+	}
+});
+
 function validatePassword(name, value, step) {
 	let isValid = true;
 	if (!value) {
@@ -75,14 +84,16 @@ function validatePassword(name, value, step) {
 	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 	if (!password1) {
-		$("#password1Errors").addClass("invalid").text("Please set your password.");
+		$("#password1Errors").addClass("invalid error").text("Please set your password.");
 		isValid = false;
 		disableNavigationButtons(step);
 	} else {
 		$("#password1Errors").removeClass("invalid").text("");
 	}
 	if (!password2) {
-		$("#password2Errors").addClass("invalid").text("Please set your password.");
+		$("#password2Errors error")
+			.addClass("invalid")
+			.text("Please set your password.");
 		isValid = false;
 		disableNavigationButtons(step);
 	} else {
@@ -93,7 +104,7 @@ function validatePassword(name, value, step) {
 		disableNavigationButtons(step);
 		const msg =
 			"Please provide a strong password. The password should have a minimum of 8 characters, have at least one symbol, a number, and a combination of uppercase and lowercase characters.";
-		$("#password1Errors").addClass("invalid").text(msg);
+		$("#password1Errors").addClass("invalid error").text(msg);
 	} else {
 		$("#password1Errors").removeClass("invalid").text("");
 	}
@@ -101,7 +112,7 @@ function validatePassword(name, value, step) {
 		isValid = false;
 		disableNavigationButtons(step);
 		$("#password2Errors")
-			.addClass("invalid")
+			.addClass("invalid error")
 			.text("Your passwords don't match.");
 	} else {
 		$("#password2Errors").removeClass("invalid").text("");
@@ -110,6 +121,11 @@ function validatePassword(name, value, step) {
 }
 
 function validateStep(step) {
+	$('input[name=password1]').attr("type", "password");
+	$("input[name=password2]").attr("type", "password");
+
+	$(".password-reveal").toggleClass("fa-eye fa-eye-slash");
+
 	let isValid = true;
 	step.querySelectorAll("input").forEach((input) => {
 		const inputs = [];
