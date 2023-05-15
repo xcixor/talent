@@ -7,10 +7,10 @@
                 "status": "publish",
                 "content": "Post Content",
                 "image": "fixtures/image.jpg",
-                "slug": "slug-one",
+                "slug": "top-7-blue-collar-jobs",
                 "epigraph": "Post Epigraph",
-                "created_on": "2022-04-22 14:38:50.813404+00:00",
-                "updated_on": "2022-04-22 14:38:50.813404+00:00"
+                "created_on": "2023-04-22 14:38:50.813404+00:00",
+                "updated_on": "2023-04-22 14:38:50.813404+00:00"
         }
     },
     {
@@ -23,8 +23,8 @@
                 "image": "fixtures/image.jpg",
                 "slug": "slug-two",
                 "epigraph": "Epic Epigraph",
-                "created_on": "2022-04-22 14:38:50.813404+00:00",
-                "updated_on": "2022-04-22 14:38:50.813404+00:00"
+                "created_on": "2023-04-22 14:38:50.813404+00:00",
+                "updated_on": "2023-04-22 14:38:50.813404+00:00"
         }
     }
 ]
