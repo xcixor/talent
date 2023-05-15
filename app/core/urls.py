@@ -30,6 +30,7 @@ urlpatterns = [
     path('about/', include('about.presentation.urls', namespace='about')),
     path('contact/', include('contact.presentation.urls', namespace='contact')),
     path('testimonials/', include('testimonials.presentation.urls', namespace='testimonials')),
+    path('blog/', include('blog.presentation.urls', namespace='blog')),
 ]
 
 if settings.DEBUG is True:

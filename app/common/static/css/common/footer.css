@@ -15,3 +15,11 @@ footer {
 .copyright {
     background-color: #0e2036;
 }
+
+@media screen and ( max-width: 600px ){
+    .footer-base {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+    }
+}
+
