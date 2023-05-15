@@ -30,7 +30,7 @@ class PostsModelsTestCase(BlogsBaseTestCase):
 
     def test_author_field_not_required_on_post_creation(self):
         create_post_response = self.logged_in_admin.post(
-            "/admin/blog/post/add/", {
+            "/cO4yp84DxO8LqagQUUo/blog/post/add/", {
                 "title": "Title",
                 "created_on": datetime.date.today(),
                 "status": "draft",
@@ -38,7 +38,7 @@ class PostsModelsTestCase(BlogsBaseTestCase):
                 "image": self.get_image(),
                 "slug": "draft",
                 "epigraph": "Post Epigraph"})
-        self.assertRedirects(create_post_response, "/admin/blog/post/", 302)
+        self.assertRedirects(create_post_response, "/cO4yp84DxO8LqagQUUo/blog/post/", 302)
         self.delete_post_instance_image("Title")
 
     def test_post_contains_created_on_date_field(self):
@@ -50,7 +50,7 @@ class PostsModelsTestCase(BlogsBaseTestCase):
 
     def create_post_with_date_2020_Jan_15(self):
         self.logged_in_admin.post(
-            "/admin/blog/post/add/", {
+            "/cO4yp84DxO8LqagQUUo/blog/post/add/", {
                 "title": "Title",
                 "created_on": datetime.date(2020, 1, 15),
                 "status": "draft",
@@ -97,7 +97,7 @@ class PostsModelsTestCase(BlogsBaseTestCase):
     @freeze_time(1095379199.75)  # time frozen to 2004-09-16
     def create_post_with_date_2004_09_16(self):
         self.logged_in_admin.post(
-            "/admin/blog/post/add/", {
+            "/cO4yp84DxO8LqagQUUo/blog/post/add/", {
                 "title": "Post Title 1",
                 "created_on": datetime.date.today(),
                 "status": "draft",
@@ -109,7 +109,7 @@ class PostsModelsTestCase(BlogsBaseTestCase):
     @freeze_time(1243090800)  # time frozen to 2009-05-23
     def create_post_with_date_2009_05_23(self):
         res = self.logged_in_admin.post(
-            "/admin/blog/post/add/", {
+            "/cO4yp84DxO8LqagQUUo/blog/post/add/", {
                 "title": "Post Title 2",
                 "created_on": datetime.date.today(),
                 "status": "draft",
@@ -121,7 +121,7 @@ class PostsModelsTestCase(BlogsBaseTestCase):
     @freeze_time(1394809200)  # time frozen to 2014-03-14
     def create_post_with_date_2014_03_14(self):
         self.logged_in_admin.post(
-            "/admin/blog/post/add/", {
+            "/cO4yp84DxO8LqagQUUo/blog/post/add/", {
                 "title": "Post Title 3",
                 "created_on": datetime.date.today(),
                 "status": "draft",
