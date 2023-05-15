@@ -277,6 +277,13 @@ p-0{
     color: var(--color-primary-light-2);
 }
 
+.footer-post-link {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;  
+     overflow: hidden;
+     text-overflow: ellipsis;
+}
 @media screen and ( max-width: 600px ){
 
 }
