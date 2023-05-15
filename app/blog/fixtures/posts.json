@@ -1,0 +1,30 @@
+[
+    {
+        "model": "blog.Post",
+        "pk": 1,
+        "fields": {
+            "title": "Top 7 blue collar jobs in demand in Qatar",
+                "status": "publish",
+                "content": "Post Content",
+                "image": "fixtures/image.jpg",
+                "slug": "slug-one",
+                "epigraph": "Post Epigraph",
+                "created_on": "2022-04-22 14:38:50.813404+00:00",
+                "updated_on": "2022-04-22 14:38:50.813404+00:00"
+        }
+    },
+    {
+        "model": "blog.Post",
+        "pk": 2,
+        "fields": {
+            "title": "Post Title 2",
+                "status": "publish",
+                "content": "More Post Content",
+                "image": "fixtures/image.jpg",
+                "slug": "slug-two",
+                "epigraph": "Epic Epigraph",
+                "created_on": "2022-04-22 14:38:50.813404+00:00",
+                "updated_on": "2022-04-22 14:38:50.813404+00:00"
+        }
+    }
+]
