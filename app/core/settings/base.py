@@ -86,7 +86,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'blog.context_processors.posts'
+                'blog.context_processors.posts',
+                'common.context_processors.get_current_path',
             ],
         },
     },
