@@ -41,7 +41,7 @@ class UpdateBusinessInfoForm(forms.ModelForm):
         label='NIP (tax number) *',
         widget=forms.NumberInput(
             attrs={
-                'class': 'validate'}),)
+                'class': 'validate'}), required=False)
     address_line_one = forms.CharField(required=False)
     address_line_two = forms.CharField(required=False)
     city = forms.CharField(required=False)
