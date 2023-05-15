@@ -27,7 +27,6 @@ class PostsHomeView(ListView):
             search_results = list(chain(full_search, partial_search))
             search_results = list(set(search_results))
             queryset = search_results
-        print(queryset, 'searching...')
         return queryset
 
     def get_context_data(self, **kwargs):
