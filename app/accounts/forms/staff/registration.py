@@ -63,7 +63,8 @@ class StaffRegistrationForm(forms.ModelForm, HtmlEmailMixin):
     class Meta:
         model = User
         fields = [
-            'first_name', 'last_name', 'gender', 'email', 'country_code', 'phone_number']
+            'first_name', 'last_name', 'gender', 'email',
+            'country_code', 'phone_number', 'avatar']
 
     def __init__(self, request, *args, **kwargs):
         super(StaffRegistrationForm, self).__init__(*args, **kwargs)
