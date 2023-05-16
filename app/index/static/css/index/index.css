@@ -110,6 +110,7 @@ details[open] > summary {
 
 .blog .slick-track{
   float: left;
+  height: 350px !important;
 }
 
 .blog .slick-dots {
@@ -118,19 +119,25 @@ details[open] > summary {
 
 .blog  .slick-slide {
     margin-right: 27px;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.blog .card-content {
+    width: 100%;
 }
 
 .slick-list {
     margin-right: -27px;
 }
 
-.truncated {
-     overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   -webkit-line-clamp: 3; /* number of lines to show */
-           line-clamp: 3;
-   -webkit-box-orient: vertical;
+.truncated, .truncated p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* number of lines to show */
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .partners-grid {
