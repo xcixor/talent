@@ -6,10 +6,17 @@
   padding: 20px;
 }
 
+.side-menu a:hover{
+  color: var(--color-secondary);
+}
+
 .wrapper {
   padding-top: 5%;
 }
 
+.card .card-content p, .card-title{
+  color: white;
+}
 .user-view-container {
   margin-bottom: 10px;
 }
