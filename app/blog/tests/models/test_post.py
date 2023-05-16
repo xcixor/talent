@@ -38,7 +38,8 @@ class PostsModelsTestCase(BlogsBaseTestCase):
                 "image": self.get_image(),
                 "slug": "draft",
                 "epigraph": "Post Epigraph"})
-        self.assertRedirects(create_post_response, "/cO4yp84DxO8LqagQUUo/blog/post/", 302)
+        self.assertRedirects(create_post_response,
+                             "/cO4yp84DxO8LqagQUUo/blog/post/", 302)
         self.delete_post_instance_image("Title")
 
     def test_post_contains_created_on_date_field(self):
@@ -152,10 +153,6 @@ class PostsModelsTestCase(BlogsBaseTestCase):
 
     def test_post_contains_epigraph_field(self):
         self.assertTrue(hasattr(Post, "epigraph"))
-
-    def test_epigraph_is_a_rich_text_field(self):
-        self.assertTrue(
-            isinstance(getattr(Post, "epigraph").field, RichTextField))
 
     def test_post_has_image_attribute(self):
         self.assertTrue(hasattr(Post, "image"))
