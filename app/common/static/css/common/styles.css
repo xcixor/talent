@@ -71,8 +71,17 @@ span,
 summary,
 input {
 	font-family: var(--font-normal);
-    font-size: 1.1rem;
     color: #484848;
+}
+
+p,
+ul,
+label,
+a,
+span,
+summary,
+input {
+    font-size: 1.1rem;
 }
 
 
