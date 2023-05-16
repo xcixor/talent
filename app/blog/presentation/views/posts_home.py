@@ -9,6 +9,7 @@ class PostsHomeView(ListView):
     model = Post
     context_object_name = 'posts'
     template_name = 'blog/blog_base.html'
+    paginate_by = 5
 
     def get_queryset(self, **kwargs):
         queryset = super().get_queryset(**kwargs).filter(status='publish')
