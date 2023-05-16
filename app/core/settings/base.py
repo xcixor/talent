@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'captcha',
     'django_countries',
     'ckeditor',
+    'ckeditor_uploader',
     'index.apps.IndexConfig',
     'common.apps.CommonConfig',
     'accounts.apps.AccountsConfig',
@@ -179,3 +180,5 @@ CKEDITOR_CONFIGS = {
         'width': '100%',
     },
 }
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
