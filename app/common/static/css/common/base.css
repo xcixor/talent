@@ -26,8 +26,17 @@ nav .brand-logo {
 }
 
  nav ul a {
-	padding: 0 5px !important;
+	/* padding: 0 5px !important; */
 	font-size: 1.1rem;
+}
+
+.sidenav .user-view .background{
+	position: relative;
+	z-index: 1;
+}
+
+.sidenav li{
+	line-height: 24px;
 }
 
 @media only screen and (max-width: 600px) {
