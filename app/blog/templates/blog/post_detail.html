@@ -1,9 +1,10 @@
 {% extends 'common/base.html' %}
 {% block title %}{{post.title}}{% endblock %}
 {% load static %}
-{% block static %}
+{% block styles %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static 'css/blog/common.css' %}">
+<link rel="stylesheet" href="{% static 'css/blog/post_list.css' %}">
 {% endblock %}
 {% block content %}
 <div class="container">
@@ -19,8 +20,8 @@
                         <!-- Basic Share Links -->
 
                         <!-- Twitter (url, text, @mention) -->
-                        <a href="https://twitter.com/share?url={{current_full_path}}" target="_blank" class="sbutton twitt"
-                            tooltip="Twitter"><i class="fab fa-secondary fa-twitter"></i></a>
+                        <a href="https://twitter.com/share?url={{current_full_path}}" target="_blank"
+                            class="sbutton twitt" tooltip="Twitter"><i class="fab fa-secondary fa-twitter"></i></a>
 
                         <!-- Facebook (url) -->
                         <a href="https://www.facebook.com/sharer/sharer.php?u={{current_full_path}}" target="_blank"
@@ -31,13 +32,15 @@
                             class="sbutton reddit" tooltip="Reddit"><i class="fab fa-secondary fa-reddit"></i></a>
 
                         <!-- LinkedIn (url, title, summary, source url) -->
-                        <a href="https://www.linkedin.com/shareArticle?url={{current_full_path}}&title={{post.title}}&summary={{post.epigraph}}&source={{current_full_path}}" target="_blank">
+                        <a href="https://www.linkedin.com/shareArticle?url={{current_full_path}}&title={{post.title}}&summary={{post.epigraph}}&source={{current_full_path}}"
+                            target="_blank">
                             <i class="fab fa-secondary fa-linkedin"></i>
                         </a>
                         <!-- Email (subject, body) -->
-                        <a href="mailto:?subject={{post.title}}&amp;body={{post.content}}" title="{{post.title}}" target="_blank">
+                        <!-- <a href="mailto:?subject={{post.title}}&amp;body={{post.content}}" title="{{post.title}}"
+                            target="_blank">
                             <i class="fa-solid fa-envelope fa-secondary"></i>
-                        </a>
+                        </a> -->
                     </div>
                 </div>
             </div>
