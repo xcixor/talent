@@ -1,7 +1,7 @@
 <div class="step step-1 active-step h-100">
     <div class="inputs">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <input required id="first_name" type="text" class="validate" name="first_name" autofocus
                     value="{{request.session.registration_details.first_name}}">
                 <label for="first_name">First Name</label>
@@ -11,7 +11,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col m6 s12">
                 <input required id="last_name" type="text" class="validate" name="last_name"
                     value="{{request.session.registration_details.last_name}}">
                 <label for="last_name">Last Name</label>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <div class="row" style="margin-top: 20px;">
-            <div class="col s6 m4">
+            <div class="col m6 s12 m4">
                 <div style="margin-top: -8px;">
                     <label>Country Code</label>
                     {{form.country_code}}
@@ -45,7 +45,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col s6 m8">
+            <div class="col m6 s12 m8">
                 <div class="input-field">
                     <input required id="phone_number" type="number" class="validate" name="phone_number"
                         value="{{request.session.registration_details.phone_number}}">
