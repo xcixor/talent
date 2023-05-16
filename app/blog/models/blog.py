@@ -2,6 +2,7 @@ import itertools
 from django.utils.text import slugify
 from django.db import models
 from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 import readtime
 
 
@@ -24,7 +25,7 @@ class Publication(models.Model):
     status = models.CharField(
         max_length=20, choices=PUBLICATION_STATUSES, default="publish")
     title = models.CharField(max_length=100)
-    content = RichTextField()
+    content = RichTextUploadingField()
     epigraph = RichTextField()
 
     class Meta:
