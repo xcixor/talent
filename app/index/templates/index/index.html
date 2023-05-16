@@ -354,141 +354,29 @@
                     <span class="text-secondary">Latest</span> from our blog
                 </h3>
                 <div class="blog">
+                    {% for post in posts %}
                     <div class="card z-depth-0">
                         <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}" height="150px">
+                            <img src="{{post.image.url}}" height="150px">
                         </div>
-                        <h4 class="card-title">Rahul Shah</h4>
+                        <h4 class="card-title">{{post.title}}</h4>
                         <div class="blog-meta px-1">
                             <span class="text-secondary">
                                 <i class="fa-solid fa-calendar-days"></i>
-                                <small>24th, April 2023</small>
+                                <small>{{post.created_on}}</small>
                             </span>
                         </div>
                         <div class="card-content">
-                            <span>
+                            <span class="truncated">
                                 <p class="truncated">
-                                    I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
-                                    reprehenderit
-                                    quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi
-                                    deserunt
-                                    consectetur maxime sint cum provident saepe ullam?
+                                    {{post.epigraph|safe}}
                                 </p>
-                                <a href="#" class="link">READ MORE</a>
+                                <a href="{% url 'blog:post_detail' post.slug %}" class="link">READ MORE</a>
                             </span>
 
                         </div>
                     </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}" height="150px">
-                        </div>
-                        <h4 class="card-title">Rahul Shah</h4>
-                        <div class="blog-meta px-1">
-                            <span class="text-secondary">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <small>24th, April 2023</small>
-                            </span>
-                        </div>
-                        <div class="card-content">
-                            <span>
-                                <p class="truncated">
-                                    I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
-                                    reprehenderit
-                                    quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi
-                                    deserunt
-                                    consectetur maxime sint cum provident saepe ullam?
-                                </p>
-                                <a href="#" class="link">READ MORE</a>
-                            </span>
-
-                        </div>
-                    </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}" height="150px">
-                        </div>
-                        <h4 class="card-title">Rahul Shah</h4>
-                        <div class="blog-meta px-1">
-                            <span class="text-secondary">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <small>24th, April 2023</small>
-                            </span>
-                        </div>
-                        <div class="card-content">
-                            <span>
-                                <p class="truncated">
-                                    I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
-                                    reprehenderit
-                                    quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi
-                                    deserunt
-                                    consectetur maxime sint cum provident saepe ullam?
-                                </p>
-                                <a href="#" class="link">READ MORE</a>
-                            </span>
-
-                        </div>
-                    </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}" height="150px">
-                        </div>
-                        <h4 class="card-title">Rahul Shah</h4>
-                        <div class="blog-meta px-1">
-                            <span class="text-secondary">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <small>24th, April 2023</small>
-                            </span>
-                        </div>
-                        <div class="card-content">
-                            <span>
-                                <p class="truncated">
-                                    I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
-                                    reprehenderit
-                                    quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi
-                                    deserunt
-                                    consectetur maxime sint cum provident saepe ullam?
-                                </p>
-                                <a href="#" class="link">READ MORE</a>
-                            </span>
-
-                        </div>
-                    </div>
-                    <div class="card z-depth-0">
-                        <div class="card-image">
-                            <img src="{% static 'images/index/rahul.webp' %}" height="150px">
-                        </div>
-                        <h4 class="card-title">Rahul Shah</h4>
-                        <div class="blog-meta px-1">
-                            <span class="text-secondary">
-                                <i class="fa-solid fa-calendar-days"></i>
-                                <small>24th, April 2023</small>
-                            </span>
-                        </div>
-                        <div class="card-content">
-                            <span>
-                                <p class="truncated">
-                                    I am a very simple card. I am good at containing small bits of information.
-                                    I am convenient because I require little markup to use effectively.
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facere error aliquam
-                                    reprehenderit
-                                    quidem blanditiis possimus illum repellendus quaerat corporis! Rerum dicta nisi
-                                    deserunt
-                                    consectetur maxime sint cum provident saepe ullam?
-                                </p>
-                                <a href="#" class="link">READ MORE</a>
-                            </span>
-
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
                 <div class="row">
                     <div class="col s12">
