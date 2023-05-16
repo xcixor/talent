@@ -27,11 +27,30 @@
 
         </div>
     </div>
+
     <div class="row">
         <div class="col s12">
             <header class="">
                 <h3 class="text-primary bg-primary-light-10 p-2">Articles</h3>
             </header>
+        </div>
+    </div>
+
+    {% if paginator.count > 0 %}
+    <div class="row">
+        <div class="col s12">
+            <p class="m-0">Showing page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
+            <p class="small">
+                {% with page_obj|length as records %}
+                {{records}} record{{ records|pluralize }} of {{records}}
+                {% endwith %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+        <div class="col s12">
             {% for post in posts %}
             <div class="post d-flex">
                 <div class="image">
@@ -56,5 +75,30 @@
             {% endfor %}
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                    {% endif %}
+
+                    {% if not form.errors %}
+                    <span class="current">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+                    {% endif %}
+
+                    {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                    {% endif %}
+                </span>
+            </div>
+        </div>
+    </div>
+
 </section>
 {% endblock %}
