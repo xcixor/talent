@@ -6,6 +6,10 @@
     color: #E34824;
 }
 
+.link:hover {
+    color: var(--color-secondary-light-4);
+}
+
 .btn {
     border-width: 0.01em;
     border-radius: unset;
@@ -280,7 +284,7 @@ p-0{
 .footer-post-link {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;  
+    -webkit-line-clamp: 1;
      overflow: hidden;
      text-overflow: ellipsis;
 }
