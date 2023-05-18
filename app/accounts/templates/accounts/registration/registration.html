@@ -61,6 +61,25 @@
 	</div>
 </section>
 {% endblock %} {% block scripts %} {{ block.super }}
+<script>
+	$( document ).ready( function () {
+			const subtractYears = function ( date, years ) {
+				date.setFullYear( date.getFullYear() - years );
+				return date;
+			};
+			const now = new Date();
+			const lastDatePossible = subtractYears( now, 60 );
+			const minDateOfBirth = subtractYears( new Date(), 18 );
+			console.log( lastDatePossible.getFullYear(), minDateOfBirth.getFullYear() );
+			$( ".datepicker" ).datepicker( {
+				yearRange: [ lastDatePossible.getFullYear(), minDateOfBirth.getFullYear() ],
+				format: "mm/dd/yyyy",
+				setDefaultDate: true,
+				defaultDate: lastDatePossible
+			} );
+		} );
+
+</script>
 <script src="{% static 'js/common/material_init.js' %}"></script>
 <script src="{% static 'js/accounts/registration/registration.js' %}"></script>
 {% endblock %}
