@@ -2,13 +2,7 @@
     text-transform: uppercase;
     color: white;
 }
-
-footer {
-    background-color: red;
-}
-
 .footer-link a {
-    color: #E34824;
     font-weight: 600;
 }
 

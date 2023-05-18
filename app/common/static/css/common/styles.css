@@ -6,10 +6,13 @@
     --color-primary-light-2: #32527a;
     --color-primary-light-4: #5f7997;
     --color-secondary: #E34824;
-    --color-secondary-2: #FDA828;
+    --color-secondary-light-2:#e65a3a;
+    --color-secondary-light-3:#e96d50;
+    --color-secondary-light-4:#eb7f66;
     --color-secondary-light-5:#ee917c;
     --color-secondary-light-8:#f7c8bd;
     --color-secondary-light-10:#fcede9;
+    --color-secondary-2: #FDA828;
     --color-alice-blue:#F0F8FF;
     --color-alice-light-3: #f3f9ff;
 
