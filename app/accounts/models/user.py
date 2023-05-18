@@ -79,7 +79,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     avatar = models.ImageField(
         upload_to=image_directory_path, null=True, blank=True)
     resume = models.FileField(
-        upload_to=image_directory_path, null=True, blank=True)
+        upload_to=image_directory_path, null=True, blank=True, max_length=400)
     phone_number = models.IntegerField(blank=True, null=True)
     years_of_work = models.IntegerField(blank=True, null=True)
     country_code = models.CharField(max_length=255, blank=True, null=True)
