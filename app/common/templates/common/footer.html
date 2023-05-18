@@ -20,16 +20,16 @@
         </h6>
         <ul class="footer-links">
           <li class="footer-link">
-            <a href="{% url 'about:index' %}">About Us</a>
+            <a class="link" href="{% url 'about:index' %}">About Us</a>
           </li>
           <li class="footer-link">
-            <a href="{% url 'contact:index' %}">Contact Us</a>
+            <a class="link" href="{% url 'contact:index' %}">Contact Us</a>
           </li>
           <li class="footer-link">
-            <a href="{% url 'index:services' %}">Services</a>
+            <a class="link" href="{% url 'index:services' %}">Services</a>
           </li>
           <li class="footer-link">
-            <a href="{% url 'shortlist:openings' %}">Openings</a>
+            <a class="link" href="{% url 'shortlist:openings' %}">Openings</a>
           </li>
         </ul>
       </div>
@@ -39,10 +39,10 @@
         </h6>
         <ul class="footer-links">
           <li class="footer-link">
-            <a href="{% url 'testimonials:index' %}">Client Reviews</a>
+            <a class="link" href="{% url 'testimonials:index' %}">Client Reviews</a>
           </li>
           <li class="footer-link">
-            <a href="{% url 'testimonials:best_testimonies' %}">Best of Success Stories</a>
+            <a class="link" href="{% url 'testimonials:best_testimonies' %}">Best of Success Stories</a>
           </li>
         </ul>
       </div>
@@ -53,11 +53,11 @@
         <ul class="footer-links">
           {% for post in posts %}
           <li class="footer-link">
-            <a href="{% url 'blog:post_detail' post.slug %}" class="footer-post-link">{{post}}</a>
+            <a class="link" href="{% url 'blog:post_detail' post.slug %}">{{post}}</a>
           </li>
           {% endfor %}
           <li class="footer-link">
-            <a href="{% url 'blog:posts' %}" >More>></a>
+            <a class="link" href="{% url 'blog:posts' %}" >More>></a>
           </li>
         </ul>
       </div>
@@ -69,7 +69,7 @@
         <div class="col s12">
           <div class="text-secondary d-flex justify-content-between align-items-center footer-base">
             <p class="m-0 text-secondary">© Infinite Talent Limited 2018-2023</p>
-            <p class="m-0"><a href="#" class="link">Terms and Privacy</a></p>
+            <p class="m-0"><a class="link" href="#">Terms and Privacy</a></p>
             <div>
               <div class="d-flex justify-content-end align-items-center flex-1" style="gap:20px">
                 <i class="fa-brands fa-secondary fa-facebook"></i>
