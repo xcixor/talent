@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-django = "*"
 gunicorn = "*"
 pillow = "*"
 django-storages = "*"
@@ -22,6 +21,13 @@ psycopg2-binary = "==2.9.6"
 django-ckeditor = "==6.5.1"
 whitenoise = "*"
 readtime = "*"
+channels = "==4.0.0"
+channels-redis = "==4.0.0"
+daphne = "==4.0.0"
+django = "==4.2.1"
+redis = "==4.3.4"
+chatterbot = "==1.0.4"
+celery = "==5.2.7"
 
 [dev-packages]
 pycodestyle = "*"

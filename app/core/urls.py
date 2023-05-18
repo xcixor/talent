@@ -29,9 +29,11 @@ urlpatterns = [
     path('shortlist/', include('shortlist.presentation.urls', namespace='shortlist')),
     path('about/', include('about.presentation.urls', namespace='about')),
     path('contact/', include('contact.presentation.urls', namespace='contact')),
-    path('testimonials/', include('testimonials.presentation.urls', namespace='testimonials')),
+    path('testimonials/', include('testimonials.presentation.urls',
+         namespace='testimonials')),
     path('blog/', include('blog.presentation.urls', namespace='blog')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('chat/', include('chat.presentation.urls', namespace='chat')),
 ]
 
 if settings.DEBUG is True:

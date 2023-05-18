@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'contact.apps.ContactConfig',
     'testimonials.apps.TestimonialsConfig',
     'blog.apps.BlogConfig',
+    'chat.apps.ChatConfig'
 ]
 
 MIDDLEWARE = [
