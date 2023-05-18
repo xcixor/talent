@@ -65,7 +65,7 @@ function validateIsURL(value) {
 
 $(".password-reveal").on("click", function () {
 	$(this).toggleClass("fa-eye fa-eye-slash");
-	if ($(this).hasClass("fa-eye-slash")) {
+	if ($(this).hasClass("fa-eye")) {
 		$(this).siblings(".validate").attr("type", "text");
 	} else {
 		$(this).siblings(".validate").attr("type", "password");
@@ -81,7 +81,7 @@ function validatePassword(name, value, step) {
 	}
 	const password1 = $("input[name*=password1]").val();
 	const password2 = $("input[name*=password2]").val();
-	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*?+^._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 	if (!password1) {
 		$("#password1Errors").addClass("invalid error").text("Please set your password.");
