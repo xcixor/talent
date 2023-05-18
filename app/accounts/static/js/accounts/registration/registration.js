@@ -82,6 +82,7 @@ function validatePassword(name, value, step) {
 	const password1 = $("input[name*=password1]").val();
 	const password2 = $("input[name*=password2]").val();
 <<<<<<< HEAD
+<<<<<<< HEAD
 	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*?+^._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 =======``
 <<<<<<< HEAD
@@ -90,6 +91,9 @@ function validatePassword(name, value, step) {
 	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*?+^._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 >>>>>>> 74494e5 (chore(registration): add a few more password special characters)
 >>>>>>> afbca8c (chore(registration): add a few more password special characters)
+=======
+	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*._?+^])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+>>>>>>> 5788735 (resolve conflict)
 
 	if (!password1) {
 		$("#password1Errors").addClass("invalid error").text("Please set your password.");
