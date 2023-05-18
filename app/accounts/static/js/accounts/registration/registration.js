@@ -81,22 +81,12 @@ function validatePassword(name, value, step) {
 	}
 	const password1 = $("input[name*=password1]").val();
 	const password2 = $("input[name*=password2]").val();
-<<<<<<< HEAD
-<<<<<<< HEAD
 	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*?+^._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-=======``
-<<<<<<< HEAD
-	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*._?+^])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-=======
-	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*?+^._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
->>>>>>> 74494e5 (chore(registration): add a few more password special characters)
->>>>>>> afbca8c (chore(registration): add a few more password special characters)
-=======
-	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*._?+^])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
->>>>>>> 5788735 (resolve conflict)
 
 	if (!password1) {
-		$("#password1Errors").addClass("invalid error").text("Please set your password.");
+		$("#password1Errors")
+			.addClass("invalid error")
+			.text("Please set your password.");
 		isValid = false;
 		disableNavigationButtons(step);
 	} else {
@@ -133,7 +123,7 @@ function validatePassword(name, value, step) {
 }
 
 function validateStep(step) {
-	$('input[name=password1]').attr("type", "password");
+	$("input[name=password1]").attr("type", "password");
 	$("input[name=password2]").attr("type", "password");
 
 	$(".password-reveal").toggleClass("fa-eye fa-eye-slash");
