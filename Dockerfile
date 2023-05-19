@@ -1,5 +1,5 @@
 # pull base image
-FROM python:3.10
+FROM python:3.8
 
 # set work directory
 WORKDIR /usr/src/app
@@ -8,10 +8,14 @@ WORKDIR /usr/src/app
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update -y && \
+    apt-get install -y netcat
+
 
 # install dependencies
 COPY Pipfile Pipfile.lock ./
 RUN pip install --upgrade pip pipenv && pipenv install --system
+RUN pip install backports.zoneinfo
 # COPY ./requirements.txt .
 # RUN pip install --upgrade pip -r requirements.txt
 

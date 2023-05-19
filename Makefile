@@ -22,7 +22,7 @@ help:
 
 ## create container for development
 dev:
-	docker-compose up --build --force-recreate --remove-orphans 
+	docker-compose up --build --force-recreate --remove-orphans --detach
 prod:
 	docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans
 
@@ -41,7 +41,7 @@ ci-test:
 	docker-compose run talent coverage report --rcfile=.coveragerc
 
 server:
-	source .env; cd app; python manage.py runserver
+	source .env; cd app; python manage.py makemigrations; python manage.py migrate; python manage.py train; python manage.py runserver
 
 ## create initial industries
 industries:

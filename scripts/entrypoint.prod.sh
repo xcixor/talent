@@ -1,6 +1,9 @@
 #!/bin/sh
+echo 'Collecting static files...'
 python manage.py collectstatic --no-input
+echo 'Checking postgres...'
 postgres-healthcheck
+echo 'Setting up db...'
 python manage.py makemigrations
 python manage.py migrate
 # python manage.py create_admin
@@ -10,7 +13,8 @@ python manage.py migrate
 # python manage.py loaddata about
 # python manage.py loaddata testimonials
 # python manage.py loaddata posts
-python manage.py tailwind install
-python manage.py tailwind start
-python manage.py runserver 0.0.0.0:${PORT} 
+echo 'Training bot...'
+python manage.py train
+echo 'Running server...'
+python manage.py runserver 0.0.0.0:${PORT}
 exec "$@"
