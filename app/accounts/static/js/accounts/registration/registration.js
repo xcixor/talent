@@ -63,6 +63,8 @@ function validateIsURL(value) {
 	}
 }
 
+// function revealPassword(){}
+
 $(".password-reveal").on("click", function () {
 	$(this).toggleClass("fa-eye fa-eye-slash");
 	if ($(this).hasClass("fa-eye")) {
@@ -81,7 +83,7 @@ function validatePassword(name, value, step) {
 	}
 	const password1 = $("input[name*=password1]").val();
 	const password2 = $("input[name*=password2]").val();
-	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*?+^._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+	const regexp = /^(?=.*\d)(?=.*[!@#$%^&*._])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 	if (!password1) {
 		$("#password1Errors")
@@ -123,11 +125,6 @@ function validatePassword(name, value, step) {
 }
 
 function validateStep(step) {
-	$("input[name=password1]").attr("type", "password");
-	$("input[name=password2]").attr("type", "password");
-
-	$(".password-reveal").toggleClass("fa-eye fa-eye-slash");
-
 	let isValid = true;
 	step.querySelectorAll("input").forEach((input) => {
 		const inputs = [];
@@ -178,6 +175,12 @@ function validateStep(step) {
 }
 
 function changeStep(btn) {
+	$("input[name=password1]").attr("type", "password");
+	$("input[name=password2]").attr("type", "password");
+	// $(".password-reveal").toggleClass("fa-eye fa-eye-slash");
+	$(".password-reveal").removeClass("fa-eye");
+	$(".password-reveal").addClass("fa-eye-slash");
+
 	let index = 0;
 	const active = document.querySelector(".active-step");
 	index = steps.indexOf(active);
