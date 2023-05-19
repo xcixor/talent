@@ -26,9 +26,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 
 
 ALLOWED_HOSTS = ["*"]
-INTERNAL_IPS = [
-    "127.0.0.1",
-]
+
 CSRF_TRUSTED_ORIGINS = [
     'https://*.mavenfix.com/',
     'https://talent-staging-kr2eq6piia-ue.a.run.app']
@@ -50,6 +48,7 @@ INSTALLED_APPS = [
     'django_countries',
     'ckeditor',
     'ckeditor_uploader',
+    'chatterbot.ext.django_chatterbot',
     'index.apps.IndexConfig',
     'common.apps.CommonConfig',
     'accounts.apps.AccountsConfig',
@@ -212,4 +211,12 @@ CHANNEL_LAYERS = {
             'hosts': [(REDIS_HOST, REDIS_PORT)],
         },
     },
+}
+
+# Chatterbot
+CHATTERBOT = {
+    "name": "User Support Bot",
+    "logic_adapters": [
+        "chatterbot.logic.BestMatch",
+    ],
 }
