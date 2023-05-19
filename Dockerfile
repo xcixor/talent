@@ -12,6 +12,8 @@ ENV PYTHONUNBUFFERED 1
 # install dependencies
 COPY Pipfile Pipfile.lock ./
 RUN pip install --upgrade pip pipenv && pipenv install --system
+# COPY ./requirements.txt .
+# RUN pip install --upgrade pip -r requirements.txt
 
 # db healthcheck
 COPY ./scripts/postgres-healthcheck.py /usr/local/bin/postgres-healthcheck

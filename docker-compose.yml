@@ -1,6 +1,14 @@
 version: '3.7'
 
 ***REMOVED***
+  cache:
+    image: redis:6.2-alpine
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+***REMOVED***
+      - cache:/data
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
@@ -24,9 +32,17 @@ version: '3.7'
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
+      REDIS_HOST: cache
+***REMOVED***
+***REMOVED***
+      CELERY_BROKER_URL: 'redis://localhost:6379/0'
+      REDIS_BACKEND: 'djcelery.backends.database:DatabaseBackend'
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
 ***REMOVED***
+      - cache
+***REMOVED***
+  cache:
 ***REMOVED***
 ***REMOVED***
