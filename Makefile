@@ -22,7 +22,7 @@ help:
 
 ## create container for development
 dev:
-	docker-compose up --build --force-recreate --remove-orphans --detach
+	docker-compose up --build --force-recreate --remove-orphans 
 prod:
 	docker-compose -f docker-compose.prod.yml up --build --force-recreate --remove-orphans
 
