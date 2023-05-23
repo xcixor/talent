@@ -10,6 +10,14 @@
     background-color: #0e2036;
 }
 
+.bot-container{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+
+
 @media screen and ( max-width: 600px ){
     .footer-base {
         flex-direction: column-reverse;

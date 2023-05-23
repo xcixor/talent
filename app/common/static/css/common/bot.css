@@ -1,0 +1,57 @@
+
+#botModal{
+    width: 400px;
+    right: 16%;
+    bottom: 0;
+    left: unset;
+    height: 400px;
+}
+
+#botLink{
+    position: fixed;
+    bottom: 10px;
+    right: 15%;
+    z-index: 1003;
+}
+
+.bot-modal {
+    position: fixed;
+    bottom: 70px;
+    right: 15%;
+    z-index: 1003;
+    width: 400px;
+    border-radius: 5px;
+}
+
+
+.modal-close {
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+#chat-header {
+    color: white;
+}
+#chat-subheader i {
+    color: green;
+}
+
+.chat {
+    background: white;
+       overflow-y: scroll;
+    height: 400px;
+}
+
+.chat-log{
+
+}
+
+.chat-log, #chatMessage{
+    color: #606060;
+}
+
+.chat-head {
+    line-height: 50px;
+}
