@@ -1,0 +1,15 @@
+Hi
+Hi there!
+Hello
+Hi there!
+How are you doing?
+I'm doing great.
+That is good to hear
+Thank you.
+You're welcome.
+I would like to hire employees
+If you are looking to hire employees, signup as an employer using the *for employers* link. Fill in the job requirements form and we'll take care of the rest.
+I would like to get a job abroad
+To get a job abroad please signup by clicking on the send cv link to get started
+I would like to talk to a human
+Click this link http://127.0.0.1:8000/contact/

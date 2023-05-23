@@ -214,6 +214,7 @@ CHANNEL_LAYERS = {
 }
 
 # Chatterbot
+
 CHATTERBOT = {
     "name": "User Support Bot",
     "logic_adapters": [

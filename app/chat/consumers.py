@@ -11,8 +11,7 @@ from .tasks import get_response
 class ChatConsumer(WebsocketConsumer):
     def receive(self, text_data):
         text_data_json = json.loads(text_data)
-        response = get_response.delay(self.channel_name, text_data_json)
-        print(response.__dict__)
+        get_response.delay(self.channel_name, text_data_json)
 
         async_to_sync(self.channel_layer.send)(
             self.channel_name,
