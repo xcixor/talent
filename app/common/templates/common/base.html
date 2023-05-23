@@ -28,6 +28,8 @@
 	<link rel="stylesheet" href="{% static 'css/common/common.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/common/base.css' %}" />
 	<link rel="stylesheet" href="{% static 'css/common/footer.css' %}" />
+	<link rel="stylesheet" href="{% static 'css/common/bot.css' %}" />
+
 	{% endblock %}
 </head>
 
@@ -171,7 +173,11 @@
 	<script src="{% static 'js/common/base.js' %}"></script>
 	<script src="{% static 'js/common/htmx.min.js' %}" defer></script>
 
-	{% endblock %} {% include 'common/footer.html' %}
+	{% endblock %}
+	{% include 'common/bot.html' %}
+	{% include 'common/footer.html' %}
+
+
 </body>
 
 </html>
