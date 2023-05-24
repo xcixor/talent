@@ -16,6 +16,7 @@ channel_layer = get_channel_layer()
 def get_response(channel_name, input_data):
     chatterbot = ChatBot(
         'Charlie',
+        storage_adapter="chatterbot.storage.SQLStorageAdapter",
         logic_adapters=[
             {
                 'import_path': 'chatterbot.logic.BestMatch',

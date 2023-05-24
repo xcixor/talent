@@ -46,6 +46,7 @@
 
 #chat-log{
     overflow-y: scroll;
+    height: 100%;
 }
 
 #chatMessage ::placeholder {

@@ -235,6 +235,7 @@ CHANNEL_LAYERS = {
 
 CHATTERBOT = {
     "name": "User Support Bot",
+    "storage_adapter": "chatterbot.storage.SQLStorageAdapter",
     "logic_adapters": [
         "chatterbot.logic.BestMatch",
     ],
