@@ -37,7 +37,6 @@ services:
       REDIS_DB: 0
       CELERY_BROKER_URL: 'redis://redis:6379/0'
       REDIS_BACKEND: 'redis://redis:6379'
-
     env_file:
       - .env
     depends_on:
