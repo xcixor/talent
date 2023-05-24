@@ -12,4 +12,3 @@ keys
 bfg.jar
 .env
 staticfiles
-*sqlite3*
