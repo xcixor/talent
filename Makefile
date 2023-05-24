@@ -41,7 +41,7 @@ ci-test:
 	docker-compose run talent coverage report --rcfile=.coveragerc
 
 server:
-	source .env; cd app; python manage.py makemigrations; python manage.py migrate; python manage.py train; python manage.py runserver & celery -A core worker -l info
+	source .env; cd app; python manage.py makemigrations; python manage.py migrate; python manage.py train; python manage.py runserver 
 
 ## create initial industries
 industries:
