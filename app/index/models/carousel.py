@@ -4,7 +4,7 @@ from django.utils.html import strip_tags
 
 class CarouselItem(models.Model):
 
-    title = models.CharField()
+    title = models.CharField(max_length=40)
     subtitle = models.TextField(blank=True, null=True)
 
     def __str__(self) -> str:

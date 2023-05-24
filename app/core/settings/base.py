@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'channels',
+    'channels_postgres',
     'django_htmx',
     'captcha',
     'django_countries',
@@ -107,6 +109,14 @@ ASGI_APPLICATION = 'core.asgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('POSTGRES_DB'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+        'HOST': os.environ.get('POSTGRES_IP'),
+        'PORT': '5432',
+    },
+    'channels_postgres': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.environ.get('POSTGRES_DB'),
         'USER': os.environ.get('POSTGRES_USER'),
@@ -205,10 +215,18 @@ CACHES = {
 REDIS_HOST = os.environ.get('REDIS_HOST', '127.0.0.1')
 REDIS_PORT = os.environ.get('REDIS_PORT', '6379')
 CHANNEL_LAYERS = {
-    "default": {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+    'default': {
+        'BACKEND': 'channels_postgres.core.PostgresChannelLayer',
         'CONFIG': {
-            'hosts': [(REDIS_HOST, REDIS_PORT)],
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ.get('POSTGRES_DB'),
+            'USER': os.environ.get('POSTGRES_USER'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_IP'),
+            'PORT': '5432',
+            'config': {
+                'maxsize': 15
+            }
         },
     },
 }
