@@ -37,8 +37,7 @@ services:
       REDIS_DB: 0
       CELERY_BROKER_URL: 'redis://redis:6379/0'
       REDIS_BACKEND: 'redis://redis:6379'
-      RECAPTCHA_PUBLIC_KEY: '6Ldwc0ElAAAAAAKpxuPCaCNAtCSTzASDatKQ6EaF'
-      RECAPTCHA_PRIVATE_KEY: '6Ldwc0ElAAAAAChGfBSGNlL3xlKwfMr2HfMmByLC'
+
     env_file:
       - .env
     depends_on:
