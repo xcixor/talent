@@ -1,23 +1,20 @@
 <div class="container" id="botContainer">
 
-  <div class="bot-modal" style="display: none; opacity: 1;">
-    <div class="d-flex flex-column">
-      <div class="chat d-flex flex-column justify-content-between">
-        <div class="chat-head bg-primary d-flex align-items-center justify-content-between p-2">
-          <h4 id="chat-header"></h4>
-          <h5 id="chat-subheader"></h5>
-        </div>
-        <div id="chat-log" class="p-2">
-        </div>
-        <div id="chatMessage" class="p-2">
-          <input id="chat-message-input" type="text" placeholder="Write your message here." />
-          <button id="chat-message-submit" class="btn btn-primary" type="submit">
-            Send
-          </button>
-        </div>
-      </div>
+  <div class="chat d-flex bot-modal flex-column justify-content-between" style="display: none; opacity: 1;">
+    <div class="chat-head bg-primary d-flex align-items-center justify-content-between p-2">
+      <h4 id="chat-header"></h4>
+      <h5 id="chat-subheader"></h5>
+    </div>
+    <div id="chat-log" class="p-2">
+    </div>
+    <div id="chatMessage" class="p-2">
+      <input id="chat-message-input" type="text" placeholder="Write your message here..." />
+      <button id="chat-message-submit" class="btn btn-primary" type="submit">
+        Send
+      </button>
     </div>
   </div>
+
   <div class="bot-container">
     <a class="btn-floating btn-large waves-effect waves-light bg-secondary btn-open" href="#botModal" id="botLink"><i
         class="fa-solid fa-message fa-primary" id="botIcon"></i></a>
@@ -73,7 +70,8 @@
         <span className="block font-normal">${msg.msg}</span></div></li>`;
     } );
     str += "</ul>";
-    $('.chat').scrollTop( 20 );
+    // $( '#chat-log' ).scrollTop(20);
+    $( "#chat-log" ).scrollTop( $( "#chat-log" )[ 0 ].scrollHeight );
     document.querySelector( "#chat-log" ).innerHTML = str;
   };
 
