@@ -35,22 +35,29 @@
     color: white;
 }
 #chat-subheader i {
-    color: green;
+    color: #4caf50;
 }
 
 .chat {
     background: white;
-       overflow-y: scroll;
     height: 400px;
+    background-color: #F0F8FF;
 }
 
-.chat-log{
-
+#chat-log{
+    overflow-y: scroll;
 }
+
+#chatMessage ::placeholder {
+    color: #eb7f66;
+}
+
 
 .chat-log, #chatMessage{
     color: #606060;
 }
+
+
 
 .chat-head {
     line-height: 50px;
