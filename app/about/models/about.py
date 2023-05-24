@@ -15,8 +15,8 @@ class About(models.Model):
 
     version = models.IntegerField(unique=True)
     epigraph = RichTextField()
-    title = models.CharField()
-    sub_title = models.CharField()
+    title = models.CharField(max_length=250)
+    sub_title = models.CharField(max_length=200)
     our_story = RichTextField()
     our_mission = RichTextField()
     our_service = RichTextField(blank=True, null=True)
@@ -33,7 +33,7 @@ class Staff(models.Model):
 
     staff = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name='staff_role')
-    role = models.CharField()
+    role = models.CharField(max_length=200)
 
     class Meta:
         verbose_name_plural = 'Staff'
