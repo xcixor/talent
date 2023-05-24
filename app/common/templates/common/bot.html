@@ -8,7 +8,7 @@
     <div id="chat-log" class="p-2">
     </div>
     <div id="chatMessage" class="p-2">
-      <input id="chat-message-input" type="text" placeholder="Write your message here..." />
+      <input id="chat-message-input" type="text" placeholder="Write your message here..." autofocus />
       <button id="chat-message-submit" class="btn btn-primary" type="submit">
         Send
       </button>
@@ -70,8 +70,7 @@
         <span className="block font-normal">${msg.msg}</span></div></li>`;
     } );
     str += "</ul>";
-    // $( '#chat-log' ).scrollTop(20);
-    $( "#chat-log" ).scrollTop( $( "#chat-log" )[ 0 ].scrollHeight );
+    $( "#chat-log" ).scrollTop( $( "#chat-log" )[ 0 ].scrollHeight  );
     document.querySelector( "#chat-log" ).innerHTML = str;
   };
 
