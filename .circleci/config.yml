@@ -58,7 +58,7 @@ jobs:
     machine:
       image: ubuntu-2004:2022.10.1
     parameters:
-  ***REMOVED***
+      environment:
         description: "The environment where to deploy the application"
         default: staging
         type: string
@@ -79,12 +79,12 @@ jobs:
 
 workflows:
   version: 2
-***REMOVED***
+  talent:
     jobs:
-      - test_talent
+      # - test_talent
       - push_service_image:
-          requires:
-            - test_talent
+          # requires:
+          #   - test_talent
           filters:
             branches:
               only:
@@ -97,7 +97,7 @@ workflows:
           requires:
             - push_service_image
       - deploy_service_cloud_run:
-      ***REMOVED*** production
+          environment: production
           service-account-name: production@radiant-destiny-370910.iam.gserviceaccount.com
           requires:
             - production_deploy_hold
