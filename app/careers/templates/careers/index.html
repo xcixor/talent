@@ -3,15 +3,15 @@
 {% load static %}
 {% block styles %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/testimonials/index.css' %}">
+<link rel="stylesheet" href="{% static 'css/careers/index.css' %}">
 {% endblock %}
 {% block content %}
 
-<section class="container">
+<section class="container d-flex flex-column h-100">
   <div class="row">
     <div class="col s12">
       <h4 class="section-title">
-        See what our clients are saying
+        Current Openings
       </h4>
     </div>
   </div>
@@ -22,46 +22,28 @@
       <p class="m-0">Showing page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}</p>
       <p class="small">
         {% with page_obj|length as records %}
-        {{records}} record{{ records|pluralize }} of {{records}}
+        {{records}} job{{ records|pluralize }} of {{records}}
         {% endwith %}
       </p>
     </div>
   </div>
   {% endif %}
 
-  <div class="row">
+  <div class="row content-row">
     <div class="col s12">
-      {% for testimony in testimonies %}
-      <div class="card horizontal z-depth-0">
-        <div class="card-image">
-          {% if testimony.witness.avatar %}
-          <img src="{{testimony.witness.avatar.url}}" height="250px">
-          {% else %}
-          <img src="{% static 'images/common/user.png' %}" height="150px">
-          {% endif %}
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <h6>{{testimony.witness.get_full_name}}</h6>
-            <p><b>Nationality: </b>{{testimony.witness.nationality}}</p>
-            <p><b>Service: </b>{{testimony.witness.service_type}}</p>
-            <p><b>Country: </b>{{testimony.witness.preferred_country}}</p>
-            <p class="truncated">
-              {{testimony.testimony|safe}}
-            </p>
-          </div>
-          <div class="card-action">
-            <a href="{% url 'testimonials:testimonial' slug=testimony.slug %}">Read More</a>
-          </div>
-        </div>
-      </div>
+      <ul>
+      {% for career in careers %}
+        <li>
+            <a href="#" class="link">{{career}}: Read More</a>
+        </li>
       {% empty %}
       <p>Hold on, we are setting things up.</p>
       {% endfor %}
+      </ul>
     </div>
   </div>
 
-  <div class="row">
+  <div class="row page-numbers">
     <div class="col s12">
       <div class="pagination">
         <span class="step-links">

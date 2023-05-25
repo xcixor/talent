@@ -277,6 +277,13 @@ p-0{
     font-weight: 600;
 }
 
+.content-row {
+    flex: 1 0 auto;
+}
+.page-numbers {
+    flex-shrink: 0;
+}
+
 .current {
     color: var(--color-primary-light-2);
 }
