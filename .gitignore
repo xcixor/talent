@@ -13,3 +13,4 @@ bfg.jar
 .env
 staticfiles
 *.zip
+*sqlite3
