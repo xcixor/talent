@@ -36,6 +36,7 @@ urlpatterns = [
     path('blog/', include('blog.presentation.urls', namespace='blog')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('chat/', include('chat.presentation.urls', namespace='chat')),
+    path('careers/', include('careers.presentation.urls', namespace='careers')),
 ]
 
 if settings.DEBUG is True:
