@@ -1,5 +1,5 @@
 # pull official base image
-FROM python:3.10
+FROM python:3.8
 # to suppress debian warnings
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -11,11 +11,11 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install dependencies
-# COPY Pipfile Pipfile.lock ./
-# RUN pip install --upgrade pip pipenv && pipenv install --system
+COPY Pipfile Pipfile.lock ./
+RUN pip install --upgrade pip pipenv && pipenv install --system
 
-COPY requirements.txt ./
-RUN pip install -r requirements.txt --upgrade pip
+# COPY requirements.txt ./
+# RUN pip install -r requirements.txt --upgrade pip
 
 # create directory for the app user
 RUN mkdir -p /home/app
