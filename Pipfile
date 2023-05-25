@@ -28,6 +28,7 @@ redis = "==4.3.4"
 celery = "==5.2.7"
 python-decouple = "==3.6"
 chatterbot = "==1.0.4"
+channels-postgres = "*"
 
 [dev-packages]
 pycodestyle = "*"
