@@ -15,5 +15,5 @@ python manage.py create_admin
 # python manage.py loaddata posts
 python manage.py train
 echo 'Running server...'
-python manage.py runserver localhost:${PORT}
+python manage.py runserver 0.0.0.0:8500
 exec "$@"
