@@ -1,0 +1,4 @@
+.content ul:not(.browser-default)>li {
+    list-style-type: initial !important;
+    margin-left: 20px;
+}

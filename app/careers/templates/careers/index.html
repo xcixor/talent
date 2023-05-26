@@ -34,7 +34,7 @@
       <ul>
       {% for career in careers %}
         <li>
-            <a href="#" class="link">{{career}}: Read More</a>
+            <a href="{% url 'careers:career' career.slug %}" class="link">{{career}}: Read More</a>
         </li>
       {% empty %}
       <p>Hold on, we are setting things up.</p>
