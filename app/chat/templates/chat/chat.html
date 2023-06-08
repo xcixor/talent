@@ -54,7 +54,7 @@
   };
 
   chatSocket.onclose = function ( e ) {
-    alert( "Socket closed unexpectedly, please reload the page." );
+    console.error( "Socket closed unexpectedly, please reload the page." );
   };
 
   document.querySelector( "#chat-message-input" ).focus();
