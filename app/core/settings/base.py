@@ -25,13 +25,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 
-ALLOWED_HOSTS = ["*"]
-
-CSRF_TRUSTED_ORIGINS = [
-    'https://*.mavenfix.com/',
-    'https://talent-staging-kr2eq6piia-ue.a.run.app']
-
-
 # Application definition
 
 INSTALLED_APPS = [
