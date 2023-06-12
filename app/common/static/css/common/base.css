@@ -39,6 +39,35 @@ nav .brand-logo {
 	line-height: 24px;
 }
 
+
+.btn-flat-2, .btn-flat-2:hover, .btn-flat-2:focus {
+   background: none !important;
+   height: 100%;
+   line-height: 64px;
+}
+
+nav .btn{
+	border: none !important;
+	border-width: 0 !important;
+	font-size: 1.1rem;
+	text-transform: unset;
+	color: var(--color-secondary);
+}
+
+nav ul a.btn {
+    margin-left: unset;
+    margin-right: unset;
+}
+
+nav .dropdown-content {
+	width: auto;
+}
+
+.dropdown-content li>a {
+	color: var(--color-primary);
+}
+
+
 @media only screen and (max-width: 600px) {
 	.sidenav li {
 		line-height: unset !important;

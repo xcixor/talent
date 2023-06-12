@@ -89,6 +89,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'blog.context_processors.posts',
                 'common.context_processors.get_current_path',
+                'common.context_processors.services',
             ],
         },
     },

@@ -133,9 +133,18 @@
 							</li>
 							<li><a class="text-secondary" href="{% url 'about:index' %}">About Us</a></li>
 							<li><a class="text-secondary" href="{% url 'contact:index' %}">Contact Us</a></li>
-							<li><a class="text-secondary" href="{% url 'index:services' %}">Services</a></li>
+							<li>
+								<a class="text-secondary dropdown-trigger btn btn-flat-2 z-depth-0" href="#"
+									data-target="services">Services</a>
+								<ul id="services" class="dropdown-content">
+									<li><a href="{% url 'index:services' %}">All</a></li>
+									{% for service in services %}
+									<li><a href="{% url 'index:service' slug=service.slug %}">{{service}}</a></li>
+									{% endfor %}
+								</ul>
+							</li>
+
 							<li><a class="text-secondary" href="{% url 'blog:posts' %}">Blog</a></li>
-							<li><a class="text-secondary" href="{% url 'careers:index' %}">Careers</a></li>
 							{% if user.is_authenticated %}
 							<li>
 								<a class="dropdown-trigger text-secondary" href="#!" data-target="dropdown">
@@ -144,10 +153,18 @@
 								</a>
 							</li>
 							{% else %}
-							<li><a class="text-secondary" href="{% url 'accounts:job_seeker_registration' %}">Send
-									CV</a></li>
-							<li><a class="text-secondary" href="{% url 'accounts:employer_registration' %}">For
-									Employers</a></li>
+							<li>
+								<a class="text-secondary dropdown-trigger btn btn-flat-2 z-depth-0" href="#"
+									data-target="signup">Signup</a>
+								<ul id="signup" class="dropdown-content">
+									<li><a class="text-secondary"
+											href="{% url 'accounts:job_seeker_registration' %}">Send
+											CV</a></li>
+									<li><a class="text-secondary" href="{% url 'accounts:employer_registration' %}">For
+											Employers</a></li>
+								</ul>
+							</li>
+
 							<li><a class="text-secondary" href="{% url 'accounts:login' %}">Login</a></li>
 							{% endif %}
 						</ul>
