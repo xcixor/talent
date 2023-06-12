@@ -4,6 +4,12 @@ $(document).ready(function () {
 		$("#messagesContainer").fadeOut("slow");
 	}, 10000);
 	$(".modal").modal({ dismissible: false });
+	$(".dropdown-trigger").dropdown({
+		hover: true,
+		coverTrigger: false,
+		constrainWidth: false,
+		alignment:'center'
+	});
 });
 
 
