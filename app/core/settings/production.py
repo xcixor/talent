@@ -6,14 +6,12 @@ DEBUG = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 ALLOWED_HOSTS = [
-    'https://*.mavenfix.com/',
     'https://talent-staging-kr2eq6piia-ue.a.run.app',
-    'https://*.infinitetalent.co.ke']
+    'https://*.infinitetalent.co.ke/']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.mavenfix.com/',
     'https://talent-staging-kr2eq6piia-ue.a.run.app',
-    'https://*.infinitetalent.co.ke']
+    'https://*.infinitetalent.co.ke/']
 
 # static files config
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
