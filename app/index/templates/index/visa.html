@@ -1,0 +1,22 @@
+{% extends 'common/base.html' %}
+{% block title %}About{% endblock %}
+{% load static %}
+{% block styles %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/common/bot.css' %}" />
+
+<link rel="stylesheet" href="{% static 'css/index/override_materialize_styles.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="container">
+    <div class="row">
+        <div class="col s12">
+            <p>{{service.description|safe}}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+{% endblock %}
