@@ -1,9 +1,13 @@
-from django.views.generic import DetailView
+from typing import Any, Dict
+from django.views.generic import TemplateView
 from index.models import Visa
 
 
-class VisaServiceDetails(DetailView):
+class VisaServiceDetails(TemplateView):
 
-    model = Visa
     template_name = 'index/visa.html'
-    context_object_name = 'service'
+
+    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
+        context = super().get_context_data(**kwargs)
+        context.update({'service': Visa.objects.first()})
+        return context
