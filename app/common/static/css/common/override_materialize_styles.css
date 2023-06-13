@@ -1,3 +1,3 @@
-ul:not(.browser-default)>li {
+.content ul:not(.browser-default)>li {
     list-style-type: initial !important;
 }
