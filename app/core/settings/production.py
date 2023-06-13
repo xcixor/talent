@@ -5,9 +5,7 @@ from google.oauth2 import service_account
 DEBUG = False
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
-ALLOWED_HOSTS = [
-    'https://talent-staging-kr2eq6piia-ue.a.run.app',
-    'https://*.infinitetalent.co.ke/']
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
     'https://talent-staging-kr2eq6piia-ue.a.run.app',
