@@ -7,6 +7,6 @@ app_name = 'index'
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
     path('services/', ServiceIndexView.as_view(), name='services'),
-    path('services/<slug:slug>/', VisaServiceDetails.as_view(), name='visa'),
+    path('visa/', VisaServiceDetails.as_view(), name='visa'),
     path('service/<slug:slug>/', ServiceView.as_view(), name='service'),
 ]
