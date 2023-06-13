@@ -89,5 +89,13 @@
       "thumbnail": "index/static/images/index/services/employee512.png",
       "slug": "job-opportunities"
     }
+  },
+  {
+    "model": "index.Visa",
+    "pk": 1,
+    "fields": {
+      "description": "<h1>Visa Service</h1>",
+      "slug":"visa"
+    }
   }
 ]
