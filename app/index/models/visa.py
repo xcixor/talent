@@ -12,7 +12,7 @@ def image_directory_path(instance, filename):
 
 class Visa(models.Model):
 
-    title = models.CharField(max_length=40, default='Visa')
+    title = models.CharField(max_length=40)
     description = RichTextField(null=True, blank=True)
     slug = models.SlugField(
         max_length=255, unique=True,
@@ -22,7 +22,7 @@ class Visa(models.Model):
         value = self.title
         slug_candidate = slug_original = slugify(value, allow_unicode=True)
         for i in itertools.count(1):
-            if not self.objects.filter(slug=slug_candidate).exists():
+            if not Visa.objects.filter(slug=slug_candidate).exists():
                 break
             slug_candidate = '{}-{}'.format(slug_original, i)
         self.slug = slug_candidate
