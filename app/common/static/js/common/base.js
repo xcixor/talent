@@ -1,5 +1,7 @@
-$(".dropdown-trigger").dropdown();
+
 $(document).ready(function () {
+	$(".dropdown-trigger").dropdown();
+	$(".sidenav").sidenav();
 	setTimeout(function () {
 		$("#messagesContainer").fadeOut("slow");
 	}, 10000);
