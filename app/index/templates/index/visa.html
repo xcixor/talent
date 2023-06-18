@@ -3,11 +3,30 @@
 {% load static %}
 {% block styles %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'css/common/bot.css' %}" />
-
+<link rel="stylesheet" href="{% static 'css/index/visa.css' %}">
+<link rel="stylesheet" href="{% static 'css/common/hero.css' %}">
+<link rel="stylesheet" href="{% static 'css/contact/index.css' %}">
 <link rel="stylesheet" href="{% static 'css/common/override_materialize_styles.css' %}">
 {% endblock %}
 {% block content %}
+
+<section class="container-fluid background-image bg-primary"
+    style="background-image: url('{% static 'images/index/visa/visa3.png' %}')">
+    <div class="carousel-wrapper">
+        <div class="row h-100">
+            <div class="col s12 h-100 text-white">
+                <div class="d-flex flex-column h-100">
+                    <h2 class="hero-title">
+                        Are you looking to apply for visa
+                    </h2>
+                    <p class="hero-text">
+                        At infinite Talent Ltd, we can help you achieve just that
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="container">
     <div class="row">
