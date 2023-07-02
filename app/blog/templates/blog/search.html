@@ -1,5 +1,5 @@
 {% extends 'blog/blog_base.html' %}
-{% block title %}Posts{% endblock %}
+{% block title %}Search Posts{% endblock %}
 {% block page_content %}
 <header class="bg-secondary-lighten-6 p-tb-50 p-rl-20 m-b-50 rounded-10">
     <p><b>Found {{results|length}}</b> Article{{results|length|pluralize}} for "{{request.GET.search}}"</p>
