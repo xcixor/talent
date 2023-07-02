@@ -2,4 +2,4 @@ from blog.models import Post
 
 
 def posts(request):
-    return {'posts': Post.objects.all()}
+    return {'posts': Post.objects.filter(status='publish')}
