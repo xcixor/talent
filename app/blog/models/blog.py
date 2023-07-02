@@ -23,7 +23,7 @@ class Publication(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.CharField(
-        max_length=20, choices=PUBLICATION_STATUSES, default="publish")
+        max_length=20, choices=PUBLICATION_STATUSES, default="draft")
     title = models.CharField(max_length=100)
     content = RichTextUploadingField()
     epigraph = models.TextField()

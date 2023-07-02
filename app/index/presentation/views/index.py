@@ -23,11 +23,11 @@ class IndexView(TemplateView):
         except About.DoesNotExist as de:
             logger.error(f'{de}')
         context.update({'partners': Partners.objects.all()})
-        try:
-            latest_six = Post.objects.all()
-            if latest_six.count() > 6:
-                latest_six = latest_six[:6]
-            context.update({'posts': latest_six})
-        except Post.DoesNotExist as de:
-            logger.error(f'{de}')
+        # try:
+        #     latest_six = Post.objects.filter(status='publish')
+        #     if latest_six.count() > 6:
+        #         latest_six = latest_six[:6]
+        #     context.update({'posts': latest_six})
+        # except Post.DoesNotExist as de:
+        #     logger.error(f'{de}')
         return context
