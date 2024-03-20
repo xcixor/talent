@@ -3,6 +3,11 @@
     margin-left: 20px;
 }
 
+.richtext img {
+	max-width: 100%;
+	height: auto !important;
+}
+
 @media screen and ( max-width: 600px ){
     h3 {
         font-size: 1.4rem !important;
