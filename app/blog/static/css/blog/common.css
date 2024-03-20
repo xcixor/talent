@@ -6,6 +6,7 @@
 .richtext img {
 	max-width: 100%;
 	height: auto !important;
+    max-height: 600px;
 }
 
 @media screen and ( max-width: 600px ){
