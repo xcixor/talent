@@ -6,7 +6,7 @@
     <p>A collection of random thoughts</p>
 </header>
 {% for post in posts %}
-<div class="post p-b-20">
+<div class="post p-b-20 richtext">
     <a class="undecorated green-text m-tb-20" href="{% url 'blog:post_detail' post.slug %}"><h2>Post Title</h2></a>
     <div class="tags d-flex m-tb-20">
         {% for post_tag in post.tags.all %}
