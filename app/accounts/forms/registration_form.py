@@ -201,6 +201,21 @@ class JobSeekerRegistrationForm(forms.ModelForm, HtmlEmailMixin):
         self.custom_validate_password(password)
         return password
 
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        existing_account = None
+        try:
+            existing_account = User.objects.filter(email=email)
+            if (existing_account):
+                raise forms.ValidationError(
+                    "User with a similar email already exists")
+        except User.DoesNotExist:
+            print("No user with similar email")
+        if (existing_account):
+            raise forms.ValidationError(
+                "User with a similar email already exists")
+        return email
+
     def clean_terms(self):
         terms = self.cleaned_data['terms']
         if not terms:
