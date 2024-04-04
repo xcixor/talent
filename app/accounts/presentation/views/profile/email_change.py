@@ -3,6 +3,7 @@ from django.contrib.auth import logout
 from django.contrib import messages
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django_htmx.http import HttpResponseClientRedirect
 from accounts.forms import EmailChangeForm
@@ -37,7 +38,4 @@ class ChangeEmailView(LoginRequiredMixin, FormView):
         return self.template_name
 
     def form_invalid(self, form):
-        print(form.errors.as_data())
         return super().form_invalid(form)
-
-
