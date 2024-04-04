@@ -2,6 +2,14 @@
 <form action="{% url 'accounts:change_email' %}" method="post" class="update-form"
     hx-post="{% url 'accounts:change_email' %}" hx-swap="innerHTML" hx-target="#htmx-parent" hx-indicator="#spinner">
     {% csrf_token %}
+    {% if form.errors %}
+    <p>has errors</p>
+    <div class="non-field-errors">
+        {% for error in form.email %}
+        <p class="error e">{{ error|escape }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
     <div class="row">
         <div class="input-field col s12">
             <input required id="new_email1" type="email" class="validate" name="new_email1" autofocus>

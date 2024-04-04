@@ -1,5 +1,8 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
 
 
 class EmailChangeForm(forms.Form):
@@ -35,6 +38,14 @@ class EmailChangeForm(forms.Form):
                     self.error_messages['not_changed'],
                     code='not_changed',
                 )
+            existing_account = None
+            try:
+                existing_account = User.objects.filter(email=new_email1)
+                if (existing_account):
+                    raise forms.ValidationError(
+                        "User with a similar email already exists")
+            except User.DoesNotExist:
+                print("User does not exist")
         return new_email1
 
     def clean_new_email2(self):
