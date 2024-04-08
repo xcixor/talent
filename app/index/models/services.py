@@ -24,7 +24,7 @@ class Service(models.Model):
         value = self.title
         slug_candidate = slug_original = slugify(value, allow_unicode=True)
         for i in itertools.count(1):
-            if not self.objects.filter(slug=slug_candidate).exists():
+            if not Service.objects.filter(slug=slug_candidate).exists():
                 break
             slug_candidate = '{}-{}'.format(slug_original, i)
         self.slug = slug_candidate

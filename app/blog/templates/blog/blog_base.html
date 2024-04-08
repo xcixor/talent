@@ -53,8 +53,8 @@
         <div class="col s12">
             {% for post in posts %}
             <div class="post d-flex">
-                <div class="image">
-                    <img src="{{post.image.url}}" alt="{{post}}" height="100%" width="100%">
+                <div >
+                    <img src="{{post.image.url}}" alt="{{post}}" height="400" width="100%">
                 </div>
                 <div class="content p-2">
                     <a class="undecorated text-secondary m-tb-20" href="{% url 'blog:post_detail' post.slug %}">
