@@ -8,10 +8,14 @@ class CarouselItemAdmin(admin.ModelAdmin):
     list_display = ['html_stripped']
 
 
-admin.site.register(Action)
-admin.site.register(Visa)
+@admin.register(Visa)
+class ServiceAdmin(admin.ModelAdmin):
+    exclude = ['slug']
 
 
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     exclude = ['slug']
+
+
+admin.site.register(Action)
