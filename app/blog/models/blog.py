@@ -24,7 +24,7 @@ class Publication(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.CharField(
         max_length=20, choices=PUBLICATION_STATUSES, default="draft")
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
     content = RichTextUploadingField()
     epigraph = models.TextField()
 
@@ -35,7 +35,7 @@ class Publication(models.Model):
 
 class Post(Publication):
 
-    slug = models.SlugField(unique=True)
+    slug = models.SlugField(unique=True, max_length=255)
     image = models.ImageField(upload_to=image_directory_path)
 
     def _generate_slug(self):
