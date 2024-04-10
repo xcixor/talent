@@ -12,8 +12,7 @@
         <div class="col s12">
             <div class="d-flex">
                 <form action="{% url 'blog:blog_search' %}" method="get" class="d-flex flex-1">
-                    <input class="text-input" type="text" placeholder="M-pesa, E-commerce, Blog ..." name="blog_search"
-                        value="{{request.session.blog_search}}">
+                <input class="text-input" type="text" placeholder="M-pesa, E-commerce, Blog ..." name="blog_search" {% if request.session.blog_search %}value="{{request.session.blog_search}}" {% endif %}>
                     <button type="submit" id="searchBtn" class="btn btn-primary"><i
                             class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
