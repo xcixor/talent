@@ -86,10 +86,10 @@ workflows:
           #   - test_talent
           context:
             - infinite_gcp
-          filters:
-            branches:
-              only:
-                - main
+          # filters:
+          #   branches:
+          #     only:
+          #       - main
       - deploy_service_cloud_run:
           context:
             - infinite_gcp
