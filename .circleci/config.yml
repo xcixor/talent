@@ -65,7 +65,7 @@ jobs:
       service-account-name:
         description: The service account the app uses for access to GCP resources. It uses a different service account for deployment.
         type: string
-        default: staging@radiant-destiny-370910.iam.gserviceaccount.com
+        default: staging@infinite-419910.iam.gserviceaccount.com
     steps:
       - checkout
       - cloudrun/init
@@ -78,26 +78,33 @@ jobs:
           args: --service-account=<< parameters.service-account-name >>
 
 workflows:
-  version: 2
   talent:
     jobs:
       # - test_talent
       - push_service_image:
           # requires:
           #   - test_talent
+          context:
+            - infinite_gcp
           filters:
             branches:
               only:
                 - main
       - deploy_service_cloud_run:
+          context:
+            - infinite_gcp
           requires:
             - push_service_image
       - production_deploy_hold:
+          context:
+            - infinite_gcp
           type: approval
           requires:
             - push_service_image
       - deploy_service_cloud_run:
+          context:
+            - infinite_gcp
           environment: production
-          service-account-name: production@radiant-destiny-370910.iam.gserviceaccount.com
+          service-account-name: production@infinite-419910.iam.gserviceaccount.com
           requires:
             - production_deploy_hold
