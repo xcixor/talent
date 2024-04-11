@@ -147,10 +147,18 @@ details[open] > summary {
 }
 
 .partner {
-    border: solid 0.05em #A0A0A0;
-    height: 50px;
     transition: all 0.5s ease 0s;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.partner img {
+    max-height: 100px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 20px;
 }
 
 .partner:hover {
