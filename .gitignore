@@ -14,3 +14,4 @@ bfg.jar
 staticfiles
 *.zip
 *sqlite3
+*creds.json
