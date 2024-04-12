@@ -13,10 +13,10 @@ class OpeningsView(ListView):
     paginate_by = 10
 
     def get(self, request, *args, **kwargs):
-        sort_term = self.request.GET.get('sort')
+        sort_term = self.request.GET.get('sort', None)
         if sort_term:
             self.request.session['sort'] = sort_term
-        search_term = self.request.GET.get('search')
+        search_term = self.request.GET.get('search', None)
         if search_term:
             self.request.session['search'] = search_term
         return super().get(request, *args, **kwargs)
@@ -27,6 +27,7 @@ class OpeningsView(ListView):
         if sort_term:
             industry = Industry.objects.get(pk=int(sort_term))
             queryset = queryset.filter(industry=industry)
+
         search_fields = \
             SearchVector('industry__title') \
             + SearchVector('industry__description') \
