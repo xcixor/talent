@@ -115,7 +115,12 @@
                 <div class="people-grid">
                     {% for staff in staff %}
                     <div class="person">
-                        <img src="{{ staff.staff.avatar.url }}" height="100%" width="100%">
+                        {% if staff.staff.avatar %}
+                        <img src="{{ staff.staff.avatar.url }}" class="avatar">
+                        {% else %}
+                        <img src="{% static 'images/common/user.png' %}" class="avatar">
+                        {% endif %}
+
                         <div class="prof ps-2">
                             <h6><b>{{staff.staff.get_full_name}}</b></h6>
                             <p class="m-0">{{staff.role}}</p>
