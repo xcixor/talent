@@ -9,15 +9,15 @@
 
 #botLink{
     position: fixed;
-    bottom: 40px;
-    right: 15%;
+    bottom: 60px;
+    right: 3%;
     z-index: 1003;
 }
 
 .bot-modal {
     position: fixed;
-    bottom: 80px;
-    right: 5%;
+    bottom: 150px;
+    right: 15%;
     z-index: 1003;
     width: 400px;
     border-radius: 5px;
