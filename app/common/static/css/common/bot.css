@@ -9,14 +9,14 @@
 
 #botLink{
     position: fixed;
-    bottom: 10px;
+    bottom: 40px;
     right: 15%;
     z-index: 1003;
 }
 
 .bot-modal {
     position: fixed;
-    bottom: 70px;
+    bottom: 150px;
     right: 15%;
     z-index: 1003;
     width: 400px;
