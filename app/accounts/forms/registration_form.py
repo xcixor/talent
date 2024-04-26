@@ -44,11 +44,11 @@ LEVEL_OF_EDUCATION = (
 
 TYPE_OF_VISA = (
     ('', 'Select Type of Visa'),
-    ('Not Applicable', 'High School'),
+    ('Work Visa', 'Work Visa'),
     ('Student Visa', 'Student Visa'),
     ('Tourist Visa', 'Tourist Visa'),
     ('Family Visa', 'Family Visa'),
-    ('General Visa', 'General Visa'),
+    ('Business Visa', 'Business Visa'),
 )
 
 MODE_OF_CONTACT = (
