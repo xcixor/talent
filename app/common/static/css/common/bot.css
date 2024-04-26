@@ -16,8 +16,8 @@
 
 .bot-modal {
     position: fixed;
-    bottom: 150px;
-    right: 15%;
+    bottom: 80px;
+    right: 5%;
     z-index: 1003;
     width: 400px;
     border-radius: 5px;
