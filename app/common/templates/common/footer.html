@@ -56,8 +56,18 @@
         </h6>
         <ul class="footer-links">
           {% for post in posts %}
+         
           <li class="footer-link">
-            <a class="link" href="{% url 'blog:post_detail' post.slug %}">{{post}}</a>
+            <a class="link" href="{% url 'blog:posts' %}">Discover your career potential</a>
+          </li>
+          <li class="footer-link">
+            <a class="link" href="{% url 'blog:posts' %}">Professionally Written Cv</a>
+          </li>
+          <li class="footer-link">
+            <a class="link" href="{% url 'blog:posts' %}">Health care Opportunities</a>
+          </li>
+          <li class="footer-link">
+            <a class="link" href="{% url 'blog:posts' %}">Job opportunities in Poland</a>
           </li>
           {% endfor %}
           <li class="footer-link">
