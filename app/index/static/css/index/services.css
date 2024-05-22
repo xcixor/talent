@@ -41,7 +41,7 @@
     -o-transition: height 0.5s linear;
     transition: height 0.5s linear;
     bottom: 0;
-    padding: 2px;
+    padding: 20px;
 }
 
 .overlay p {
