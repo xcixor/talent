@@ -16,8 +16,8 @@
 	<meta name="site_name" content="Infinite Talent Limited" />
 	<meta name="url" content="https://www.infinitetalent.co.ke" />
 	<meta name="title" property="og:title" content="Infinite Talent Limited | infinitetalent.co.ke">
-	<meta name="image" property="og:image" content="{% static 'images/common/logo.png' %}">
-	<link rel="icon" type="image/x-icon" href="{% static 'images/common/favicon.ico' %}" style="border-radius: 10px" />
+	<meta name="image" property="og:image" content="{% static 'images/common/Infinite.png' %}">
+	<link rel="icon" type="image/x-icon" href="{% static 'images/common/favicon1.png' %}" style="border-radius: 15px" />
 	<title> Infinite Talent Limited | {% block title %} {% endblock %} </title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
 		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
@@ -132,7 +132,7 @@
 						<div class="d-flex align-items-center justify-content-between">
 							<div class="d-flex align-items-center">
 								<a href="/" class="brand-logo" style="height: 40px;">
-									<img src="{% static 'images/common/logo.png' %}" alt="Logo" height="40" />
+									<img src="{% static 'images/common/Infinite.png' %}" alt="Logo" height="40" />
 								</a>
 							</div>
 
@@ -143,8 +143,6 @@
 							<li>
 								<a class="text-secondary" href="{% url 'shortlist:openings' %}">Openings</a>
 							</li>
-							<li><a class="text-secondary" href="{% url 'about:index' %}">About Us</a></li>
-							<li><a class="text-secondary" href="{% url 'contact:index' %}">Contact Us</a></li>
 							<li>
 								<a class="text-secondary hover-trigger btn btn-flat-2 z-depth-0" href="#"
 									data-target="services">Services</a>
@@ -155,10 +153,6 @@
 									{% endfor %}
 								</ul>
 							</li>
-							<li><a class="text-secondary" href="{% url 'index:visa' %}">Visa</a></li>
-
-
-							<li><a class="text-secondary" href="{% url 'blog:posts' %}">Blog</a></li>
 							{% if user.is_authenticated %}
 							<li>
 								<a class="dropdown-trigger text-secondary" href="#!" data-target="dropdown">
