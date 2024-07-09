@@ -5,6 +5,16 @@
 {% load i18n %}
 {% block styles %}
 {{ block.super }}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQKGP6M8ZV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QQKGP6M8ZV');
+</script>
+
 <link rel="stylesheet" href="{% static 'css/accounts/registration/registration.css' %}" />
 <link rel="stylesheet" href="{% static 'css/common/inputs.css' %}" />
 {% endblock %} {% block content %}
