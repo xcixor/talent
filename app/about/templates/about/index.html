@@ -3,6 +3,16 @@
 {% load static %}
 {% block styles %}
 {{ block.super }}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQKGP6M8ZV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QQKGP6M8ZV');
+</script>
+
 <link rel="stylesheet" href="{% static 'css/common/hero.css' %}">
 <link rel="stylesheet" href="{% static 'css/about/index.css' %}">
 {% endblock %}
